@@ -1,10 +1,11 @@
-// ALPHA WEB DIGITAL ARCHITECTURE - SCRIPT DE INYECCIÓN MODULAR
+// ALPHA WEB DIGITAL ARCHITECTURE - SCRIPT DE INYECCIÓN MODULAR CORREGIDO
 document.addEventListener("DOMContentLoaded", function () {
     
-    // 1. Inyectar el Menues de Navegación (Header)
+    // 1. Inyectar el Menú de Navegación (Header)
     const headerContainer = document.getElementById("header-container");
     if (headerContainer) {
-        fetch("/alpha-web/components/header.html")
+        // Quitamos /alpha-web/ para que busque directo en tu dominio
+        fetch("components/header.html")
             .then(response => {
                 if (!response.ok) throw new Error("Error al cargar el componente header.");
                 return response.text();
@@ -18,7 +19,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // 2. Inyectar el Pie de Página Corporativo (Footer)
     const footerContainer = document.getElementById("footer-container");
     if (footerContainer) {
-        fetch("/alpha-web/components/footer.html")
+        // Quitamos /alpha-web/ para que busque directo en tu dominio
+        fetch("components/footer.html")
             .then(response => {
                 if (!response.ok) throw new Error("Error al cargar el componente footer.");
                 return response.text();
