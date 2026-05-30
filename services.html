@@ -1,72 +1,102 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soluciones para su Hogar | Alpha Roofing & Gutters</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/main.css">
+    <title>Especialidades y Soluciones Técnicas | Alpha Roofing & Gutters</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        alphaNavy: '#1a365d',
+                        alphaBlue: '#253BD8',
+                        alphaPlatinum: '#f8fafc'
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body style="background-color: #fafafa; font-family: 'Inter', sans-serif;">
+<body class="bg-white text-slate-800 antialiased font-sans">
 
+    <!-- Contenedor del Header Modular -->
     <div id="header-container"></div>
 
-    <main class="py-5">
-        <div class="container text-center mb-5 mt-4">
-            <h1 style="font-family: 'Montserrat', sans-serif; font-weight: 700; color: #1a365d;" class="display-5">¿Cómo podemos cuidar su hogar hoy?</h1>
-            <p class="lead text-muted mx-auto" style="max-width: 750px; font-weight: 300;">
-                En Alpha, nos especializamos en brindar resultados reales que aseguran la integridad de su propiedad y la tranquilidad de su familia.
-            </p>
+    <!-- HEADER INTERNO DE PÁGINA -->
+    <section class="bg-alphaNavy pt-32 pb-16 text-white relative overflow-hidden">
+        <div class="container mx-auto px-6 text-center max-w-3xl space-y-4">
+            <span class="text-xs font-bold tracking-widest text-blue-400 uppercase">¿Qué necesita su hogar hoy?</span>
+            <h1 class="text-3xl md:text-5xl font-black tracking-tight">Soluciones Diseñadas para su Tranquilidad</h1>
+            <p class="text-slate-300 text-base max-w-xl mx-auto">Eliminamos las complicaciones técnicas y nos encargamos de la gestión operativa completa para blindar la integridad de su propiedad.</p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE ESPECIALIDADES DE BENEFICIO DE VIDA (CUSTOMER-CENTRIC) -->
+    <section class="py-24 space-y-24 container mx-auto px-6">
+        
+        <!-- Especialidad 1: Techos y Sistemas de Drenaje -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-6 space-y-4">
+                <div class="w-12 h-12 bg-blue-50 text-alphaBlue rounded-xl flex items-center justify-center font-bold shadow-inner">01</div>
+                <h3 class="text-2xl font-black text-alphaNavy tracking-tight">Protección Integral contra el Clima (Roofing & Gutters)</h3>
+                <p class="text-slate-600 leading-relaxed text-sm md:text-base">
+                    Su hogar es el refugio más importante de su familia. Nos aseguramos de que cada pulgada de su techo y sistema de drenaje sea capaz de resistir el clima extremo de Texas. Al instalar materiales de la más alta calidad y un diseño de drenaje eficiente, protegemos la estructura de su propiedad contra filtraciones, granizo y tormentas, brindándole la tranquilidad de saber que su patrimonio está siempre a salvo.
+                </p>
+                <ul class="space-y-2 text-sm text-slate-600 font-medium pt-2">
+                    <li class="flex items-center"><svg class="w-4 h-4 text-alphaBlue mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>Tejados Residenciales de Grado Arquitectónico</li>
+                    <li class="flex items-center"><svg class="w-4 h-4 text-alphaBlue mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>Canales Estructurales Colectores de Alta Capacidad</li>
+                    <li class="flex items-center"><svg class="w-4 h-4 text-alphaBlue mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>Protocolos Preventivos de Extensión de Vida Útil</li>
+                </ul>
+            </div>
+            <div class="lg:col-span-6">
+                <img src="assets/img/system-roofing/roofing-residential.webp" alt="Techo Residencial Completado por Alpha" class="w-full h-80 object-cover rounded-2xl shadow-xl border border-slate-100">
+            </div>
         </div>
 
-        <section class="container my-5 py-5 bg-white rounded shadow-sm border-start border-5" style="border-color: #1a365d !important;">
-            <div class="row align-items-center px-4">
-                <div class="col-lg-7">
-                    <h2 style="font-family: 'Montserrat', sans-serif; font-weight: 700; color: #1a365d;">Protección Integral contra el Clima</h2>
-                    <p class="text-secondary mt-3" style="font-weight: 300; font-size: 1.1rem;">
-                        Su hogar es el refugio más importante de su familia. Nos aseguramos de que cada pulgada de su techo y sistema de drenaje sea capaz de resistir el clima extremo de Texas. Al instalar materiales de la más alta calidad y un diseño de drenaje eficiente, protegemos la estructura de su propiedad contra filtraciones, granizo y tormentas.
-                    </p>
-                </div>
-                <div class="col-lg-5 text-center d-none d-lg-block">
-                    <i class="fa-solid fa-house-shield" style="font-size: 8rem; color: #1a365d; opacity: 0.1;"></i>
-                </div>
+        <!-- Especialidad 2: Restauración tras Daños por Tormenta -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center lg:flex-row-reverse">
+            <div class="lg:col-span-6 lg:order-2 space-y-4">
+                <div class="w-12 h-12 bg-blue-50 text-alphaBlue rounded-xl flex items-center justify-center font-bold shadow-inner">02</div>
+                <h3 class="text-2xl font-black text-alphaNavy tracking-tight">Restauración Profesional tras Tormentas</h3>
+                <p class="text-slate-600 leading-relaxed text-sm md:text-base">
+                    Entendemos lo estresante que es enfrentar daños en casa tras una tormenta. Por eso, nosotros nos encargamos de todo el proceso de recuperación. Desde la evaluación inicial y el trato con su aseguradora, hasta la reparación completa de exteriores e interiores, nuestro equipo trabaja para que usted no tenga que preocuparse por la logística técnica. Nuestro objetivo es devolverle la paz a su hogar rápidamente.
+                </p>
+                <ul class="space-y-2 text-sm text-slate-600 font-medium pt-2">
+                    <li class="flex items-center"><svg class="w-4 h-4 text-alphaBlue mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>Remodelación de Revestimientos y Fachadas (Siding)</li>
+                    <li class="flex items-center"><svg class="w-4 h-4 text-alphaBlue mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>Reemplazo de Ventanas de Resistencia Climática</li>
+                    <li class="flex items-center"><svg class="w-4 h-4 text-alphaBlue mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>Mitigación Inmediata de Filtraciones Internas</li>
+                </ul>
             </div>
-        </section>
-
-        <section class="container my-5 py-5 bg-white rounded shadow-sm border-start border-5" style="border-color: #253BD8 !important;">
-            <div class="row align-items-center px-4">
-                <div class="col-lg-5 text-center d-none d-lg-block">
-                    <i class="fa-solid fa-cloud-showers-heavy" style="font-size: 8rem; color: #253BD8; opacity: 0.1;"></i>
-                </div>
-                <div class="col-lg-7">
-                    <h2 style="font-family: 'Montserrat', sans-serif; font-weight: 700; color: #1a365d;">Tranquilidad tras Daños por Tormenta</h2>
-                    <p class="text-secondary mt-3" style="font-weight: 300; font-size: 1.1rem;">
-                        Entendemos lo estresante que es enfrentar daños en casa tras una tormenta. Por eso, nuestro equipo se encarga de todo el proceso de recuperación. Desde la evaluación técnica inicial hasta la reparación completa de exteriores e interiores, trabajamos para que usted reciba la restauración que merece de manera fluida y eficiente.
-                    </p>
-                </div>
+            <div class="lg:col-span-6 lg:order-1">
+                <img src="assets/img/system-restoration/restoration-siding.webp" alt="Restauración de Siding Exterior por Tormenta" class="w-full h-80 object-cover rounded-2xl shadow-xl border border-slate-100">
             </div>
-        </section>
+        </div>
 
-        <section class="container my-5 py-5 bg-white rounded shadow-sm border-start border-5" style="border-color: #708090 !important;">
-            <div class="row align-items-center px-4">
-                <div class="col-lg-7">
-                    <h2 style="font-family: 'Montserrat', sans-serif; font-weight: 700; color: #1a365d;">Plusvalía y Estilo de Vida Exterior</h2>
-                    <p class="text-secondary mt-3" style="font-weight: 300; font-size: 1.1rem;">
-                        La belleza y funcionalidad de su hogar son clave para el valor de su inversión. Nos especializamos en mejorar sus espacios exteriores, desde bardas perimetrales sólidas hasta áreas de convivencia diseñadas a su medida. Cada mejora que realizamos no solo embellece su propiedad, sino que fortalece su estructura por muchos años.
-                    </p>
-                </div>
-                <div class="col-lg-5 text-center d-none d-lg-block">
-                    <i class="fa-solid fa-tree-city" style="font-size: 8rem; color: #708090; opacity: 0.1;"></i>
-                </div>
+        <!-- Especialidad 3: Inversión y Plusvalía Exterior -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-6 space-y-4">
+                <div class="w-12 h-12 bg-blue-50 text-alphaBlue rounded-xl flex items-center justify-center font-bold shadow-inner">03</div>
+                <h3 class="text-2xl font-black text-alphaNavy tracking-tight">Inversión y Plusvalía Exterior</h3>
+                <p class="text-slate-600 leading-relaxed text-sm md:text-base">
+                    La belleza y funcionalidad de su hogar son clave para el valor de su inversión. Nos especializamos en mejorar sus espacios exteriores, desde bardas perimetrales sólidas hasta áreas de convivencia diseñadas a su medida. Cada mejora que realizamos no solo embellece su propiedad, sino que fortalece su estructura, asegurando que su hogar mantenga su valor y luzca impecable por muchos años.
+                </p>
+                <ul class="space-y-2 text-sm text-slate-600 font-medium pt-2">
+                    <li class="flex items-center"><svg class="w-4 h-4 text-alphaBlue mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>Cercas y Bardas Perimetrales Estructurales</li>
+                    <li class="flex items-center"><svg class="w-4 h-4 text-alphaBlue mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>Patios y Decks de Alta Durabilidad Exterior</li>
+                </ul>
             </div>
-        </section>
-    </main>
+            <div class="lg:col-span-6">
+                <img src="assets/img/system-outdoor/outdoor-fences.webp" alt="Estructuras y Bardas de Madera de Alta Plusvalía" class="w-full h-80 object-cover rounded-2xl shadow-xl border border-slate-100">
+            </div>
+        </div>
 
+    </section>
+
+    <!-- Contenedor del Footer Modular -->
     <div id="footer-container"></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>
