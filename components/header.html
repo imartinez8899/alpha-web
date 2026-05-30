@@ -1,41 +1,23 @@
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #1a365d; border-bottom: 3px solid #253BD8; padding: 12px 0;">
-    <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="index.html">
-            <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: 1.5px; font-size: 1.4rem;">ALPHA</span>
+<nav class="sticky top-0 z-50 bg-[#1a365d] border-b-4 border-[#253BD8] py-4">
+    <div class="container mx-auto px-6 flex items-center justify-between">
+        <a href="index.html" class="flex items-center text-white font-bold text-2xl tracking-widest font-['Montserrat']">
+            ALPHA
         </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarAlpha" aria-label="Menu">
-            <span class="navbar-toggler-icon"></span>
+        <button class="lg:hidden text-white">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarAlpha">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center" style="font-family: 'Inter', sans-serif; font-weight: 600;">
-                
-                <li class="nav-item px-2">
-                    <a class="nav-link text-white text-uppercase small" href="about.html">Nuestra Historia</a>
-                </li>
-
-                <li class="nav-item px-2">
-                    <a class="nav-link text-white text-uppercase small" href="services.html">Soluciones para su Hogar</a>
-                </li>
-
-                <li class="nav-item px-2">
-                    <a class="nav-link d-flex align-items-center" href="insurance-claims.html" style="color: #fafafa; background-color: rgba(37, 59, 216, 0.2); padding: 8px 16px; border-radius: 6px; border: 1px solid rgba(37, 59, 216, 0.5);">
-                        <i class="fa-solid fa-shield-halved me-2" style="color: #253BD8;"></i>
-                        Defensa ante el Seguro
-                    </a>
-                </li>
-
-                <li class="nav-item px-2">
-                    <a class="nav-link text-white text-uppercase small" href="service-areas.html">Zonas de Servicio</a>
-                </li>
-
-                <li class="nav-item ps-3">
-                    <a class="btn text-white px-4 py-2 text-uppercase" href="index.html#contacto" style="background-color: #253BD8; font-weight: 700; font-size: 0.85rem; border-radius: 5px;">
-                        Agendar Inspección Gratis
-                    </a>
-                </li>
-            </ul>
+        <div class="hidden lg:flex items-center space-x-8 font-sans font-semibold">
+            <a href="about.html" class="text-white text-xs uppercase hover:text-blue-400 transition">Nuestra Historia</a>
+            <a href="services.html" class="text-white text-xs uppercase hover:text-blue-400 transition">Soluciones para su Hogar</a>
+            <a href="insurance-claims.html" class="flex items-center text-white bg-blue-700/20 border border-blue-700/50 px-4 py-2 rounded transition hover:bg-blue-700/40">
+                Defensa ante el Seguro
+            </a>
+            <a href="service-areas.html" class="text-white text-xs uppercase hover:text-blue-400 transition">Zonas de Servicio</a>
+            <a href="index.html#contacto" class="bg-[#253BD8] text-white px-6 py-3 text-xs font-bold uppercase rounded hover:bg-blue-800 transition">
+                Agendar Inspección Gratis
+            </a>
         </div>
     </div>
 </nav>
