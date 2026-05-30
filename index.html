@@ -1,34 +1,58 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Alpha Roofing & Gutters - Expertos en soluciones de ingeniería y restauración patrimonial en el Greater Houston Area.">
+    <meta name="description" content="Alpha Roofing & Gutters - Consultoría técnica y restauración patrimonial de élite en Spring, TX.">
     <title>Alpha Roofing & Gutters | The Alpha Standard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        alphaNavy: '#1a365d',
+                        alphaElectric: '#253BD8',
+                        alphaGray: '#fafafa'
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body style="background-color: #fafafa; font-family: 'Inter', sans-serif;">
+<body class="bg-alphaGray font-sans text-slate-900">
 
     <div id="header-container"></div>
 
     <main>
-        <section class="hero-section d-flex align-items-center" style="background-color: #1a365d; min-height: 80vh; color: #fafafa;">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-7">
-                        <h1 style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 3.5rem;" class="mb-3">
-                            Protección técnica y restauración de clase superior para su hogar.
-                        </h1>
-                        <p class="lead mb-4" style="font-weight: 300; opacity: 0.9;">
-                            En Alpha, nos dedicamos a cuidar su propiedad con soluciones de ingeniería de alta precisión. Nuestro equipo le garantiza una ejecución impecable en cada proyecto, asegurando siempre el máximo valor y durabilidad para su patrimonio familiar.
-                        </p>
-                        <div class="d-grid gap-3 d-md-flex justify-content-md-start">
-                            <a href="#contacto" class="btn btn-lg px-4 me-md-2 text-white" style="background-color: #253BD8; font-weight: 600;">
-                                Solicitar Inspección Técnica
-                            </a>
-                        </div>
+        <section class="relative min-h-[90vh] flex items-center bg-alphaNavy">
+            <div class="absolute inset-0 z-0">
+                <img src="assets/img/hero/hero-bg.webp" alt="Arquitectura Alpha" class="w-full h-full object-cover brightness-[0.3]">
+            </div>
+
+            <div class="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-16 items-center pt-20">
+                
+                <div class="text-white space-y-8">
+                    <img src="assets/img/brand/alpha-logo-white.svg" alt="Alpha Roofing" class="w-72">
+                    <h1 class="text-5xl md:text-6xl font-bold leading-tight">
+                        La belleza es la estructura <br>
+                        <span class="text-alphaElectric italic">hecha visible.</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-slate-200 font-light border-l-4 border-alphaElectric pl-6">
+                        No solo instalamos techos; blindamos su patrimonio. Consultoría técnica de alta precisión para propietarios que exigen excelencia.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#contacto" class="bg-alphaElectric hover:bg-blue-700 text-white px-8 py-4 font-bold uppercase tracking-widest transition">
+                            Auditoría Patrimonial
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white p-2 shadow-2xl border-t-8 border-alphaElectric">
+                    <div class="p-8">
+                        <h2 class="text-2xl font-bold text-alphaNavy mb-6 uppercase tracking-wider">Solicitar Evaluación</h2>
+                        <div id="lead-form-container">
+                            </div>
                     </div>
                 </div>
             </div>
@@ -37,7 +61,11 @@
 
     <div id="footer-container"></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script>
+        // Carga rápida de componentes
+        fetch('components/header.html').then(r => r.text()).then(html => document.getElementById('header-container').innerHTML = html);
+        fetch('components/footer.html').then(r => r.text()).then(html => document.getElementById('footer-container').innerHTML = html);
+        fetch('components/lead-form.html').then(r => r.text()).then(html => document.getElementById('lead-form-container').innerHTML = html);
+    </script>
 </body>
 </html>
