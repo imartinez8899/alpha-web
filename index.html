@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alpha Roofing & Gutters | Expertos en Techos Residenciales y Restauración</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Animación On Scroll (AOS) para la revelación elegante de las fases -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -19,27 +20,20 @@
             }
         }
     </script>
-    <style>
-        .interactive-grid {
-            background-size: 50px 50px;
-            background-image: linear-gradient(to right, rgba(26, 54, 93, 0.03) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(26, 54, 93, 0.03) 1px, transparent 1px);
-        }
-    </style>
 </head>
 <body class="bg-white text-slate-800 antialiased font-sans">
 
-    <!-- Contenedor del Header Modular -->
+    <!-- Contenedor del Header Modular (Inyectado por main.js) -->
     <div id="header-container"></div>
 
-    <!-- HERO SECTION: Enfoque Residencial con Imagen Real de Fondo -->
+    <!-- HERO SECTION: Enfoque Residencial con Imagen Real de Fondo y Formulario de Zoho Integrado -->
     <section class="relative min-h-screen flex items-center justify-center pt-28 pb-20 overflow-hidden bg-cover bg-center" style="background-image: url('assets/img/hero/hero-main-bg.webp');">
         <!-- Capa de superposición para garantizar legibilidad de los textos -->
         <div class="absolute inset-0 bg-gradient-to-r from-alphaNavy/95 via-alphaNavy/85 to-transparent"></div>
         
         <div class="container mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
-            <!-- Columna Izquierda: Mensaje de Autoridad Familiar -->
+            <!-- Columna Izquierda: Mensaje de Autoridad y Confianza -->
             <div class="lg:col-span-7 space-y-6 text-white">
                 <span class="inline-block text-xs font-bold tracking-widest uppercase bg-blue-600/30 text-blue-300 px-3 py-1 rounded-full border border-blue-500/20">
                     Residential Roofing & Restoration Experts
@@ -59,63 +53,63 @@
                 </div>
             </div>
 
-            <!-- Columna Derecha: Formulario de Zoho Integrado Fijo -->
-<div id="contacto-section" class="lg:col-span-5 bg-white p-8 rounded-2xl shadow-2xl relative">
-    <div class="absolute top-0 left-0 w-full h-1.5 bg-alphaBlue rounded-t-2xl"></div>
-    
-    <form action='https://forms.zohopublic.com/alpharoofing1/form/WebformGeneralWebsiteES/formperma/f-N2fdYB9GuIhz3IMCTrmhq22pMYjPHDiwsdnyDwWH8/htmlRecords/submit' name='form' id='form' method='POST' accept-charset='UTF-8' enctype='multipart/form-data' class="space-y-4">
-        
-        <input type="hidden" name="zf_referrer_name" value="">
-        <input type="hidden" name="zf_redirect_url" value="">
-        <input type="hidden" name="zc_gad" value="">
+            <!-- Columna Derecha: Formulario Nativo de Zoho con Diseño Estilizado Premium (Método 2) -->
+            <div id="contacto-section" class="lg:col-span-5 bg-white p-8 rounded-2xl shadow-2xl relative">
+                <div class="absolute top-0 left-0 w-full h-1.5 bg-alphaBlue rounded-t-2xl"></div>
+                <h3 class="text-xl font-bold text-alphaNavy mb-1">Agende su Inspección Sin Costo</h3>
+                <p class="text-xs text-slate-500 mb-6">Permita que un especialista revise su techo. Descubra áreas de oportunidad antes de que se conviertan en reparaciones costosas.</p>
+                
+                <form action='https://forms.zohopublic.com/alpharoofing1/form/WebformGeneralWebsiteES/formperma/f-N2fdYB9GuIhz3IMCTrmhq22pMYjPHDiwsdnyDwWH8/htmlRecords/submit' name='form' id='form' method='POST' accept-charset='UTF-8' enctype='multipart/form-data' class="space-y-4">
+                    
+                    <!-- Identificadores ocultos de Zoho Forms -->
+                    <input type="hidden" name="zf_referrer_name" value="">
+                    <input type="hidden" name="zf_redirect_url" value="">
+                    <input type="hidden" name="zc_gad" value="">
 
-        <h3 class="text-xl font-bold text-alphaNavy mb-1">Agende su Inspección Sin Costo</h3>
-        <p class="text-xs text-slate-500 mb-6">Permita que un especialista revise su techo. Descubra áreas de oportunidad antes de que se conviertan en reparaciones costosas.</p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Nombre</label>
+                            <input type="text" name="SingleLine" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:border-alphaBlue focus:bg-white transition-all duration-300" required maxlength="255" placeholder="Ej. John" />
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Apellido</label>
+                            <input type="text" name="SingleLine1" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:border-alphaBlue focus:bg-white transition-all duration-300" required maxlength="255" placeholder="Doe" />
+                        </div>
+                    </div>
 
-        <div class="grid grid-cols-2 gap-4">
-            <div>
-                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Nombre</label>
-                <input type="text" name="SingleLine" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:border-alphaBlue focus:bg-white transition-all duration-300" required maxlength="255" placeholder="Ej. Israel" />
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Teléfono</label>
+                        <input type="text" name="PhoneNumber_countrycode" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:border-alphaBlue focus:bg-white transition-all duration-300" phoneFormat="1" maxlength="20" required placeholder="Ej. (832) 555-0199" />
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Email</label>
+                        <input type="email" name="Email" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:border-alphaBlue focus:bg-white transition-all duration-300" maxlength="255" required placeholder="john.doe@example.com" />
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Tipo de Consulta</label>
+                        <select name="Dropdown1" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:border-alphaBlue focus:bg-white transition-all duration-300 text-slate-600">
+                            <option value="-Select-">-Seleccione una opción-</option>
+                            <option value="Restauración por Daños de Tormenta">Restauración por Daños de Tormenta</option>
+                            <option value="Gestión de Reclamación de Seguros">Gestión de Reclamación de Seguros</option>
+                            <option value="Inspección Estándar y Cotización">Inspección Estándar y Cotización</option>
+                            <option value="Servicios de Estructuras Exteriores y Patios">Servicios de Estructuras Exteriores y Patios</option>
+                            <option value="Mantenimiento General y Reparaciones">Mantenimiento General y Reparaciones</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 bg-alphaNavy text-white text-sm font-bold rounded-lg hover:bg-slate-800 transition-colors uppercase tracking-wider mt-2 shadow-md tracking-widest">
+                        SOLICITAR EVALUACIÓN
+                    </button>
+                </form>
             </div>
-            <div>
-                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Apellido</label>
-                <input type="text" name="SingleLine1" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:border-alphaBlue focus:bg-white transition-all duration-300" required maxlength="255" placeholder="Martínez" />
-            </div>
-        </div>
-
-        <div>
-            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Teléfono</label>
-            <input type="text" name="PhoneNumber_countrycode" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:border-alphaBlue focus:bg-white transition-all duration-300" phoneFormat="1" maxlength="20" required placeholder="Ej. (346) 370-2793" />
-        </div>
-
-        <div>
-            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Email</label>
-            <input type="email" name="Email" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:border-alphaBlue focus:bg-white transition-all duration-300" maxlength="255" required placeholder="israel@ejemplo.com" />
-        </div>
-
-        <div>
-            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Tipo de Consulta</label>
-            <select name="Dropdown1" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:border-alphaBlue focus:bg-white transition-all duration-300 text-slate-600">
-                <option value="-Select-">-Seleccione una opción-</option>
-                <option value="Restauración por Daños de Tormenta">Restauración por Daños de Tormenta</option>
-                <option value="Gestión de Reclamación de Seguros">Gestión de Reclamación de Seguros</option>
-                <option value="Inspección Estándar y Cotización">Inspección Estándar y Cotización</option>
-                <option value="Servicios de Estructuras Exteriores y Patios">Servicios de Estructuras Exteriores y Patios</option>
-                <option value="Mantenimiento General y Reparaciones">Mantenimiento General y Reparaciones</option>
-            </select>
-        </div>
-
-        <button type="submit" class="w-full py-4 bg-alphaNavy text-white text-sm font-bold rounded-lg hover:bg-slate-800 transition-colors uppercase tracking-wider mt-2 shadow-md">
-            SOLICITAR EVALUACIÓN
-        </button>
-    </form>
-</div>            </div>
 
         </div>
     </section>
 
     <!-- DECLARACIÓN DE MARCA: El Enfoque Concierge y Estética Estructural -->
-    <section class="py-24 bg-alphaPlatinum border-y border-slate-100 interactive-grid">
+    <section class="py-24 bg-alphaPlatinum border-y border-slate-100">
         <div class="container mx-auto px-6 text-center max-w-4xl space-y-6">
             <h2 class="text-xs font-bold tracking-widest text-alphaBlue uppercase">The Alpha Standard</h2>
             <p class="text-3xl md:text-4xl font-light text-alphaNavy italic tracking-tight">
@@ -141,7 +135,7 @@
                 
                 <!-- Fase 1 -->
                 <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-xl shadow-slate-100/30 space-y-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-alphaBlue font-bold text-sm shadow-inner">01</div>
+                    <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-alphaBlue font-bold text-sm shadow-inner">01</div>
                     <h4 class="text-lg font-bold text-alphaNavy">Alpha Property Health Assessment</h4>
                     <p class="text-xs text-alphaBlue font-semibold uppercase tracking-wider">Evaluación de Salud de su Propiedad</p>
                     <p class="text-sm text-slate-600 leading-relaxed">
@@ -151,7 +145,7 @@
 
                 <!-- Fase 2 -->
                 <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-xl shadow-slate-100/30 space-y-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-alphaBlue font-bold text-sm shadow-inner">02</div>
+                    <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-alphaBlue font-bold text-sm shadow-inner">02</div>
                     <h4 class="text-lg font-bold text-alphaNavy">Alpha Clarity Compass</h4>
                     <p class="text-xs text-alphaBlue font-semibold uppercase tracking-wider">La Brújula de Claridad Alpha</p>
                     <p class="text-sm text-slate-600 leading-relaxed">
@@ -161,7 +155,7 @@
 
                 <!-- Fase 3 -->
                 <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-xl shadow-slate-100/30 space-y-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-alphaBlue font-bold text-sm shadow-inner">03</div>
+                    <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-alphaBlue font-bold text-sm shadow-inner">03</div>
                     <h4 class="text-lg font-bold text-alphaNavy">Alpha Concierge Engagement</h4>
                     <p class="text-xs text-alphaBlue font-semibold uppercase tracking-wider">Acuerdo de Representación Alpha</p>
                     <p class="text-sm text-slate-600 leading-relaxed">
@@ -171,7 +165,7 @@
 
                 <!-- Fase 4 -->
                 <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-xl shadow-slate-100/30 space-y-4" data-aos="fade-up" data-aos-delay="400">
-                    <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-alphaBlue font-bold text-sm shadow-inner">04</div>
+                    <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-alphaBlue font-bold text-sm shadow-inner">04</div>
                     <h4 class="text-lg font-bold text-alphaNavy">Alpha Signature Restoration</h4>
                     <p class="text-xs text-alphaBlue font-semibold uppercase tracking-wider">Ejecución de Obra Maestra</p>
                     <p class="text-sm text-slate-600 leading-relaxed">
@@ -181,7 +175,7 @@
 
                 <!-- Fase 5 -->
                 <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-xl shadow-slate-100/30 space-y-4 md:col-span-2 lg:col-span-2" data-aos="fade-up" data-aos-delay="500">
-                    <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-alphaBlue font-bold text-sm shadow-inner">05</div>
+                    <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-alphaBlue font-bold text-sm shadow-inner">05</div>
                     <h4 class="text-lg font-bold text-alphaNavy">Alpha Signature Walkthrough & Certificate</h4>
                     <p class="text-xs text-alphaBlue font-semibold uppercase tracking-wider">Validación Final y Respaldo de Calidad</p>
                     <p class="text-sm text-slate-600 leading-relaxed">
@@ -212,9 +206,10 @@
         </div>
     </section>
 
-    <!-- Contenedor del Footer Modular -->
+    <!-- Contenedor del Footer Modular (Inyectado por main.js) -->
     <div id="footer-container"></div>
 
+    <!-- Carga de Librerías y Scripts del Sistema -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="assets/js/main.js"></script>
     <script>
