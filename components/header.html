@@ -1,23 +1,29 @@
-<nav class="sticky top-0 z-50 bg-[#1a365d] border-b-4 border-[#253BD8] py-4">
-    <div class="container mx-auto px-6 flex items-center justify-between">
-        <a href="index.html" class="flex items-center text-white font-bold text-2xl tracking-widest font-['Montserrat']">
-            ALPHA
+<header class="fixed top-0 left-0 w-full z-50 bg-alphaNavy/90 backdrop-blur-md border-b border-white/10 transition-all duration-300">
+    <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+        
+        <!-- Contenedor del Logotipo de Alpha Roofing -->
+        <a href="/index.html" class="flex items-center space-x-3 group">
+            <img src="/assets/img/logo.svg" alt="Alpha Roofing & Gutters Logo" class="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]">
         </a>
 
-        <button class="lg:hidden text-white">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-        </button>
-
-        <div class="hidden lg:flex items-center space-x-8 font-sans font-semibold">
-            <a href="about.html" class="text-white text-xs uppercase hover:text-blue-400 transition">Nuestra Historia</a>
-            <a href="services.html" class="text-white text-xs uppercase hover:text-blue-400 transition">Soluciones para su Hogar</a>
-            <a href="insurance-claims.html" class="flex items-center text-white bg-blue-700/20 border border-blue-700/50 px-4 py-2 rounded transition hover:bg-blue-700/40">
-                Defensa ante el Seguro
+        <!-- Menú de Navegación Persuasivo e Institucional -->
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-200">
+            <a href="/index.html" class="hover:text-white transition-colors">Inicio</a>
+            <a href="/services.html" class="hover:text-white transition-colors">¿Qué hacemos por usted?</a>
+            <a href="/index.html#contacto-section" class="hover:text-white transition-colors">Zonas de Cobertura</a>
+            
+            <!-- Selector Bicultural Limpio -->
+            <a href="/en/index.html" class="flex items-center text-xs font-bold tracking-wider text-blue-400 hover:text-blue-300 uppercase bg-blue-500/10 px-2.5 py-1 rounded border border-blue-500/20 transition-all">
+                EN
             </a>
-            <a href="service-areas.html" class="text-white text-xs uppercase hover:text-blue-400 transition">Zonas de Servicio</a>
-            <a href="index.html#contacto" class="bg-[#253BD8] text-white px-6 py-3 text-xs font-bold uppercase rounded hover:bg-blue-800 transition">
-                Agendar Inspección Gratis
+        </nav>
+
+        <!-- Botón de Conversión Rápida del Header -->
+        <div class="hidden sm:block">
+            <a href="#contacto-section" class="inline-flex items-center justify-center px-5 py-2.5 text-xs font-bold tracking-wider text-white bg-alphaBlue rounded-lg shadow-md hover:bg-blue-700 hover:scale-[1.02] transition-all duration-300 transform uppercase">
+                Solicitar Auditoría
             </a>
         </div>
+
     </div>
-</nav>
+</header>
