@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Alpha Roofing & Gutters - Infraestructura de Prueba</title>
+    <title>Alpha Roofing & Gutters</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,49 +34,46 @@
         <div class="absolute inset-0 bg-[#0A1128]/85"></div>
     </div>
 
-    <!-- HEADER (Cargado dinámicamente) -->
+    <!-- HEADER -->
     <div id="header-container" class="relative z-20"></div>
 
     <!-- MAIN (HOME BASE) -->
-    <main class="relative z-10 flex-grow flex flex-col items-center justify-center px-6 text-center pt-24 pb-20">
+    <main class="relative z-10 flex-grow flex flex-col items-center justify-center px-6 text-center pt-24 pb-10">
         
-        <!-- Logo (Aparece solo si quieres reforzarlo en pantalla) -->
-        <div class="mb-6 animate-fade-in">
-             <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-16 mx-auto opacity-90">
+        <!-- Logo -->
+        <div class="mb-8">
+             <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-16 mx-auto opacity-95">
         </div>
 
         <!-- Copy de Autoridad -->
-        <div class="max-w-xl mx-auto space-y-4 mb-10">
-            <h1 class="font-montserrat font-bold text-3xl md:text-5xl tracking-tight text-white uppercase leading-tight">
-                Protección técnica y restauración de clase superior.
+        <div class="max-w-xl mx-auto mb-10">
+            <h1 class="font-montserrat font-bold text-3xl md:text-5xl tracking-tight text-white uppercase leading-tight mb-4">
+                Expertos en Reparación de Techos en Greater Houston
             </h1>
-            <p class="text-slate-300 font-sans text-sm md:text-lg max-w-md mx-auto leading-relaxed font-light">
-                En Alpha, nos dedicamos a cuidar su propiedad con soluciones de ingeniería de alta precisión. Garantizamos ejecución impecable y valor para su patrimonio.
+            <p class="text-slate-300 font-sans text-lg md:text-xl font-light">
+                Restauramos su hogar con ingeniería de precisión, transparencia total y calidad superior.
             </p>
         </div>
         
         <!-- Opciones de Interacción (Taps Táctiles) -->
         <div class="w-full max-w-sm mx-auto space-y-3">
             
-            <button onclick="navigateToAuditForm()" class="w-full flex items-center p-4 bg-amber-600/90 hover:bg-amber-500 text-white rounded-xl transition-all active:scale-95 border border-amber-500/20">
-                <img src="/assets/img/icons/icon-assessment.svg" alt="Icono" class="w-6 h-6 mr-4 brightness-0 invert">
-                <span class="text-sm font-bold uppercase tracking-wide">Especialista: Revisión YA</span>
+            <button onclick="navigateToAuditForm()" class="w-full flex items-center justify-center p-4 bg-amber-600 hover:bg-amber-500 text-white rounded-xl transition-all active:scale-95 border border-amber-500/20 shadow-lg shadow-amber-900/20">
+                <span class="text-sm font-bold uppercase tracking-wide">Necesito un techo nuevo</span>
             </button>
 
-            <button onclick="window.location.href='/services.html'" class="w-full flex items-center p-4 bg-slate-800/80 hover:bg-slate-700 text-white rounded-xl transition-all active:scale-95 border border-slate-700">
-                <img src="/assets/img/icons/icon-roof.svg" alt="Icono" class="w-6 h-6 mr-4 brightness-0 invert">
-                <span class="text-sm font-bold uppercase tracking-wide">Ver Soluciones Alpha</span>
+            <button onclick="window.location.href='/services.html'" class="w-full flex items-center justify-center p-4 bg-slate-800/80 hover:bg-slate-700 text-white rounded-xl transition-all active:scale-95 border border-slate-700">
+                <span class="text-sm font-bold uppercase tracking-wide">Ver otros servicios</span>
             </button>
 
-            <button onclick="alert('Funcionalidad de Empresa en desarrollo')" class="w-full flex items-center p-4 bg-slate-800/80 hover:bg-slate-700 text-white rounded-xl transition-all active:scale-95 border border-slate-700">
-                <img src="/assets/img/icons/icon-shield-check.svg" alt="Icono" class="w-6 h-6 mr-4 brightness-0 invert">
-                <span class="text-sm font-bold uppercase tracking-wide">Conocer Alpha</span>
+            <button onclick="window.location.href='/about.html'" class="w-full flex items-center justify-center p-4 bg-slate-800/80 hover:bg-slate-700 text-white rounded-xl transition-all active:scale-95 border border-slate-700">
+                <span class="text-sm font-bold uppercase tracking-wide">Quiero conocer más sobre Alpha Roofing & Gutters</span>
             </button>
 
         </div>
     </main>
 
-    <!-- FOOTER (Solo visible en Desktop via md:block) -->
+    <!-- FOOTER -->
     <div id="footer-container" class="relative z-20"></div>
 
     <script src="/assets/js/main.js"></script>
