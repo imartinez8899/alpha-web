@@ -1,223 +1,59 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alpha Roofing & Gutters | Expertos en Techos Residenciales y Restauración</title>
+    <title>Alpha Roofing & Gutters - Infraestructura de Prueba</title>
+    
+    <!-- Tipografías Oficiales Alpha: Inter & Montserrat (Geometría pura y legible) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN (Optimización de estilos adaptivos en celulares de Texas) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: {
-                        alphaNavy: '#1a365d',
-                        alphaBlue: '#253BD8',
-                        alphaPlatinum: '#f8fafc'
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
-    <style>
-        .interactive-grid {
-            background-size: 50px 50px;
-            background-image: linear-gradient(to right, rgba(26, 54, 93, 0.03) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(26, 54, 93, 0.03) 1px, transparent 1px);
-        }
-    </style>
+    
+    <!-- Estilos Personalizados del Repositorio Local -->
+    <link rel="stylesheet" href="/assets/css/main.css">
 </head>
-<body class="bg-white text-slate-800 antialiased font-sans">
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased">
 
-    <!-- Contenedor del Header Modular (Inyectado dinámicamente por main.js) -->
-    <div id="header-container"></div>
+    <!-- CONTENEDOR MAESTRO: Aquí el script main.js inyectará automáticamente tu Header Móvil -->
+    <div id="header-container" class="w-full"></div>
 
-    <!-- HERO SECTION: Enfoque Residencial con tu Asset de Fondo Real y Gradiente Oscuro de Contraste -->
-    <section class="relative min-h-screen flex items-center justify-center pt-28 pb-20 overflow-hidden bg-cover bg-center" style="background-image: url('assets/img/hero/hero-bg.webp');">
-        <!-- CORRECCIÓN: Filtro Premium Oscuro en lugar de azul para un contraste de alta costura -->
-        <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-slate-900/85 to-transparent"></div>
-        
-        <div class="container mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <!-- Columna Izquierda: Mensaje de Autoridad y Confianza (Tono: Autoridad Familiar) -->
-            <div class="lg:col-span-7 space-y-6 text-white">
-                <span class="inline-block text-xs font-bold tracking-widest uppercase bg-blue-600/30 text-blue-300 px-3 py-1 rounded-full border border-blue-500/20">
-                    Residential Roofing & Restoration Experts
-                </span>
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
-                    Protección técnica y <br>restauración de clase <br>
-                    <span class="text-blue-400">superior para su hogar.</span>
-                </h1>
-                <p class="text-lg text-slate-300 max-w-xl leading-relaxed">
-                    En Alpha, nos dedicamos a cuidar su propiedad con solutions de ingeniería de alta precisión. Nuestro equipo le garantiza una ejecución impecable en cada proyecto, asegurando siempre el máximo valor y durabilidad para su patrimonio familiar.
-                </p>
-                <div class="pt-2">
-                    <a href="#contacto-section" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-alphaBlue rounded-lg shadow-lg hover:bg-blue-700 hover:scale-[1.02] transition-all duration-300 transform group">
-                        Agendar Inspección de Expertos
-                        <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Columna Derecha: Formulario Nativo de Zoho Forms Premium (Método de Baja Fricción) -->
-            <div id="contacto-section" class="lg:col-span-5 bg-white p-8 rounded-2xl shadow-2xl relative">
-                <div class="absolute top-0 left-0 w-full h-1.5 bg-alphaBlue rounded-t-2xl"></div>
-                <h3 class="text-xl font-bold text-alphaNavy mb-1">Agende su Inspección Sin Costo</h3>
-                <p class="text-xs text-slate-500 mb-6">Permita que un especialista revise su techo. Descubra áreas de oportunidad antes de que se conviertan en reparaciones costosas.</p>
-                
-                <form action='https://forms.zohopublic.com/alpharoofing1/form/WebformGeneralWebsiteES/formperma/f-N2fdYB9GuIhz3IMCTrmhq22pMYjPHDiwsdnyDwWH8/htmlRecords/submit' name='form' id='form' method='POST' accept-charset='UTF-8' enctype='multipart/form-data' class="space-y-4">
-                    
-                    <input type="hidden" name="zf_referrer_name" value="">
-                    <input type="hidden" name="zf_redirect_url" value="">
-                    <input type="hidden" name="zc_gad" value="">
-
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Nombre</label>
-                            <input type="text" name="SingleLine" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:border-alphaBlue focus:bg-white transition-all duration-300" required maxlength="255" placeholder="Ej. John" />
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Apellido</label>
-                            <input type="text" name="SingleLine1" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:border-alphaBlue focus:bg-white transition-all duration-300" required maxlength="255" placeholder="Doe" />
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Teléfono</label>
-                        <input type="text" name="PhoneNumber_countrycode" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:border-alphaBlue focus:bg-white transition-all duration-300" phoneFormat="1" maxlength="20" required placeholder="Ej. (832) 555-0199" />
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Email</label>
-                        <input type="email" name="Email" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:border-alphaBlue focus:bg-white transition-all duration-300" maxlength="255" required placeholder="john.doe@example.com" />
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Tipo de Consulta</label>
-                        <select name="Dropdown1" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:border-alphaBlue focus:bg-white transition-all duration-300 text-slate-600">
-                            <option value="-Select-">-Seleccione una opción-</option>
-                            <option value="Restauración por Daños de Tormenta">Restauración por Daños de Tormenta</option>
-                            <option value="Gestión de Reclamación de Seguros">Gestión de Reclamación de Seguros</option>
-                            <option value="Inspección Estándar y Cotización">Inspección Estándar y Cotización</option>
-                            <option value="Servicios de Estructuras Exteriores y Patios">Servicios de Estructuras Exteriores y Patios</option>
-                            <option value="Mantenimiento General y Reparaciones">Mantenimiento General y Reparaciones</option>
-                        </select>
-                    </div>
-
-                    <button type="submit" class="w-full py-4 bg-alphaNavy text-white text-sm font-bold rounded-lg hover:bg-slate-800 transition-colors uppercase tracking-wider mt-2 shadow-md tracking-widest">
-                        SOLICITAR EVALUACIÓN
-                    </button>
-                </form>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- DECLARACIÓN DE MARCA: El Enfoque Concierge y Estética Estructural -->
-    <section class="py-24 bg-alphaPlatinum border-y border-slate-100">
-        <div class="container mx-auto px-6 text-center max-w-4xl space-y-6">
-            <h2 class="text-xs font-bold tracking-widest text-alphaBlue uppercase">The Alpha Standard</h2>
-            <p class="text-3xl md:text-4xl font-light text-alphaNavy italic tracking-tight">
-                "Creemos firmemente que la belleza es la estructura hecha visible."
-            </p>
-            <div class="w-12 h-0.5 bg-alphaBlue mx-auto my-4"></div>
-            <p class="text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
-                Sin embargo, la verdadera calidad no solo se nota en los materiales, sino en la experiencia. En Alpha Roofing & Gutters operamos bajo un servicio exclusivo estilo <strong class="text-alphaNavy font-bold">Concierge</strong>: nos ponemos de su lado, asumimos la gestión completa de cada etapa y nos encargamos de absolutamente todo. El resultado es una obra impecable y un proceso diseñado para su total comodidad.
+    <!-- CUERPO PRINCIPAL: Espacio en blanco riguroso inspirado en Helmut Krone -->
+    <main class="flex-grow flex flex-col items-center justify-center px-6 py-24 text-center">
+        <div class="max-w-xl mx-auto space-y-4">
+            <!-- Texto de verificación solicitado por Dirección General -->
+            <h1 class="font-montserrat font-bold text-4xl md:text-6xl tracking-tight text-white uppercase">
+                Hello World
+            </h1>
+            <p class="text-slate-400 font-sans text-sm md:text-base max-w-md mx-auto leading-relaxed font-light">
+                Infraestructura digital modular activa. Si puedes ver la barra de navegación superior o inferior adaptiva, el sistema de inyección de JavaScript está operando en sintonía perfecta con el espejo de GitHub.
             </p>
         </div>
-    </section>
+    </main>
 
-    <!-- EL ECOSISTEMA OPERATIVO: Alpha Signature Protocol -->
-    <section class="py-24 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center max-w-2xl mx-auto mb-20 space-y-3">
-                <span class="text-xs font-bold tracking-widest text-alphaBlue uppercase">Acompañamiento de Principio a Fin</span>
-                <h2 class="text-3xl md:text-4xl font-black text-alphaNavy tracking-tight">Alpha Signature Protocol</h2>
-                <p class="text-slate-500 text-sm">Nuestras cinco fases operativas diseñadas para coordinar y ejecutar con precisión absoluta cada detalle del resguardo de su hogar.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Fase 1 -->
-                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-xl shadow-slate-100/30 space-y-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-alphaBlue font-bold text-sm shadow-inner">01</div>
-                    <h4 class="text-lg font-bold text-alphaNavy">Alpha Property Health Assessment</h4>
-                    <p class="text-xs text-alphaBlue font-semibold uppercase tracking-wider">Evaluación de Salud de su Propiedad</p>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        Realizamos un diagnóstico técnico profundo de la integridad de su techo. Identificamos vulnerabilidades ocultas causadas por el clima y documentamos con precisión fotográfica cada sección afectada para sustentar formalmente el estado real de su hogar.
-                    </p>
-                </div>
-
-                <!-- Fase 2 -->
-                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-xl shadow-slate-100/30 space-y-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-alphaBlue font-bold text-sm shadow-inner">02</div>
-                    <h4 class="text-lg font-bold text-alphaNavy">Alpha Clarity Compass</h4>
-                    <p class="text-xs text-alphaBlue font-semibold uppercase tracking-wider">La Brújula de Claridad Alpha</p>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        Simplificamos la información técnica para darle total claridad sobre los pasos a seguir. Le entregamos un reporte ejecutivo detallado que explica de forma sencilla los daños encontrados y las soluciones óptimas para la estructura, permitiéndole tomar decisiones con total tranquilidad.
-                    </p>
-                </div>
-
-                <!-- Fase 3 -->
-                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-xl shadow-slate-100/30 space-y-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-alphaBlue font-bold text-sm shadow-inner">03</div>
-                    <h4 class="text-lg font-bold text-alphaNavy">Alpha Concierge Engagement</h4>
-                    <p class="text-xs text-alphaBlue font-semibold uppercase tracking-wider">Acuerdo de Representación Alpha</p>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        Nuestros consultores senior coordinan y atienden las inspecciones en su propiedad junto con los ajustadores de seguros. Presentamos evidencia técnica rigurosa y detallada de cada daño detectado, maximizando la posibilidad de que su caso sea aprobado en su totalidad y haciendo valer cada uno de sus derechos.
-                    </p>
-                </div>
-
-                <!-- Fase 4 -->
-                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-xl shadow-slate-100/30 space-y-4" data-aos="fade-up" data-aos-delay="400">
-                    <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-alphaBlue font-bold text-sm shadow-inner">04</div>
-                    <h4 class="text-lg font-bold text-alphaNavy">Alpha Signature Restoration</h4>
-                    <p class="text-xs text-alphaBlue font-semibold uppercase tracking-wider">Ejecución de Obra Maestra</p>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        La etapa donde la excelencia se hace visible. Llevamos a cabo una instalación milimétrica y de alta especificación utilizando materiales de grado superior. Cada detalle de la obra es supervisado bajo estrictos estándares de control para garantizar un acabado inmaculado y duradero que eleva el valor de su casa.
-                    </p>
-                </div>
-
-                <!-- Fase 5 -->
-                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-xl shadow-slate-100/30 space-y-4 md:col-span-2 lg:col-span-2" data-aos="fade-up" data-aos-delay="500">
-                    <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-alphaBlue font-bold text-sm shadow-inner">05</div>
-                    <h4 class="text-lg font-bold text-alphaNavy">Alpha Signature Walkthrough & Certificate</h4>
-                    <p class="text-xs text-alphaBlue font-semibold uppercase tracking-wider">Validación Final y Respaldo de Calidad</p>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        Concluimos el proyecto asegurándonos de que todo supere sus expectativas. Realizamos un recorrido minucioso de verificación final junto a usted para validar la calidad de cada trabajo. Al finalizar, le hacemos entrega de su <em>Alpha Signature Certificate</em>, un respaldo formal firmado en papel de alto gramaje que certifica que su hogar cumple con nuestro estándar máximo de protección.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN DE INFORMACIÓN Y RESPONSABILIDAD: Enfoque Preventivo -->
-    <section class="py-20 bg-slate-900 text-white relative overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(37,59,216,0.1),transparent_50%)]"></div>
-        <div class="container mx-auto px-6 max-w-5xl relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-            <div class="md:col-span-8 space-y-4">
-                <span class="text-xs font-bold tracking-widest text-blue-400 uppercase">🚨 NOTICIA IMPORTANTE: Cuidado Oportuno de la Propiedad</span>
-                <h3 class="text-2xl md:text-3xl font-bold tracking-tight">El valor de atender los daños climáticos a tiempo</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">
-                    Las pólizas de seguros de hogar operan bajo ventanas de tiempo y plazos específicos determinados por la ley. Atender los daños por tormentas, granizo o vientos de manera oportuna evita afectaciones secundarias al interior de la vivienda y facilita los procesos de reclamación. En Alpha nos encargamos de documentar y estructurar toda la información requerida por los proveedores para agilizar los trámites dentro de los marcos establecidos. Proteger su inversión a tiempo preserva el valor de su hogar y resguarda sus derechos.
-                </p>
-            </div>
-            <div class="md:col-span-4 text-left md:text-right">
-                <a href="#contacto-section" class="inline-block px-6 py-4 bg-white text-alphaNavy text-sm font-bold rounded-lg shadow-xl hover:bg-slate-100 transition-all duration-300 transform hover:scale-[1.02]">
-                    Proteger Mi Hogar Ahora
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contenedor del Footer Modular (Inyectado por main.js) -->
-    <div id="footer-container"></div>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="assets/js/main.js"></script>
+    <!-- Scripts de Controladores y Lógica Local -->
+    <script src="/assets/js/main.js"></script>
+    
     <script>
-        AOS.init({ duration: 800, once: true });
+        // Inicialización y logs técnicos para auditoría de consola en producción móvil
+        document.addEventListener("DOMContentLoaded", function() {
+            console.log("[Alpha Core] Entorno de prueba 'Hello World' desplegado correctamente.");
+        });
     </script>
 </body>
 </html>
