@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alpha Roofing & Gutters - Infraestructura de Prueba</title>
     
-    <!-- Tipografías Oficiales Alpha: Inter & Montserrat (Geometría pura y legible) -->
+    <!-- Tipografías Oficiales Alpha: Inter & Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS CDN (Optimización de estilos adaptivos en celulares de Texas) -->
+    <!-- Tailwind CSS CDN para Estilización Inmaculada -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -24,36 +24,44 @@
             }
         }
     </script>
-    
-    <!-- Estilos Personalizados del Repositorio Local -->
-    <link rel="stylesheet" href="/assets/css/main.css">
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased">
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased pb-20 md:pb-0">
 
-    <!-- CONTENEDOR MAESTRO: Aquí el script main.js inyectará automáticamente tu Header Móvil -->
-    <div id="header-container" class="w-full"></div>
-
-    <!-- CUERPO PRINCIPAL: Espacio en blanco riguroso inspirado en Helmut Krone -->
+    <!-- CUERPO PRINCIPAL: Espacio en blanco riguroso -->
     <main class="flex-grow flex flex-col items-center justify-center px-6 py-24 text-center">
-        <div class="max-w-xl mx-auto space-y-4">
-            <!-- Texto de verificación solicitado por Dirección General -->
+        <div class="max-w-xl mx-auto space-y-4" id="hero-section">
             <h1 class="font-montserrat font-bold text-4xl md:text-6xl tracking-tight text-white uppercase">
                 Hello World
             </h1>
             <p class="text-slate-400 font-sans text-sm md:text-base max-w-md mx-auto leading-relaxed font-light">
-                Infraestructura digital modular activa. Si puedes ver la barra de navegación superior o inferior adaptiva, el sistema de inyección de JavaScript está operando en sintonía perfecta con el espejo de GitHub.
+                Infraestructura digital modular activa. La barra de navegación móvil se encuentra fijada permanentemente a la base inferior de la pantalla.
             </p>
+        </div>
+        
+        <!-- Marcador de posición para el formulario de contacto (Salto del Elemento 2) -->
+        <div id="lead-form-container" class="w-full max-w-md mx-auto mt-40 p-8 bg-slate-900 border border-slate-800 rounded-lg">
+            <h2 class="text-white font-montserrat font-bold uppercase tracking-wider text-xl mb-2">Selección de Contacto</h2>
+            <p class="text-slate-400 text-xs font-light">Módulo de captura Alpha Clarity Compass.</p>
         </div>
     </main>
 
-    <!-- Scripts de Controladores y Lógica Local -->
+    <!-- CAPA SUPERPUESTA: Menú de pantalla completa (Accionado por Elemento 3) -->
+    <div id="fullscreen-menu-overlay" class="hidden fixed inset-0 z-40 bg-[#0A1128]/95 flex flex-col items-center justify-center animate-fade-in">
+        <div class="text-center space-y-6">
+            <h3 class="text-white font-montserrat font-bold text-2xl uppercase tracking-widest">Mapa del Sitio</h3>
+            <nav class="flex flex-col space-y-4 text-lg text-slate-300">
+                <a href="#" class="hover:text-amber-500 transition-colors">Alpha Signature Protocol</a>
+                <a href="#" class="hover:text-amber-500 transition-colors">Zonas de Cobertura</a>
+                <a href="#" class="hover:text-amber-500 transition-colors">Políticas de la Marca</a>
+            </nav>
+            <button onclick="toggleFullscreenMenu()" class="mt-8 text-xs text-amber-500 border border-amber-500/30 px-4 py-2 uppercase tracking-widest rounded">Cerrar Menú</button>
+        </div>
+    </div>
+
+    <!-- CONTENEDOR MODULAR: JavaScript inyectará aquí la barra móvil en la base -->
+    <div id="header-container"></div>
+
+    <!-- Scripts de Controladores Locales -->
     <script src="/assets/js/main.js"></script>
-    
-    <script>
-        // Inicialización y logs técnicos para auditoría de consola en producción móvil
-        document.addEventListener("DOMContentLoaded", function() {
-            console.log("[Alpha Core] Entorno de prueba 'Hello World' desplegado correctamente.");
-        });
-    </script>
 </body>
 </html>
