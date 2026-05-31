@@ -44,3 +44,11 @@ function toggleFullscreenMenu() {
         menuOverlay.classList.toggle("hidden");
     }
 }
+
+// Agrega esto a tu main.js si quieres navegar a secciones específicas
+function navigateToSection(sectionId) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+    }
+}

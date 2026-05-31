@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Alpha Roofing & Gutters - Infraestructura de Prueba</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,43 +23,61 @@
         }
     </script>
 </head>
-<!-- Compensación estructural: pt-24 para Desktop, pb-20 para Mobile -->
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased pt-24 md:pt-28 pb-20 md:pb-0">
+<body class="bg-slate-950 text-slate-100 h-screen overflow-hidden flex flex-col antialiased">
 
-    <!-- CONTENEDOR MODULAR SUPERIOR -->
-    <div id="header-container"></div>
+    <!-- CONTENEDOR VIDEO FONDO -->
+    <div class="fixed inset-0 z-0">
+        <video autoplay loop muted playsinline class="w-full h-full object-cover">
+            <source src="/assets/img/system-restoration/before_during_after_1.mp4" type="video/mp4">
+        </video>
+        <!-- Overlay oscuro para legibilidad -->
+        <div class="absolute inset-0 bg-[#0A1128]/85"></div>
+    </div>
 
-    <main class="flex-grow flex flex-col items-center justify-center px-6 py-12 text-center">
-        <div class="max-w-xl mx-auto space-y-4" id="hero-section">
-            <h1 class="font-montserrat font-bold text-4xl md:text-6xl tracking-tight text-white uppercase">
-                Hello World
+    <!-- HEADER (Cargado dinámicamente) -->
+    <div id="header-container" class="relative z-20"></div>
+
+    <!-- MAIN (HOME BASE) -->
+    <main class="relative z-10 flex-grow flex flex-col items-center justify-center px-6 text-center pt-24 pb-20">
+        
+        <!-- Logo (Aparece solo si quieres reforzarlo en pantalla) -->
+        <div class="mb-6 animate-fade-in">
+             <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-16 mx-auto opacity-90">
+        </div>
+
+        <!-- Copy de Autoridad -->
+        <div class="max-w-xl mx-auto space-y-4 mb-10">
+            <h1 class="font-montserrat font-bold text-3xl md:text-5xl tracking-tight text-white uppercase leading-tight">
+                Protección técnica y restauración de clase superior.
             </h1>
-            <p class="text-slate-400 font-sans text-sm md:text-base max-w-md mx-auto leading-relaxed font-light">
-                Infraestructura digital modular activa. Los vectores locales han sido enlazados con éxito.
+            <p class="text-slate-300 font-sans text-sm md:text-lg max-w-md mx-auto leading-relaxed font-light">
+                En Alpha, nos dedicamos a cuidar su propiedad con soluciones de ingeniería de alta precisión. Garantizamos ejecución impecable y valor para su patrimonio.
             </p>
         </div>
         
-        <div id="lead-form-container" class="w-full max-w-md mx-auto mt-40 p-8 bg-slate-900 border border-slate-800 rounded-lg">
-            <h2 class="text-white font-montserrat font-bold uppercase tracking-wider text-xl mb-2">Selección de Contacto</h2>
-            <p class="text-slate-400 text-xs font-light">Módulo de captura Alpha Clarity Compass.</p>
+        <!-- Opciones de Interacción (Taps Táctiles) -->
+        <div class="w-full max-w-sm mx-auto space-y-3">
+            
+            <button onclick="navigateToAuditForm()" class="w-full flex items-center p-4 bg-amber-600/90 hover:bg-amber-500 text-white rounded-xl transition-all active:scale-95 border border-amber-500/20">
+                <img src="/assets/img/icons/icon-assessment.svg" alt="Icono" class="w-6 h-6 mr-4 brightness-0 invert">
+                <span class="text-sm font-bold uppercase tracking-wide">Especialista: Revisión YA</span>
+            </button>
+
+            <button onclick="window.location.href='/services.html'" class="w-full flex items-center p-4 bg-slate-800/80 hover:bg-slate-700 text-white rounded-xl transition-all active:scale-95 border border-slate-700">
+                <img src="/assets/img/icons/icon-roof.svg" alt="Icono" class="w-6 h-6 mr-4 brightness-0 invert">
+                <span class="text-sm font-bold uppercase tracking-wide">Ver Soluciones Alpha</span>
+            </button>
+
+            <button onclick="alert('Funcionalidad de Empresa en desarrollo')" class="w-full flex items-center p-4 bg-slate-800/80 hover:bg-slate-700 text-white rounded-xl transition-all active:scale-95 border border-slate-700">
+                <img src="/assets/img/icons/icon-shield-check.svg" alt="Icono" class="w-6 h-6 mr-4 brightness-0 invert">
+                <span class="text-sm font-bold uppercase tracking-wide">Conocer Alpha</span>
+            </button>
+
         </div>
     </main>
 
-    <!-- CAPA SUPERPUESTA: Menú de pantalla completa -->
-    <div id="fullscreen-menu-overlay" class="hidden fixed inset-0 z-50 bg-[#0A1128]/95 flex flex-col items-center justify-center animate-fade-in backdrop-blur-sm">
-        <div class="text-center space-y-6">
-            <h3 class="text-white font-montserrat font-bold text-2xl uppercase tracking-widest">Mapa del Sitio</h3>
-            <nav class="flex flex-col space-y-4 text-lg text-slate-300 font-sans">
-                <a href="#" class="hover:text-amber-500 transition-colors">Alpha Signature Protocol</a>
-                <a href="#" class="hover:text-amber-500 transition-colors">Zonas de Cobertura</a>
-                <a href="#" class="hover:text-amber-500 transition-colors">Políticas de la Marca</a>
-            </nav>
-            <button onclick="toggleFullscreenMenu()" class="mt-8 text-xs text-amber-500 border border-amber-500/30 px-6 py-3 uppercase tracking-widest rounded-full hover:bg-amber-500/10 transition-colors">Cerrar Menú</button>
-        </div>
-    </div>
-
-    <!-- CONTENEDOR MODULAR INFERIOR -->
-    <div id="footer-container"></div>
+    <!-- FOOTER (Solo visible en Desktop via md:block) -->
+    <div id="footer-container" class="relative z-20"></div>
 
     <script src="/assets/js/main.js"></script>
 </body>
