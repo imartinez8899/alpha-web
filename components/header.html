@@ -1,46 +1,32 @@
-<header class="font-sans w-full">
-    <!-- Desktop Navbar -->
-    <div class="hidden md:flex fixed top-0 left-0 right-0 z-50 bg-[#0A1128]/95 backdrop-blur-md border-b border-slate-800 shadow-lg px-8 h-20 items-center justify-between">
-        
-        <!-- Logo a la izquierda -->
-        <div class="cursor-pointer" onclick="navigateToHome()">
-            <img src="/assets/img/brand/alpha-logo-primary.svg" alt="Alpha Roofing Logo" class="h-10 w-auto">
-        </div>
+<!-- NAV BAR FIJA INFERIOR (MÓVIL) -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#0A1128] border-t border-slate-800 shadow-[0_-4px_10px_rgba(0,0,0,0.3)] px-4 h-16 flex items-center justify-between safe-bottom">
+    <button onclick="navigateToHome()" class="flex flex-col items-center justify-center w-16 h-full text-white hover:text-blue-400 transition-colors duration-200" aria-label="Regresar al Inicio">
+        <img src="/assets/img/icons/icon-home.svg" alt="Inicio" class="w-6 h-6 mb-0.5 brightness-0 invert">
+        <span class="text-[9px] font-semibold tracking-widest uppercase text-slate-300">Inicio</span>
+    </button>
 
-        <nav class="flex items-center space-x-8 text-xs font-medium uppercase tracking-widest text-slate-400">
-            <a href="javascript:void(0)" onclick="navigateToHome()" class="hover:text-white transition-colors duration-200">Inicio</a>
-            <a href="javascript:void(0)" onclick="toggleFullscreenMenu()" class="hover:text-white transition-colors duration-200">Mapa del Sitio</a>
-            
-            <!-- Botón de llamada -->
-            <a href="tel:3463702793" class="bg-amber-600/10 hover:bg-amber-600 border border-amber-600/30 text-amber-500 hover:text-white px-4 py-2 rounded-full transition-all duration-200 flex items-center space-x-2 font-mono text-xs">
-                <span>346-370-2793</span>
-            </a>
+    <div class="flex items-center h-full">
+        <button onclick="navigateToAuditForm()" class="flex items-center justify-center bg-gradient-to-r from-[#253BD8] to-[#1a365d] text-white font-bold text-[10px] uppercase tracking-widest px-5 h-10 rounded-full shadow-[0_4px_15px_rgba(37,59,216,0.4)] active:scale-95 transition-transform duration-150 border border-[#1a365d]">
+            ¡Quiero Comenzar Ya!
+        </button>
+    </div>
+
+    <button onclick="toggleFullscreenMenu()" class="flex flex-col items-center justify-center w-16 h-full text-white hover:text-blue-400 transition-colors duration-200" aria-label="Abrir Menú">
+        <img src="/assets/img/icons/icon-menu-hamburger.svg" alt="Menú" class="w-6 h-6 mb-0.5 brightness-0 invert">
+        <span class="text-[9px] font-semibold tracking-widest uppercase text-slate-300">Menú</span>
+    </button>
+</div>
+
+<!-- CAPA SUPERPUESTA: MENÚ DE PANTALLA COMPLETA -->
+<div id="fullscreen-menu-overlay" class="hidden fixed inset-0 z-[6] bg-[#0A1128]/98 flex flex-col items-center justify-center animate-fade-in backdrop-blur-md">
+    <div class="text-center space-y-8">
+        <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-12 mx-auto mb-4">
+        <nav class="flex flex-col space-y-6 text-xl text-slate-200 font-montserrat font-bold uppercase tracking-[0.2em]">
+            <a href="javascript:void(0)" onclick="navigateToHome(); toggleFullscreenMenu()" class="hover:text-[#253BD8] transition-colors">Alpha Signature Protocol</a>
+            <a href="/services.html" class="hover:text-[#253BD8] transition-colors">Zonas de Cobertura</a>
+            <a href="javascript:void(0)" onclick="navigateToAuditForm(); toggleFullscreenMenu()" class="text-[#253BD8] hover:brightness-125 transition-all italic">Canal Realtor Priority</a>
+            <a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Políticas de la Marca</a>
         </nav>
-
-        <div class="flex items-center">
-            <button onclick="navigateToAuditForm()" class="bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-bold text-xs uppercase tracking-widest px-6 py-3 rounded-full shadow-[0_4px_15px_rgba(245,158,11,0.2)] hover:shadow-[0_4px_20px_rgba(245,158,11,0.4)] active:scale-95 transition-all duration-150">
-                ¡Quiero Comenzar Ya!
-            </button>
-        </div>
+        <button onclick="toggleFullscreenMenu()" class="mt-12 text-[10px] text-slate-400 border border-slate-700 px-8 py-3 uppercase tracking-[0.3em] rounded-full hover:bg-white/5 transition-colors">Cerrar</button>
     </div>
-
-    <!-- Mobile Navbar (Fijo abajo) -->
-    <div class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#0A1128] border-t border-slate-800 shadow-[0_-4px_10px_rgba(0,0,0,0.3)] px-4 h-16 flex items-center justify-between safe-bottom">
-        
-        <button onclick="navigateToHome()" class="flex flex-col items-center justify-center w-16 h-full text-white hover:text-amber-500 transition-colors duration-200" aria-label="Regresar al Inicio">
-            <img src="/assets/img/icons/icon-home.svg" alt="Inicio" class="w-6 h-6 mb-0.5 brightness-0 invert transition-transform duration-200 active:scale-90">
-            <span class="text-[9px] font-semibold tracking-widest uppercase text-slate-300">Inicio</span>
-        </button>
-
-        <div class="flex items-center h-full">
-            <button onclick="navigateToAuditForm()" class="flex items-center justify-center bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-bold text-[10px] uppercase tracking-widest px-5 h-10 rounded-full shadow-[0_4px_15px_rgba(245,158,11,0.4)] active:scale-95 transition-transform duration-150 border border-[#0A1128]">
-                ¡Comenzar!
-            </button>
-        </div>
-
-        <button onclick="toggleFullscreenMenu()" class="flex flex-col items-center justify-center w-16 h-full text-white hover:text-amber-500 transition-colors duration-200" aria-label="Abrir Menú">
-            <img src="/assets/img/icons/icon-menu-hamburger.svg" alt="Menú" class="w-6 h-6 mb-0.5 brightness-0 invert transition-transform duration-200 active:scale-90">
-            <span class="text-[9px] font-semibold tracking-widest uppercase text-slate-300">Menú</span>
-        </button>
-    </div>
-</header>
+</div>
