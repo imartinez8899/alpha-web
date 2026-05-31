@@ -3,77 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Alpha Roofing & Gutters</title>
+    <title>Alpha Roofing & Gutters | Expertos en Restauración Patrimonial</title>
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    
+    <link rel="alternate" hreflang="es" href="https://alpharoofings.com/" />
+    <link rel="alternate" hreflang="en" href="https://alpharoofings.com/en/" />
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        montserrat: ['Montserrat', 'sans-serif'],
-                    }
-                }
-            }
+    <style>
+        /* CSS para forzar el video a ser un fondo absoluto sin movimiento */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -10;
+            overflow: hidden;
         }
-    </script>
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased">
 
-    <!-- CONTENEDOR VIDEO FONDO -->
-    <div class="fixed inset-0 z-0">
-        <video autoplay loop muted playsinline class="w-full h-full object-cover">
+    <div class="video-background">
+        <video autoplay loop muted playsinline poster="/assets/img/hero/hero-bg-fallback.jpg">
             <source src="/assets/img/system-restoration/before_during_after_1.mp4" type="video/mp4">
         </video>
-        <!-- Overlay oscuro para legibilidad -->
-        <div class="absolute inset-0 bg-[#0A1128]/85"></div>
+        <div class="absolute inset-0 bg-[#0A1128]/90"></div>
     </div>
 
-    <!-- HEADER -->
     <div id="header-container" class="relative z-20"></div>
 
-    <!-- MAIN (HOME BASE) -->
     <main class="relative z-10 flex-grow flex flex-col items-center justify-center px-6 text-center pt-12 pb-24">
         
-        <!-- Logo (Incrementado a h-20, aprox 25% más grande que h-16) -->
         <div class="mb-8">
              <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-20 mx-auto opacity-95">
         </div>
 
-        <!-- Copy de Autoridad -->
         <div class="max-w-xl mx-auto mb-10">
-            <h1 class="font-montserrat font-bold text-3xl md:text-5xl tracking-tight text-white uppercase leading-tight mb-4">
+            <h1 class="font-bold text-3xl md:text-5xl tracking-tight text-white uppercase leading-tight mb-4">
                 Expertos en Reparación de Techos en Greater Houston
             </h1>
-            <p class="text-slate-300 font-sans text-lg md:text-xl font-light">
+            <p class="text-slate-300 text-lg md:text-xl font-light">
                 Restauramos su hogar con ingeniería de precisión, transparencia total y calidad superior.
             </p>
         </div>
         
-        <!-- Opciones de Interacción (Taps Táctiles) -->
         <div class="w-full max-w-sm mx-auto space-y-3">
-            
-            <button onclick="navigateToAuditForm()" class="w-full flex items-center justify-center p-4 bg-amber-600 hover:bg-amber-500 text-white rounded-xl transition-all active:scale-95 border border-amber-500/20 shadow-lg shadow-amber-900/20">
-                <span class="text-sm font-bold uppercase tracking-wide">Necesito un techo nuevo</span>
+            <button onclick="navigateToAuditForm()" class="w-full flex items-center justify-center p-4 bg-amber-600 hover:bg-amber-500 text-white rounded-xl transition-all active:scale-95 shadow-lg shadow-amber-900/20">
+                <span class="text-sm font-bold uppercase tracking-wide">Necesito una inspección</span>
             </button>
 
-            <button onclick="window.location.href='/services.html'" class="w-full flex items-center justify-center p-4 bg-slate-800/80 hover:bg-slate-700 text-white rounded-xl transition-all active:scale-95 border border-slate-700">
-                <span class="text-sm font-bold uppercase tracking-wide">Ver otros servicios</span>
-            </button>
-
-            <button onclick="window.location.href='/about.html'" class="w-full flex items-center justify-center p-4 bg-slate-800/80 hover:bg-slate-700 text-white rounded-xl transition-all active:scale-95 border border-slate-700">
-                <span class="text-sm font-bold uppercase tracking-wide">Quiero conocer más sobre Alpha Roofing & Gutters</span>
-            </button>
-
+            <div class="flex justify-center gap-4 mt-6 text-sm text-slate-400">
+                <a href="/" class="hover:text-white transition-colors border-b border-white">ES</a>
+                <span>|</span>
+                <a href="/en/" class="hover:text-white transition-colors">EN</a>
+            </div>
         </div>
     </main>
 
-    <!-- FOOTER -->
     <div id="footer-container" class="relative z-20"></div>
 
     <script src="/assets/js/main.js"></script>
