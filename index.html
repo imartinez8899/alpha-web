@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Alpha Roofing & Gutters | Protección Técnica y Restauración</title>
+    <title>Alpha Roofing & Gutters | Expertos en Reparación de Techos</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <script>
@@ -25,15 +25,16 @@
     </script>
     <style>
         body, html { height: 100%; overflow: hidden; background-color: #0A1128; }
-        .app-container { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; scrollbar-width: none; }
+        .app-container { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; scrollbar-width: none; -ms-overflow-style: none; }
         .app-container::-webkit-scrollbar { display: none; }
         section { height: 100vh; width: 100%; scroll-snap-align: start; flex-shrink: 0; position: relative; }
         .video-overlay { background: linear-gradient(to bottom, rgba(26, 54, 93, 0.85), rgba(10, 17, 40, 0.95)); }
+        .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
     </style>
 </head>
 <body class="font-sans text-slate-900 selection:bg-alphaElectric selection:text-white pt-24 md:pt-28">
 
-    <!-- MOTOR DE VIDEO FONDO (PARALLAX FIJO) [4] -->
+    <!-- MOTOR DE VIDEO FONDO (PARALLAX FIJO) -->
     <div class="fixed inset-0 z-0 overflow-hidden">
         <video autoplay loop muted playsinline class="w-full h-full object-cover scale-110">
             <source src="/assets/img/system-restoration/before_during_after_1.mp4" type="video/mp4">
@@ -41,97 +42,158 @@
         <div class="absolute inset-0 video-overlay"></div>
     </div>
 
+    <!-- NAVEGACIÓN MODULAR -->
     <div id="header-container" class="relative z-50"></div>
 
     <div class="app-container relative z-10">
-        <!-- 📱 PANTALLA 1: HERO [10, 11] -->
+        
+        <!-- 📱 PANTALLA 1: EL GANCHO DE AUTORIDAD (COPIES RESTAURADOS) -->
         <section id="hero-section" class="flex flex-col items-center justify-center px-6 text-center">
             <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-20 mb-10 opacity-95">
-            <h1 class="font-montserrat font-bold text-3xl md:text-5xl text-white uppercase leading-tight mb-6">Protección técnica y restauración de clase superior.</h1>
+            <h1 class="font-montserrat font-bold text-3xl md:text-5xl text-white uppercase leading-tight mb-6">
+                Expertos en Reparación de Techos en Greater Houston
+            </h1>
+            <p class="text-slate-300 text-lg md:text-xl font-light mb-10 leading-relaxed max-w-2xl">
+                Restauramos su hogar con ingeniería de precisión, transparencia total y calidad superior.
+            </p>
             <div class="flex flex-col space-y-4 w-full max-w-sm">
-                <button onclick="navigateToAuditForm()" class="bg-alphaElectric text-white font-bold py-4 px-8 rounded-xl shadow-xl uppercase text-sm tracking-widest active:scale-95 transition-all">Necesito un experto en mi casa ya</button>
-                <button onclick="document.getElementById('filter-section').scrollIntoView({behavior:'smooth'})" class="bg-white/10 text-white backdrop-blur-md border border-white/20 font-semibold py-4 px-8 rounded-xl uppercase text-sm tracking-widest">Ver soluciones primero</button>
+                <button onclick="navigateToAuditForm()" class="bg-alphaElectric text-white font-bold py-4 px-8 rounded-xl shadow-xl uppercase text-sm tracking-widest active:scale-95 transition-all">
+                    Necesito un Techo nuevo
+                </button>
+                <button onclick="document.getElementById('filter-section').scrollIntoView({behavior:'smooth'})" class="bg-white/10 text-white backdrop-blur-md border border-white/20 font-semibold py-4 px-8 rounded-xl uppercase text-sm tracking-widest">
+                    Ver Otros Servicios
+                </button>
+                <button onclick="document.getElementById('protocol-section').scrollIntoView({behavior:'smooth'})" class="bg-transparent text-white/70 font-medium py-2 px-8 uppercase text-xs tracking-[0.2em] hover:text-white transition-colors">
+                    Conocer mas sobre Alpha Roofing and Gutters
+                </button>
             </div>
         </section>
 
-        <!-- 📱 PANTALLA 2: FILTRO [12, 13] -->
+        <!-- 📱 PANTALLA 2: EL FILTRO DE NECESIDAD -->
         <section id="filter-section" class="flex flex-col items-center justify-center px-6 bg-technicalPlatinum/95 backdrop-blur-xl">
             <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-8 text-center">¿Qué necesita su propiedad hoy?</h2>
             <div class="space-y-3 w-full max-w-md">
                 <button onclick="document.getElementById('alleviate-section').scrollIntoView({behavior:'smooth'})" class="w-full p-5 bg-white border border-slate-200 rounded-2xl flex items-center group hover:border-alphaElectric transition-all text-left">
                     <img src="/assets/img/icons/icon-roof.svg" class="w-8 h-8 mr-4 brightness-0 group-hover:filter-none">
-                    <span class="text-sm font-semibold text-slate-700 font-montserrat">Necesito un techo nuevo y seguro (Cash/Financiamiento)</span>
+                    <span class="text-sm font-semibold text-slate-700">Necesito un techo nuevo (Cash / Financiamiento)</span>
                 </button>
                 <button onclick="document.getElementById('alleviate-section').scrollIntoView({behavior:'smooth'})" class="w-full p-5 bg-white border border-slate-200 rounded-2xl flex items-center group hover:border-alphaElectric transition-all text-left">
                     <img src="/assets/img/icons/icon-shield-check.svg" class="w-8 h-8 mr-4 brightness-0 group-hover:filter-none">
-                    <span class="text-sm font-semibold text-slate-700 font-montserrat">Mi propiedad sufrió daños y quiero resolver lo de mi seguro</span>
+                    <span class="text-sm font-semibold text-slate-700">Mi propiedad sufrió daños y quiero resolver lo de mi seguro</span>
                 </button>
                 <button onclick="document.getElementById('alleviate-section').scrollIntoView({behavior:'smooth'})" class="w-full p-5 bg-white border border-slate-200 rounded-2xl flex items-center group hover:border-alphaElectric transition-all text-left">
                     <img src="/assets/img/icons/icon-gutters.svg" class="w-8 h-8 mr-4 brightness-0 group-hover:filter-none">
-                    <span class="text-sm font-semibold text-slate-700 font-montserrat">Deseo mejorar mis espacios exteriores y cercas</span>
+                    <span class="text-sm font-semibold text-slate-700">Deseo mejorar mis espacios exteriores y cercas</span>
                 </button>
             </div>
         </section>
 
-        <!-- 📱 PANTALLA 3: ALIVIADOR [14, 15] -->
+        <!-- 📱 PANTALLA 3: EL ALIVIADOR DE CARGA -->
         <section id="alleviate-section" class="flex flex-col items-center justify-center px-6 bg-alphaNavy text-white text-center">
             <h2 class="font-montserrat font-bold text-2xl uppercase mb-6">Usted suelta el problema; Alpha asume el control técnico</h2>
-            <p class="text-slate-300 font-light leading-relaxed mb-8 max-w-md">Operamos bajo el modelo <strong>Zero-Down Risk</strong>: No arriesga un solo centavo de anticipo. Gestionamos la burocracia y la defensa técnica.</p>
-            <button onclick="document.getElementById('protocol-section').scrollIntoView({behavior:'smooth'})" class="bg-alphaElectric font-bold py-4 px-10 rounded-xl uppercase text-xs tracking-widest shadow-lg">Quiero que Alpha se encargue de todo</button>
+            <p class="text-slate-300 font-light leading-relaxed mb-8 max-w-md">
+                Operamos bajo el modelo <strong>Zero-Down Risk</strong>: No arriesga un solo centavo de anticipo. Gestionamos la burocracia y la defensa técnica integral.
+            </p>
+            <button onclick="document.getElementById('protocol-section').scrollIntoView({behavior:'smooth'})" class="bg-alphaElectric font-bold py-4 px-10 rounded-xl uppercase text-xs tracking-widest shadow-lg">
+                Quiero conocer su método
+            </button>
         </section>
 
-        <!-- 📱 PANTALLA 4: PROTOCOLO [16-18] -->
+        <!-- 📱 PANTALLA 4: EL CAMINO SEGURO (TODOS LOS 5 PASOS RESTAURADOS) -->
         <section id="protocol-section" class="flex flex-col items-center justify-center px-6 bg-technicalPlatinum/95">
             <h2 class="font-montserrat font-bold text-xl text-alphaNavy uppercase mb-8">Su hogar protegido en 5 pasos infalibles</h2>
-            <div class="space-y-4 w-full max-w-md">
-                <!-- Se inyectan las 5 fases dinámicamente -->
-                <div class="flex items-start bg-white p-4 rounded-xl shadow-sm border border-slate-100">
-                    <span class="font-bold text-alphaElectric mr-3">01</span>
-                    <p class="text-xs font-semibold text-slate-700 uppercase">Alpha Property Health Assessment</p>
+            <div class="space-y-3 w-full max-w-md">
+                <div class="flex items-center bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                    <span class="font-bold text-alphaElectric mr-4">01</span>
+                    <p class="text-[11px] font-bold text-slate-700 uppercase tracking-wider">Alpha Property Health Assessment</p>
                 </div>
-                <div class="flex items-start bg-white p-4 rounded-xl shadow-sm border border-slate-100">
-                    <span class="font-bold text-alphaElectric mr-3">02</span>
-                    <p class="text-xs font-semibold text-slate-700 uppercase">Alpha Clarity Compass</p>
+                <div class="flex items-center bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                    <span class="font-bold text-alphaElectric mr-4">02</span>
+                    <p class="text-[11px] font-bold text-slate-700 uppercase tracking-wider">Alpha Clarity Compass</p>
                 </div>
-                <!-- ... Fases 03, 04, 05 ... -->
-                <button onclick="document.getElementById('trust-section').scrollIntoView({behavior:'smooth'})" class="mt-6 w-full bg-alphaNavy text-white font-bold py-4 rounded-xl text-xs uppercase tracking-widest">Me queda claro, quiero continuar</button>
+                <div class="flex items-center bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                    <span class="font-bold text-alphaElectric mr-4">03</span>
+                    <p class="text-[11px] font-bold text-slate-700 uppercase tracking-wider">Alpha Concierge Engagement</p>
+                </div>
+                <div class="flex items-center bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                    <span class="font-bold text-alphaElectric mr-4">04</span>
+                    <p class="text-[11px] font-bold text-slate-700 uppercase tracking-wider">Alpha Signature Restoration</p>
+                </div>
+                <div class="flex items-center bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                    <span class="font-bold text-alphaElectric mr-4">05</span>
+                    <p class="text-[11px] font-bold text-slate-700 uppercase tracking-wider">Walkthrough & Certificate</p>
+                </div>
+                <button onclick="document.getElementById('trust-section').scrollIntoView({behavior:'smooth'})" class="mt-6 w-full bg-alphaNavy text-white font-bold py-4 rounded-xl text-xs uppercase tracking-widest shadow-md">
+                    Me queda claro, quiero continuar
+                </button>
             </div>
         </section>
 
-        <!-- 📱 PANTALLA 5: CONFIANZA [19, 20] -->
+        <!-- 📱 PANTALLA 5: EL BLINDAJE DE CONFIANZA (LOS 4 CUADRANTES RESTAURADOS) -->
         <section id="trust-section" class="flex flex-col items-center justify-center px-6 bg-white text-center">
             <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-6">Músculo Regional de Houston</h2>
             <div class="grid grid-cols-2 gap-3 mb-8 w-full max-w-md">
-                <div class="p-4 bg-technicalPlatinum rounded-xl border border-slate-100"><span class="text-[10px] font-bold text-alphaElectric uppercase">Norte</span></div>
-                <div class="p-4 bg-technicalPlatinum rounded-xl border border-slate-100"><span class="text-[10px] font-bold text-alphaElectric uppercase">Oeste</span></div>
-                <!-- ... Más cuadrantes ... -->
+                <div class="p-4 bg-technicalPlatinum rounded-xl border border-slate-100 flex flex-col items-center">
+                    <span class="text-[10px] font-bold text-alphaElectric uppercase mb-1">Norte</span>
+                    <span class="text-[8px] text-slate-500">Woodlands / Spring</span>
+                </div>
+                <div class="p-4 bg-technicalPlatinum rounded-xl border border-slate-100 flex flex-col items-center">
+                    <span class="text-[10px] font-bold text-alphaElectric uppercase mb-1">Oeste</span>
+                    <span class="text-[8px] text-slate-500">Katy / Cypress</span>
+                </div>
+                <div class="p-4 bg-technicalPlatinum rounded-xl border border-slate-100 flex flex-col items-center">
+                    <span class="text-[10px] font-bold text-alphaElectric uppercase mb-1">Central</span>
+                    <span class="text-[8px] text-slate-500">Inner Loop / Humble</span>
+                </div>
+                <div class="p-4 bg-technicalPlatinum rounded-xl border border-slate-100 flex flex-col items-center">
+                    <span class="text-[10px] font-bold text-alphaElectric uppercase mb-1">Sur</span>
+                    <span class="text-[8px] text-slate-500">Pearland / Galveston</span>
+                </div>
             </div>
-            <button onclick="document.getElementById('lead-form-container').scrollIntoView({behavior:'smooth'})" class="bg-alphaElectric text-white font-bold py-4 px-10 rounded-xl uppercase text-sm tracking-widest shadow-lg">Confío en su respaldo, agendar visita</button>
+            <button onclick="document.getElementById('lead-form-container').scrollIntoView({behavior:'smooth'})" class="bg-alphaElectric text-white font-bold py-4 px-10 rounded-xl uppercase text-sm tracking-widest shadow-lg shadow-blue-200">
+                Confío en su respaldo, agendar
+            </button>
         </section>
 
-        <!-- 📱 PANTALLA 6: HUB DE ACCIÓN INMEDIATA [3, 21] -->
+        <!-- 📱 PANTALLA 6: HUB DE ACCIÓN (CANALES DE CONTACTO COMPLETOS) -->
         <section id="lead-form-container" class="flex flex-col items-center justify-center px-6 bg-technicalPlatinum">
-            <div class="max-w-md w-full text-center space-y-4">
-                <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase">Damos el primer paso bajo sus reglas</h2>
-                <div class="grid grid-cols-1 gap-3">
+            <div class="max-w-md w-full text-center space-y-3">
+                <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-4">Damos el primer paso bajo sus reglas</h2>
+                <div class="grid grid-cols-1 gap-2">
                     <a href="tel:3463702793" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm active:scale-95 transition-all">
                         <img src="/assets/img/icons/icon-phone.svg" class="w-5 h-5 mr-4 opacity-70">
-                        <span class="text-sm font-semibold text-slate-700">Hablar con un especialista ahora</span>
+                        <span class="text-xs font-semibold text-slate-700">Hablar con un especialista ahora</span>
+                    </a>
+                    <a href="sms:+13463702793?body=Hola%20Alpha,%20necesito%20revisar%20mi%20techo." class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm active:scale-95 transition-all">
+                        <img src="/assets/img/icons/icon-tools.svg" class="w-5 h-5 mr-4 opacity-70">
+                        <span class="text-xs font-semibold text-slate-700">Enviar un mensaje de texto</span>
                     </a>
                     <a href="https://wa.me/13463702793" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm active:scale-95 transition-all">
                         <img src="/assets/img/icons/icon-shield-check.svg" class="w-5 h-5 mr-4 opacity-70">
-                        <span class="text-sm font-semibold text-slate-700">Iniciar consulta por WhatsApp</span>
+                        <span class="text-xs font-semibold text-slate-700">Iniciar consulta por WhatsApp</span>
                     </a>
-                    <!-- ... Otras opciones ... -->
+                    <a href="mailto:info@alpharoofings.com" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm active:scale-95 transition-all">
+                        <img src="/assets/img/icons/icon-certificate.svg" class="w-5 h-5 mr-4 opacity-70">
+                        <span class="text-xs font-semibold text-slate-700">Enviar correo con detalles</span>
+                    </a>
+                    <button onclick="showZohoForm()" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm active:scale-95 transition-all text-left">
+                        <img src="/assets/img/icons/icon-assessment.svg" class="w-5 h-5 mr-4 opacity-70">
+                        <span class="text-xs font-semibold text-slate-700">Dejar mis datos (Formulario)</span>
+                    </button>
+                    <button onclick="showCalendar()" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm active:scale-95 transition-all text-left">
+                        <img src="/assets/img/icons/icon-compass.svg" class="w-5 h-5 mr-4 opacity-70">
+                        <span class="text-xs font-semibold text-slate-700">Agendar directamente en calendario</span>
+                    </button>
                     <button onclick="showRealtorFlow()" class="flex items-center p-4 bg-alphaNavy border border-slate-800 rounded-xl shadow-lg hover:bg-alphaElectric transition-all active:scale-95 group text-left">
                         <img src="/assets/img/icons/icon-certificate.svg" class="w-5 h-5 mr-4 brightness-0 invert">
-                        <span class="text-sm font-bold text-white uppercase tracking-widest">Soy Realtor e inspección prioritaria</span>
+                        <span class="text-xs font-bold text-white uppercase tracking-widest">Soy Realtor e inspección prioritaria</span>
                     </button>
                 </div>
             </div>
         </section>
     </div>
 
+    <!-- FOOTER MODULAR -->
     <div id="footer-container" class="hidden md:block relative z-20"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
