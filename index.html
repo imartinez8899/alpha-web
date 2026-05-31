@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alpha Roofing & Gutters | Expertos en Techos Residenciales y Restauración</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Animación On Scroll (AOS) para la revelación elegante de las fases -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -20,6 +19,13 @@
             }
         }
     </script>
+    <style>
+        .interactive-grid {
+            background-size: 50px 50px;
+            background-image: linear-gradient(to right, rgba(26, 54, 93, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(26, 54, 93, 0.03) 1px, transparent 1px);
+        }
+    </style>
 </head>
 <body class="bg-white text-slate-800 antialiased font-sans">
 
@@ -27,7 +33,7 @@
     <div id="header-container"></div>
 
     <!-- HERO SECTION: Enfoque Residencial con tu Asset de Fondo Real -->
-    <section class="relative min-h-screen flex items-center justify-center pt-28 pb-20 overflow-hidden bg-cover bg-center" style="background-image: url('assets/img/hero-bg.webp');">
+    <section class="relative min-h-screen flex items-center justify-center pt-28 pb-20 overflow-hidden bg-cover bg-center" style="background-image: url('assets/img/hero/hero-bg.webp');">
         <!-- Capa de superposición para garantizar legibilidad de los textos -->
         <div class="absolute inset-0 bg-gradient-to-r from-alphaNavy/95 via-alphaNavy/85 to-transparent"></div>
         
@@ -53,14 +59,15 @@
                 </div>
             </div>
 
-            <!-- Columna Derecha: Formulario Nativo de Zoho con Diseño Estilizado Premium -->
+            <!-- Columna Derecha: Formulario Nativo de Zoho Forms con Diseño Estilizado Premium (Método 2) -->
             <div id="contacto-section" class="lg:col-span-5 bg-white p-8 rounded-2xl shadow-2xl relative">
                 <div class="absolute top-0 left-0 w-full h-1.5 bg-alphaBlue rounded-t-2xl"></div>
                 <h3 class="text-xl font-bold text-alphaNavy mb-1">Agende su Inspección Sin Costo</h3>
-                <p class="text-xs text-slate-500 mb-6">Permita que un specialist revise su techo. Descubra áreas de oportunidad antes de que se conviertan en reparaciones costosas.</p>
+                <p class="text-xs text-slate-500 mb-6">Permita que un especialista revise su techo. Descubra áreas de oportunidad antes de que se conviertan en reparaciones costosas.</p>
                 
                 <form action='https://forms.zohopublic.com/alpharoofing1/form/WebformGeneralWebsiteES/formperma/f-N2fdYB9GuIhz3IMCTrmhq22pMYjPHDiwsdnyDwWH8/htmlRecords/submit' name='form' id='form' method='POST' accept-charset='UTF-8' enctype='multipart/form-data' class="space-y-4">
                     
+                    <!-- Parámetros ocultos obligatorios de Zoho Forms -->
                     <input type="hidden" name="zf_referrer_name" value="">
                     <input type="hidden" name="zf_redirect_url" value="">
                     <input type="hidden" name="zc_gad" value="">
