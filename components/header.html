@@ -1,4 +1,4 @@
-<!-- NAV BAR FIJA INFERIOR (MÓVIL) [25, 27] -->
+<!-- NAV BAR FIJA INFERIOR (MÓVIL) -->
 <div class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#0A1128] border-t border-slate-800 shadow-2xl px-4 h-16 flex items-center justify-between safe-bottom">
     <button onclick="navigateToHome()" class="flex flex-col items-center justify-center w-16 h-full text-white">
         <img src="/assets/img/icons/icon-home.svg" alt="Inicio" class="w-6 h-6 mb-0.5 brightness-0 invert">
@@ -6,7 +6,7 @@
     </button>
 
     <div class="flex items-center h-full">
-        <button onclick="navigateToAuditForm()" class="bg-gradient-to-r from-alphaElectric to-blue-900 text-white font-bold text-[10px] uppercase tracking-widest px-5 h-10 rounded-full shadow-[0_4px_15px_rgba(37,59,216,0.4)] active:scale-95 transition-transform border border-blue-900">
+        <button onclick="navigateToAuditForm()" class="bg-black text-white font-bold text-[10px] uppercase tracking-widest px-5 h-10 rounded-full border border-[#253BD8] shadow-[0_0_15px_rgba(37,59,216,0.6)] active:scale-95 transition-all">
             ¡Quiero Comenzar Ya!
         </button>
     </div>
@@ -17,30 +17,18 @@
     </button>
 </div>
 
-<!-- NAV BAR FIJA SUPERIOR (PC) [28] -->
-<div class="hidden md:flex fixed top-0 left-0 right-0 z-50 bg-[#0A1128]/95 backdrop-blur-md border-b border-slate-800 shadow-lg px-8 h-20 items-center justify-between">
+<!-- NAV BAR FIJA SUPERIOR (PC) -->
+<div class="hidden md:flex fixed top-0 left-0 right-0 z-50 bg-[#0A1128]/95 backdrop-blur-md border-b border-slate-800 px-8 h-20 items-center justify-between">
     <div class="flex items-center cursor-pointer" onclick="navigateToHome()">
         <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-10">
     </div>
-    <nav class="flex items-center space-x-8 text-xs font-medium uppercase tracking-widest text-slate-400">
-        <a href="javascript:void(0)" onclick="navigateToHome()" class="hover:text-white transition-colors">Alpha Signature Protocol</a>
-        <a href="/services.html" class="hover:text-white transition-colors">Zonas de Cobertura</a>
-        <a href="tel:3463702793" class="text-white bg-blue-900/30 px-3 py-1 rounded border border-blue-900/50">346-370-2793</a>
-    </nav>
-    <button onclick="navigateToAuditForm()" class="bg-alphaElectric text-white font-bold text-xs uppercase tracking-widest px-6 py-3 rounded-full shadow-lg hover:brightness-110 active:scale-95 transition-all">
-        ¡Quiero Comenzar Ya!
-    </button>
-</div>
-
-<!-- OVERLAY MENÚ [29] -->
-<div id="fullscreen-menu-overlay" class="hidden fixed inset-0 z-[30] bg-[#0A1128]/98 flex flex-col items-center justify-center animate-fade-in backdrop-blur-md">
-    <div class="text-center space-y-8">
-        <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-12 mx-auto">
-        <nav class="flex flex-col space-y-6 text-xl text-slate-200 font-montserrat font-bold uppercase tracking-[0.2em]">
-            <a href="javascript:void(0)" onclick="navigateToHome(); toggleFullscreenMenu()" class="hover:text-alphaElectric transition-colors">Inicio</a>
-            <a href="/services.html" class="hover:text-alphaElectric transition-colors">Especialidades</a>
-            <a href="javascript:void(0)" onclick="navigateToAuditForm(); toggleFullscreenMenu()" class="text-alphaElectric italic">Canal Realtor Priority</a>
+    <div class="flex items-center space-x-8">
+        <nav class="flex items-center space-x-6 text-xs font-medium uppercase tracking-widest text-slate-400">
+            <a href="javascript:void(0)" onclick="navigateToHome()" class="hover:text-white transition-colors">Protocolo Alpha</a>
+            <a href="/services.html" class="hover:text-white transition-colors">Especialidades</a>
         </nav>
-        <button onclick="toggleFullscreenMenu()" class="mt-12 text-[10px] text-slate-400 border border-slate-700 px-8 py-3 uppercase tracking-[0.3em] rounded-full">Cerrar</button>
+        <button onclick="navigateToAuditForm()" class="bg-black text-white font-bold text-xs uppercase tracking-widest px-8 py-3 rounded-full border border-[#253BD8] shadow-[0_0_15px_rgba(37,59,216,0.6)] hover:brightness-110 active:scale-95 transition-all">
+            ¡Quiero Comenzar Ya!
+        </button>
     </div>
 </div>
