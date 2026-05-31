@@ -1,84 +1,61 @@
-<!-- components/header.html -->
-<!-- BARRA DE NAVEGACIÓN ERGONÓMICA INFERIOR (ESTILO APP NATIVA) -->
-<div class="fixed bottom-0 left-0 w-full z-50 px-4 pb-4 md:hidden">
-    <nav class="w-full h-16 bg-alphaNavy/95 backdrop-blur-md rounded-2xl border border-white/10 shadow-2xl flex items-center justify-between px-6 text-white">
+<div class="w-full bg-[#0A1128] border-b border-slate-800 px-4 py-3 md:hidden flex items-center justify-between sticky top-0 z-50">
+    
+    <button onclick="navigateToHome()" class="flex items-center gap-2 focus:outline-none" aria-label="Volver al Inicio">
+        <img src="/assets/img/icons/alpha-logo-white.svg" alt="Alpha Isotype" class="h-8 w-auto">
+        <span class="text-white font-semibold text-lg tracking-wider font-sans">ALPHA</span>
+    </button>
+
+    <div class="flex items-center gap-4">
         
-        <!-- Elemento 1 (Izquierda): Botón de Inicio / Reset -->
-        <button onclick="resetToScreen1()" class="flex flex-col items-center justify-center space-y-1 active:scale-95 transition-transform group" aria-label="Volver al inicio">
-            <svg class="w-6 h-6 text-slate-400 group-hover:text-blue-400 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-            </svg>
-            <span class="text-[10px] tracking-wider text-slate-400 font-medium group-hover:text-blue-400 transition-colors uppercase">Inicio</span>
+        <button onclick="navigateToAuditForm()" class="bg-[#1a365d] hover:bg-blue-900 text-white text-xs font-bold uppercase tracking-widest px-4 py-2 rounded border border-blue-400/30 transition-all duration-300 shadow-lg shadow-blue-950/50">
+            Solicitar Auditoría
         </button>
 
-        <!-- Elemento 2 (Centro): Botón Destacado en Primera Persona -->
-        <button onclick="jumpToContactScreen()" class="relative -top-3 flex items-center justify-center px-5 h-12 bg-alphaBlue text-white text-xs font-bold tracking-widest uppercase rounded-xl shadow-lg shadow-alphaBlue/40 active:scale-95 transition-all transform border border-blue-500/30">
-            ¡Quiero Comenzar Ya!
-        </button>
-
-        <!-- Elemento 3 (Derecha): Menú Hamburguesa / Mapa del Sitio -->
-        <button onclick="toggleSitemapMenu()" class="flex flex-col items-center justify-center space-y-1 active:scale-95 transition-transform group" aria-label="Abrir mapa del sitio">
-            <svg class="w-6 h-6 text-slate-400 group-hover:text-blue-400 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-            <span class="text-[10px] tracking-wider text-slate-400 font-medium group-hover:text-blue-400 transition-colors uppercase">Menú</span>
-        </button>
-
-    </nav>
-</div>
-
-<!-- MENÚ MODAL COMPLETO (SITEMAP HAMBURGUESA) -->
-<div id="sitemap-modal" class="fixed inset-0 z-50 bg-alphaNavy bg-opacity-98 backdrop-blur-lg translate-y-full transition-transform duration-300 ease-in-out hidden flex-col justify-between p-8 text-white">
-    <div class="flex items-center justify-between border-b border-white/10 pb-6">
-        <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-10 w-auto object-contain">
-        <button onclick="toggleSitemapMenu()" class="p-2 bg-white/5 rounded-full hover:bg-white/10 transition-colors">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+        <button onclick="toggleFullscreenMenu()" class="text-slate-300 hover:text-white transition-colors duration-200 p-1" aria-label="Abrir Menú Principal">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
         </button>
-    </div>
 
-    <!-- Índice/Outline de Navegación Rápida -->
-    <nav class="flex-1 py-12 flex flex-col justify-center space-y-6 text-center">
-        <button onclick="goToScreen(1)" class="text-2xl font-bold tracking-tight hover:text-blue-400 transition-colors block">Inicio Residencial</button>
-        <button onclick="goToScreen(2)" class="text-2xl font-bold tracking-tight hover:text-blue-400 transition-colors block">¿Qué necesita su hogar?</button>
-        <button onclick="goToScreen(4)" class="text-2xl font-bold tracking-tight hover:text-blue-400 transition-colors block">Alpha Signature Protocol</button>
-        <button onclick="goToScreen(5)" class="text-2xl font-bold tracking-tight hover:text-blue-400 transition-colors block">Prueba Social y Cobertura</button>
-        <button onclick="goToScreen(6)" class="text-2xl font-bold tracking-tight hover:text-blue-400 transition-colors block text-blue-400">Canales de Contacto Directo</button>
-    </nav>
-
-    <div class="border-t border-white/10 pt-6 text-center text-xs text-slate-400 space-y-2">
-        <p class="font-semibold text-white tracking-wider uppercase text-[10px]">Alpha Roofing & Gutters</p>
-        <p>Spring & The Woodlands Area</p>
     </div>
 </div>
 
-<!-- LÓGICA DE CONTROL TEMPORAL DE INTERACCIONES -->
 <script>
-    function toggleSitemapMenu() {
-        const modal = document.getElementById('sitemap-modal');
-        if (modal.classList.contains('hidden')) {
-            modal.classList.remove('hidden');
-            setTimeout(() => modal.classList.remove('translate-y-full'), 10);
+    /**
+     * Alpha Web Infrastructure - Controlador de Navegación Semántica
+     * Sustituye la lógica de índices numéricos por hitos del ciclo del cliente.
+     */
+
+    // Retorna al usuario al inicio (Hero Section / Home)
+    function navigateToHome() {
+        console.log("[Alpha Navigation] Ejecutando redirección estética a Home.");
+        // Si usas scroll o manipulación de DOM para tu SPA:
+        const homeSection = document.getElementById("hero-section");
+        if (homeSection) {
+            homeSection.scrollIntoView({ behavior: 'smooth' });
         } else {
-            modal.classList.add('translate-y-full');
-            setTimeout(() => modal.classList.add('hidden'), 300);
+            window.location.href = "/index.html";
         }
     }
 
-    function resetToScreen1() {
-        console.log("Reset a Pantalla 1 ejecutado.");
-        if(typeof swiper !== 'undefined') swiper.slideTo(0);
+    // Salto de alta conversión directo al Formulario de Zoho (Fase 1: Assessment)
+    function navigateToAuditForm() {
+        console.log("[Alpha Navigation] Traccionando lead hacia el Alpha Property Health Assessment.");
+        const formSection = document.getElementById("lead-form-container");
+        if (formSection) {
+            formSection.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            // Si el formulario reside en una sección específica indexada
+            window.location.href = "/index.html#lead-form";
+        }
     }
 
-    function jumpToContactScreen() {
-        console.log("Salto directo a la Pantalla de Contacto 6 ejecutado.");
-        if(typeof swiper !== 'undefined') swiper.slideTo(5);
-    }
-
-    function goToScreen(index) {
-        toggleSitemapMenu();
-        console.log("Navegando a pantalla index: " + (index - 1));
-        if(typeof swiper !== 'undefined') swiper.slideTo(index - 1);
+    // Control de visibilidad del menú de pantalla completa para blindaje legal o navegación corporativa
+    function toggleFullscreenMenu() {
+        const menuOverlay = document.getElementById("fullscreen-menu-overlay");
+        if (menuOverlay) {
+            menuOverlay.classList.toggle("hidden");
+            console.log("[Alpha Interface] Estado del menú modificado.");
+        }
     }
 </script>
