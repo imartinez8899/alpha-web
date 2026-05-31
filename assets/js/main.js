@@ -1,54 +1,36 @@
 /**
- * Alpha Web Infrastructure - Master JS Controller
+ * Alpha Roofing & Gutters - Master Controller [22, 24]
  */
 document.addEventListener("DOMContentLoaded", function() {
-    
+    // Inyección de Componentes
     const headerContainer = document.getElementById("header-container");
+    const footerContainer = document.getElementById("footer-container");
+
     if (headerContainer) {
         fetch("/components/header.html")
-            .then(response => response.text())
-            .then(data => { headerContainer.innerHTML = data; })
-            .catch(err => console.error("Error cargando la barra Alpha:", err));
+            .then(res => res.text())
+            .then(data => headerContainer.innerHTML = data)
+            .catch(err => console.error("Error Alpha Header:", err));
     }
 
-    const footerContainer = document.getElementById("footer-container");
     if (footerContainer) {
         fetch("/components/footer.html")
-            .then(response => response.text())
-            .then(data => { footerContainer.innerHTML = data; })
-            .catch(err => console.error("Error cargando el footer Alpha:", err));
+            .then(res => res.text())
+            .then(data => footerContainer.innerHTML = data)
+            .catch(err => console.error("Error Alpha Footer:", err));
     }
 });
 
+// Navegación Semántica
 function navigateToHome() {
-    const heroSection = document.getElementById("hero-section");
-    if (heroSection) {
-        heroSection.scrollIntoView({ behavior: 'smooth' });
-    } else {
-        window.location.href = "/index.html";
-    }
+    document.getElementById('hero-section').scrollIntoView({ behavior: 'smooth' });
 }
 
 function navigateToAuditForm() {
-    const formSection = document.getElementById("lead-form-container");
-    if (formSection) {
-        formSection.scrollIntoView({ behavior: 'smooth' });
-    } else {
-        window.location.href = "/index.html#lead-form-container";
-    }
+    document.getElementById('lead-form-container').scrollIntoView({ behavior: 'smooth' });
 }
 
 function toggleFullscreenMenu() {
-    const menuOverlay = document.getElementById("fullscreen-menu-overlay");
-    if (menuOverlay) {
-        menuOverlay.classList.toggle("hidden");
-    }
-}
-
-// Agrega esto a tu main.js si quieres navegar a secciones específicas
-function navigateToSection(sectionId) {
-    const element = document.getElementById(sectionId);
-    if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-    }
+    const menu = document.getElementById("fullscreen-menu-overlay");
+    if (menu) menu.classList.toggle("hidden");
 }
