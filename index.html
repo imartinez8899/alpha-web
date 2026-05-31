@@ -45,7 +45,7 @@
         .video-overlay { background: linear-gradient(to bottom, rgba(26, 54, 93, 0.85), rgba(10, 17, 40, 0.95)); }
         .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
         
-        /* Botón Estilo Services (Alpha Signature Style) */
+        /* Botón Estilo Alpha Signature (Resaltado) */
         .btn-alpha-signature {
             background: linear-gradient(to right, #253BD8, #1a365d);
             box-shadow: 0 4px 15px rgba(37, 59, 216, 0.4);
@@ -96,54 +96,54 @@
             <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-8 text-center">¿Qué necesita su propiedad hoy?</h2>
             <div class="space-y-3 w-full max-w-md">
                 <button onclick="showSection('alleviate-section')" class="w-full p-5 bg-white border border-slate-200 rounded-2xl flex items-center group hover:border-alphaElectric transition-all text-left shadow-sm">
-                    <img src="/assets/img/icons/icon-roof.svg" class="w-8 h-8 mr-4 brightness-0 group-hover:filter-none">
-                    <span class="text-sm font-semibold text-slate-700">Necesito un techo nuevo (Cash / Financiamiento)</span>
+                    <span class="p-2 bg-slate-100 rounded-lg mr-4"><svg class="w-6 h-6 text-alphaNavy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg></span>
+                    <span class="text-sm font-semibold text-slate-700">Necesito un techo nuevo (Cash / Financiamiento) [1, 2]</span>
                 </button>
                 <button onclick="showSection('alleviate-section')" class="w-full p-5 bg-white border border-slate-200 rounded-2xl flex items-center group hover:border-alphaElectric transition-all text-left shadow-sm">
-                    <img src="/assets/img/icons/icon-shield-check.svg" class="w-8 h-8 mr-4 brightness-0 group-hover:filter-none">
-                    <span class="text-sm font-semibold text-slate-700">Mi propiedad sufrió daños y quiero resolver lo de mi seguro</span>
+                    <span class="p-2 bg-slate-100 rounded-lg mr-4"><svg class="w-6 h-6 text-alphaNavy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg></span>
+                    <span class="text-sm font-semibold text-slate-700">Mi propiedad sufrió daños y quiero resolver lo de mi seguro [3, 4]</span>
                 </button>
                 <button onclick="showSection('alleviate-section')" class="w-full p-5 bg-white border border-slate-200 rounded-2xl flex items-center group hover:border-alphaElectric transition-all text-left shadow-sm">
-                    <img src="/assets/img/icons/icon-gutters.svg" class="w-8 h-8 mr-4 brightness-0 group-hover:filter-none">
-                    <span class="text-sm font-semibold text-slate-700">Deseo mejorar mis espacios exteriores y cercas</span>
+                    <span class="p-2 bg-slate-100 rounded-lg mr-4"><svg class="w-6 h-6 text-alphaNavy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg></span>
+                    <span class="text-sm font-semibold text-slate-700">Deseo mejorar mis espacios exteriores y cercas [5, 6]</span>
                 </button>
             </div>
         </section>
 
         <!-- 📱 PANTALLA 3: EL ALIVIADOR DE CARGA -->
         <section id="alleviate-section" class="view-section flex flex-col items-center justify-center px-6 bg-alphaNavy text-white text-center">
-            <h2 class="font-montserrat font-bold text-2xl uppercase mb-6">Usted suelta el problema; Alpha asume el control técnico</h2>
+            <h2 class="font-montserrat font-bold text-2xl uppercase mb-6 text-white">Usted suelta el problema; Alpha asume el control técnico [7, 8]</h2>
             <p class="text-slate-300 font-light leading-relaxed mb-8 max-w-md">
-                Operamos bajo el modelo <strong>Zero-Down Risk</strong>: No arriesga un solo centavo de anticipo. Gestionamos la burocracia y la defensa técnica integral.
+                Operamos bajo el modelo <strong>Zero-Down Risk</strong>: No arriesga un solo centavo de anticipo. Gestionamos la burocracia y la defensa técnica integral [9, 10].
             </p>
-            <button onclick="showSection('protocol-section')" class="btn-alpha-signature font-bold py-4 px-10 rounded-full uppercase text-xs tracking-widest shadow-lg">
+            <button onclick="showSection('protocol-section')" class="btn-alpha-signature text-white font-bold py-4 px-10 rounded-full uppercase text-xs tracking-widest shadow-lg">
                 Quiero conocer su método
             </button>
         </section>
 
         <!-- 📱 PANTALLA 4: EL CAMINO SEGURO (PROTOCOL) -->
         <section id="protocol-section" class="view-section flex flex-col items-center justify-center px-6 bg-technicalPlatinum/95">
-            <h2 class="font-montserrat font-bold text-xl text-alphaNavy uppercase mb-8">Su hogar protegido en 5 pasos infalibles</h2>
+            <h2 class="font-montserrat font-bold text-xl text-alphaNavy uppercase mb-8">Su hogar protegido en 5 pasos infalibles [11, 12]</h2>
             <div class="space-y-3 w-full max-w-md text-left">
                 <div class="flex items-center bg-white p-4 rounded-xl shadow-sm border border-slate-100">
                     <span class="font-bold text-alphaElectric mr-4 text-xs">01</span>
-                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider">Alpha Property Health Assessment</p>
+                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider">Alpha Property Health Assessment [13, 14]</p>
                 </div>
                 <div class="flex items-center bg-white p-4 rounded-xl shadow-sm border border-slate-100">
                     <span class="font-bold text-alphaElectric mr-4 text-xs">02</span>
-                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider">Alpha Clarity Compass</p>
+                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider">Alpha Clarity Compass [15, 16]</p>
                 </div>
                 <div class="flex items-center bg-white p-4 rounded-xl shadow-sm border border-slate-100">
                     <span class="font-bold text-alphaElectric mr-4 text-xs">03</span>
-                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider">Alpha Concierge Engagement</p>
+                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider">Alpha Concierge Engagement [17, 18]</p>
                 </div>
                 <div class="flex items-center bg-white p-4 rounded-xl shadow-sm border border-slate-100">
                     <span class="font-bold text-alphaElectric mr-4 text-xs">04</span>
-                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider">Alpha Signature Restoration</p>
+                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider">Alpha Signature Restoration [19, 20]</p>
                 </div>
                 <div class="flex items-center bg-white p-4 rounded-xl shadow-sm border border-slate-100">
                     <span class="font-bold text-alphaElectric mr-4 text-xs">05</span>
-                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider">Walkthrough & Certificate</p>
+                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider">Walkthrough & Certificate [21]</p>
                 </div>
                 <button onclick="showSection('trust-section')" class="mt-6 w-full btn-alpha-signature text-white font-bold py-4 rounded-full text-[10px] uppercase tracking-widest shadow-md">
                     Me queda claro, quiero continuar
@@ -153,7 +153,7 @@
 
         <!-- 📱 PANTALLA 5: EL BLINDAJE DE CONFIANZA -->
         <section id="trust-section" class="view-section flex flex-col items-center justify-center px-6 bg-white text-center">
-            <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-6">Músculo Regional de Houston</h2>
+            <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-6">Músculo Regional de Houston [11, 22]</h2>
             <div class="grid grid-cols-2 gap-3 mb-8 w-full max-w-md">
                 <div class="p-4 bg-technicalPlatinum rounded-xl border border-slate-100 flex flex-col items-center">
                     <span class="text-[10px] font-bold text-alphaElectric uppercase mb-1">Norte</span>
@@ -177,30 +177,55 @@
             </button>
         </section>
 
-        <!-- 📱 PANTALLA 6: HUB DE ACCIÓN INMEDIATA -->
+        <!-- 📱 PANTALLA 6: HUB DE ACCIÓN INMEDIATA (OPTIMIZADO) -->
         <section id="lead-form-container" class="view-section flex flex-col items-center justify-center px-6 bg-technicalPlatinum">
             <div class="max-w-md w-full text-center space-y-3">
-                <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-4">Damos el primer paso bajo sus reglas</h2>
+                <header class="mb-4">
+                    <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase tracking-tight">Damos el primer paso bajo sus reglas</h2>
+                    <p class="text-alphaSlate text-xs font-light mt-2">Seleccione el método que le brinde mayor comodidad para proteger su hogar.</p>
+                </header>
+                
                 <div class="grid grid-cols-1 gap-2">
-                    <a href="tel:3463702793" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm active:scale-95 transition-all">
-                        <img src="/assets/img/icons/icon-phone.svg" class="w-5 h-5 mr-4 opacity-70">
-                        <span class="text-xs font-semibold text-slate-700 uppercase">Hablar con un especialista ahora</span>
+                    <!-- 1. Teléfono (RESALTADO / HIGHLIGHTED) -->
+                    <a href="tel:3463702793" class="btn-alpha-signature flex items-center p-4 rounded-xl shadow-lg active:scale-95 transition-all group">
+                        <span class="p-2 bg-white/20 rounded-lg mr-4 text-white"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg></span>
+                        <span class="text-xs font-bold text-white uppercase tracking-widest">Hablar con un especialista ahora [23, 24]</span>
                     </a>
-                    <a href="https://wa.me/13463702793" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm active:scale-95 transition-all">
-                        <img src="/assets/img/icons/icon-shield-check.svg" class="w-5 h-5 mr-4 opacity-70">
+
+                    <!-- 2. Mensaje de Texto (SMS) - RESTAURADO -->
+                    <a href="sms:+13463702793?body=Hola%20Alpha,%20necesito%20revisar%20mi%20techo." class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm active:scale-95 transition-all group">
+                        <span class="p-2 bg-slate-100 rounded-lg mr-4 text-alphaNavy"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 1.657-2.343 3-5.232 3-1.077 0-2.074-.185-2.898-.5C11.666 15.657 10 17 10 17s.167-2.343 0-3C7.111 14 5 12.657 5 11c0-2.761 3.582-5 8-5s8 2.239 8 5z"></path></svg></span>
+                        <span class="text-xs font-semibold text-slate-700 uppercase">Enviar un mensaje de texto</span>
+                    </a>
+
+                    <!-- 3. WhatsApp -->
+                    <a href="https://wa.me/13463702793" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm active:scale-95 transition-all group">
+                        <span class="p-2 bg-slate-100 rounded-lg mr-4 text-alphaNavy"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg></span>
                         <span class="text-xs font-semibold text-slate-700 uppercase">Iniciar consulta por WhatsApp</span>
                     </a>
+
+                    <!-- 4. Email -->
+                    <a href="mailto:info@alpharoofings.com" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm active:scale-95 transition-all group">
+                        <span class="p-2 bg-slate-100 rounded-lg mr-4 text-alphaNavy"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></span>
+                        <span class="text-xs font-semibold text-slate-700 uppercase">Enviar correo con detalles [23, 24]</span>
+                    </a>
+
+                    <!-- 5. Formulario Zoho -->
                     <button onclick="showZohoForm()" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm active:scale-95 transition-all text-left">
-                        <img src="/assets/img/icons/icon-assessment.svg" class="w-5 h-5 mr-4 opacity-70">
-                        <span class="text-xs font-semibold text-slate-700 uppercase">Dejar mis datos (Formulario)</span>
+                        <span class="p-2 bg-slate-100 rounded-lg mr-4 text-alphaNavy"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg></span>
+                        <span class="text-xs font-semibold text-slate-700 uppercase">Dejar mis datos (Formulario) [3, 5]</span>
                     </button>
+
+                    <!-- 6. Calendario -->
                     <button onclick="showCalendar()" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm active:scale-95 transition-all text-left">
-                        <img src="/assets/img/icons/icon-compass.svg" class="w-5 h-5 mr-4 opacity-70">
-                        <span class="text-xs font-semibold text-slate-700 uppercase">Agendar directamente en calendario</span>
+                        <span class="p-2 bg-slate-100 rounded-lg mr-4 text-alphaNavy"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2-2v12a2 2 0 002 2z"></path></svg></span>
+                        <span class="text-xs font-semibold text-slate-700 uppercase">Agendar directamente en calendario [25]</span>
                     </button>
-                    <button onclick="showRealtorFlow()" class="flex items-center p-4 bg-alphaNavy border border-slate-800 rounded-xl shadow-lg hover:bg-alphaElectric transition-all active:scale-95 group text-left">
-                        <img src="/assets/img/icons/icon-certificate.svg" class="w-5 h-5 mr-4 brightness-0 invert">
-                        <span class="text-[10px] font-bold text-white uppercase tracking-widest">Soy Realtor e inspección prioritaria</span>
+
+                    <!-- 7. Realtor Priority (NORMAL STYLE) -->
+                    <button onclick="showRealtorFlow()" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm active:scale-95 transition-all text-left group">
+                        <span class="p-2 bg-slate-100 rounded-lg mr-4 text-alphaNavy"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H9a2 2 0 00-2 2v16m10 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m4 0h1m-5 10h1m4 0h1m-5-5h1m4 0h1"></path></svg></span>
+                        <span class="text-xs font-semibold text-slate-700 uppercase">Soy Realtor e inspección prioritaria [26]</span>
                     </button>
                 </div>
             </div>
