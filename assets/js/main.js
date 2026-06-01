@@ -1,24 +1,22 @@
 /* 
   ALPHA ROOFING & GUTTERS | LOGIC CONTROLLER
   STRATEGIST: IM + Alpha AI
-  VERSION: 16.2.0 (Initialization Shield)
-  TIMESTAMP: 2026-06-01 15:45 CST
+  VERSION: 16.3.0 (Interaction Shield)
+  TIMESTAMP: 2026-06-01 16:15 CST
 */
 document.addEventListener("DOMContentLoaded", function() {
-    console.log("[Alpha Shield] v16.2.0 | IM + Alpha AI Online");
+    console.log("[Alpha Shield] v16.3.0 | IM + Alpha AI Online");
     injectComponent("header-container", "/components/header.html");
     injectComponent("zoho-form-container", "/components/lead-form.html");
 
-    // Si ya existe un hash (recarga de página), inicializamos de inmediato
+    // Si ya existe un hash previo, inicializamos para evitar bloqueo
     if (window.location.hash) {
         initAlphaNavigation();
     }
 });
 
-/**
- * Inicializa el sistema de navegación después de la elección de idioma
- */
 function initAlphaNavigation() {
+    console.log("[Alpha Navigation] Activando capas interactivas...");
     if (!history.state) {
         const currentHash = window.location.hash.replace('#', '') || 'hero-section';
         history.replaceState({ sectionId: currentHash }, 'Home', `#${currentHash}`);
@@ -69,14 +67,5 @@ function showZohoForm() {
         hubContent.classList.add('hidden');
         formContent.classList.remove('hidden');
         history.pushState({ sectionId: 'lead-form-container-zoho' }, '', '#form');
-    }
-}
-
-function hideZohoForm() {
-    const hubContent = document.getElementById('hub-options');
-    const formContent = document.getElementById('zoho-form-container');
-    if (hubContent && formContent) {
-        formContent.classList.add('hidden');
-        hubContent.classList.remove('hidden');
     }
 }

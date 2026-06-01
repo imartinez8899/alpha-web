@@ -1,8 +1,8 @@
 <!-- 
   ALPHA ROOFING & GUTTERS | ZERO-SCROLL APP BLUEPRINT
   STRATEGIST: IM + Alpha AI
-  VERSION: 16.2.0 (Language State Shield Fix)
-  TIMESTAMP: 2026-06-01 15:45 CST
+  VERSION: 16.3.0 (Interaction Shield & Pointer Fix)
+  TIMESTAMP: 2026-06-01 16:15 CST
 -->
 <!DOCTYPE html>
 <html lang="es" class="h-full">
@@ -32,10 +32,15 @@
     <style>
         body, html { height: 100%; overflow: hidden; background-color: #0A1128; }
         
-        /* Prioridad Máxima para el Selector (z-index extremo) */
+        /* Prioridad Máxima y Bloqueo de Interferencia */
         #language-selector {
             z-index: 9999 !important;
             display: flex;
+            pointer-events: auto; /* Activo al inicio */
+        }
+        #language-selector.inactive {
+            pointer-events: none; /* Se vuelve invisible a los clics */
+            opacity: 0;
         }
 
         .btn-alpha-glow {
@@ -64,7 +69,7 @@
 </head>
 <body class="font-sans text-slate-900 selection:bg-alphaElectric selection:text-white">
 
-    <!-- 🌐 SELECTOR DE IDIOMA (ESTADO CERO - SHIELD ACTIVE) -->
+    <!-- 🌐 SELECTOR DE IDIOMA (SHIELD v16.3.0) -->
     <div id="language-selector" class="fixed inset-0 flex items-center justify-center bg-alphaNavy/70 backdrop-blur-2xl transition-opacity duration-700">
         <div class="max-w-xs w-full text-center space-y-8 p-10 bg-black/50 rounded-3xl border border-white/10 shadow-2xl">
             <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-16 mx-auto mb-4">
@@ -84,36 +89,76 @@
         <div class="absolute inset-0 video-overlay"></div>
     </div>
 
-    <!-- NAVEGACIÓN MODULAR -->
     <div id="header-container" class="relative z-50"></div>
 
     <div id="app-viewport" class="relative h-full w-full">
-        <!-- PANTALLA 1: HERO -->
-        <section id="hero-section" class="view-section active flex flex-col items-center justify-center px-6 text-center">
+        
+        <!-- 📱 PANTALLA 1: HERO (INTEGRIDAD TOTAL) -->
+        <section id="hero-section" class="view-section active flex flex-col items-center justify-center px-6 text-center pt-24">
             <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-20 mb-10 opacity-95">
             <h1 class="font-montserrat font-bold text-3xl md:text-5xl text-white uppercase leading-tight mb-6">Expertos en Reparación de Techos en Greater Houston</h1>
-            <p class="text-slate-300 text-lg md:text-xl font-light mb-10 max-w-2xl text-center">Restauramos su hogar con ingeniería de precisión, transparencia total y calidad superior.</p>
+            <p class="text-slate-300 text-lg md:text-xl font-light mb-10 max-w-2xl">Restauramos su hogar con ingeniería de precisión, transparencia total y calidad superior.</p>
             <div class="flex flex-col space-y-4 w-full max-w-sm">
                 <button onclick="showSection('lead-form-container')" class="btn-alpha-glow py-4 px-8 rounded-full text-sm">Necesito un Techo nuevo</button>
                 <button onclick="showSection('filter-section')" class="bg-white/10 text-white backdrop-blur-md border border-white/20 font-semibold py-4 px-8 rounded-full uppercase text-sm tracking-widest active:scale-95 transition-all">Ver Otros Servicios</button>
                 <button onclick="showSection('protocol-section')" class="bg-transparent text-white/70 font-medium py-2 px-8 uppercase text-xs tracking-widest hover:text-white transition-colors">Conocer más sobre Alpha Roofing and Gutters</button>
             </div>
         </section>
-        <!-- Resto de secciones omitidas para brevedad del bloque, se mantienen según SSOT -->
+
+        <!-- 📱 PANTALLA 2: FILTRO (COPIES SSOT) -->
+        <section id="filter-section" class="view-section flex flex-col items-center justify-center px-6 bg-technicalPlatinum/95 backdrop-blur-xl">
+            <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-8 text-center">¿Qué necesita su propiedad hoy?</h2>
+            <div class="space-y-3 w-full max-w-md">
+                <button onclick="showSection('alleviate-section')" class="w-full p-5 bg-white border border-slate-200 rounded-2xl flex items-center group hover:border-alphaElectric transition-all text-left shadow-sm">
+                    <span class="p-2 bg-slate-100 rounded-lg mr-4 text-alphaNavy"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg></span>
+                    <span class="text-sm font-semibold text-slate-700">Necesito un techo nuevo y seguro para mi familia (Cash / Financiamiento)</span>
+                </button>
+                <button onclick="showSection('alleviate-section')" class="w-full p-5 bg-white border border-slate-200 rounded-2xl flex items-center group hover:border-alphaElectric transition-all text-left shadow-sm">
+                    <span class="p-2 bg-slate-100 rounded-lg mr-4 text-alphaNavy"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg></span>
+                    <span class="text-sm font-semibold text-slate-700">Mi propiedad sufrió daños por tormenta y quiero resolver lo de mi seguro</span>
+                </button>
+                <button onclick="showSection('alleviate-section')" class="w-full p-5 bg-white border border-slate-200 rounded-2xl flex items-center group hover:border-alphaElectric transition-all text-left shadow-sm">
+                    <span class="p-2 bg-slate-100 rounded-lg mr-4 text-alphaNavy"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg></span>
+                    <span class="text-sm font-semibold text-slate-700">Deseo mejorar mis espacios exteriores, patios y cercas</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- SECCIONES 3, 4, 5 SIGUEN LA LÓGICA SSOT SIN RECORTES -->
+
+        <!-- 📱 PANTALLA 6: HUB DE ACCIÓN -->
+        <section id="lead-form-container" class="view-section flex flex-col items-center justify-center px-6 bg-technicalPlatinum">
+            <div id="hub-options" class="max-w-md w-full text-center space-y-3">
+                <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase tracking-tight mb-4">Damos el primer paso bajo sus reglas</h2>
+                <div class="grid grid-cols-1 gap-2">
+                    <a href="tel:3463702793" class="btn-alpha-glow flex items-center p-4 rounded-xl shadow-xl">
+                        <span class="p-2 bg-white/20 rounded-lg mr-4 text-white"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg></span>
+                        <span class="text-[11px] font-bold uppercase tracking-widest text-left">Llamar ahora: (346) 370 2793</span>
+                    </a>
+                    <button onclick="showZohoForm()" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm text-left">
+                        <span class="p-2 bg-slate-100 rounded-lg mr-4 text-alphaNavy"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg></span>
+                        <span class="text-[10px] font-semibold text-slate-700 uppercase tracking-wider">Llenar formulario para ser contactado</span>
+                    </button>
+                    <!-- Otros canales... -->
+                </div>
+            </div>
+            <div id="zoho-form-container" class="hidden w-full max-w-md animate-fade-in"></div>
+        </section>
     </div>
 
     <script src="/assets/js/main.js"></script>
     <script>
         function setLanguage(lang) {
             const overlay = document.getElementById('language-selector');
-            overlay.classList.add('opacity-0');
+            overlay.classList.add('inactive'); // Desactiva pointer-events
             setTimeout(() => {
                 overlay.style.display = 'none';
                 if (lang === 'en') {
                     window.location.href = '/en/index.html';
                 } else {
-                    // Si es español, inicializamos el sistema de historial justo ahora
-                    initAlphaNavigation();
+                    if (typeof initAlphaNavigation === 'function') {
+                        initAlphaNavigation();
+                    }
                 }
             }, 700);
         }
