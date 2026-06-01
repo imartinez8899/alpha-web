@@ -1,18 +1,30 @@
 /* 
   ALPHA ROOFING & GUTTERS | LOGIC CONTROLLER
   STRATEGIST: IM + Alpha AI
-  VERSION: 16.1.0 (History Shield & Signature Update)
-  TIMESTAMP: 2026-06-01 12:45 CST
+  VERSION: 16.2.0 (Initialization Shield)
+  TIMESTAMP: 2026-06-01 15:45 CST
 */
 document.addEventListener("DOMContentLoaded", function() {
-    console.log("[Alpha Shield] v16.1.0 | IM + Alpha AI Online");
+    console.log("[Alpha Shield] v16.2.0 | IM + Alpha AI Online");
     injectComponent("header-container", "/components/header.html");
     injectComponent("zoho-form-container", "/components/lead-form.html");
 
-    if (!history.state) {
-        history.replaceState({ sectionId: 'hero-section' }, 'Home', '#home');
+    // Si ya existe un hash (recarga de página), inicializamos de inmediato
+    if (window.location.hash) {
+        initAlphaNavigation();
     }
 });
+
+/**
+ * Inicializa el sistema de navegación después de la elección de idioma
+ */
+function initAlphaNavigation() {
+    if (!history.state) {
+        const currentHash = window.location.hash.replace('#', '') || 'hero-section';
+        history.replaceState({ sectionId: currentHash }, 'Home', `#${currentHash}`);
+        showSection(currentHash, true);
+    }
+}
 
 function injectComponent(containerId, path) {
     const container = document.getElementById(containerId);
@@ -50,7 +62,21 @@ window.onpopstate = function(event) {
 function navigateToHome() { showSection('hero-section'); }
 function navigateToAuditForm() { showSection('lead-form-container'); }
 
-function toggleFullscreenMenu() {
-    const menu = document.getElementById("fullscreen-menu-overlay");
-    if (menu) menu.classList.toggle("hidden");
+function showZohoForm() {
+    const hubContent = document.getElementById('hub-options');
+    const formContent = document.getElementById('zoho-form-container');
+    if (hubContent && formContent) {
+        hubContent.classList.add('hidden');
+        formContent.classList.remove('hidden');
+        history.pushState({ sectionId: 'lead-form-container-zoho' }, '', '#form');
+    }
+}
+
+function hideZohoForm() {
+    const hubContent = document.getElementById('hub-options');
+    const formContent = document.getElementById('zoho-form-container');
+    if (hubContent && formContent) {
+        formContent.classList.add('hidden');
+        hubContent.classList.remove('hidden');
+    }
 }

@@ -1,8 +1,8 @@
 <!-- 
   ALPHA ROOFING & GUTTERS | ZERO-SCROLL APP BLUEPRINT
   STRATEGIST: IM + Alpha AI
-  VERSION: 16.1.0 (Signature Identity Update)
-  TIMESTAMP: 2026-06-01 12:45 CST
+  VERSION: 16.2.0 (Language State Shield Fix)
+  TIMESTAMP: 2026-06-01 15:45 CST
 -->
 <!DOCTYPE html>
 <html lang="es" class="h-full">
@@ -30,9 +30,14 @@
         }
     </script>
     <style>
-        /* Alpha Logic v16.1.0 - Navigation Shield & UI Layers */
         body, html { height: 100%; overflow: hidden; background-color: #0A1128; }
         
+        /* Prioridad Máxima para el Selector (z-index extremo) */
+        #language-selector {
+            z-index: 9999 !important;
+            display: flex;
+        }
+
         .btn-alpha-glow {
             background-color: #000000 !important;
             color: #ffffff !important;
@@ -59,11 +64,11 @@
 </head>
 <body class="font-sans text-slate-900 selection:bg-alphaElectric selection:text-white">
 
-    <!-- 🌐 SELECTOR DE IDIOMA (PRIORIDAD Z-100) -->
-    <div id="language-selector" class="fixed inset-0 z-[1] flex items-center justify-center bg-alphaNavy/60 backdrop-blur-xl transition-opacity duration-700">
-        <div class="max-w-xs w-full text-center space-y-8 p-10 bg-black/40 rounded-3xl border border-white/10 shadow-2xl">
+    <!-- 🌐 SELECTOR DE IDIOMA (ESTADO CERO - SHIELD ACTIVE) -->
+    <div id="language-selector" class="fixed inset-0 flex items-center justify-center bg-alphaNavy/70 backdrop-blur-2xl transition-opacity duration-700">
+        <div class="max-w-xs w-full text-center space-y-8 p-10 bg-black/50 rounded-3xl border border-white/10 shadow-2xl">
             <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-16 mx-auto mb-4">
-            <p class="text-white text-[10px] font-light tracking-[0.2em] uppercase mb-6">Select Experience / Seleccione Experiencia</p>
+            <p class="text-white text-[10px] font-light tracking-[0.2em] uppercase mb-6 text-center">Select Experience / Seleccione Experiencia</p>
             <div class="flex flex-col space-y-4">
                 <button onclick="setLanguage('en')" class="btn-alpha-glow py-4 px-8 rounded-xl text-xs">ENGLISH</button>
                 <button onclick="setLanguage('es')" class="btn-alpha-glow py-4 px-8 rounded-xl text-xs">ESPAÑOL</button>
@@ -71,7 +76,7 @@
         </div>
     </div>
 
-    <!-- MOTOR DE VIDEO FONDO (PARALLAX FIJO) -->
+    <!-- MOTOR DE VIDEO FONDO -->
     <div class="fixed inset-0 z-0 overflow-hidden">
         <video autoplay loop muted playsinline class="w-full h-full object-cover scale-110">
             <source src="/assets/img/system-restoration/before_during_after_1.mp4" type="video/mp4">
@@ -79,22 +84,22 @@
         <div class="absolute inset-0 video-overlay"></div>
     </div>
 
-    <!-- CONTENEDOR MODULAR SUPERIOR (Z-50) -->
+    <!-- NAVEGACIÓN MODULAR -->
     <div id="header-container" class="relative z-50"></div>
 
     <div id="app-viewport" class="relative h-full w-full">
-        <!-- PANTALLA 1: HERO (ESTÁNDAR ALPHA) -->
-        <section id="hero-section" class="view-section active flex flex-col items-center justify-center px-6 text-center pt-24">
+        <!-- PANTALLA 1: HERO -->
+        <section id="hero-section" class="view-section active flex flex-col items-center justify-center px-6 text-center">
             <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-20 mb-10 opacity-95">
             <h1 class="font-montserrat font-bold text-3xl md:text-5xl text-white uppercase leading-tight mb-6">Expertos en Reparación de Techos en Greater Houston</h1>
-            <p class="text-slate-300 text-lg md:text-xl font-light mb-10 max-w-2xl">Restauramos su hogar con ingeniería de precisión, transparencia total y calidad superior.</p>
+            <p class="text-slate-300 text-lg md:text-xl font-light mb-10 max-w-2xl text-center">Restauramos su hogar con ingeniería de precisión, transparencia total y calidad superior.</p>
             <div class="flex flex-col space-y-4 w-full max-w-sm">
                 <button onclick="showSection('lead-form-container')" class="btn-alpha-glow py-4 px-8 rounded-full text-sm">Necesito un Techo nuevo</button>
                 <button onclick="showSection('filter-section')" class="bg-white/10 text-white backdrop-blur-md border border-white/20 font-semibold py-4 px-8 rounded-full uppercase text-sm tracking-widest active:scale-95 transition-all">Ver Otros Servicios</button>
                 <button onclick="showSection('protocol-section')" class="bg-transparent text-white/70 font-medium py-2 px-8 uppercase text-xs tracking-widest hover:text-white transition-colors">Conocer más sobre Alpha Roofing and Gutters</button>
             </div>
         </section>
-        <!-- SECCIONES SUBSIGUIENTES CARGADAS SEGÚN SSOT -->
+        <!-- Resto de secciones omitidas para brevedad del bloque, se mantienen según SSOT -->
     </div>
 
     <script src="/assets/js/main.js"></script>
@@ -104,8 +109,12 @@
             overlay.classList.add('opacity-0');
             setTimeout(() => {
                 overlay.style.display = 'none';
-                if (lang === 'en') window.location.href = '/en/index.html';
-                else if (!history.state) history.replaceState({ sectionId: 'hero-section' }, 'Home', '#home');
+                if (lang === 'en') {
+                    window.location.href = '/en/index.html';
+                } else {
+                    // Si es español, inicializamos el sistema de historial justo ahora
+                    initAlphaNavigation();
+                }
             }, 700);
         }
     </script>
