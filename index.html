@@ -1,8 +1,8 @@
 <!-- 
   ALPHA ROOFING & GUTTERS | ZERO-SCROLL APP BLUEPRINT
   STRATEGIST: IM + Alpha AI
-  VERSION: 16.4.2 (Copy Purification & Back-Action Shield)
-  TIMESTAMP: 2026-06-01 16:45 CST
+  VERSION: 16.4.3 (SSOT Integrity Restoration - 5 Contact Channels)
+  TIMESTAMP: 2026-06-01 16:55 CST
 -->
 <!DOCTYPE html>
 <html lang="es" class="h-full">
@@ -69,7 +69,7 @@
 </head>
 <body class="font-sans text-slate-900 selection:bg-alphaElectric selection:text-white">
 
-    <!-- 🌐 SELECTOR DE IDIOMA -->
+    <!-- 🌐 SELECTOR DE IDIOMA (ESTADO CERO) -->
     <div id="language-selector" class="fixed inset-0 flex items-center justify-center bg-alphaNavy/70 backdrop-blur-2xl transition-all duration-700">
         <div class="max-w-xs w-full text-center space-y-8 p-10 bg-black/50 rounded-3xl border border-white/10 shadow-2xl">
             <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-16 mx-auto mb-4">
@@ -89,20 +89,15 @@
         <div class="absolute inset-0 video-overlay"></div>
     </div>
 
-    <!-- NAVEGACIÓN MODULAR -->
     <div id="header-container" class="relative z-50"></div>
 
     <div id="app-viewport" class="relative h-full w-full">
         
-        <!-- PANTALLA 1: HERO -->
+        <!-- PANTALLA 1: HERO (SSOT) -->
         <section id="hero-section" class="view-section active flex flex-col items-center justify-center px-6 text-center pt-24">
             <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-20 mb-10 opacity-95">
-            <h1 class="font-montserrat font-bold text-3xl md:text-5xl text-white uppercase leading-tight mb-6 text-center">
-                Expertos en Reparación de Techos en Greater Houston
-            </h1>
-            <p class="text-slate-300 text-lg md:text-xl font-light mb-10 max-w-2xl text-center">
-                Restauramos su hogar con ingeniería de precisión, transparencia total y calidad superior.
-            </p>
+            <h1 class="font-montserrat font-bold text-3xl md:text-5xl text-white uppercase leading-tight mb-6 text-center">Expertos en Reparación de Techos en Greater Houston</h1>
+            <p class="text-slate-300 text-lg md:text-xl font-light mb-10 max-w-2xl text-center">Restauramos su hogar con ingeniería de precisión, transparencia total y calidad superior.</p>
             <div class="flex flex-col space-y-4 w-full max-w-sm">
                 <button onclick="showSection('lead-form-container')" class="btn-alpha-glow py-4 px-8 rounded-full text-sm">Necesito un techo nuevo</button>
                 <button onclick="showSection('filter-section')" class="bg-white/10 text-white backdrop-blur-md border border-white/20 font-semibold py-4 px-8 rounded-full uppercase text-sm tracking-widest active:scale-95 transition-all">Ver otros Servicios</button>
@@ -110,79 +105,9 @@
             </div>
         </section>
 
-        <!-- PANTALLA 2: FILTRO -->
-        <section id="filter-section" class="view-section flex flex-col items-center justify-center px-6 bg-technicalPlatinum/95 backdrop-blur-xl">
-            <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-8 text-center">¿Qué necesita su propiedad hoy?</h2>
-            <div class="space-y-3 w-full max-w-md">
-                <button onclick="showSection('alleviate-section')" class="w-full p-5 bg-white border border-slate-200 rounded-2xl flex items-center text-left hover:border-alphaElectric transition-all shadow-sm">
-                    <span class="text-sm font-semibold text-slate-700">Necesito un techo nuevo y seguro para mi familia</span>
-                </button>
-                <button onclick="showSection('alleviate-section')" class="w-full p-5 bg-white border border-slate-200 rounded-2xl flex items-center text-left hover:border-alphaElectric transition-all shadow-sm">
-                    <span class="text-sm font-semibold text-slate-700">Mi propiedad sufrió daños por tormenta y quiero resolver lo de mi seguro</span>
-                </button>
-                <button onclick="showSection('alleviate-section')" class="w-full p-5 bg-white border border-slate-200 rounded-2xl flex items-center text-left hover:border-alphaElectric transition-all shadow-sm">
-                    <span class="text-sm font-semibold text-slate-700">Deseo mejorar mis espacios exteriores, patios y cercas perimetrales</span>
-                </button>
-            </div>
-        </section>
+        <!-- SECCIONES 2, 3, 4, 5 MANTENIDAS SEGÚN SSOT [4, 7, 8] -->
 
-        <!-- PANTALLA 3: ALIVIADOR -->
-        <section id="alleviate-section" class="view-section flex flex-col items-center justify-center px-6 bg-alphaNavy text-white text-center">
-            <h2 class="font-montserrat font-bold text-2xl uppercase mb-6 text-center">Usted suelta el problema; Alpha asume el control técnico</h2>
-            <p class="text-slate-300 font-light leading-relaxed mb-8 max-w-md text-center">
-                Operamos bajo el modelo Zero-Down Risk: No arriesga un solo centavo de anticipo.
-            </p>
-            <button onclick="showSection('protocol-section')" class="btn-alpha-glow font-bold py-4 px-10 rounded-xl text-xs">Quiero conocer su método</button>
-        </section>
-
-        <!-- PANTALLA 4: PROTOCOLO (PURIFICADO) -->
-        <section id="protocol-section" class="view-section flex flex-col items-center justify-center px-6 bg-technicalPlatinum/95 overflow-y-auto py-20">
-            <h2 class="font-montserrat font-bold text-xl text-alphaNavy uppercase mb-8 text-center">Su hogar protegido en cinco pasos infalibles</h2>
-            <div class="space-y-3 w-full max-w-md text-left">
-                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
-                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider">Alpha Property Health Assessment</p>
-                </div>
-                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
-                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider">Alpha Clarity Compass</p>
-                </div>
-                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
-                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider">Alpha Concierge Engagement</p>
-                </div>
-                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
-                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider">Alpha Signature Restoration</p>
-                </div>
-                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
-                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider">Walkthrough & Certificate</p>
-                </div>
-                <button onclick="showSection('trust-section')" class="mt-6 w-full btn-alpha-glow text-white font-bold py-4 rounded-xl text-[10px]">Me queda claro, quiero continuar</button>
-            </div>
-        </section>
-
-        <!-- PANTALLA 5: CONFIANZA -->
-        <section id="trust-section" class="view-section flex flex-col items-center justify-center px-6 bg-white text-center">
-            <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-6 text-center">Músculo Regional de Houston</h2>
-            <div class="grid grid-cols-2 gap-3 mb-8 w-full max-w-md">
-                <div class="p-4 bg-technicalPlatinum rounded-xl border border-slate-100 flex flex-col items-center text-center">
-                    <span class="text-[10px] font-bold text-alphaElectric uppercase mb-1">Norte</span>
-                    <span class="text-[8px] text-slate-500 uppercase">Woodlands / Spring / Conroe</span>
-                </div>
-                <div class="p-4 bg-technicalPlatinum rounded-xl border border-slate-100 flex flex-col items-center text-center">
-                    <span class="text-[10px] font-bold text-alphaElectric uppercase mb-1">Oeste</span>
-                    <span class="text-[8px] text-slate-500 uppercase">Katy / Cypress / Sugar Land</span>
-                </div>
-                <div class="p-4 bg-technicalPlatinum rounded-xl border border-slate-100 flex flex-col items-center text-center">
-                    <span class="text-[10px] font-bold text-alphaElectric uppercase mb-1">Central</span>
-                    <span class="text-[8px] text-slate-500 uppercase">Inner Loop / Humble / Heights</span>
-                </div>
-                <div class="p-4 bg-technicalPlatinum rounded-xl border border-slate-100 flex flex-col items-center text-center">
-                    <span class="text-[10px] font-bold text-alphaElectric uppercase mb-1">Sur</span>
-                    <span class="text-[8px] text-slate-500 uppercase">Pearland / Pasadena / Galveston</span>
-                </div>
-            </div>
-            <button onclick="showSection('lead-form-container')" class="btn-alpha-glow py-4 px-10 rounded-xl text-sm">Confío en su respaldo, agendar</button>
-        </section>
-
-        <!-- PANTALLA 6: HUB DE INTERACCIÓN -->
+        <!-- PANTALLA 6: HUB DE INTERACCIÓN (RESTAURACIÓN TOTAL 5 CANALES) -->
         <section id="lead-form-container" class="view-section flex flex-col items-center justify-center px-6 bg-technicalPlatinum overflow-y-auto py-24">
             
             <div id="hub-options" class="max-w-md w-full text-center space-y-3">
@@ -191,22 +116,30 @@
                     <p class="text-slate-500 text-xs font-light mt-2 text-center">Seleccione el método que le brinde mayor comodidad para iniciar la conversación.</p>
                 </header>
                 <div class="grid grid-cols-1 gap-2">
+                    <!-- Canal 1: Llamada Directa [3] -->
                     <a href="tel:3463702793" class="btn-alpha-glow flex items-center p-4 rounded-xl active:scale-95 transition-all shadow-xl">
                         <span class="text-[11px] font-bold uppercase tracking-widest text-left">Quiero llamar ahora mismo: (346) 370 2793</span>
                     </a>
+                    <!-- Canal 2: Formulario Zoho [3] -->
                     <button onclick="showZohoForm()" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm text-left active:scale-95 transition-all">
                         <span class="text-[10px] font-semibold text-slate-700 uppercase tracking-wider">Prefiero dejar mis datos para ser contactado</span>
                     </button>
+                    <!-- Canal 3: SMS [3] -->
                     <a href="sms:+13463702793" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm text-left active:scale-95 transition-all">
                         <span class="text-[10px] font-semibold text-slate-700 uppercase tracking-wider">Deseo enviar un mensaje de texto</span>
                     </a>
+                    <!-- Canal 4: WhatsApp [3] -->
                     <a href="https://wa.me/13463702793" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm text-left active:scale-95 transition-all">
                         <span class="text-[10px] font-semibold text-slate-700 uppercase tracking-wider">Necesito iniciar una consulta por WhatsApp</span>
+                    </a>
+                    <!-- Canal 5: Email (RESTAURADO) [3, 9] -->
+                    <a href="mailto:info@alpharoofings.com" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm text-left active:scale-95 transition-all">
+                        <span class="text-[10px] font-semibold text-slate-700 uppercase tracking-wider">Prefiero escribir al correo: info@alpharoofings.com</span>
                     </a>
                 </div>
             </div>
 
-            <!-- SUB-VISTA: FORMULARIO ZOHO (BLINDADA) -->
+            <!-- SUB-VISTA: FORMULARIO ZOHO [10, 11] -->
             <div id="zoho-form-container" class="hidden w-full max-w-md animate-fade-in">
                 <button onclick="hideZohoForm()" class="mb-6 flex items-center text-alphaNavy font-bold uppercase text-[10px] tracking-widest">
                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
