@@ -1,22 +1,21 @@
 /* 
   ALPHA ROOFING & GUTTERS | LOGIC CONTROLLER
   STRATEGIST: IM + Alpha AI
-  VERSION: 16.3.0 (Interaction Shield)
-  TIMESTAMP: 2026-06-01 16:15 CST
+  VERSION: 16.4.1 (History Shield & SSOT Logic)
+  TIMESTAMP: 2026-06-01 16:30 CST
 */
 document.addEventListener("DOMContentLoaded", function() {
-    console.log("[Alpha Shield] v16.3.0 | IM + Alpha AI Online");
+    console.log("[Alpha Shield] v16.4.1 Online");
     injectComponent("header-container", "/components/header.html");
     injectComponent("zoho-form-container", "/components/lead-form.html");
 
-    // Si ya existe un hash previo, inicializamos para evitar bloqueo
+    // Inicialización de historial si hay hash activo
     if (window.location.hash) {
         initAlphaNavigation();
     }
 });
 
 function initAlphaNavigation() {
-    console.log("[Alpha Navigation] Activando capas interactivas...");
     if (!history.state) {
         const currentHash = window.location.hash.replace('#', '') || 'hero-section';
         history.replaceState({ sectionId: currentHash }, 'Home', `#${currentHash}`);
@@ -68,4 +67,9 @@ function showZohoForm() {
         formContent.classList.remove('hidden');
         history.pushState({ sectionId: 'lead-form-container-zoho' }, '', '#form');
     }
+}
+
+function toggleFullscreenMenu() {
+    const menu = document.getElementById("fullscreen-menu-overlay");
+    if (menu) menu.classList.toggle("hidden");
 }
