@@ -24,7 +24,23 @@
         }
     </script>
     <style>
+        /* Bloqueo total de scroll para paradigma WebApp */
         body, html { height: 100%; overflow: hidden; background-color: #0A1128; }
+        
+        /* Alpha Signature Glow - Estándar de Resaltado */
+        .btn-alpha-glow {
+            background-color: #000000 !important;
+            color: #ffffff !important;
+            font-weight: 700 !important;
+            border: 1px solid #253BD8 !important;
+            box-shadow: 0 0 15px rgba(37, 59, 216, 0.6) !important;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .btn-alpha-glow:active { transform: scale(0.95); }
+
+        /* Navegación por Capas (Fade Transitions) */
         .view-section {
             position: absolute;
             inset: 0;
@@ -33,32 +49,27 @@
             transition: opacity 0.5s ease-in-out, visibility 0.5s;
             z-index: 10;
         }
-        .view-section.active { opacity: 1; visibility: visible; z-index: 20; }
-        .video-overlay { background: linear-gradient(to bottom, rgba(10, 17, 40, 0.85), rgba(10, 17, 40, 0.95)); }
-        
-        /* Estilo Alpha Signature Glow para el Selector */
-        .btn-language {
-            background-color: #000000;
-            color: #ffffff;
-            font-weight: 700;
-            border: 1px solid #253BD8;
-            box-shadow: 0 0 15px rgba(37, 59, 216, 0.6);
-            transition: all 0.3s ease;
+        .view-section.active {
+            opacity: 1;
+            visibility: visible;
+            z-index: 20;
         }
+
+        .video-overlay { background: linear-gradient(to bottom, rgba(10, 17, 40, 0.85), rgba(10, 17, 40, 0.95)); }
     </style>
 </head>
 <body class="font-sans text-slate-900 selection:bg-alphaElectric selection:text-white">
 
-    <!-- 🌐 SELECTOR DE IDIOMA (OVERLAY INICIAL) -->
-    <div id="language-selector" class="fixed inset-0 z-[4] flex items-center justify-center bg-alphaNavy/60 backdrop-blur-md transition-opacity duration-700">
+    <!-- 🌐 SELECTOR DE IDIOMA (PRIORIDAD ABSOLUTA Z-100) -->
+    <div id="language-selector" class="fixed inset-0 z-[1] flex items-center justify-center bg-alphaNavy/60 backdrop-blur-xl transition-opacity duration-700">
         <div class="max-w-xs w-full text-center space-y-8 p-10 bg-black/40 rounded-3xl border border-white/10 shadow-2xl">
             <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-16 mx-auto mb-4">
-            <p class="text-white text-xs font-light tracking-widest uppercase mb-6">Select your experience / Seleccione su experiencia</p>
+            <p class="text-white text-[10px] font-light tracking-[0.2em] uppercase mb-6">Select Experience / Seleccione Experiencia</p>
             <div class="flex flex-col space-y-4">
-                <button onclick="setLanguage('en')" class="btn-language py-4 px-8 rounded-xl text-sm tracking-[0.2em]">
+                <button onclick="setLanguage('en')" class="btn-alpha-glow py-4 px-8 rounded-xl text-xs">
                     ENGLISH
                 </button>
-                <button onclick="setLanguage('es')" class="btn-language py-4 px-8 rounded-xl text-sm tracking-[0.2em]">
+                <button onclick="setLanguage('es')" class="btn-alpha-glow py-4 px-8 rounded-xl text-xs">
                     ESPAÑOL
                 </button>
             </div>
@@ -73,12 +84,14 @@
         <div class="absolute inset-0 video-overlay"></div>
     </div>
 
-    <!-- NAVEGACIÓN MODULAR -->
+    <!-- NAVEGACIÓN MODULAR (Z-50) -->
     <div id="header-container" class="relative z-50"></div>
 
+    <!-- CONTENEDOR DE VISTAS (Z-10/20) -->
     <div id="app-viewport" class="relative h-full w-full">
-        <!-- PANTALLA 1: HERO -->
-        <section id="hero-section" class="view-section active flex flex-col items-center justify-center px-6 text-center">
+        
+        <!-- PANTALLA 1: EL GANCHO DE AUTORIDAD -->
+        <section id="hero-section" class="view-section active flex flex-col items-center justify-center px-6 text-center pt-24 md:pt-28">
             <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-20 mb-10 opacity-95">
             <h1 class="font-montserrat font-bold text-3xl md:text-5xl text-white uppercase leading-tight mb-6">
                 Expertos en Reparación de Techos en Greater Houston
@@ -87,21 +100,28 @@
                 Restauramos su hogar con ingeniería de precisión, transparencia total y calidad superior.
             </p>
             <div class="flex flex-col space-y-4 w-full max-w-sm">
-                <button onclick="showSection('lead-form-container')" class="btn-language py-4 px-8 rounded-full text-sm tracking-widest">
+                <button onclick="showSection('lead-form-container')" class="btn-alpha-glow py-4 px-8 rounded-xl text-sm">
                     Necesito un Techo nuevo
                 </button>
-                <button onclick="showSection('filter-section')" class="bg-white/10 text-white backdrop-blur-md border border-white/20 font-semibold py-4 px-8 rounded-full uppercase text-sm tracking-widest">
+                <button onclick="showSection('filter-section')" class="bg-white/10 text-white backdrop-blur-md border border-white/20 font-semibold py-4 px-8 rounded-xl uppercase text-sm tracking-widest active:scale-95 transition-all">
                     Ver Otros Servicios
                 </button>
             </div>
         </section>
 
-        <!-- PANTALLA 2: FILTRO (OTRAS PANTALLAS CARGAN AQUÍ SEGÚN BITÁCORA) -->
+        <!-- SECCIONES POSTERIORES (SE CARGAN SEGÚN EL ÁRBOL DE DECISIONES) -->
+        <section id="filter-section" class="view-section flex flex-col items-center justify-center px-6 bg-technicalPlatinum/95 backdrop-blur-xl">
+            <!-- Contenido del Filtro... -->
+        </section>
+
+        <section id="lead-form-container" class="view-section flex flex-col items-center justify-center px-6 bg-technicalPlatinum">
+            <!-- Contenido del Hub de Contacto... -->
+        </section>
+
     </div>
 
     <script src="/assets/js/main.js"></script>
     <script>
-        // Lógica de persistencia de idioma
         function setLanguage(lang) {
             const overlay = document.getElementById('language-selector');
             overlay.classList.add('opacity-0');
@@ -110,7 +130,7 @@
                 if (lang === 'en') {
                     window.location.href = '/en/index.html';
                 }
-                // Si es 'es', simplemente cerramos el modal porque el root es español [5]
+                // Si es 'es', el contenido ya está cargado detrás
             }, 700);
         }
     </script>
