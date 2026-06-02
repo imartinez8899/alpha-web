@@ -1,7 +1,3 @@
-<!-- 
-  ALPHA ROOFING & GUTTERS | SPAIN ROOT
-  VERSION: 16.7.2 (Interaction Shield Active)
--->
 <!DOCTYPE html>
 <html lang="es" class="h-full">
 <head>
@@ -22,13 +18,16 @@
         .view-section { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity 0.5s ease-in-out; z-index: 10; }
         .view-section.active { opacity: 1; visibility: visible; z-index: 20; }
         .btn-alpha-glow { background-color: #000; color: #fff; font-weight: 700; border: 1px solid #253BD8; box-shadow: 0 0 15px rgba(37, 59, 216, 0.6); text-transform: uppercase; letter-spacing: 0.1em; }
+        .video-overlay { background: linear-gradient(to bottom, rgba(10, 17, 40, 0.85), rgba(10, 17, 40, 0.95)); }
     </style>
 </head>
-<body class="font-sans text-slate-900">
+<body class="font-sans text-slate-900 selection:bg-alphaElectric selection:text-white">
+
+    <!-- 🌐 PANTALLA 0: SELECTOR DE IDIOMA (SSOT) -->
     <div id="language-selector" class="fixed inset-0 flex items-center justify-center bg-alphaNavy/70 backdrop-blur-2xl transition-all">
-        <div class="max-w-xs w-full text-center space-y-8 p-10 bg-black/50 rounded-3xl border border-white/10">
+        <div class="max-w-xs w-full text-center space-y-8 p-10 bg-black/50 rounded-3xl border border-white/10 shadow-2xl">
             <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-16 mx-auto">
-            <p class="text-white text-[10px] font-light tracking-[0.2em] uppercase">Select Experience / Seleccione Experiencia</p>
+            <p class="text-white text-[10px] font-light tracking-[0.2em] uppercase mb-6 text-center">Select Experience / Seleccione Experiencia</p>
             <div class="flex flex-col space-y-4">
                 <button onclick="window.location.href='/en/index.html'" class="btn-alpha-glow py-4 px-8 rounded-xl text-xs">ENGLISH</button>
                 <button onclick="document.getElementById('language-selector').classList.add('inactive'); initAlphaNavigation();" class="btn-alpha-glow py-4 px-8 rounded-xl text-xs">ESPAÑOL</button>
@@ -36,28 +35,156 @@
         </div>
     </div>
 
+    <!-- MOTOR DE VIDEO FONDO -->
     <div class="fixed inset-0 z-0 overflow-hidden">
         <video autoplay loop muted playsinline class="w-full h-full object-cover scale-110">
             <source src="/assets/img/system-restoration/before_during_after_1.mp4" type="video/mp4">
         </video>
-        <div class="absolute inset-0 bg-[#0A1128]/85"></div>
+        <div class="absolute inset-0 video-overlay"></div>
     </div>
 
+    <!-- NAVEGACIÓN MODULAR -->
     <div id="header-container" class="relative z-50"></div>
 
     <div id="app-viewport" class="relative h-full w-full">
+        
+        <!-- 📱 PANTALLA 1: EL GANCHO DE AUTORIDAD (SSOT) -->
         <section id="hero-section" class="view-section active flex flex-col items-center justify-center px-6 text-center pt-12 pb-24">
             <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-16 mb-8 opacity-95">
-            <h1 class="font-montserrat font-bold text-3xl md:text-5xl text-white uppercase leading-tight mb-4 max-w-3xl text-center">Expertos en Reparación de Techos en Greater Houston</h1>
+            <h1 class="font-montserrat font-bold text-3xl md:text-5xl text-white uppercase leading-tight mb-4 text-center">Expertos en Reparación de Techos en Greater Houston</h1>
             <p class="text-slate-300 text-lg md:text-xl font-light mb-10 max-w-2xl text-center">Restauramos su hogar con ingeniería de precisión, transparencia total y calidad superior.</p>
             <div class="flex flex-col space-y-4 w-full max-w-sm">
                 <button onclick="showSection('lead-form-container')" class="btn-alpha-glow py-4 px-8 rounded-full text-xs">Necesito un techo nuevo</button>
                 <button onclick="showSection('filter-section')" class="bg-white/10 text-white backdrop-blur-md border border-white/20 font-semibold py-4 px-8 rounded-full uppercase text-[10px] tracking-widest">Ver otros Servicios</button>
-                <button onclick="window.location.href='/about.html'" class="bg-transparent text-white/50 font-medium py-2 px-8 uppercase text-[9px] tracking-[0.2em] hover:text-white transition-colors">Conocer más sobre Alpha</button>
+                <button onclick="window.location.href='/about.html'" class="bg-transparent text-white/50 font-medium py-2 px-8 uppercase text-[9px] tracking-[0.2em] hover:text-white transition-colors">Conocer más sobre Alpha Roofing & Gutters</button>
             </div>
         </section>
-        <!-- SECCIONES 2-6 (Omitidas para brevedad, mantener según SSOT) -->
+
+        <!-- 📱 PANTALLA 2: EL FILTRO DE NECESIDAD (SSOT) -->
+        <section id="filter-section" class="view-section flex flex-col items-center justify-center px-6 bg-technicalPlatinum/95 backdrop-blur-xl">
+            <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-8 text-center">¿Qué necesita su propiedad hoy?</h2>
+            <div class="space-y-3 w-full max-w-md">
+                <button onclick="showSection('alleviate-section-cash')" class="w-full p-5 bg-white border border-slate-200 rounded-2xl flex items-center text-left hover:border-alphaElectric transition-all shadow-sm">
+                    <span class="text-sm font-semibold text-slate-700">Necesito un techo nuevo y seguro para mi familia (Cash / Financiamiento)</span>
+                </button>
+                <button onclick="showSection('alleviate-section-insurance')" class="w-full p-5 bg-white border border-slate-200 rounded-2xl flex items-center text-left hover:border-alphaElectric transition-all shadow-sm">
+                    <span class="text-sm font-semibold text-slate-700">Mi propiedad sufrió daños por tormenta y quiero resolver lo de mi seguro</span>
+                </button>
+                <button onclick="showSection('alleviate-section-outdoor')" class="w-full p-5 bg-white border border-slate-200 rounded-2xl flex items-center text-left hover:border-alphaElectric transition-all shadow-sm">
+                    <span class="text-sm font-semibold text-slate-700">Deseo mejorar mis espacios exteriores, patios y cercas perimetrales</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- 📱 PANTALLA 3: ALIVIADORES DE CARGA (SSOT) -->
+        <section id="alleviate-section-cash" class="view-section flex flex-col items-center justify-center px-6 bg-alphaNavy text-white text-center">
+            <h2 class="font-montserrat font-bold text-2xl uppercase mb-6">Protección Integral contra el Clima</h2>
+            <p class="text-slate-300 font-light leading-relaxed mb-8 max-w-md">Nos aseguramos de que cada pulgada de su techo y sistema de drenaje sea capaz de resistir el clima extremo de Texas. Al instalar materiales de la más alta calidad, protegemos su patrimonio para que esté siempre a salvo.</p>
+            <button onclick="showSection('protocol-section')" class="btn-alpha-glow font-bold py-4 px-10 rounded-xl text-xs">Ver mis opciones de pago mensual</button>
+        </section>
+
+        <section id="alleviate-section-insurance" class="view-section flex flex-col items-center justify-center px-6 bg-alphaNavy text-white text-center">
+            <h2 class="font-montserrat font-bold text-2xl uppercase mb-6">Restauración Profesional tras Tormentas</h2>
+            <p class="text-slate-300 font-light leading-relaxed mb-8 max-w-md">Desde la evaluación inicial y el trato con su aseguradora, hasta la reparación completa de exteriores e interiores, nuestro equipo asume el control para devolverle la paz rápidamente.</p>
+            <button onclick="showSection('protocol-section')" class="btn-alpha-glow font-bold py-4 px-10 rounded-xl text-xs">Autorizo a Alpha a gestionar mi caso</button>
+        </section>
+
+        <section id="alleviate-section-outdoor" class="view-section flex flex-col items-center justify-center px-6 bg-alphaNavy text-white text-center">
+            <h2 class="font-montserrat font-bold text-2xl uppercase mb-6">Inversión y Plusvalía Exterior</h2>
+            <p class="text-slate-300 font-light leading-relaxed mb-8 max-w-md">Nos especializamos en mejorar sus espacios exteriores, desde bardas sólidas hasta áreas de convivencia diseñadas a su medida para fortalecer la estructura de su hogar.</p>
+            <button onclick="showSection('protocol-section')" class="btn-alpha-glow font-bold py-4 px-10 rounded-xl text-xs">Quiero diseñar mi proyecto exterior</button>
+        </section>
+
+        <!-- 📱 PANTALLA 4: EL CAMINO SEGURO (SSOT - SIN NÚMEROS) -->
+        <section id="protocol-section" class="view-section flex flex-col items-center justify-center px-6 bg-technicalPlatinum/95 overflow-y-auto py-20">
+            <h2 class="font-montserrat font-bold text-xl text-alphaNavy uppercase mb-8">Su hogar protegido en cinco pasos infalibles</h2>
+            <div class="space-y-3 w-full max-w-md">
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider mb-1">Alpha Property Health Assessment</p>
+                    <p class="text-[9px] text-slate-500">Evaluamos físicamente el estado real de su techo y documentamos detalladamente cada punto vulnerable.</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider mb-1">Alpha Coverage Compass</p>
+                    <p class="text-[9px] text-slate-500">Revisamos meticulosamente la póliza y los alcances técnicos del daño para guiarle con total honestidad.</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider mb-1">Alpha Clarity Compass</p>
+                    <p class="text-[9px] text-slate-500">Entregamos un reporte ejecutivo breve que actúa como un diagnóstico transparente de la situación real del hogar.</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider mb-1">Alpha Care Concierge</p>
+                    <p class="text-[9px] text-slate-500">Coordinamos y defendemos técnicamente el alcance real del daño frente a los ajustadores corporativos.</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider mb-1">Alpha Signature Restoration</p>
+                    <p class="text-[9px] text-slate-500">Instalamos la obra final bajo los estándares máximos de ingeniería y el Factor Wow de la calidad visible.</p>
+                </div>
+                <button onclick="showSection('trust-section')" class="mt-6 w-full btn-alpha-glow text-white font-bold py-4 rounded-xl text-[10px]">Me queda claro el proceso, quiero avanzar</button>
+            </div>
+        </section>
+
+        <!-- 📱 PANTALLA 5: EL BLINDAJE DE CONFIANZA (SSOT) -->
+        <section id="trust-section" class="view-section flex flex-col items-center justify-center px-6 bg-white text-center">
+            <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-6">Músculo Regional de Houston</h2>
+            <div class="grid grid-cols-2 gap-3 mb-8 w-full max-w-md">
+                <div class="p-4 bg-technicalPlatinum rounded-xl border border-slate-100 flex flex-col items-center text-center">
+                    <span class="text-[10px] font-bold text-alphaElectric uppercase mb-1">Norte</span>
+                    <span class="text-[8px] text-slate-500 uppercase">Woodlands / Spring / Conroe</span>
+                </div>
+                <div class="p-4 bg-technicalPlatinum rounded-xl border border-slate-100 flex flex-col items-center text-center">
+                    <span class="text-[10px] font-bold text-alphaElectric uppercase mb-1">Oeste</span>
+                    <span class="text-[8px] text-slate-500 uppercase">Katy / Cypress / Sugar Land</span>
+                </div>
+                <div class="p-4 bg-technicalPlatinum rounded-xl border border-slate-100 flex flex-col items-center text-center">
+                    <span class="text-[10px] font-bold text-alphaElectric uppercase mb-1">Central</span>
+                    <span class="text-[8px] text-slate-500 uppercase">Inner Loop / Humble / Heights</span>
+                </div>
+                <div class="p-4 bg-technicalPlatinum rounded-xl border border-slate-100 flex flex-col items-center text-center">
+                    <span class="text-[10px] font-bold text-alphaElectric uppercase mb-1">Sur</span>
+                    <span class="text-[8px] text-slate-500 uppercase">Pearland / Pasadena / Galveston</span>
+                </div>
+            </div>
+            <button onclick="showSection('lead-form-container')" class="btn-alpha-glow py-4 px-10 rounded-xl text-sm">Confío en su respaldo, quiero agendar</button>
+        </section>
+
+        <!-- 📱 PANTALLA 6: HUB DE INTERACCIÓN (SSOT RESTORED) -->
+        <section id="lead-form-container" class="view-section flex flex-col items-center justify-center px-6 bg-technicalPlatinum overflow-y-auto py-24">
+            <div id="hub-options" class="max-w-md w-full text-center space-y-3">
+                <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-2">Elija cómo conectar con nosotros</h2>
+                <p class="text-slate-500 text-xs mb-8">Estamos listos para atenderle a través de su canal preferido.</p>
+                <div class="grid grid-cols-1 gap-2">
+                    <a href="tel:3463702793" class="btn-alpha-glow flex items-center p-4 rounded-xl active:scale-95 shadow-xl">
+                        <img src="/assets/img/icons/icon-phone.svg" class="w-5 h-5 mr-4 brightness-0 invert">
+                        <span class="text-[11px] font-bold uppercase tracking-widest text-left">Llamar ahora: (346) 370-2793</span>
+                    </a>
+                    <button onclick="showZohoForm()" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm text-left active:scale-95">
+                        <img src="/assets/img/icons/icon-assessment.svg" class="w-5 h-5 mr-4 opacity-70">
+                        <span class="text-[10px] font-semibold text-slate-700 uppercase">Solicitar contacto de un asesor</span>
+                    </button>
+                    <a href="sms:+13463702793" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm text-left active:scale-95">
+                        <img src="/assets/img/icons/icon-warning.svg" class="w-5 h-5 mr-4 opacity-70">
+                        <span class="text-[10px] font-semibold text-slate-700 uppercase">Enviar un mensaje de texto</span>
+                    </a>
+                    <a href="https://wa.me/13463702793" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm text-left active:scale-95">
+                        <img src="/assets/img/icons/icon-shield-check.svg" class="w-5 h-5 mr-4 opacity-70">
+                        <span class="text-[10px] font-semibold text-slate-700 uppercase">Iniciar consulta por WhatsApp</span>
+                    </a>
+                    <a href="mailto:info@alpharoofings.com" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm text-left active:scale-95">
+                        <img src="/assets/img/icons/icon-certificate.svg" class="w-5 h-5 mr-4 opacity-70">
+                        <span class="text-[10px] font-semibold text-slate-700 uppercase">Email: info@alpharoofings.com</span>
+                    </a>
+                </div>
+            </div>
+            <div id="zoho-form-container" class="hidden w-full max-w-md">
+                <button onclick="hideZohoForm()" class="mb-6 flex items-center text-alphaNavy font-bold uppercase text-[10px] tracking-widest">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    Regresar a las opciones
+                </button>
+                <div id="zoho-form-embed"></div>
+            </div>
+        </section>
     </div>
+
     <script src="/assets/js/main.js"></script>
 </body>
 </html>

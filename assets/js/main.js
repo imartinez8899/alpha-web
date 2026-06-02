@@ -1,18 +1,21 @@
 /* 
   ALPHA ROOFING & GUTTERS | MASTER LOGIC CONTROLLER
-  VERSION: 16.7.2 (Global Absolute Path Shield)
+  STRATEGIST: IM + Alpha AI
+  VERSION: 16.7.3 (Global Path & Interaction Shield)
+  TIMESTAMP: 2026-06-02 12:45 CST
 */
 document.addEventListener("DOMContentLoaded", function() {
-    console.log("[Alpha Shield] v16.7.2 Online");
+    console.log("[Alpha Shield] v16.7.3 Online");
 
     // Detección de idioma por ruta para inyección modular
     const isEnglish = window.location.pathname.includes('/en/');
     const headerPath = isEnglish ? "/components/header-en.html" : "/components/header.html";
 
+    // Inyección con rutas absolutas de raíz
     injectComponent("header-container", headerPath);
     injectComponent("zoho-form-embed", "/components/lead-form.html");
 
-    // Inicialización automática si no existe el selector (Caso Inglés)
+    // Inicialización automática si no existe el selector (Caso Inglés o Selección Previa)
     if (!document.getElementById('language-selector')) {
         initAlphaNavigation();
     }
@@ -25,7 +28,6 @@ function injectComponent(containerId, path) {
             .then(res => res.text())
             .then(data => {
                 container.innerHTML = data;
-                console.log(`[Alpha UI] Inyectado: ${path}`);
             })
             .catch(err => console.error(`Error Alpha ${containerId}:`, err));
     }
@@ -45,9 +47,12 @@ function showSection(sectionId, isBack = false) {
         targetSection.classList.add('active');
         window.scrollTo(0, 0);
 
+        // Reset de sub-vistas del formulario si se navega a otra sección
         if (sectionId !== 'lead-form-container') {
-            document.getElementById('hub-options')?.classList.remove('hidden');
-            document.getElementById('zoho-form-container')?.classList.add('hidden');
+            const hub = document.getElementById('hub-options');
+            const zoho = document.getElementById('zoho-form-container');
+            if (hub) hub.classList.remove('hidden');
+            if (zoho) zoho.classList.add('hidden');
         }
 
         if (!isBack) {
@@ -94,6 +99,8 @@ window.onpopstate = function(event) {
             hideZohoForm();
         }
         showSection(event.state.sectionId, true);
+    } else {
+        showSection('hero-section', true);
     }
 };
 
