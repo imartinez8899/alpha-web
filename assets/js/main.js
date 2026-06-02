@@ -1,20 +1,22 @@
 /* 
   ALPHA ROOFING & GUTTERS | MASTER LOGIC CONTROLLER
   STRATEGIST: IM + Alpha AI
-  VERSION: 16.6.0 (Bilingual Component Injection)
-  TIMESTAMP: 2026-06-02 11:45 CST
+  VERSION: 16.6.1 (Automatic Navigation Initialization)
+  TIMESTAMP: 2026-06-02 11:15 CST
 */
 document.addEventListener("DOMContentLoaded", function() {
-    console.log("[Alpha Shield] v16.6.0 | IM + Alpha AI Online");
+    console.log("[Alpha Shield] v16.6.1 Online");
 
-    // Detectar idioma según la URL para inyectar el componente correcto
     const isEnglish = window.location.pathname.includes('/en/');
     const headerFile = isEnglish ? "/components/header-en.html" : "/components/header.html";
 
     injectComponent("header-container", headerFile);
     injectComponent("zoho-form-embed", "/components/lead-form.html");
 
-    if (window.location.hash) {
+    // Si no hay selector (estamos en inglés o ya elegimos), inicializamos
+    if (!document.getElementById('language-selector')) {
+        initAlphaNavigation();
+    } else if (window.location.hash) {
         initAlphaNavigation();
     }
 });
