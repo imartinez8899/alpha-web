@@ -1,24 +1,42 @@
 <!-- 
-  ALPHA ROOFING & GUTTERS | NAVIGATION BAR (ENGLISH)
-  VERSION: 16.6.0 (Switch to ES included)
+  ALPHA ROOFING & GUTTERS | NAV BAR (ENGLISH)
+  VERSION: 16.7.1 (Pure White Local Icons & Hidden Switcher)
 -->
+<!-- Fullscreen Menu Overlay -->
+<div id="fullscreen-menu-overlay" class="hidden fixed inset-0 z- bg-[#0A1128]/98 backdrop-blur-2xl flex flex-col items-center justify-center px-10">
+    <div class="w-full max-w-sm text-center space-y-12">
+        <nav class="flex flex-col space-y-6">
+            <button onclick="navigateToHome(); toggleFullscreenMenu();" class="text-white font-montserrat text-2xl uppercase tracking-[0.2em]">Home</button>
+            <button onclick="showSection('protocol-section'); toggleFullscreenMenu();" class="text-white font-montserrat text-2xl uppercase tracking-[0.2em]">Alpha Protocol</button>
+            <button onclick="showSection('trust-section'); toggleFullscreenMenu();" class="text-white font-montserrat text-2xl uppercase tracking-[0.2em]">Zones</button>
+            <!-- Minimalist Language Switcher -->
+            <div class="pt-6 border-t border-white/10 flex justify-center space-x-6">
+                <a href="/" class="text-white/40 font-bold text-xs">ES</a>
+                <span class="text-alphaElectric font-bold text-xs underline">EN</span>
+            </div>
+        </nav>
+        <button onclick="toggleFullscreenMenu()" class="text-white/40 uppercase text-[10px] tracking-widest">Close</button>
+    </div>
+</div>
+
+<!-- Fixed Bottom Bar -->
 <div class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#0A1128] border-t border-slate-800 px-4 h-16 flex items-center justify-between safe-bottom">
+    <!-- Home -->
     <button onclick="navigateToHome()" class="flex flex-col items-center justify-center w-12 h-full text-white">
-        <img src="/assets/img/icons/icon-home.svg" alt="Home" class="w-5 h-5 mb-0.5 brightness-0 invert">
+        <img src="/assets/img/icons/icon-home.svg" alt="Home" class="w-6 h-6 mb-0.5 brightness-0 invert">
         <span class="text-[8px] font-semibold tracking-widest uppercase text-slate-400">Home</span>
     </button>
 
+    <!-- Central Action: Vertically Centered -->
     <div class="flex items-center h-full">
-        <button onclick="navigateToAuditForm()" class="btn-alpha-glow text-white font-bold text-[9px] uppercase tracking-widest px-4 h-10 rounded-full active:scale-95">
+        <button onclick="navigateToAuditForm()" class="btn-alpha-glow text-white font-bold text-[9px] uppercase tracking-widest px-5 h-10 rounded-full active:scale-95 transition-all">
             Start Now!
         </button>
     </div>
 
-    <!-- Minimalist Language Switcher -->
-    <a href="/" class="text-[10px] font-bold text-alphaElectric uppercase tracking-widest border-b border-alphaElectric/30">ES</a>
-
+    <!-- Hamburger Menu -->
     <button onclick="toggleFullscreenMenu()" class="flex flex-col items-center justify-center w-12 h-full text-white">
-        <img src="/assets/img/icons/icon-menu-hamburger.svg" alt="Menu" class="w-5 h-5 mb-0.5 brightness-0 invert">
+        <img src="/assets/img/icons/icon-menu-hamburger.svg" alt="Menu" class="w-6 h-6 mb-0.5 brightness-0 invert">
         <span class="text-[8px] font-semibold tracking-widest uppercase text-slate-400">Menu</span>
     </button>
 </div>

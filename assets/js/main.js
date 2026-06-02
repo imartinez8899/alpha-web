@@ -1,22 +1,22 @@
 /* 
   ALPHA ROOFING & GUTTERS | MASTER LOGIC CONTROLLER
   STRATEGIST: IM + Alpha AI
-  VERSION: 16.6.1 (Automatic Navigation Initialization)
-  TIMESTAMP: 2026-06-02 11:15 CST
+  VERSION: 16.7.1 (Bilingual Navigation Shield)
+  TIMESTAMP: 2026-06-02 12:45 CST
 */
+
 document.addEventListener("DOMContentLoaded", function() {
-    console.log("[Alpha Shield] v16.6.1 Online");
+    console.log("[Alpha Shield] v16.7.1 | Sistema Bicultural Activo");
 
+    // Detección de ruta para inyección modular
     const isEnglish = window.location.pathname.includes('/en/');
-    const headerFile = isEnglish ? "/components/header-en.html" : "/components/header.html";
+    const headerPath = isEnglish ? "/components/header-en.html" : "/components/header.html";
 
-    injectComponent("header-container", headerFile);
+    injectComponent("header-container", headerPath);
     injectComponent("zoho-form-embed", "/components/lead-form.html");
 
-    // Si no hay selector (estamos en inglés o ya elegimos), inicializamos
-    if (!document.getElementById('language-selector')) {
-        initAlphaNavigation();
-    } else if (window.location.hash) {
+    // Inicialización de navegación
+    if (!document.getElementById('language-selector') || window.location.hash) {
         initAlphaNavigation();
     }
 });
@@ -34,7 +34,10 @@ function injectComponent(containerId, path) {
     if (container) {
         fetch(path)
             .then(res => res.text())
-            .then(data => container.innerHTML = data)
+            .then(data => {
+                container.innerHTML = data;
+                console.log(`[Alpha UI] Componente inyectado: ${containerId}`);
+            })
             .catch(err => console.error(`Error Alpha ${containerId}:`, err));
     }
 }

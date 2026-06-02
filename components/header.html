@@ -1,24 +1,42 @@
 <!-- 
-  ALPHA ROOFING & GUTTERS | NAVIGATION BAR (ESPAÑOL)
-  VERSION: 16.6.0 (Switch to EN included)
+  ALPHA ROOFING & GUTTERS | NAV BAR (ESPAÑOL)
+  VERSION: 16.7.1 (Pure White Local Icons & Hidden Switcher)
 -->
+<!-- Capa de Menú Fullscreen -->
+<div id="fullscreen-menu-overlay" class="hidden fixed inset-0 z- bg-[#0A1128]/98 backdrop-blur-2xl flex flex-col items-center justify-center px-10">
+    <div class="w-full max-w-sm text-center space-y-12">
+        <nav class="flex flex-col space-y-6">
+            <button onclick="navigateToHome(); toggleFullscreenMenu();" class="text-white font-montserrat text-2xl uppercase tracking-[0.2em]">Inicio</button>
+            <button onclick="showSection('protocol-section'); toggleFullscreenMenu();" class="text-white font-montserrat text-2xl uppercase tracking-[0.2em]">Protocolo Alpha</button>
+            <button onclick="showSection('trust-section'); toggleFullscreenMenu();" class="text-white font-montserrat text-2xl uppercase tracking-[0.2em]">Zonas Houston</button>
+            <!-- Selector de Idioma Minimalista -->
+            <div class="pt-6 border-t border-white/10 flex justify-center space-x-6">
+                <span class="text-alphaElectric font-bold text-xs underline">ES</span>
+                <a href="/en/index.html" class="text-white/40 font-bold text-xs">EN</a>
+            </div>
+        </nav>
+        <button onclick="toggleFullscreenMenu()" class="text-white/40 uppercase text-[10px] tracking-widest">Cerrar</button>
+    </div>
+</div>
+
+<!-- Barra Inferior Fija -->
 <div class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#0A1128] border-t border-slate-800 px-4 h-16 flex items-center justify-between safe-bottom">
+    <!-- Inicio -->
     <button onclick="navigateToHome()" class="flex flex-col items-center justify-center w-12 h-full text-white">
-        <img src="/assets/img/icons/icon-home.svg" alt="Inicio" class="w-5 h-5 mb-0.5 brightness-0 invert">
+        <img src="/assets/img/icons/icon-home.svg" alt="Inicio" class="w-6 h-6 mb-0.5 brightness-0 invert">
         <span class="text-[8px] font-semibold tracking-widest uppercase text-slate-400">Inicio</span>
     </button>
 
+    <!-- Acción Central: Centrado Vertical -->
     <div class="flex items-center h-full">
-        <button onclick="navigateToAuditForm()" class="btn-alpha-glow text-white font-bold text-[9px] uppercase tracking-widest px-4 h-10 rounded-full active:scale-95">
+        <button onclick="navigateToAuditForm()" class="btn-alpha-glow text-white font-bold text-[9px] uppercase tracking-widest px-5 h-10 rounded-full active:scale-95 transition-all">
             ¡Comenzar Ya!
         </button>
     </div>
 
-    <!-- Selector de Idioma Minimalista -->
-    <a href="/en/" class="text-[10px] font-bold text-alphaElectric uppercase tracking-widest border-b border-alphaElectric/30">EN</a>
-
+    <!-- Menú Hamburguesa -->
     <button onclick="toggleFullscreenMenu()" class="flex flex-col items-center justify-center w-12 h-full text-white">
-        <img src="/assets/img/icons/icon-menu-hamburger.svg" alt="Menú" class="w-5 h-5 mb-0.5 brightness-0 invert">
+        <img src="/assets/img/icons/icon-menu-hamburger.svg" alt="Menú" class="w-6 h-6 mb-0.5 brightness-0 invert">
         <span class="text-[8px] font-semibold tracking-widest uppercase text-slate-400">Menú</span>
     </button>
 </div>

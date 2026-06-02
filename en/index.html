@@ -1,8 +1,8 @@
 <!-- 
   ALPHA ROOFING & GUTTERS | ZERO-SCROLL APP BLUEPRINT (ENGLISH)
   STRATEGIST: IM + Alpha AI
-  VERSION: 16.6.1 (Double Modal Removal & Path Fix)
-  TIMESTAMP: 2026-06-02 11:15 CST
+  VERSION: 16.7.0 (Alignment & Navigation Shield Fixed)
+  TIMESTAMP: 2026-06-02 12:15 CST
 -->
 <!DOCTYPE html>
 <html lang="en" class="h-full">
@@ -24,23 +24,29 @@
     </script>
     <style>
         body, html { height: 100%; overflow: hidden; background-color: #0A1128; }
+        #fullscreen-menu-overlay { z-index: 10000 !important; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        #fullscreen-menu-overlay.hidden { opacity: 0; pointer-events: none; visibility: hidden; }
+        #fullscreen-menu-overlay.active { opacity: 1; pointer-events: auto; visibility: visible; }
         .btn-alpha-glow { background-color: #000; color: #fff; font-weight: 700; border: 1px solid #253BD8; box-shadow: 0 0 15px rgba(37, 59, 216, 0.6); transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 0.1em; }
         .view-section { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity 0.5s ease-in-out; z-index: 10; }
         .view-section.active { opacity: 1; visibility: visible; z-index: 20; }
         .video-overlay { background: linear-gradient(to bottom, rgba(10, 17, 40, 0.85), rgba(10, 17, 40, 0.95)); }
-        #fullscreen-menu-overlay.hidden { opacity: 0; pointer-events: none; visibility: hidden; }
-        #fullscreen-menu-overlay.active { opacity: 1; pointer-events: auto; visibility: visible; }
     </style>
 </head>
 <body class="font-sans text-slate-900 selection:bg-alphaElectric selection:text-white">
 
-    <!-- 📱 MENU FULLSCREEN (ENGLISH) -->
-    <div id="fullscreen-menu-overlay" class="hidden fixed inset-0 z-[1] bg-alphaNavy/98 backdrop-blur-2xl flex flex-col items-center justify-center px-10">
+    <!-- 📱 MENU FULLSCREEN (ENGLISH - WITH SWITCHER) -->
+    <div id="fullscreen-menu-overlay" class="hidden fixed inset-0 z- bg-alphaNavy/98 backdrop-blur-2xl flex flex-col items-center justify-center px-10">
         <div class="w-full max-w-sm text-center space-y-12">
             <nav class="flex flex-col space-y-6">
                 <button onclick="navigateToHome(); toggleFullscreenMenu();" class="text-white font-montserrat text-2xl uppercase tracking-[0.2em]">Home</button>
                 <button onclick="showSection('protocol-section'); toggleFullscreenMenu();" class="text-white font-montserrat text-2xl uppercase tracking-[0.2em]">Alpha Protocol</button>
-                <a href="/" class="text-alphaElectric font-bold text-xs uppercase tracking-widest">Switch to Spanish (ES)</a>
+                <button onclick="window.location.href='/about.html'" class="text-white font-montserrat text-2xl uppercase tracking-[0.2em]">Our Story</button>
+                <!-- Minimalist Language Switcher -->
+                <div class="pt-6 border-t border-white/10 flex justify-center space-x-6">
+                    <a href="/" class="text-white/40 font-bold text-xs">ES</a>
+                    <span class="text-alphaElectric font-bold text-xs underline">EN</span>
+                </div>
             </nav>
             <button onclick="toggleFullscreenMenu()" class="text-white/40 uppercase text-[10px] tracking-widest">Close</button>
         </div>
@@ -54,34 +60,60 @@
         <div class="absolute inset-0 video-overlay"></div>
     </div>
 
+    <!-- NAVBAR CONTAINER (Z-50) -->
     <div id="header-container" class="relative z-50"></div>
 
     <div id="app-viewport" class="relative h-full w-full">
-        <!-- PANTALLA 1: HERO (DIRECT VIEW IN ENGLISH) -->
+        <!-- SCREEN 1: HERO (ALIGNED) -->
         <section id="hero-section" class="view-section active flex flex-col items-center justify-center px-6 text-center pt-12 pb-24">
             <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-16 mb-8 opacity-95">
-            <h1 class="font-montserrat font-bold text-3xl md:text-5xl text-white uppercase leading-tight mb-4 max-w-3xl text-center">Greater Houston's Experts in Roof Restoration</h1>
-            <p class="text-slate-300 text-lg md:text-xl font-light mb-10 max-w-2xl text-center text-balance">Restoring your home with precision engineering, total transparency, and superior quality.</p>
+            <h1 class="font-montserrat font-bold text-3xl md:text-5xl text-white uppercase leading-tight mb-4 text-center">Greater Houston's Experts in Roof Restoration</h1>
+            <p class="text-slate-300 text-lg md:text-xl font-light mb-10 max-w-2xl text-center">Restoring your home with precision engineering, total transparency, and superior quality.</p>
             <div class="flex flex-col space-y-4 w-full max-w-sm">
                 <button onclick="showSection('lead-form-container')" class="btn-alpha-glow py-4 px-8 rounded-full text-xs">I need a new roof</button>
                 <button onclick="showSection('filter-section')" class="bg-white/10 text-white backdrop-blur-md border border-white/20 font-semibold py-4 px-8 rounded-full uppercase text-[10px] tracking-widest">View Other Services</button>
-                <button onclick="window.location.href='/about.html'" class="bg-transparent text-white/50 font-medium py-2 px-8 uppercase text-[9px] tracking-[0.2em] hover:text-white transition-colors">Learn more about Alpha</button>
+                <button onclick="window.location.href='/about.html'" class="bg-transparent text-white/50 font-medium py-2 px-8 uppercase text-[9px] tracking-[0.2em]">Learn more about Alpha</button>
             </div>
         </section>
-        
-        <!-- SECCIÓN 6: HUB DE CONTACTO (SSOT) -->
+
+        <!-- SCREEN 2: FILTER (WORKING) -->
+        <section id="filter-section" class="view-section flex flex-col items-center justify-center px-6 bg-technicalPlatinum/95 backdrop-blur-xl">
+            <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-8 text-center text-balance">What does your property need today?</h2>
+            <div class="space-y-3 w-full max-w-md">
+                <button onclick="showSection('lead-form-container')" class="w-full p-5 bg-white border border-slate-200 rounded-2xl flex items-center text-left hover:border-alphaElectric transition-all shadow-sm">
+                    <span class="text-sm font-semibold text-slate-700 italic">I need a new, safe roof for my family</span>
+                </button>
+                <button onclick="showSection('lead-form-container')" class="w-full p-5 bg-white border border-slate-200 rounded-2xl flex items-center text-left hover:border-alphaElectric transition-all shadow-sm">
+                    <span class="text-sm font-semibold text-slate-700 italic">Storm damage restoration / Insurance claim</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- SCREEN 6: CONTACT HUB (FULL 5 CHANNELS RESTORED) -->
         <section id="lead-form-container" class="view-section flex flex-col items-center justify-center px-6 bg-technicalPlatinum overflow-y-auto py-24">
             <div id="hub-options" class="max-w-md w-full text-center space-y-3">
                 <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-2">Choose how to connect</h2>
                 <div class="grid grid-cols-1 gap-2">
                     <a href="tel:3463702793" class="btn-alpha-glow flex items-center p-4 rounded-xl active:scale-95 shadow-xl">
                         <img src="/assets/img/icons/icon-phone.svg" class="w-5 h-5 mr-4 brightness-0 invert">
-                        <span class="text-[11px] font-bold uppercase tracking-widest">Call now: (346) 370-2793</span>
+                        <span class="text-[11px] font-bold uppercase tracking-widest text-left">Call now: (346) 370-2793</span>
                     </a>
-                    <button onclick="showZohoForm()" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm text-left">
+                    <button onclick="showZohoForm()" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm text-left active:scale-95">
                         <img src="/assets/img/icons/icon-assessment.svg" class="w-5 h-5 mr-4 opacity-70">
                         <span class="text-[10px] font-semibold text-slate-700 uppercase">Request specialist contact</span>
                     </button>
+                    <a href="sms:+13463702793" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm text-left active:scale-95">
+                        <img src="/assets/img/icons/icon-warning.svg" class="w-5 h-5 mr-4 opacity-70">
+                        <span class="text-[10px] font-semibold text-slate-700 uppercase">Send a text message (SMS)</span>
+                    </a>
+                    <a href="https://wa.me/13463702793" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm text-left active:scale-95">
+                        <img src="/assets/img/icons/icon-shield-check.svg" class="w-5 h-5 mr-4 opacity-70">
+                        <span class="text-[10px] font-semibold text-slate-700 uppercase">Chat via WhatsApp</span>
+                    </a>
+                    <a href="mailto:info@alpharoofings.com" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm text-left active:scale-95">
+                        <img src="/assets/img/icons/icon-certificate.svg" class="w-5 h-5 mr-4 opacity-70">
+                        <span class="text-[10px] font-semibold text-slate-700 uppercase">Email: info@alpharoofings.com</span>
+                    </a>
                 </div>
             </div>
             <div id="zoho-form-container" class="hidden w-full max-w-md">
