@@ -1,13 +1,17 @@
 /* 
   ALPHA ROOFING & GUTTERS | MASTER LOGIC CONTROLLER
   STRATEGIST: IM + Alpha AI
-  VERSION: 16.5.2 (Interaction & Overlay Shield)
-  TIMESTAMP: 2026-06-02 11:15 CST
+  VERSION: 16.6.0 (Bilingual Component Injection)
+  TIMESTAMP: 2026-06-02 11:45 CST
 */
-
 document.addEventListener("DOMContentLoaded", function() {
-    console.log("[Alpha Shield] v16.5.2 | IM + Alpha AI Online");
-    injectComponent("header-container", "/components/header.html");
+    console.log("[Alpha Shield] v16.6.0 | IM + Alpha AI Online");
+
+    // Detectar idioma según la URL para inyectar el componente correcto
+    const isEnglish = window.location.pathname.includes('/en/');
+    const headerFile = isEnglish ? "/components/header-en.html" : "/components/header.html";
+
+    injectComponent("header-container", headerFile);
     injectComponent("zoho-form-embed", "/components/lead-form.html");
 
     if (window.location.hash) {
@@ -53,9 +57,6 @@ function showSection(sectionId, isBack = false) {
     }
 }
 
-/**
- * Gestión del Menú de Hamburguesa (Overlay Z-10000)
- */
 function toggleFullscreenMenu() {
     const menu = document.getElementById("fullscreen-menu-overlay");
     if (menu) {
