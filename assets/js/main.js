@@ -1,12 +1,12 @@
 /* 
   ALPHA ROOFING & GUTTERS | MASTER LOGIC CONTROLLER
   STRATEGIST: IM + Alpha AI
-  VERSION: 16.4.4 (Sub-view Navigation Shield & SSOT Fix)
-  TIMESTAMP: 2026-06-02 10:15 CST
+  VERSION: 16.5.0 (SSOT Navigation & Sub-view Shield)
+  TIMESTAMP: 2026-06-02 11:30 CST
 */
 
 document.addEventListener("DOMContentLoaded", function() {
-    console.log("[Alpha Shield] v16.4.4 Online");
+    console.log("[Alpha Shield] v16.5.0 | IM + Alpha AI Online");
     injectComponent("header-container", "/components/header.html");
     injectComponent("zoho-form-embed", "/components/lead-form.html");
 
