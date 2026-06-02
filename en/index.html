@@ -1,3 +1,7 @@
+<!-- 
+  ALPHA ROOFING & GUTTERS | ENGLISH MIRROR
+  VERSION: 16.7.5 (Full SSOT Content Sync)
+-->
 <!DOCTYPE html>
 <html lang="en" class="h-full">
 <head>
@@ -28,43 +32,116 @@
         <div class="absolute inset-0 video-overlay"></div>
     </div>
 
-    <!-- NAVBAR INJECTED VIA ABSOLUTE PATH -->
+    <!-- NAVBAR INJECTION CONTAINER -->
     <div id="header-container" class="relative z-50"></div>
 
     <div id="app-viewport" class="relative h-full w-full">
         
-        <!-- 📱 SCREEN 1: HERO (FORCED CENTERING) -->
+        <!-- 📱 SCREEN 1: HERO (SSOT) -->
         <section id="hero-section" class="view-section active flex flex-col items-center justify-center px-6 text-center pt-12 pb-24">
-            <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-16 mb-8 opacity-95">
+            <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-16 mb-8 opacity-95 mx-auto">
             <h1 class="font-montserrat font-bold text-3xl md:text-5xl text-white uppercase leading-tight mb-4 max-w-3xl text-center w-full">Greater Houston's Experts in Roof Restoration</h1>
             <p class="text-slate-300 text-lg md:text-xl font-light mb-10 max-w-2xl text-center w-full">Restoring your home with precision engineering, total transparency, and superior quality.</p>
             <div class="flex flex-col space-y-4 w-full max-w-sm mx-auto items-center">
                 <button onclick="showSection('lead-form-container')" class="btn-alpha-glow py-4 px-8 rounded-full text-xs w-full">I need a new roof</button>
                 <button onclick="showSection('filter-section')" class="bg-white/10 text-white backdrop-blur-md border border-white/20 font-semibold py-4 px-8 rounded-full uppercase text-[10px] tracking-widest w-full">View Other Services</button>
-                <button onclick="window.location.href='/about.html'" class="bg-transparent text-white/50 font-medium py-2 px-8 uppercase text-[9px] tracking-[0.2em] hover:text-white transition-colors w-full text-center">Learn more about Alpha</button>
+                <button onclick="window.location.href='/about.html'" class="bg-transparent text-white/50 font-medium py-2 px-8 uppercase text-[9px] tracking-[0.2em] hover:text-white transition-colors w-full text-center">Learn more about Alpha Roofing</button>
             </div>
         </section>
 
-        <!-- SCREEN 2: FILTER (WORKING) -->
+        <!-- 📱 SCREEN 2: FILTER (SSOT) -->
         <section id="filter-section" class="view-section flex flex-col items-center justify-center px-6 bg-technicalPlatinum/95 backdrop-blur-xl">
             <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-8 text-center text-balance">What does your property need today?</h2>
             <div class="space-y-3 w-full max-w-md">
-                <button onclick="showSection('lead-form-container')" class="w-full p-5 bg-white border border-slate-200 rounded-2xl flex items-center text-left hover:border-alphaElectric transition-all shadow-sm">
-                    <span class="text-sm font-semibold text-slate-700 italic">I need a new, safe roof for my family</span>
+                <button onclick="showSection('alleviate-section-cash')" class="w-full p-5 bg-white border border-slate-200 rounded-2xl flex items-center text-left hover:border-alphaElectric transition-all shadow-sm">
+                    <span class="text-sm font-semibold text-slate-700">I need a new, safe roof for my family (Cash / Financing)</span>
                 </button>
-                <button onclick="showSection('lead-form-container')" class="w-full p-5 bg-white border border-slate-200 rounded-2xl flex items-center text-left hover:border-alphaElectric transition-all shadow-sm">
-                    <span class="text-sm font-semibold text-slate-700 italic">Storm damage restoration / Insurance claim</span>
+                <button onclick="showSection('alleviate-section-insurance')" class="w-full p-5 bg-white border border-slate-200 rounded-2xl flex items-center text-left hover:border-alphaElectric transition-all shadow-sm">
+                    <span class="text-sm font-semibold text-slate-700">My property suffered storm damage and I want to resolve insurance matters</span>
                 </button>
-                <button onclick="showSection('lead-form-container')" class="w-full p-5 bg-white border border-slate-200 rounded-2xl flex items-center text-left hover:border-alphaElectric transition-all shadow-sm">
-                    <span class="text-sm font-semibold text-slate-700 italic">I want to improve my outdoor spaces</span>
+                <button onclick="showSection('alleviate-section-outdoor')" class="w-full p-5 bg-white border border-slate-200 rounded-2xl flex items-center text-left hover:border-alphaElectric transition-all shadow-sm">
+                    <span class="text-sm font-semibold text-slate-700">I want to improve my outdoor spaces, patios, and perimeter fences</span>
                 </button>
             </div>
         </section>
 
-        <!-- SCREEN 6: CONTACT HUB (FULL 5 CHANNELS) -->
+        <!-- 📱 SCREEN 3-A: CASH ALLEVIATOR (SSOT) -->
+        <section id="alleviate-section-cash" class="view-section flex flex-col items-center justify-center px-6 bg-alphaNavy text-white text-center">
+            <h2 class="font-montserrat font-bold text-2xl uppercase mb-6">Comprehensive Climate Protection</h2>
+            <p class="text-slate-300 font-light leading-relaxed mb-8 max-w-md">Your home is your family's most important sanctuary. We ensure every inch of your roof and drainage system is built to withstand extreme Texas weather. By installing high-quality materials, we protect your heritage so it's always safe.</p>
+            <button onclick="showSection('protocol-section')" class="btn-alpha-glow font-bold py-4 px-10 rounded-xl text-xs">View my monthly payment options</button>
+        </section>
+
+        <!-- 📱 SCREEN 3-B: INSURANCE ALLEVIATOR (SSOT) -->
+        <section id="alleviate-section-insurance" class="view-section flex flex-col items-center justify-center px-6 bg-alphaNavy text-white text-center">
+            <h2 class="font-montserrat font-bold text-2xl uppercase mb-6">Professional Storm Restoration</h2>
+            <p class="text-slate-300 font-light leading-relaxed mb-8 max-w-md">From the initial assessment and dealing with your insurance company to full exterior and interior repairs, our team takes control to quickly restore peace to your home.</p>
+            <button onclick="showSection('protocol-section')" class="btn-alpha-glow font-bold py-4 px-10 rounded-xl text-xs">Authorize Alpha to manage my case</button>
+        </section>
+
+        <!-- 📱 SCREEN 3-C: OUTDOOR ALLEVIATOR (SSOT) -->
+        <section id="alleviate-section-outdoor" class="view-section flex flex-col items-center justify-center px-6 bg-alphaNavy text-white text-center">
+            <h2 class="font-montserrat font-bold text-2xl uppercase mb-6">Investment and Exterior Value</h2>
+            <p class="text-slate-300 font-light leading-relaxed mb-8 max-w-md">We specialize in enhancing your outdoor spaces, from solid perimeter fences to custom-designed living areas that strengthen your home's structure and aesthetic value.</p>
+            <button onclick="showSection('protocol-section')" class="btn-alpha-glow font-bold py-4 px-10 rounded-xl text-xs">I want to design my outdoor project</button>
+        </section>
+
+        <!-- 📱 SCREEN 4: PROTOCOL (SSOT) -->
+        <section id="protocol-section" class="view-section flex flex-col items-center justify-center px-6 bg-technicalPlatinum/95 overflow-y-auto py-20">
+            <h2 class="font-montserrat font-bold text-xl text-alphaNavy uppercase mb-8 text-center">Your home protected in five infallible steps</h2>
+            <div class="space-y-3 w-full max-w-md">
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider mb-1">Alpha Property Health Assessment</p>
+                    <p class="text-[9px] text-slate-500">We physically evaluate the real state of your roof and document every vulnerable point in detail.</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider mb-1">Alpha Coverage Compass</p>
+                    <p class="text-[9px] text-slate-500">We meticulously review the policy and the technical scopes of the damage to guide you with total honesty.</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider mb-1">Alpha Clarity Compass</p>
+                    <p class="text-[9px] text-slate-500">We deliver a brief executive report that acts as a transparent diagnosis of the home's real situation.</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider mb-1">Alpha Care Concierge</p>
+                    <p class="text-[9px] text-slate-500">We coordinate and technically defend the actual extent of damage against corporate insurance adjusters.</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider mb-1">Alpha Signature Restoration</p>
+                    <p class="text-[9px] text-slate-500">We install the final work under the highest standards of engineering and visible quality.</p>
+                </div>
+                <button onclick="showSection('trust-section')" class="mt-6 w-full btn-alpha-glow text-white font-bold py-4 rounded-xl text-[10px]">The process is clear, I want to move forward</button>
+            </div>
+        </section>
+
+        <!-- 📱 SCREEN 5: TRUST (SSOT) -->
+        <section id="trust-section" class="view-section flex flex-col items-center justify-center px-6 bg-white text-center">
+            <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-6">Houston Regional Muscle</h2>
+            <div class="grid grid-cols-2 gap-3 mb-8 w-full max-w-md">
+                <div class="p-4 bg-technicalPlatinum rounded-xl border border-slate-100 flex flex-col items-center text-center">
+                    <span class="text-[10px] font-bold text-alphaElectric uppercase mb-1">North</span>
+                    <span class="text-[8px] text-slate-500 uppercase">Woodlands / Spring / Conroe</span>
+                </div>
+                <div class="p-4 bg-technicalPlatinum rounded-xl border border-slate-100 flex flex-col items-center text-center">
+                    <span class="text-[10px] font-bold text-alphaElectric uppercase mb-1">West</span>
+                    <span class="text-[8px] text-slate-500 uppercase">Katy / Cypress / Sugar Land</span>
+                </div>
+                <div class="p-4 bg-technicalPlatinum rounded-xl border border-slate-100 flex flex-col items-center text-center">
+                    <span class="text-[10px] font-bold text-alphaElectric uppercase mb-1">Central</span>
+                    <span class="text-[8px] text-slate-500 uppercase">Inner Loop / Humble / Heights</span>
+                </div>
+                <div class="p-4 bg-technicalPlatinum rounded-xl border border-slate-100 flex flex-col items-center text-center">
+                    <span class="text-[10px] font-bold text-alphaElectric uppercase mb-1">South</span>
+                    <span class="text-[8px] text-slate-500 uppercase">Pearland / Pasadena / Galveston</span>
+                </div>
+            </div>
+            <button onclick="showSection('lead-form-container')" class="btn-alpha-glow py-4 px-10 rounded-xl text-sm">I trust your backing, I want to schedule</button>
+        </section>
+
+        <!-- 📱 SCREEN 6: CONTACT (SSOT) -->
         <section id="lead-form-container" class="view-section flex flex-col items-center justify-center px-6 bg-technicalPlatinum overflow-y-auto py-24">
             <div id="hub-options" class="max-w-md w-full text-center space-y-3">
-                <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-2 text-center">Choose how to connect</h2>
+                <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-2 text-center">Choose how to connect with us</h2>
                 <div class="grid grid-cols-1 gap-2">
                     <a href="tel:3463702793" class="btn-alpha-glow flex items-center p-4 rounded-xl active:scale-95 shadow-xl">
                         <img src="/assets/img/icons/icon-phone.svg" class="w-5 h-5 mr-4 brightness-0 invert">
@@ -72,7 +149,7 @@
                     </a>
                     <button onclick="showZohoForm()" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm text-left active:scale-95">
                         <img src="/assets/img/icons/icon-assessment.svg" class="w-5 h-5 mr-4 opacity-70">
-                        <span class="text-[10px] font-semibold text-slate-700 uppercase">Request specialist contact</span>
+                        <span class="text-[10px] font-semibold text-slate-700 uppercase">Request consultant contact</span>
                     </button>
                     <a href="sms:+13463702793" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm text-left active:scale-95">
                         <img src="/assets/img/icons/icon-warning.svg" class="w-5 h-5 mr-4 opacity-70">
@@ -80,11 +157,11 @@
                     </a>
                     <a href="https://wa.me/13463702793" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm text-left active:scale-95">
                         <img src="/assets/img/icons/icon-shield-check.svg" class="w-5 h-5 mr-4 opacity-70">
-                        <span class="text-[10px] font-semibold text-slate-700 uppercase">Chat via WhatsApp</span>
+                        <span class="text-[10px] font-semibold text-slate-700 uppercase">Start WhatsApp inquiry</span>
                     </a>
                     <a href="mailto:info@alpharoofings.com" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm text-left active:scale-95">
                         <img src="/assets/img/icons/icon-certificate.svg" class="w-5 h-5 mr-4 opacity-70">
-                        <span class="text-[10px] font-semibold text-slate-700 uppercase">Email: info@alpharoofings.com</span>
+                        <span class="text-[10px] font-semibold text-slate-700 uppercase tracking-tight">Email: info@alpharoofings.com</span>
                     </a>
                 </div>
             </div>

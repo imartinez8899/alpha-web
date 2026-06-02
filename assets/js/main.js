@@ -1,22 +1,24 @@
 /* 
   ALPHA ROOFING & GUTTERS | MASTER LOGIC CONTROLLER
   STRATEGIST: IM + Alpha AI
-  VERSION: 16.7.3 (Global Path & Interaction Shield)
-  TIMESTAMP: 2026-06-02 12:45 CST
+  VERSION: 16.7.5 (Global absolute pathing & Bilingual Sync)
+  TIMESTAMP: 2026-06-02 13:00 CST
 */
 document.addEventListener("DOMContentLoaded", function() {
-    console.log("[Alpha Shield] v16.7.3 Online");
+    console.log("[Alpha Shield] v16.7.5 Online");
 
     // Detección de idioma por ruta para inyección modular
     const isEnglish = window.location.pathname.includes('/en/');
     const headerPath = isEnglish ? "/components/header-en.html" : "/components/header.html";
 
-    // Inyección con rutas absolutas de raíz
+    // Inyección con rutas absolutas desde la raíz para evitar fallas en subdirectorios
     injectComponent("header-container", headerPath);
     injectComponent("zoho-form-embed", "/components/lead-form.html");
 
-    // Inicialización automática si no existe el selector (Caso Inglés o Selección Previa)
+    // Inicialización automática si no existe el selector (Nodo EN o Selección previa)
     if (!document.getElementById('language-selector')) {
+        initAlphaNavigation();
+    } else if (window.location.hash) {
         initAlphaNavigation();
     }
 });
@@ -25,17 +27,23 @@ function injectComponent(containerId, path) {
     const container = document.getElementById(containerId);
     if (container) {
         fetch(path)
-            .then(res => res.text())
+            .then(res => {
+                if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+                return res.text();
+            })
             .then(data => {
                 container.innerHTML = data;
             })
-            .catch(err => console.error(`Error Alpha ${containerId}:`, err));
+            .catch(err => console.error(`[Alpha Error] Fallo en inyección de ${containerId}:`, err));
     }
 }
 
 function initAlphaNavigation() {
-    const currentHash = window.location.hash.replace('#', '') || 'hero-section';
-    showSection(currentHash, true);
+    if (!history.state) {
+        const currentHash = window.location.hash.replace('#', '') || 'hero-section';
+        history.replaceState({ sectionId: currentHash }, 'Home', `#${currentHash}`);
+        showSection(currentHash, true);
+    }
 }
 
 function showSection(sectionId, isBack = false) {
@@ -47,7 +55,6 @@ function showSection(sectionId, isBack = false) {
         targetSection.classList.add('active');
         window.scrollTo(0, 0);
 
-        // Reset de sub-vistas del formulario si se navega a otra sección
         if (sectionId !== 'lead-form-container') {
             const hub = document.getElementById('hub-options');
             const zoho = document.getElementById('zoho-form-container');
