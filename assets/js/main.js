@@ -1,12 +1,12 @@
 /* 
   ALPHA ROOFING & GUTTERS | MASTER LOGIC CONTROLLER
   STRATEGIST: IM + Alpha AI
-  VERSION: 16.5.0 (SSOT Navigation & Sub-view Shield)
-  TIMESTAMP: 2026-06-02 11:30 CST
+  VERSION: 16.5.2 (Interaction & Overlay Shield)
+  TIMESTAMP: 2026-06-02 11:15 CST
 */
 
 document.addEventListener("DOMContentLoaded", function() {
-    console.log("[Alpha Shield] v16.5.0 | IM + Alpha AI Online");
+    console.log("[Alpha Shield] v16.5.2 | IM + Alpha AI Online");
     injectComponent("header-container", "/components/header.html");
     injectComponent("zoho-form-embed", "/components/lead-form.html");
 
@@ -53,6 +53,22 @@ function showSection(sectionId, isBack = false) {
     }
 }
 
+/**
+ * Gestión del Menú de Hamburguesa (Overlay Z-10000)
+ */
+function toggleFullscreenMenu() {
+    const menu = document.getElementById("fullscreen-menu-overlay");
+    if (menu) {
+        if (menu.classList.contains('hidden')) {
+            menu.classList.remove('hidden');
+            setTimeout(() => menu.classList.add('active'), 10);
+        } else {
+            menu.classList.remove('active');
+            setTimeout(() => menu.classList.add('hidden'), 400);
+        }
+    }
+}
+
 function showZohoForm() {
     const hubContent = document.getElementById('hub-options');
     const formContent = document.getElementById('zoho-form-container');
@@ -85,8 +101,3 @@ window.onpopstate = function(event) {
 
 function navigateToHome() { showSection('hero-section'); }
 function navigateToAuditForm() { showSection('lead-form-container'); }
-
-function toggleFullscreenMenu() {
-    const menu = document.getElementById("fullscreen-menu-overlay");
-    if (menu) menu.classList.toggle("hidden");
-}
