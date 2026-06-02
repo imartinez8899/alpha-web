@@ -1,33 +1,22 @@
 /* 
   ALPHA ROOFING & GUTTERS | MASTER LOGIC CONTROLLER
-  STRATEGIST: IM + Alpha AI
-  VERSION: 16.7.1 (Bilingual Navigation Shield)
-  TIMESTAMP: 2026-06-02 12:45 CST
+  VERSION: 16.7.2 (Global Absolute Path Shield)
 */
-
 document.addEventListener("DOMContentLoaded", function() {
-    console.log("[Alpha Shield] v16.7.1 | Sistema Bicultural Activo");
+    console.log("[Alpha Shield] v16.7.2 Online");
 
-    // Detección de ruta para inyección modular
+    // Detección de idioma por ruta para inyección modular
     const isEnglish = window.location.pathname.includes('/en/');
     const headerPath = isEnglish ? "/components/header-en.html" : "/components/header.html";
 
     injectComponent("header-container", headerPath);
     injectComponent("zoho-form-embed", "/components/lead-form.html");
 
-    // Inicialización de navegación
-    if (!document.getElementById('language-selector') || window.location.hash) {
+    // Inicialización automática si no existe el selector (Caso Inglés)
+    if (!document.getElementById('language-selector')) {
         initAlphaNavigation();
     }
 });
-
-function initAlphaNavigation() {
-    if (!history.state) {
-        const currentHash = window.location.hash.replace('#', '') || 'hero-section';
-        history.replaceState({ sectionId: currentHash }, 'Home', `#${currentHash}`);
-        showSection(currentHash, true);
-    }
-}
 
 function injectComponent(containerId, path) {
     const container = document.getElementById(containerId);
@@ -36,10 +25,15 @@ function injectComponent(containerId, path) {
             .then(res => res.text())
             .then(data => {
                 container.innerHTML = data;
-                console.log(`[Alpha UI] Componente inyectado: ${containerId}`);
+                console.log(`[Alpha UI] Inyectado: ${path}`);
             })
             .catch(err => console.error(`Error Alpha ${containerId}:`, err));
     }
+}
+
+function initAlphaNavigation() {
+    const currentHash = window.location.hash.replace('#', '') || 'hero-section';
+    showSection(currentHash, true);
 }
 
 function showSection(sectionId, isBack = false) {
@@ -100,8 +94,6 @@ window.onpopstate = function(event) {
             hideZohoForm();
         }
         showSection(event.state.sectionId, true);
-    } else {
-        showSection('hero-section', true);
     }
 };
 

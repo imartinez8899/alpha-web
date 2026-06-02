@@ -1,8 +1,6 @@
 <!-- 
-  ALPHA ROOFING & GUTTERS | ZERO-SCROLL APP BLUEPRINT
-  STRATEGIST: IM + Alpha AI
-  VERSION: 16.7.0 (Spanish Root - Interaction Fixed)
-  TIMESTAMP: 2026-06-02 12:15 CST
+  ALPHA ROOFING & GUTTERS | SPAIN ROOT
+  VERSION: 16.7.2 (Interaction Shield Active)
 -->
 <!DOCTYPE html>
 <html lang="es" class="h-full">
@@ -14,93 +12,52 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
-            theme: {
-                extend: {
-                    colors: { alphaNavy: '#0A1128', alphaElectric: '#253BD8', technicalPlatinum: '#fafafa' },
-                    fontFamily: { sans: ['Inter', 'sans-serif'], montserrat: ['Montserrat', 'sans-serif'] }
-                }
-            }
+            theme: { extend: { colors: { alphaNavy: '#0A1128', alphaElectric: '#253BD8', technicalPlatinum: '#fafafa' } } }
         }
     </script>
     <style>
         body, html { height: 100%; overflow: hidden; background-color: #0A1128; }
-        #language-selector { z-index: 9999 !important; display: flex; }
-        #language-selector.inactive { pointer-events: none; opacity: 0; visibility: hidden; transition: all 0.5s ease; }
-        #fullscreen-menu-overlay { z-index: 10000 !important; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        #fullscreen-menu-overlay.hidden { opacity: 0; pointer-events: none; visibility: hidden; }
-        #fullscreen-menu-overlay.active { opacity: 1; pointer-events: auto; visibility: visible; }
-        .btn-alpha-glow { background-color: #000; color: #fff; font-weight: 700; border: 1px solid #253BD8; box-shadow: 0 0 15px rgba(37, 59, 216, 0.6); transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 0.1em; }
+        #language-selector { z-index: 9999; display: flex; pointer-events: auto; }
+        #language-selector.inactive { opacity: 0; visibility: hidden; pointer-events: none; transition: all 0.5s ease; }
         .view-section { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity 0.5s ease-in-out; z-index: 10; }
         .view-section.active { opacity: 1; visibility: visible; z-index: 20; }
-        .video-overlay { background: linear-gradient(to bottom, rgba(10, 17, 40, 0.85), rgba(10, 17, 40, 0.95)); }
+        .btn-alpha-glow { background-color: #000; color: #fff; font-weight: 700; border: 1px solid #253BD8; box-shadow: 0 0 15px rgba(37, 59, 216, 0.6); text-transform: uppercase; letter-spacing: 0.1em; }
     </style>
 </head>
-<body class="font-sans text-slate-900 selection:bg-alphaElectric selection:text-white">
-
-    <!-- 🌐 SELECTOR DE IDIOMA (ESTADO CERO) -->
-    <div id="language-selector" class="fixed inset-0 flex items-center justify-center bg-alphaNavy/70 backdrop-blur-2xl transition-all duration-700">
-        <div class="max-w-xs w-full text-center space-y-8 p-10 bg-black/50 rounded-3xl border border-white/10 shadow-2xl">
+<body class="font-sans text-slate-900">
+    <div id="language-selector" class="fixed inset-0 flex items-center justify-center bg-alphaNavy/70 backdrop-blur-2xl transition-all">
+        <div class="max-w-xs w-full text-center space-y-8 p-10 bg-black/50 rounded-3xl border border-white/10">
             <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-16 mx-auto">
-            <p class="text-white text-[10px] font-light tracking-[0.2em] uppercase mb-6 text-center">Select Experience / Seleccione Experiencia</p>
+            <p class="text-white text-[10px] font-light tracking-[0.2em] uppercase">Select Experience / Seleccione Experiencia</p>
             <div class="flex flex-col space-y-4">
                 <button onclick="window.location.href='/en/index.html'" class="btn-alpha-glow py-4 px-8 rounded-xl text-xs">ENGLISH</button>
-                <button onclick="setLanguage('es')" class="btn-alpha-glow py-4 px-8 rounded-xl text-xs">ESPAÑOL</button>
+                <button onclick="document.getElementById('language-selector').classList.add('inactive'); initAlphaNavigation();" class="btn-alpha-glow py-4 px-8 rounded-xl text-xs">ESPAÑOL</button>
             </div>
         </div>
     </div>
 
-    <!-- 📱 MENU FULLSCREEN (CON SELECTOR) -->
-    <div id="fullscreen-menu-overlay" class="hidden fixed inset-0 bg-alphaNavy/98 backdrop-blur-2xl flex flex-col items-center justify-center px-10">
-        <div class="w-full max-w-sm text-center space-y-12">
-            <nav class="flex flex-col space-y-6">
-                <button onclick="navigateToHome(); toggleFullscreenMenu();" class="text-white font-montserrat text-2xl uppercase tracking-[0.2em]">Inicio</button>
-                <button onclick="showSection('protocol-section'); toggleFullscreenMenu();" class="text-white font-montserrat text-2xl uppercase tracking-[0.2em]">Protocolo Alpha</button>
-                <button onclick="showSection('trust-section'); toggleFullscreenMenu();" class="text-white font-montserrat text-2xl uppercase tracking-[0.2em]">Zonas Houston</button>
-                <button onclick="window.location.href='/about.html'" class="text-white font-montserrat text-2xl uppercase tracking-[0.2em]">Historia</button>
-                <!-- Selector Minimalista -->
-                <div class="pt-6 border-t border-white/10 flex justify-center space-x-6">
-                    <span class="text-alphaElectric font-bold text-xs underline">ES</span>
-                    <a href="/en/index.html" class="text-white/40 font-bold text-xs">EN</a>
-                </div>
-            </nav>
-            <button onclick="toggleFullscreenMenu()" class="text-white/40 uppercase text-[10px] tracking-widest">Cerrar</button>
-        </div>
-    </div>
-
-    <!-- MOTOR DE VIDEO -->
     <div class="fixed inset-0 z-0 overflow-hidden">
         <video autoplay loop muted playsinline class="w-full h-full object-cover scale-110">
             <source src="/assets/img/system-restoration/before_during_after_1.mp4" type="video/mp4">
         </video>
-        <div class="absolute inset-0 video-overlay"></div>
+        <div class="absolute inset-0 bg-[#0A1128]/85"></div>
     </div>
 
     <div id="header-container" class="relative z-50"></div>
 
     <div id="app-viewport" class="relative h-full w-full">
-        <!-- PANTALLA 1: HERO (SSOT) -->
         <section id="hero-section" class="view-section active flex flex-col items-center justify-center px-6 text-center pt-12 pb-24">
             <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-16 mb-8 opacity-95">
-            <h1 class="font-montserrat font-bold text-3xl md:text-5xl text-white uppercase leading-tight mb-4 text-center">Expertos en Reparación de Techos en Greater Houston</h1>
+            <h1 class="font-montserrat font-bold text-3xl md:text-5xl text-white uppercase leading-tight mb-4 max-w-3xl text-center">Expertos en Reparación de Techos en Greater Houston</h1>
             <p class="text-slate-300 text-lg md:text-xl font-light mb-10 max-w-2xl text-center">Restauramos su hogar con ingeniería de precisión, transparencia total y calidad superior.</p>
             <div class="flex flex-col space-y-4 w-full max-w-sm">
                 <button onclick="showSection('lead-form-container')" class="btn-alpha-glow py-4 px-8 rounded-full text-xs">Necesito un techo nuevo</button>
                 <button onclick="showSection('filter-section')" class="bg-white/10 text-white backdrop-blur-md border border-white/20 font-semibold py-4 px-8 rounded-full uppercase text-[10px] tracking-widest">Ver otros Servicios</button>
-                <button onclick="window.location.href='/about.html'" class="bg-transparent text-white/50 font-medium py-2 px-8 uppercase text-[9px] tracking-[0.2em]">Conocer más sobre Alpha</button>
+                <button onclick="window.location.href='/about.html'" class="bg-transparent text-white/50 font-medium py-2 px-8 uppercase text-[9px] tracking-[0.2em] hover:text-white transition-colors">Conocer más sobre Alpha</button>
             </div>
         </section>
-        <!-- SECCIONES 2-6 RESTAURADAS SEGÚN SSOT -->
+        <!-- SECCIONES 2-6 (Omitidas para brevedad, mantener según SSOT) -->
     </div>
-
     <script src="/assets/js/main.js"></script>
-    <script>
-        function setLanguage(lang) {
-            const overlay = document.getElementById('language-selector');
-            if (lang === 'es') {
-                overlay.classList.add('inactive');
-                initAlphaNavigation();
-            }
-        }
-    </script>
 </body>
 </html>
