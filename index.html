@@ -1,8 +1,8 @@
 <!-- 
   ALPHA ROOFING & GUTTERS | ZERO-SCROLL APP BLUEPRINT
   STRATEGIST: IM + Alpha AI
-  VERSION: 16.8.5 (SSOT Hub Servicios Integration + 5 Contact Modes)
-  TIMESTAMP: 2026-06-03 17:50 CST
+  VERSION: 16.8.8 (Full SSOT Restoration - Logic Decoupled)
+  TIMESTAMP: 2026-06-03 18:10 CST
 -->
 <!DOCTYPE html>
 <html lang="es" class="h-full">
@@ -32,44 +32,17 @@
     </script>
     <style>
         body, html { height: 100%; overflow: hidden; background-color: #0A1128; }
-        
         #language-selector { z-index: 9999 !important; display: flex; }
-        #language-selector.inactive { pointer-events: none; opacity: 0; visibility: hidden; transition: all 0.5s ease; }
-
-        .btn-alpha-glow {
-            background-color: #000000 !important;
-            color: #ffffff !important;
-            font-weight: 700 !important;
-            border: 1px solid #253BD8 !important;
-            box-shadow: 0 0 15px rgba(37, 59, 216, 0.6) !important;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .view-section {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.5s ease-in-out, visibility 0.5s;
-            z-index: 10;
-        }
+        #language-selector.inactive { opacity: 0; visibility: hidden; pointer-events: none; transition: all 0.5s ease; }
+        .view-section { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity 0.5s ease-in-out, visibility 0.5s; z-index: 10; }
         .view-section.active { opacity: 1; visibility: visible; z-index: 20; }
         .video-overlay { background: linear-gradient(to bottom, rgba(10, 17, 40, 0.85), rgba(10, 17, 40, 0.95)); }
-        
-        /* Carousel Styles */
         .carousel-container::-webkit-scrollbar { display: none; }
         .carousel-container { -ms-overflow-style: none; scrollbar-width: none; scroll-behavior: smooth; }
-        
-        .nav-arrow {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
+        .nav-arrow { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; }
         .nav-arrow:hover:not(.disabled) { background: rgba(37, 59, 216, 0.3); border-color: #253BD8; }
         .nav-arrow.disabled { opacity: 0.2; cursor: not-allowed; pointer-events: none; filter: grayscale(1); }
+        .btn-alpha-glow { background-color: #000 !important; color: #fff !important; font-weight: 700; border: 1px solid #253BD8; box-shadow: 0 0 15px rgba(37, 59, 216, 0.6); text-transform: uppercase; letter-spacing: 0.1em; transition: all 0.3s ease; }
     </style>
 </head>
 <body class="font-sans text-slate-900 selection:bg-alphaElectric selection:text-white">
@@ -80,7 +53,7 @@
             <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-16 mx-auto">
             <p class="text-white text-[10px] font-light tracking-[0.2em] uppercase mb-6 text-center">Select Experience / Seleccione Experiencia</p>
             <div class="flex flex-col space-y-4">
-                <button onclick="window.location.href='/en/index.html'" class="btn-alpha-glow py-4 px-8 rounded-xl text-xs">ENGLISH</button>
+                <button onclick="setLanguage('en')" class="btn-alpha-glow py-4 px-8 rounded-xl text-xs">ENGLISH</button>
                 <button onclick="setLanguage('es')" class="btn-alpha-glow py-4 px-8 rounded-xl text-xs">ESPAÑOL</button>
             </div>
         </div>
@@ -94,29 +67,26 @@
         <div class="absolute inset-0 video-overlay"></div>
     </div>
 
+    <!-- NAVEGACIÓN MODULAR -->
     <div id="header-container" class="relative z-50"></div>
 
     <div id="app-viewport" class="relative h-full w-full">
         
-        <!-- 📱 PANTALLA 1: EL GANCHO DE AUTORIDAD -->
+        <!-- 📱 PANTALLA 1: EL GANCHO DE AUTORIDAD (SSOT) -->
         <section id="hero-section" class="view-section active flex flex-col items-center justify-center px-6 text-center pt-8">
             <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-16 mb-6 opacity-95">
-            <h1 class="font-montserrat font-bold text-2xl md:text-5xl text-white uppercase leading-tight mb-4">
-                Expertos en Reparación de Techos en Greater Houston
-            </h1>
-            <p class="text-slate-300 text-base md:text-xl font-light mb-8 max-w-2xl leading-relaxed">
-                Restauramos su hogar con ingeniería de precisión, transparencia total y calidad superior.
-            </p>
+            <h1 class="font-montserrat font-bold text-2xl md:text-5xl text-white uppercase leading-tight mb-4">Expertos en Reparación de Techos en Greater Houston</h1>
+            <p class="text-slate-300 text-base md:text-xl font-light mb-8 max-w-2xl leading-relaxed">Restauramos su hogar con ingeniería de precisión, transparencia total y calidad superior.</p>
             <div class="flex flex-col space-y-3 w-full max-w-sm">
                 <button onclick="showSection('lead-form-container')" class="btn-alpha-glow py-4 px-8 rounded-full text-xs">Necesito un techo nuevo</button>
-                <button onclick="showSection('hub-servicios')" class="bg-white/10 text-white backdrop-blur-md border border-white/20 font-semibold py-4 px-8 rounded-full uppercase text-[10px] tracking-widest active:scale-95 transition-all">Ver otros Servicios</button>
+                <button onclick="showSection('filter-section')" class="bg-white/10 text-white backdrop-blur-md border border-white/20 font-semibold py-4 px-8 rounded-full uppercase text-[10px] tracking-widest active:scale-95 transition-all">Ver todos los Servicios</button>
                 <button onclick="window.location.href='about.html'" class="bg-transparent text-white/60 font-medium py-2 px-8 uppercase text-[9px] tracking-[0.2em] hover:text-white transition-colors text-center">Conocer más sobre Alpha Roofing & Gutters</button>
             </div>
         </section>
 
-        <!-- 📱 PANTALLA 2: EL FILTRO DE NECESIDAD -->
-        <section id="filter-section" class="view-section flex flex-col items-center justify-center px-6 bg-technicalPlatinum/95 backdrop-blur-xl">
-            <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-8 text-center">¿Qué necesita su propiedad hoy?</h2>
+        <!-- 📱 PANTALLA 2: EL FILTRO DE NECESIDAD (SSOT) -->
+        <section id="filter-section" class="view-section flex flex-col items-center justify-center px-6 bg-technicalPlatinum/95 backdrop-blur-xl text-center">
+            <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-8">¿Qué necesita su propiedad hoy?</h2>
             <div class="space-y-3 w-full max-w-md">
                 <button onclick="showSection('alleviate-section-cash')" class="w-full p-5 bg-white border border-slate-200 rounded-2xl flex items-center text-left hover:border-alphaElectric transition-all shadow-sm">
                     <span class="text-sm font-semibold text-slate-700">Necesito un techo nuevo y seguro para mi familia (Cash / Financiamiento)</span>
@@ -144,7 +114,7 @@
             <button onclick="showSection('protocol-section')" class="btn-alpha-glow font-bold py-4 px-10 rounded-xl text-xs">Autorizo a Alpha a gestionar mi caso</button>
         </section>
 
-        <!-- 📱 OK SECCIÓN: HUB SERVICIOS (SSOT SSOT INTEGRATION) -->
+        <!-- 📱 SECCIÓN: HUB SERVICIOS (APPLE CAROUSEL SSOT) -->
         <section id="hub-servicios" class="view-section flex flex-col justify-center bg-alphaSlateGray overflow-hidden">
             <div class="px-6 mb-8 text-left">
                 <h2 class="text-white font-montserrat font-bold text-2xl uppercase leading-tight">Especialistas en Restauración y Conservación.</h2>
@@ -152,8 +122,8 @@
             </div>
 
             <div id="services-carousel" class="carousel-container flex overflow-x-auto space-x-4 px-6 snap-x snap-mandatory pb-6">
-                <!-- Servicio 1: Reemplazo y Reparación de Techos -->
-                <div class="min-w-[280px] h-[360px] relative rounded-3xl overflow-hidden snap-center shadow-2xl flex-shrink-0 border border-white/5" onclick="showSection('lead-form-container')">
+                <!-- Servicio 1 -->
+                <div class="min-w-[280px] h-[360px] relative rounded-3xl overflow-hidden snap-center shadow-2xl flex-shrink-0 border border-white/5" onclick="window.location.href='/services.html'">
                     <img src="/assets/img/system-roofing/finished_roof_1.jpg" class="absolute inset-0 w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent p-6 flex flex-col justify-end">
                         <h3 class="text-white font-montserrat font-bold text-lg leading-tight mb-2">Reemplazo y Reparación de Techos</h3>
@@ -161,8 +131,8 @@
                         <span class="mt-4 text-[9px] text-alphaElectric font-bold uppercase tracking-widest">Saber más →</span>
                     </div>
                 </div>
-                <!-- Servicio 2: Gestión Profesional de Seguros -->
-                <div class="min-w-[280px] h-[360px] relative rounded-3xl overflow-hidden snap-center shadow-2xl flex-shrink-0 border border-white/5" onclick="showSection('lead-form-container')">
+                <!-- Servicio 2 -->
+                <div class="min-w-[280px] h-[360px] relative rounded-3xl overflow-hidden snap-center shadow-2xl flex-shrink-0 border border-white/5" onclick="window.location.href='/services.html'">
                     <img src="/assets/img/system-restoration/inspection_1.jpg" class="absolute inset-0 w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent p-6 flex flex-col justify-end">
                         <h3 class="text-white font-montserrat font-bold text-lg leading-tight mb-2">Gestión Profesional de Seguros</h3>
@@ -170,8 +140,8 @@
                         <span class="mt-4 text-[9px] text-alphaElectric font-bold uppercase tracking-widest">Saber más →</span>
                     </div>
                 </div>
-                <!-- Servicio 3: Patios, Decks y Exteriores -->
-                <div class="min-w-[280px] h-[360px] relative rounded-3xl overflow-hidden snap-center shadow-2xl flex-shrink-0 border border-white/5" onclick="showSection('lead-form-container')">
+                <!-- Servicio 3 -->
+                <div class="min-w-[280px] h-[360px] relative rounded-3xl overflow-hidden snap-center shadow-2xl flex-shrink-0 border border-white/5" onclick="window.location.href='/services.html'">
                     <img src="/assets/img/system-outdoor/patio_deck_1.jpg" class="absolute inset-0 w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent p-6 flex flex-col justify-end">
                         <h3 class="text-white font-montserrat font-bold text-lg leading-tight mb-2">Patios, Decks y Exteriores</h3>
@@ -179,11 +149,11 @@
                         <span class="mt-4 text-[9px] text-alphaElectric font-bold uppercase tracking-widest">Saber más →</span>
                     </div>
                 </div>
-                <!-- Servicio 4: Restauración y Reparaciones Especializada -->
-                <div class="min-w-[280px] h-[360px] relative rounded-3xl overflow-hidden snap-center shadow-2xl flex-shrink-0 border border-white/5" onclick="showSection('lead-form-container')">
+                <!-- Servicio 4 -->
+                <div class="min-w-[280px] h-[360px] relative rounded-3xl overflow-hidden snap-center shadow-2xl flex-shrink-0 border border-white/5" onclick="window.location.href='/services.html'">
                     <img src="/assets/img/system-restoration/emergency_tarp.jpg" class="absolute inset-0 w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-500">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent p-6 flex flex-col justify-end">
-                        <h3 class="text-white font-montserrat font-bold text-lg leading-tight mb-2">Restauración y Reparaciones Especializada</h3>
+                        <h3 class="text-white font-montserrat font-bold text-lg leading-tight mb-2">Restauración Especializada</h3>
                         <p class="text-slate-400 text-[10px] leading-relaxed line-clamp-4">Ejecutamos reparaciones y restauraciones con precisión técnica. Devolvemos la seguridad, funcionalidad y valor a su propiedad mediante intervenciones fundamentadas en estándares profesionales de construcción.</p>
                         <span class="mt-4 text-[9px] text-alphaElectric font-bold uppercase tracking-widest">Saber más →</span>
                     </div>
@@ -201,10 +171,10 @@
             <button onclick="showSection('hero-section')" class="mx-auto mt-6 text-[9px] text-white/30 uppercase tracking-[0.2em] border-b border-white/10 pb-1">Regresar al inicio</button>
         </section>
 
-        <!-- 📱 PANTALLA 4: EL CAMINO SEGURO -->
+        <!-- 📱 PANTALLA 4: EL CAMINO SEGURO (SSOT) -->
         <section id="protocol-section" class="view-section flex flex-col items-center justify-center px-6 bg-technicalPlatinum/95 overflow-y-auto py-20">
             <h2 class="font-montserrat font-bold text-xl text-alphaNavy uppercase mb-8 text-center">Su hogar protegido en cinco pasos infalibles</h2>
-            <div class="space-y-3 w-full max-w-md">
+            <div class="space-y-3 w-full max-w-md text-left">
                 <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
                     <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider mb-1">Alpha Property Health Assessment</p>
                     <p class="text-[9px] text-slate-500 italic">Diagnóstico técnico profundo y documentación fotográfica de alta resolución.</p>
@@ -229,7 +199,7 @@
             </div>
         </section>
 
-        <!-- 📱 PANTALLA 5: EL BLINDAJE DE CONFIANZA -->
+        <!-- 📱 PANTALLA 5: EL BLINDAJE DE CONFIANZA (SSOT) -->
         <section id="trust-section" class="view-section flex flex-col items-center justify-center px-6 bg-white text-center">
             <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-6">Músculo Regional de Houston</h2>
             <div class="grid grid-cols-2 gap-3 mb-8 w-full max-w-md">
@@ -253,10 +223,11 @@
             <button onclick="showSection('lead-form-container')" class="btn-alpha-glow py-4 px-10 rounded-xl text-sm">Confío en su respaldo, quiero agendar</button>
         </section>
 
-        <!-- 📱 PANTALLA 6: HUB DE CONTACTO (5 MODES) -->
+        <!-- 📱 PANTALLA 6: HUB DE CONTACTO (SSOT FINAL) -->
         <section id="lead-form-container" class="view-section flex flex-col items-center justify-center px-6 bg-technicalPlatinum overflow-y-auto py-24">
             <div id="hub-options" class="max-w-md w-full text-center space-y-3">
-                <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-2">Elija cómo conectar con nosotros</h2>
+                <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-2">Elija cómo conectar con nosotros.</h2>
+                <p class="text-slate-500 text-xs mb-8">Estamos listos para atenderle a través de su canal preferido.</p>
                 <div class="grid grid-cols-1 gap-2">
                     <a href="tel:3463702793" class="btn-alpha-glow flex items-center p-4 rounded-xl active:scale-95 shadow-xl">
                         <img src="/assets/img/icons/icon-phone.svg" class="w-5 h-5 mr-4 brightness-0 invert">
@@ -276,7 +247,7 @@
                     </a>
                     <a href="mailto:info@alpharoofings.com" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm text-left active:scale-95">
                         <img src="/assets/img/icons/icon-certificate.svg" class="w-5 h-5 mr-4 opacity-70">
-                        <span class="text-[10px] font-semibold text-slate-700 uppercase">Email: info@alpharoofings.com</span>
+                        <span class="text-[10px] font-semibold text-slate-700 uppercase tracking-tight">Enviar un correo electrónico: info@alpharoofings.com</span>
                     </a>
                 </div>
             </div>
@@ -290,42 +261,7 @@
         </section>
     </div>
 
+    <!-- CARGA DE CONTROLADOR MAESTRO -->
     <script src="/assets/js/main.js"></script>
-    <script>
-        function setLanguage(lang) {
-            const overlay = document.getElementById('language-selector');
-            overlay.classList.add('inactive');
-            setTimeout(() => {
-                if (lang === 'en') window.location.href = '/en/index.html';
-                else initAlphaNavigation();
-            }, 700);
-        }
-
-        const carousel = document.getElementById('services-carousel');
-        const prevArrow = document.getElementById('prev-arrow');
-        const nextArrow = document.getElementById('next-arrow');
-
-        function updateArrows() {
-            if (!carousel) return;
-            const scrollLeft = carousel.scrollLeft;
-            const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-
-            if (scrollLeft <= 10) prevArrow.classList.add('disabled');
-            else prevArrow.classList.remove('disabled');
-
-            if (scrollLeft >= maxScroll - 10) nextArrow.classList.add('disabled');
-            else nextArrow.classList.remove('disabled');
-        }
-
-        if (carousel) {
-            carousel.addEventListener('scroll', updateArrows);
-            window.addEventListener('resize', updateArrows);
-            setTimeout(updateArrows, 500);
-        }
-
-        function scrollCarousel(distance) {
-            carousel.scrollBy({ left: distance, behavior: 'smooth' });
-        }
-    </script>
 </body>
 </html>

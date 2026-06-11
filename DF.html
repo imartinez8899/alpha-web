@@ -1,0 +1,132 @@
+<!-- 
+  ALPHA ROOFING & GUTTERS | DIGITAL BUSINESS CARD
+  CONSULTANT: David Figueroa
+  ARCHITECT: IM + Alpha AI
+  VERSION: 16.9.2 (Zero-Scroll / 30% Logo Increase / Updated Icons)
+  TIMESTAMP: 2026-06-10
+-->
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>David Figueroa - Alpha Roofing & Gutters</title>
+    
+    <!-- Open Graph / Social Shield -->
+    <meta property="og:title" content="David Figueroa - Alpha Roofing & Gutters" />
+    <meta property="og:url" content="https://alpharoofings.com/DF.html" />
+    <meta property="og:image" content="https://alpharoofings.com/assets/img/brand/alpha-logo-white.svg" />
+    <meta property="og:description" content="Home Restoration Consultant. Especialista en blindaje y restauración patrimonial en Greater Houston." />
+    <meta property="og:site_name" content="Alpha Roofing & Gutters" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        alphaNavy: '#0A1128',
+                        alphaElectric: '#253BD8',
+                        alphaSlateGray: '#121620',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body, html { height: 100%; overflow: hidden; background-color: #0A1128; }
+        .btn-alpha-glow {
+            background-color: #ffffff10;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .btn-alpha-glow:active { scale: 0.95; background-color: #253BD8; border-color: #253BD8; }
+        .profile-border { border: 3px solid #253BD8; box-shadow: 0 0 20px rgba(37, 59, 216, 0.4); }
+        .video-overlay { background: linear-gradient(to bottom, rgba(10, 17, 40, 0.85), rgba(10, 17, 40, 0.95)); }
+    </style>
+</head>
+<body class="font-sans text-white flex items-center justify-center p-6">
+
+    <!-- MOTOR DE VIDEO FONDO (Static Parallax) -->
+    <div class="fixed inset-0 z-0 overflow-hidden">
+        <video autoplay loop muted playsinline class="w-full h-full object-cover">
+            <source src="/assets/img/system-restoration/before_during_after_1.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 video-overlay"></div>
+    </div>
+
+    <main class="relative z-10 w-full max-w-sm flex flex-col items-center text-center">
+        
+        <!-- LOGO INSTITUCIONAL (Incrementado un 30% / h-16) -->
+        <a href="https://alpharoofings.com" class="mb-10 transition-transform active:scale-95">
+            <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-16 opacity-95">
+        </a>
+
+        <!-- AVATAR / FOTO DE CONSULTOR -->
+        <div class="relative mb-4">
+            <div class="w-32 h-32 rounded-full overflow-hidden profile-border">
+                <img src="/assets/img/system-restoration/concierge.webp" alt="David Figueroa" class="w-full h-full object-cover">
+            </div>
+            <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-alphaElectric text-[8px] font-bold px-3 py-1 rounded-full tracking-[0.2em] uppercase">
+                Consultant
+            </div>
+        </div>
+
+        <!-- INFO PRINCIPAL -->
+        <h1 class="font-montserrat text-2xl font-bold uppercase tracking-tight mb-1">David Figueroa</h1>
+        <h2 class="text-alphaElectric text-xs font-semibold uppercase tracking-[0.15em] mb-8">Home Restoration Consultant</h2>
+
+        <!-- GRID DE ACCIÓN RÁPIDA (Voz del Cliente) -->
+        <div class="grid grid-cols-3 gap-3 w-full mb-8">
+            <!-- LLAMADA -->
+            <a href="tel:8325810810" class="btn-alpha-glow flex flex-col items-center justify-center p-4 rounded-2xl">
+                <img src="/assets/img/icons/icon-phone.svg" class="w-6 h-6 mb-2 brightness-0 invert">
+                <span class="text-[9px] font-bold uppercase tracking-widest leading-none">Llamar</span>
+            </a>
+            <!-- SMS (icon-message.svg) -->
+            <a href="sms:8325810810" class="btn-alpha-glow flex flex-col items-center justify-center p-4 rounded-2xl">
+                <img src="/assets/img/icons/icon-message.svg" class="w-6 h-6 mb-2 brightness-0 invert">
+                <span class="text-[9px] font-bold uppercase tracking-widest leading-none">Mensaje</span>
+            </a>
+            <!-- CORREO (icon-email.svg) -->
+            <a href="mailto:info@alpharoofings.com" class="btn-alpha-glow flex flex-col items-center justify-center p-4 rounded-2xl">
+                <img src="/assets/img/icons/icon-email.svg" class="w-6 h-6 mb-2 brightness-0 invert">
+                <span class="text-[9px] font-bold uppercase tracking-widest leading-none">Correo</span>
+            </a>
+        </div>
+
+        <!-- ACCIONES ESTRATÉGICAS (SSOT Logic) -->
+        <div class="w-full space-y-3">
+            <!-- AGENDAR INSPECCIÓN -->
+            <a href="https://calendly.com/alpha-figueroa" class="flex items-center justify-between p-4 bg-alphaElectric hover:bg-blue-600 rounded-2xl transition-all shadow-lg shadow-blue-900/20 active:scale-95">
+                <div class="flex items-center text-left">
+                    <img src="/assets/img/icons/icon-assessment.svg" class="w-5 h-5 mr-3 brightness-0 invert">
+                    <span class="text-[10px] font-bold uppercase tracking-widest">Agendar Inspección Gratis</span>
+                </div>
+                <span class="text-white/50 text-lg">→</span>
+            </a>
+
+            <!-- GUARDAR CONTACTO (icon-contact.svg) -->
+            <a href="/assets/vcf/df.vcf" download class="flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-2xl transition-all hover:bg-white/10 active:scale-95">
+                <div class="flex items-center text-left">
+                    <img src="/assets/img/icons/icon-contact.svg" class="w-5 h-5 mr-3 brightness-0 invert">
+                    <span class="text-[10px] font-bold uppercase tracking-widest">Guardar Contacto</span>
+                </div>
+                <span class="text-white/30 text-lg">↓</span>
+            </a>
+        </div>
+
+    </main>
+
+    <!-- CARGA DE CONTROLADOR MAESTRO (Si se requiere lógica adicional) -->
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>
