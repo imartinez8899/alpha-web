@@ -2,8 +2,8 @@
   ALPHA ROOFING & GUTTERS | DIGITAL BUSINESS CARD
   CONSULTANT: David Figueroa
   ARCHITECT: IM + Alpha AI
-  VERSION: 16.9.4 (Zoho Bookings Integration / Zero-Scroll)
-  TIMESTAMP: 2026-06-10
+  VERSION: 16.9.5 (Visible Contact Info + Zoho Bookings + Zero-Scroll)
+  TIMESTAMP: 2026-06-11
 -->
 <!DOCTYPE html>
 <html lang="es" class="h-full">
@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>David Figueroa - Alpha Roofing & Gutters</title>
     
-    <!-- Social Shield -->
+    <!-- Social Shield (Open Graph) -->
     <meta property="og:title" content="David Figueroa - Alpha Roofing & Gutters" />
     <meta property="og:description" content="Home Restoration Consultant. Especialista en blindaje y restauración patrimonial en Houston." />
     <meta property="og:image" content="https://alpharoofings.com/assets/img/brand/alpha-logo-white.svg" />
@@ -54,6 +54,7 @@
 </head>
 <body class="font-sans text-white flex items-center justify-center p-6">
 
+    <!-- MOTOR DE VIDEO FONDO (Static Parallax) -->
     <div class="fixed inset-0 z-0 overflow-hidden">
         <video autoplay loop muted playsinline class="w-full h-full object-cover">
             <source src="/assets/img/system-restoration/before_during_after_1.mp4" type="video/mp4">
@@ -63,22 +64,36 @@
 
     <main class="relative z-10 w-full max-w-sm flex flex-col items-center text-center">
         
-        <a href="https://alpharoofings.com" class="mb-10 transition-transform active:scale-95">
+        <!-- LOGO INSTITUCIONAL (Link a Home) -->
+        <a href="https://alpharoofings.com" class="mb-8 transition-transform active:scale-95">
             <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-16 opacity-95">
         </a>
 
+        <!-- AVATAR / FOTO DE CONSULTOR -->
         <div class="relative mb-4">
-            <div class="w-32 h-32 rounded-full overflow-hidden profile-border">
+            <div class="w-28 h-28 rounded-full overflow-hidden profile-border">
                 <img src="/assets/img/system-restoration/concierge.webp" alt="David Figueroa" class="w-full h-full object-cover">
             </div>
-            <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-alphaElectric text-[8px] font-bold px-3 py-1 rounded-full tracking-[0.2em] uppercase">
+            <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-alphaElectric text-[7px] font-bold px-3 py-1 rounded-full tracking-[0.2em] uppercase">
                 Consultant
             </div>
         </div>
 
-        <h1 class="font-montserrat text-2xl font-bold uppercase tracking-tight mb-1">David Figueroa</h1>
-        <h2 class="text-alphaElectric text-xs font-semibold uppercase tracking-[0.15em] mb-8">Home Restoration Consultant</h2>
+        <!-- INFO PRINCIPAL -->
+        <h1 class="font-montserrat text-xl font-bold uppercase tracking-tight mb-0.5">David Figueroa</h1>
+        <h2 class="text-alphaElectric text-[10px] font-semibold uppercase tracking-[0.15em] mb-4">Home Restoration Consultant</h2>
 
+        <!-- DATOS VISIBLES (Links de Texto) -->
+        <div class="flex flex-col space-y-1 mb-8">
+            <a href="tel:8325810810" class="text-slate-300 text-sm font-medium hover:text-white transition-colors tracking-widest">
+                (832) 581-0810
+            </a>
+            <a href="mailto:info@alpharoofings.com" class="text-slate-400 text-[10px] uppercase font-light hover:text-white transition-colors tracking-[0.1em]">
+                info@alpharoofings.com
+            </a>
+        </div>
+
+        <!-- GRID DE ACCIÓN RÁPIDA (Voz del Cliente) -->
         <div class="grid grid-cols-3 gap-3 w-full mb-8">
             <a href="tel:8325810810" class="btn-alpha-glow flex flex-col items-center justify-center p-4 rounded-2xl">
                 <img src="/assets/img/icons/icon-phone.svg" class="w-6 h-6 mb-2 brightness-0 invert">
@@ -94,8 +109,8 @@
             </a>
         </div>
 
+        <!-- ACCIONES ESTRATÉGICAS (Zoho Bookings / VCF) -->
         <div class="w-full space-y-3">
-            <!-- NODO ACTUALIZADO: ZOHO BOOKINGS -->
             <a href="https://info-alpharoofings.zohobookings.com/#/alpharoofing" class="flex items-center justify-between p-4 bg-alphaElectric hover:bg-blue-600 rounded-2xl transition-all shadow-lg active:scale-95">
                 <div class="flex items-center text-left">
                     <img src="/assets/img/icons/icon-assessment.svg" class="w-5 h-5 mr-3 brightness-0 invert">
@@ -112,8 +127,10 @@
                 <span class="text-white/30 text-lg">↓</span>
             </a>
         </div>
+
     </main>
 
+    <!-- CONTROLADOR MAESTRO -->
     <script src="/assets/js/main.js"></script>
 </body>
 </html>
