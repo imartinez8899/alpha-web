@@ -1,0 +1,14 @@
+BEGIN:VCARD
+VERSION:3.0
+FN;CHARSET=UTF-8:David Figueroa
+N;CHARSET=UTF-8:Figueroa;David;;;
+EMAIL;CHARSET=UTF-8;type=WORK,INTERNET:info@alpharoofings.com
+TEL;TYPE=CELL:8325810810
+TITLE;CHARSET=UTF-8:Home Restoration Consultant
+ROLE;CHARSET=UTF-8:Consultant
+ORG;CHARSET=UTF-8:Alpha Roofing & Gutters
+ADR;TYPE=WORK;CHARSET=UTF-8:;;19101 Kuykendahl Rd;Spring;TX;77379;USA
+URL;type=WORK;CHARSET=UTF-8:https://alpharoofings.com
+NOTE;CHARSET=UTF-8:La belleza es la estructura hecha visible.
+REV:2026-06-10T21:15:00.000Z
+END:VCARD
