@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Reemplazo y Reparación de Techos | Alpha Roofing & Gutters</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        alphaNavy: '#0A1128',
+                        alphaElectric: '#253BD8',
+                        alphaSlateGray: '#121620',
+                        technicalPlatinum: '#fafafa',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* 🛡️ BLINDAJE VISUAL: Video Fijo y Contraste Deep Navy */
+        .video-background { position: fixed; inset: 0; z-index: -1; overflow: hidden; }
+        .video-overlay { 
+            position: absolute; 
+            inset: 0; 
+            background: linear-gradient(to bottom, rgba(10, 17, 40, 0.85), rgba(10, 17, 40, 0.95)); 
+        }
+
+        /* 🔧 MOTOR FLIP-WORDS (Pro Style) */
+        .flip-word-container { position: relative; display: block; width: 100%; height: 1.2em; margin-top: 0.2em; }
+        .word-wrapper { position: absolute; left: 0; right: 0; top: 0; display: flex; justify-content: center; white-space: nowrap; }
+        .letter { display: inline-block; opacity: 0; transform: translateY(15px); filter: blur(10px); transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .word-wrapper.active .letter { opacity: 1; transform: translateY(0); filter: blur(0px); }
+        
+        /* FIX: El !important permite que el Houston estático también haga fade out */
+        .word-wrapper.exit .letter {
+            opacity: 0 !important;
+            transform: translateY(-30px) scale(1.4) !important;
+            filter: blur(12px) !important;
+            transition: all 0.5s ease-in !important;
+        }
+
+        /* ⚡ ALPHA GLOW CTA */
+        .btn-alpha-glow { background-color: #000 !important; color: #fff !important; border: 1px solid #253BD8; box-shadow: 0 0 15px rgba(37, 59, 216, 0.6); transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 0.15em; }
+        .btn-alpha-glow:hover { box-shadow: 0 0 25px rgba(37, 59, 216, 0.9); transform: scale(1.05); }
+
+        .sticky-subnav { position: sticky; top: 0; z-index: 100; transition: all 0.3s ease; }
+        .bg-glass-navy { background: rgba(10, 17, 40, 0.90); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(37, 59, 216, 0.2); }
+    </style>
+</head>
+<body class="bg-alphaNavy font-sans text-white selection:bg-alphaElectric selection:text-white">
+
+    <!-- 🌐 MOTOR DE VIDEO FONDO (Parallax Fijo) -->
+    <div class="video-background">
+        <video autoplay loop muted playsinline class="w-full h-full object-cover scale-110">
+            <source src="/assets/img/system-restoration/before_during_after_1.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <!-- 🌐 1. HERO SECTION: LA MEJOR OPCIÓN REGIONAL -->
+    <section class="relative h-screen flex flex-col items-center justify-center text-center px-6">
+        <div class="relative z-10 max-w-5xl w-full">
+            <h1 class="font-montserrat font-normal text-4xl md:text-7xl uppercase leading-tight mb-8 tracking-tighter">
+                La mejor opción para <br class="hidden md:block"> su techo en <br>
+                <span class="flip-word-container font-bold">
+                    <span id="flip-word-target">
+                        <!-- 🛡️ HYDRATION ESTÁTICA: Houston con tiempos de salida sincronizados -->
+                        <span class="word-wrapper active">
+                            <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0s;">H</span>
+                            <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.03s;">O</span>
+                            <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.06s;">U</span>
+                            <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.09s;">S</span>
+                            <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.12s;">T</span>
+                            <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.15s;">O</span>
+                            <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.18s;">N</span>
+                            <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.21s;">,</span>
+                            <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.24s;">&nbsp;</span>
+                            <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.27s;">T</span>
+                            <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.3s;">X</span>
+                        </span>
+                    </span>
+                </span>
+            </h1>
+            <p class="text-slate-200 text-lg md:text-2xl font-light max-w-3xl mx-auto leading-relaxed mb-12">
+                Especialistas en proteger su hogar contra tormentas severas, inviernos extremos y el rigor del verano húmedo de Texas. Construimos techos de máxima durabilidad con la precisión que solo un experto local puede ofrecer.
+            </p>
+            <button onclick="window.location.href='/index.html#lead-form-container'" class="btn-alpha-glow py-5 px-16 rounded-full text-xs font-bold">
+                Obtener estimado gratuito
+            </button>
+        </div>
+    </section>
+
+    <!-- 📱 2. SECCIÓN DE IMPACTO: PREGUNTAS DETONANTES -->
+    <section class="py-32 px-6 relative z-10 bg-alphaNavy/40 backdrop-blur-sm border-y border-white/5">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-white font-montserrat font-bold text-3xl uppercase leading-tight tracking-tight">Auditoría de Integridad Alpha</h2>
+                <p class="text-alphaElectric font-bold text-xs mt-2 uppercase tracking-[0.3em]">Identifique vulnerabilidades en su estructura</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="p-8 bg-white/5 rounded-2xl border border-white/10 border-l-8 border-l-alphaElectric hover:bg-white/10 transition-all group">
+                    <p class="text-lg font-medium text-slate-200 group-hover:text-white transition-colors">¿Detecta degradación visible o <span class="text-alphaElectric font-bold">pérdida de gránulos</span> en sus tejas?</p>
+                </div>
+                <div class="p-8 bg-white/5 rounded-2xl border border-white/10 border-l-8 border-l-alphaElectric hover:bg-white/10 transition-all group">
+                    <p class="text-lg font-medium text-slate-200 group-hover:text-white transition-colors">¿Observa humedad persistente o <span class="text-alphaElectric font-bold">manchas</span> en sus techos interiores?</p>
+                </div>
+                <div class="p-8 bg-white/5 rounded-2xl border border-white/10 border-l-8 border-l-alphaElectric hover:bg-white/10 transition-all group">
+                    <p class="text-lg font-medium text-slate-200 group-hover:text-white transition-colors">¿Existen infiltraciones activas tras <span class="text-alphaElectric font-bold">eventos climáticos</span> recientes?</p>
+                </div>
+                <div class="p-8 bg-white/5 rounded-2xl border border-white/10 border-l-8 border-l-alphaElectric hover:bg-white/10 transition-all group">
+                    <p class="text-lg font-medium text-slate-200 group-hover:text-white transition-colors">¿Su sistema de drenaje muestra signos de <span class="text-alphaElectric font-bold">obstrucción o fatiga</span>?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📱 3. ALPHA ES SU MEJOR OPCIÓN -->
+    <section class="py-24 relative z-10 text-center px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="font-montserrat font-bold text-3xl md:text-5xl uppercase mb-6 tracking-tighter">Alpha Roofing & Gutters es su mejor opción</h2>
+            <p class="text-slate-400 mb-12 max-w-2xl mx-auto font-light text-lg">Combinamos el rigor técnico de la ingeniería con el cuidado de un servicio Concierge diseñado para su tranquilidad.</p>
+            <button onclick="window.location.href='/index.html#lead-form-container'" class="bg-white text-alphaNavy font-bold py-5 px-12 rounded-full uppercase text-[10px] tracking-widest hover:bg-alphaElectric hover:text-white transition-all shadow-2xl">
+                Iniciar Evaluación Técnica Ahora
+            </button>
+        </div>
+    </section>
+
+    <!-- 📱 4.0 HEADER STICKY SUB-NAVEGACIÓN -->
+    <nav class="sticky-subnav bg-glass-navy shadow-2xl">
+        <div class="max-w-5xl mx-auto flex justify-around p-5 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
+            <a href="#diagnostico" class="hover:text-alphaElectric transition-colors">I. Diagnóstico</a>
+            <a href="#alpha-way" class="hover:text-alphaElectric transition-colors">II. Alpha Way</a>
+            <a href="#legacy" class="hover:text-alphaElectric transition-colors">III. Legacy</a>
+        </div>
+    </nav>
+
+    <!-- 📱 4.1 DIAGNÓSTICO: PRECISIÓN TÉCNICA -->
+    <section id="diagnostico" class="py-32 px-6 max-w-6xl mx-auto relative z-10">
+        <div class="grid md:grid-cols-2 gap-20 items-center">
+            <div class="order-2 md:order-1">
+                <span class="text-alphaElectric font-bold text-[10px] tracking-[0.4em] uppercase mb-4 block">Fase de Evaluación</span>
+                <h2 class="font-montserrat font-bold text-4xl text-white uppercase mb-8 tracking-tight">Diagnóstico Técnico</h2>
+                <p class="text-slate-400 mb-8 text-lg font-light leading-relaxed text-justify">
+                    No realizamos inspecciones visuales rápidas. Ejecutamos un escaneo profundo (Alpha Property Health Assessment) para identificar vulnerabilidades ocultas y documentar con precisión cada daño estructural.
+                </p>
+                <ul class="space-y-4">
+                    <li class="flex items-center p-4 bg-white/5 rounded-xl border border-white/10 group hover:border-alphaElectric transition-all">
+                        <img src="/assets/img/icons/icon-assessment.svg" class="w-6 h-6 mr-4 brightness-0 invert opacity-70 group-hover:opacity-100 transition-opacity">
+                        <span class="text-sm font-semibold uppercase text-slate-200">Evaluación de Daños por Granizo y Viento</span>
+                    </li>
+                    <li class="flex items-center p-4 bg-white/5 rounded-xl border border-white/10 group hover:border-alphaElectric transition-all">
+                        <img src="/assets/img/icons/icon-shield-check.svg" class="w-6 h-6 mr-4 brightness-0 invert opacity-70 group-hover:opacity-100 transition-opacity">
+                        <span class="text-sm font-semibold uppercase text-slate-200">Informe de Cumplimiento de Código de Texas</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="order-1 md:order-2 rounded-3xl overflow-hidden shadow-2xl border border-white/10 transform rotate-1 hover:rotate-0 transition-transform duration-700">
+                <img src="/assets/img/system-restoration/inspection_2.jpg" alt="Inspección Alpha" class="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-500">
+            </div>
+        </div>
+    </section>
+
+    <!-- 📱 4.2 ALPHA WAY: EL ESTÁNDAR -->
+    <section id="alpha-way" class="py-32 px-6 bg-alphaSlateGray/60 backdrop-blur-md border-y border-white/5 relative z-10">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="font-montserrat font-bold text-4xl uppercase tracking-tighter mb-4 text-white">Alpha Way</h2>
+            <p class="text-alphaElectric font-bold text-[10px] tracking-[0.4em] uppercase mb-16 italic">Nuestro Estándar de Ejecución Innegociable</p>
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="p-10 border border-white/10 rounded-3xl bg-alphaNavy/40 hover:border-alphaElectric/50 transition-all shadow-xl">
+                    <h3 class="text-lg font-bold uppercase mb-4 text-white">Materiales Premium</h3>
+                    <p class="text-sm text-slate-400 font-light leading-relaxed">Instalamos marcas que dictan la calidad del mercado: GAF, Owens Corning, Atlas y Tamko. Resistencia superior bajo condiciones climáticas extremas.</p>
+                </div>
+                <div class="p-10 border border-white/10 rounded-3xl bg-alphaNavy/40 hover:border-alphaElectric/50 transition-all shadow-xl">
+                    <h3 class="text-lg font-bold uppercase mb-4 text-white">Instalación Experta</h3>
+                    <p class="text-sm text-slate-400 font-light leading-relaxed">Ejecución artesanal con precisión de ingeniería. Supervisamos cada componente —flashing, underlayment y sellado— bajo el estándar Alpha.</p>
+                </div>
+                <div class="p-10 border border-white/10 rounded-3xl bg-alphaNavy/40 hover:border-alphaElectric/50 transition-all shadow-xl">
+                    <h3 class="text-lg font-bold uppercase mb-4 text-white">Modelo Zero-Down</h3>
+                    <p class="text-sm text-slate-400 font-light leading-relaxed font-bold">Usted no libera un dólar hasta que la obra está terminada e inmaculada. Asumimos el riesgo financiero total del proyecto.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📱 4.3 LEGADO: LA PROMESA DE PERMANENCIA -->
+    <section id="legacy" class="py-32 px-6 max-w-6xl mx-auto relative z-10">
+        <h2 class="font-montserrat font-bold text-4xl text-white uppercase mb-20 text-center tracking-tighter">Legacy</h2>
+        <div class="grid md:grid-cols-2 gap-16 items-start">
+            <div class="space-y-8">
+                <h3 class="font-bold text-xl uppercase border-b-2 border-alphaElectric pb-2 inline-block text-white">Archivo de Proyectos</h3>
+                <p class="text-slate-400 font-light leading-relaxed">Mantenemos un expediente digital para cada cliente, documentando la transformación inmaculada de su hogar y asegurando el valor de su inversión a largo plazo.</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="h-48 rounded-2xl overflow-hidden border border-white/10"><img src="/assets/img/system-roofing/finished_roof_1.jpg" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700"></div>
+                    <div class="h-48 rounded-2xl overflow-hidden border border-white/10"><img src="/assets/img/system-roofing/finished_roof_2.jpg" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700"></div>
+                </div>
+            </div>
+            <div class="space-y-8">
+                <h3 class="font-bold text-xl uppercase border-b-2 border-alphaElectric pb-2 inline-block text-white">Alpha Signature Certificate</h3>
+                <div class="bg-white/5 p-10 rounded-3xl relative border border-white/10 shadow-2xl">
+                    <span class="absolute top-6 left-6 text-6xl text-alphaElectric/10 font-serif">“</span>
+                    <p class="text-slate-300 italic text-lg leading-relaxed relative z-10">"Alpha no solo reemplazó mi techo, restauró mi confianza. El proceso con el seguro fue impecable y la calidad de la obra es visible en cada detalle."</p>
+                    <p class="mt-8 font-bold text-white text-sm uppercase tracking-widest">— Familia Martínez, Spring, TX</p>
+                </div>
+            </div>
+        </div>
+        <div class="mt-32 text-center">
+            <button onclick="window.location.href='/index.html'" class="text-[10px] text-slate-500 uppercase tracking-[0.4em] border-b border-white/10 pb-2 hover:text-white transition-all">Regresar a la página principal</button>
+        </div>
+    </section>
+
+    <script>
+        /**
+         * ALPHA FLIP-WORDS ENGINE (v20.0.0 - FULL COVERAGE & FAST TRANSITIONS)
+         */
+        
+        // 1. Jerarquía Geográfica [SSOT: Cobertura Regional]
+        const coreCities = ["THE WOODLANDS, TX", "SPRING, TX"];
+        const additionalCities = [
+            "CONROE, TX", "TOMBALL, TX", "MAGNOLIA, TX", "MONTGOMERY, TX", "KLEIN, TX", 
+            "OAK RIDGE NORTH, TX", "SHENANDOAH, TX", "HOUSTON, TX", "BELLAIRE, TX", 
+            "WEST UNIVERSITY PLACE, TX", "HUNTERS CREEK VILLAGE, TX", "SPRING VALLEY VILLAGE, TX", 
+            "JERSEY VILLAGE, TX", "ALDINE, TX", "HUMBLE, TX", "ATASCOCITA, TX", "KINGWOOD, TX", 
+            "KATY, TX", "CYPRESS, TX", "FULSHEAR, TX", "RICHMOND, TX", "ROSENBERG, TX", 
+            "SUGAR LAND, TX", "MISSOURI CITY, TX", "STAFFORD, TX", "PEARLAND, TX", 
+            "FRIENDSWOOD, TX", "LEAGUE CITY, TX", "GALVESTON, TX", "SANTA FE, TX", 
+            "DICKINSON, TX", "PASADENA, TX", "SOUTH HOUSTON, TX", "DEER PARK, TX", 
+            "BAYTOWN, TX", "MONT BELVIEU, TX", "CHANNELVIEW, TX", "CLEAR LAKE, TX"
+        ];
+
+        function shuffle(a) {
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+
+        // Lista unificada: Houston (estático) -> Core -> Aleatorio
+        const alphaCities = [...coreCities, ...shuffle(additionalCities.filter(c => c !== "HOUSTON, TX"))];
+        let cityIdx = 0;
+        const targetContainer = document.getElementById('flip-word-target');
+
+        function buildWordElement(wordStr) {
+            const wrapper = document.createElement('span');
+            wrapper.className = 'word-wrapper';
+            [...wordStr].forEach((char, i) => {
+                const span = document.createElement('span');
+                span.textContent = char === ' ' ? '\u00A0' : char;
+                span.className = 'letter';
+                span.style.transitionDelay = `${i * 0.03}s`; 
+                wrapper.appendChild(span);
+            });
+            return wrapper;
+        }
+
+        function rotateCity() {
+            const current = targetContainer.querySelector('.word-wrapper');
+            if (current) {
+                current.classList.remove('active');
+                current.classList.add('exit');
+                setTimeout(() => current.remove(), 800);
+            }
+
+            const nextCity = buildWordElement(alphaCities[cityIdx]);
+            targetContainer.appendChild(nextCity);
+            
+            nextCity.offsetHeight; // Reflow forzar animación
+            nextCity.classList.add('active');
+            cityIdx = (cityIdx + 1) % alphaCities.length;
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // Rotación ágil de 2800ms tras la carga de Houston
+            setInterval(rotateCity, 2800); 
+        });
+    </script>
+</body>
+</html>
