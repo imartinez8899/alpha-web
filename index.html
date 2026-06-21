@@ -77,13 +77,16 @@
         .nav-arrow:hover:not(.disabled) { background: rgba(37, 59, 216, 0.3); border-color: #253BD8; }
         .nav-arrow.disabled { opacity: 0.2; cursor: not-allowed; pointer-events: none; filter: grayscale(1); }
     
-            /* 🔧 MOTOR FLIP-WORDS: Animación Aceternity Style */
-        .flip-word-container { position: relative; display: block; width: 100%; height: 1.2em; margin-top: 0.2em; }
-        .word-wrapper { position: absolute; left: 0; right: 0; top: 0; display: flex; justify-content: center; white-space: nowrap; }
+        /* 🔧 MOTOR FLIP-WORDS v20.7.0 */
+        .flip-word-container { position: relative; display: block; width: 100%; min-height: 1.2em; margin: 0.2em auto 0; }
+
+        /* 🛠️ FIX KERNING: Cambio de flex a block para eliminar espaciado artificial en Houston */
+        .word-wrapper { position: absolute; left: 0; right: 0; top: 0; display: block; text-align: center; white-space: normal; }
+
         .letter { display: inline-block; opacity: 0; transform: translateY(15px); filter: blur(10px); transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
         .word-wrapper.active .letter { opacity: 1; transform: translateY(0); filter: blur(0px); }
 
-        /* 🛡️ FIX DEFINITIVO: El !important permite que el Houston estático también haga fade out */
+        /* 🛡️ EXIT ANIMATION: Staggered fade out */
         .word-wrapper.exit .letter {
             opacity: 0 !important;
             transform: translateY(-30px) scale(1.4) !important;
@@ -228,37 +231,49 @@
             
             <!-- 🌐 HERO REGIONAL: LA MEJOR OPCIÓN -->
             <div class="relative h-screen flex flex-col items-center justify-center text-center px-6">
-                <div class="relative z-10 max-w-5xl w-full">
-                    <h1 class="font-montserrat font-normal text-4xl md:text-7xl uppercase leading-tight mb-8 tracking-tighter text-white">
+                <div class="relative z-10 max-w-5xl w-full -mt-24">
+                <!-- 🏗️ CONTENEDOR TITULAR: Altura mínima para estabilidad de cimientos -->
+                <div class="min-h-[220px] md:min-h-[320px] flex flex-col justify-end mb-12">
+                    <h1 class="font-montserrat font-normal text-4xl md:text-7xl uppercase leading-tight tracking-tighter text-white">
                         La mejor opción para <br class="hidden md:block"> su techo en <br>
                         <span class="flip-word-container font-bold">
                             <span id="flip-word-target">
-                                <!-- 🛡️ HYDRATION ESTÁTICA: Houston con tiempos de salida sincronizados -->
+                                <!-- 🛡️ HYDRATION ESTÁTICA UNIFICADA: Houston con kerning natural -->
                                 <span class="word-wrapper active">
-                                    <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0s;">H</span>
-                                    <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.03s;">O</span>
-                                    <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.06s;">U</span>
-                                    <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.09s;">S</span>
-                                    <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.12s;">T</span>
-                                    <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.15s;">O</span>
-                                    <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.18s;">N</span>
-                                    <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.21s;">,</span>
+                                    <span class="inline-block whitespace-nowrap">
+                                        <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0s;">H</span><span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.03s;">O</span><span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.06s;">U</span><span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.09s;">S</span><span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.12s;">T</span><span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.15s;">O</span><span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.18s;">N</span><span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.21s;">,</span>
+                                    </span>
                                     <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.24s;">&nbsp;</span>
-                                    <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.27s;">T</span>
-                                    <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.3s;">X</span>
+                                    <span class="inline-block whitespace-nowrap">
+                                        <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.27s;">T</span><span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.3s;">X</span>
+                                    </span>
                                 </span>
                             </span>
                         </span>
                     </h1>
-                    <p class="text-slate-200 text-lg md:text-2xl font-light max-w-3xl mx-auto leading-relaxed mb-12">
-                        Especialistas en proteger su hogar contra tormentas severas, inviernos extremos y el rigor del verano húmedo de Texas. Construimos techos de máxima durabilidad con la precisión que solo un experto local puede ofrecer.
-                    </p>
-                    <button onclick="navigateToAuditForm()" class="btn-alpha-glow py-5 px-16 rounded-full text-xs font-bold">Obtener estimado gratuito</button>
                 </div>
+
+                <!-- 🏗️ SUBTÍTULO: Anclado milimétricamente [25: 1452] -->
+                <p class="text-slate-300 text-lg md:text-2xl font-light max-w-3xl mx-auto leading-relaxed mb-12">
+                    Especialistas en proteger su hogar contra tormentas severas, inviernos extremos y el rigor del verano húmedo de Texas. Construimos techos de máxima durabilidad con la precisión que solo un experto local puede ofrecer.
+                </p>
+
+                <!-- 🎯 CTA: Salto inmediato hacia el Hub de Interacción Alpha -->
+                <button onclick="navigateToAuditForm()" class="btn-alpha-glow py-5 px-16 rounded-full text-[10px] font-bold">
+                    Obtener estimado gratuito
+                </button>
+
+                <!-- 🏗️ ALPHA ARROW: Navegación hacia Auditoría [25: 1453] -->
+                <div class="mt-12 animate-bounce opacity-40 hover:opacity-100 transition-opacity">
+                    <svg class="w-12 h-12 mx-auto text-white cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" onclick="document.getElementById('auditoria').scrollIntoView({behavior: 'smooth'})">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7-7-7"></path>
+                    </svg>
+                </div>
+            </div>
             </div>
 
             <!-- 📱 AUDITORÍA DE INTEGRIDAD -->
-            <div class="py-32 px-6 relative z-10 bg-alphaNavy/40 backdrop-blur-sm border-y border-white/5">
+            <section id="auditoria" class="py-32 px-6 relative z-10 bg-alphaNavy/40 backdrop-blur-sm border-y border-white/5">
                 <div class="max-w-4xl mx-auto text-center">
                     <h2 class="text-white font-montserrat font-bold text-3xl uppercase leading-tight tracking-tight mb-16">Auditoría de Integridad Alpha</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
@@ -268,7 +283,7 @@
                         <div class="p-8 bg-white/5 rounded-2xl border-l-8 border-alphaElectric group"><p class="text-lg text-slate-200">¿Su sistema de drenaje muestra signos de <span class="text-alphaElectric font-bold">obstrucción o fatiga</span>?</p></div>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <!-- 📱 ALPHA ES SU MEJOR OPCIÓN -->
             <div class="py-24 relative z-10 text-center px-6">
@@ -514,15 +529,15 @@
                         <span class="text-[10px] font-semibold text-slate-700 uppercase">Solicitar contacto de un asesor</span>
                     </button>
                     <a href="sms:+13463702793" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm text-left active:scale-95">
-                        <img src="/assets/img/icons/icon-warning.svg" class="w-5 h-5 mr-4 opacity-70">
+                        <img src="/assets/img/icons/icon-message.svg" class="w-5 h-5 mr-4 opacity-70">
                         <span class="text-[10px] font-semibold text-slate-700 uppercase">Enviar un mensaje de texto</span>
                     </a>
                     <a href="https://wa.me/13463702793" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm text-left active:scale-95">
-                        <img src="/assets/img/icons/icon-shield-check.svg" class="w-5 h-5 mr-4 opacity-70">
+                        <img src="/assets/img/icons/icon-whatsapp" class="w-5 h-5 mr-4 opacity-70">
                         <span class="text-[10px] font-semibold text-slate-700 uppercase">Iniciar consulta por WhatsApp</span>
                     </a>
                     <a href="mailto:info@alpharoofings.com" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm text-left active:scale-95">
-                        <img src="/assets/img/icons/icon-certificate.svg" class="w-5 h-5 mr-4 opacity-70">
+                        <img src="/assets/img/icons/icon-email.svg" class="w-5 h-5 mr-4 opacity-70">
                         <span class="text-[10px] font-semibold text-slate-700 uppercase">Email: info@alpharoofings.com</span>
                     </a>
                 </div>

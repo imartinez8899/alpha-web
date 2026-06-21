@@ -58,15 +58,37 @@ function shuffleArray(a) {
 const alphaCities = [...coreCities, ...shuffleArray(additionalCities.filter(c => c !== "HOUSTON, TX"))];
 let cityIdx = 0;
 
-function buildWordElement(wordStr) {
+function buildWordElement(fullStr) {
     const wrapper = document.createElement('span');
     wrapper.className = 'word-wrapper';
-    [...wordStr].forEach((char, i) => {
-        const span = document.createElement('span');
-        span.textContent = char === ' ' ? '\u00A0' : char;
-        span.className = 'letter';
-        span.style.transitionDelay = `${i * 0.03}s`; // Stagger calibrado para fluidez
-        wrapper.appendChild(span);
+    const words = fullStr.split(' ');
+    let globalCharIdx = 0;
+
+    words.forEach((wordText, wordIdx) => {
+        // Creamos un bloque indivisible para cada palabra
+        const wordGroup = document.createElement('span');
+        wordGroup.className = 'inline-block whitespace-nowrap';
+
+        [...wordText].forEach((char) => {
+            const letterSpan = document.createElement('span');
+            letterSpan.textContent = char;
+            letterSpan.className = 'letter';
+            letterSpan.style.transitionDelay = `${globalCharIdx * 0.03}s`;
+            wordGroup.appendChild(letterSpan);
+            globalCharIdx++;
+        });
+
+        wrapper.appendChild(wordGroup);
+
+        // Espacio entre palabras como letra animable
+        if (wordIdx < words.length - 1) {
+            const spaceSpan = document.createElement('span');
+            spaceSpan.innerHTML = '&nbsp;';
+            spaceSpan.className = 'letter';
+            spaceSpan.style.transitionDelay = `${globalCharIdx * 0.03}s`;
+            wrapper.appendChild(spaceSpan);
+            globalCharIdx++;
+        }
     });
     return wrapper;
 }
