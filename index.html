@@ -1,9 +1,16 @@
 <!-- 
   ALPHA ROOFING & GUTTERS | ZERO-SCROLL APP BLUEPRINT
   STRATEGIST: IM + Alpha AI
-  VERSION: 16.8.5 (SSOT Hub Servicios Integration + 5 Contact Modes)
-  TIMESTAMP: 2026-06-03 17:50 CST
+  VERSION: 20.7.2 (Hero Calibration + Houston Kerning Fix + Smart Word-Wrap)
+  TIMESTAMP: 2026-06-21 08:45 CST
+  
+  MODIFICACIONES CLAVE:
+  1. UI: Elevación de eje visual Hero (-mt-24) y estabilidad de cimientos (min-h) para soporte multilínea.
+  2. ENGINE: Reingeniería de Flip-Words; migración a display:block para corrección de kerning en Houston.
+  3. LOGIC: Implementación de Smart Word-Wrap (inline-block grouping) para evitar fragmentación de ciudades.
+  4. UX: Sincronización de anclajes; Alpha Arrow -> Auditoría de Integridad | CTA -> Hub de Contacto.
 -->
+
 <!DOCTYPE html>
 <html lang="es" class="h-full">
 <head>
@@ -21,6 +28,7 @@
                         alphaElectric: '#253BD8',
                         alphaSlateGray: '#121620',
                         technicalPlatinum: '#fafafa',
+                        alphaWarning: '#F97316',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -97,6 +105,39 @@
         /* UI: Sub-Navegación Sticky */
         .sticky-subnav { position: sticky; top: 0; z-index: 100; background: rgba(10, 17, 40, 0.90); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(37, 59, 216, 0.2); }
     
+        /* 🎡 MOTOR DEL CARRUSEL DE RIESGOS (Refined v40) */
+        .q-carousel-container { position: relative; height: 120px; width: 100%; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        .q-item { position: absolute; width: 100%; opacity: 0; transform: translateX(100%); transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1); visibility: hidden; }
+        .q-item.active { opacity: 1; transform: translateX(0); visibility: visible; }
+        .q-item.exit { opacity: 0; transform: translateX(-100%); visibility: visible; }
+
+        /* ⚡ EFFECT: ALPHA ELECTRIC SHIELD (v21.9.0) */
+        .alpha-electric-shield {
+            color: white;
+            display: inline;
+            position: relative;
+            z-index: 1;
+            animation: alpha-perimeter-electric 4s linear infinite reverse, alpha-heavy-shield-pulse 6s ease-in-out infinite;
+        }
+        @keyframes alpha-perimeter-electric {
+            0% { text-shadow: 2px 0px 0px rgba(37, 91, 216, 0.9), -1px -1px 0px rgba(37, 91, 216, 0.5); }
+            25% { text-shadow: 0px 2px 0px rgba(37, 91, 216, 0.9), 1px -1px 0px rgba(37, 91, 216, 0.5); }
+            50% { text-shadow: -2px 0px 0px rgba(37, 91, 216, 0.9), 1px 1px 0px rgba(37, 91, 216, 0.5); }
+            75% { text-shadow: 0px -2px 0px rgba(37, 91, 216, 0.9), -1px 1px 0px rgba(37, 91, 216, 0.5); }
+            100% { text-shadow: 2px 0px 0px rgba(37, 91, 216, 0.9), -1px -1px 0px rgba(37, 91, 216, 0.5); }
+        }
+        @keyframes alpha-heavy-shield-pulse {
+            0%, 100% { filter: drop-shadow(0 0 2px #253BD8) drop-shadow(0 0 10px rgba(37, 59, 216, 0.4)); }
+            50% { filter: drop-shadow(0 0 5px #253BD8) drop-shadow(0 0 20px rgba(37, 59, 216, 0.7)); }
+        }
+
+        /* 🌀 MOVING BORDER CTA */
+        .moving-border-container { position: relative; padding: 2px; border-radius: 9999px; overflow: hidden; display: inline-block; }
+        .moving-border-bg { position: absolute; inset: -100%; background: conic-gradient(from 0deg, transparent, #253BD8, transparent 30%); animation: rotate-border 4s linear infinite; }
+        @keyframes rotate-border { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .moving-border-content { position: relative; z-index: 10; background: #000; border-radius: 9999px; }
+
+
     </style>
 </head>
 <body class="font-sans text-slate-900 selection:bg-alphaElectric selection:text-white">
@@ -272,29 +313,65 @@
             </div>
             </div>
 
-            <!-- 📱 AUDITORÍA DE INTEGRIDAD -->
-            <section id="auditoria" class="py-32 px-6 relative z-10 bg-alphaNavy/40 backdrop-blur-sm border-y border-white/5">
-                <div class="max-w-4xl mx-auto text-center">
-                    <h2 class="text-white font-montserrat font-bold text-3xl uppercase leading-tight tracking-tight mb-16">Auditoría de Integridad Alpha</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-                        <div class="p-8 bg-white/5 rounded-2xl border-l-8 border-alphaElectric group"><p class="text-lg text-slate-200">¿Detecta degradación visible o <span class="text-alphaElectric font-bold">pérdida de gránulos</span> en sus tejas?</p></div>
-                        <div class="p-8 bg-white/5 rounded-2xl border-l-8 border-alphaElectric group"><p class="text-lg text-slate-200">¿Observa humedad persistente o <span class="text-alphaElectric font-bold">manchas</span> en sus techos interiores?</p></div>
-                        <div class="p-8 bg-white/5 rounded-2xl border-l-8 border-alphaElectric group"><p class="text-lg text-slate-200">¿Existen infiltraciones activas tras <span class="text-alphaElectric font-bold">eventos climáticos</span> recientes?</p></div>
-                        <div class="p-8 bg-white/5 rounded-2xl border-l-8 border-alphaElectric group"><p class="text-lg text-slate-200">¿Su sistema de drenaje muestra signos de <span class="text-alphaElectric font-bold">obstrucción o fatiga</span>?</p></div>
+            <!-- 📱 SECCIÓN DE AUDITORÍA RECALIBRADA (v41.0.0) -->
+            <section id="auditoria" class="pt-12 pb-16 px-6 relative z-10 bg-alphaNavy/40 backdrop-blur-sm border-y border-white/5">
+                <div class="max-w-6xl mx-auto w-full text-center"> <!-- Centrado absoluto del contenedor -->
+
+                    <!-- 🎡 CARRUSEL DE RIESGOS (Compacto) -->
+                    <div class="mb-10">
+                        <div class="q-carousel-container">
+                            <h2 class="q-item active text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight text-white">
+                                ¿Observa manchas de <span class="text-alphaWarning">humedad</span> en su techo o paredes?
+                            </h2>
+                            <h2 class="q-item text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight text-white">
+                                ¿Observa tejas <span class="text-alphaWarning">levantadas, rotas</span> o piezas faltantes?
+                            </h2>
+                            <h2 class="q-item text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight text-white">
+                                ¿Sufre <span class="text-alphaWarning">goteras o filtraciones</span> cuando llueve?
+                            </h2>
+                            <h2 class="q-item text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight text-white">
+                                ¿Sus canales muestran <span class="text-alphaWarning">obstrucción, fugas</span> o deformación?
+                            </h2>
+                            <h2 class="q-item text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight text-white">
+                                ¿Su techo tiene tiempo sin una <span class="text-alphaWarning">inspección técnica</span>?
+                            </h2>
+                            <h2 class="q-item text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight text-white">
+                                ¿Nota <span class="text-alphaWarning">hundimientos</span> o acumulación de agua?
+                            </h2>
+                            <h2 class="q-item text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight text-white">
+                                ¿El sellado de chimeneas presenta <span class="text-alphaWarning">grietas visibles</span>?
+                            </h2>
+                            <h2 class="q-item text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight text-white">
+                                ¿Nota manchas oscuras o <span class="text-alphaWarning">pérdida de color</span> en sus tejas?
+                            </h2>
+                        </div>
                     </div>
+
+                    <!-- ⚡ BLOQUE DE MARCA UNIFICADO -->
+                    <div class="mb-20">
+                        <h2 class="font-montserrat font-black text-3xl md:text-7xl uppercase tracking-tighter text-white leading-[1.1] md:leading-[1.0] break-words mx-auto">
+                            <span class="alpha-electric-shield">Alpha Roofing & Gutters</span> 
+                            es su mejor opción
+                        </h2>
+                        <p class="text-slate-300 text-lg md:text-xl font-light max-w-4xl mx-auto leading-relaxed mt-6">
+                            Nuestro equipo se encarga de todo el trabajo por usted para dejar su casa impecable. Su única tarea será disfrutar de la tranquilidad de un hogar bien protegido.
+                        </p>
+                    </div>
+
+                    <!-- 🌀 CTA COMPACTO Y CENTRADO -->
+                    <div class="moving-border-container shadow-2xl">
+                        <div class="moving-border-bg"></div>
+                        <div class="moving-border-content">
+                            <button onclick="navigateToAuditForm()" class="px-10 py-5 text-white font-bold uppercase text-[11px] tracking-[0.3em] hover:bg-white/5 transition-colors">
+                                Iniciar Evaluación Técnica Ahora
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
             </section>
 
-            <!-- 📱 ALPHA ES SU MEJOR OPCIÓN -->
-            <div class="py-24 relative z-10 text-center px-6">
-                <div class="max-w-4xl mx-auto">
-                    <h2 class="font-montserrat font-bold text-3xl md:text-5xl uppercase mb-6 tracking-tighter text-white">Alpha Roofing & Gutters es su mejor opción</h2>
-                    <p class="text-slate-400 mb-12 max-w-2xl mx-auto font-light text-lg">Combinamos el rigor técnico de la ingeniería con el cuidado de un servicio Concierge diseñado para su tranquilidad.</p>
-                    <button onclick="navigateToAuditForm()" class="bg-white text-alphaNavy font-bold py-5 px-12 rounded-full uppercase text-[10px] tracking-widest hover:bg-alphaElectric hover:text-white transition-all shadow-2xl">
-                        Iniciar Evaluación Técnica Ahora
-                    </button>
-                </div>
-            </div>
+            
 
             <!-- 📱 STICKY SUBNAV -->
             <nav class="sticky-subnav">

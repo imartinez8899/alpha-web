@@ -1,11 +1,24 @@
+<!-- 
+  ALPHA ROOFING & GUTTERS | SERVICE 1 SANDBOX
+  STRATEGIST: IM + Alpha AI
+  VERSION: 40.0.0 (Scale Harmonization + CTA Optimization + UI Purification)
+  TIMESTAMP: 2026-06-21 17:45 CST
+  
+  MODIFICACIONES:
+  1. UI: Reducción de escala en bloque de marca (text-3xl md:text-7xl) para equilibrio intermedio.
+  2. UX: Optimización de padding en CTA (px-10 py-5) para un diseño más compacto.
+  3. CONTENT: Purificación de copys (eliminación de etiquetas de fuente/citas en el renderizado).
+  4. EFFECT: Preservación de 'Alpha Electric Shield' v21.9.0 en formato Inline.
+-->
+
 <!DOCTYPE html>
-<html lang="es" class="h-full scroll-smooth">
+<html lang="es" class="h-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Reemplazo y Reparación de Techos | Alpha Roofing & Gutters</title>
+    <title>Alpha Impact Sandbox | Alpha Roofing & Gutters</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -13,7 +26,7 @@
                     colors: {
                         alphaNavy: '#0A1128',
                         alphaElectric: '#253BD8',
-                        alphaSlateGray: '#121620',
+                        alphaWarning: '#F97316',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -24,33 +37,48 @@
         }
     </script>
     <style>
-        /* 🛡️ BLINDAJE VISUAL: Video Fijo y Contraste Deep Navy [source: 1445, 1447] */
+        body, html { min-height: 100%; background-color: #0A1128; overflow-x: hidden; }
         .video-background { position: fixed; inset: 0; z-index: -1; overflow: hidden; }
-        .video-overlay { 
-            position: absolute; 
-            inset: 0; 
-            background: linear-gradient(to bottom, rgba(10, 17, 40, 0.85), rgba(10, 17, 40, 0.95)); 
+        .video-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10, 17, 40, 0.85), rgba(10, 17, 40, 0.95)); }
+
+        /* 🎡 MOTOR DEL CARRUSEL DE RIESGOS [source: 1350] */
+        .q-carousel-container { position: relative; height: 120px; width: 100%; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        .q-item { position: absolute; width: 100%; opacity: 0; transform: translateX(100%); transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1); visibility: hidden; }
+        .q-item.active { opacity: 1; transform: translateX(0); visibility: visible; }
+        .q-item.exit { opacity: 0; transform: translateX(-100%); visibility: visible; }
+
+        /* ⚡ EFFECT: ALPHA ELECTRIC SHIELD (v21.9.0) [source: 1352] */
+        .alpha-electric-shield {
+            color: white;
+            display: inline;
+            position: relative;
+            z-index: 1;
+            animation: 
+                alpha-perimeter-electric 4s linear infinite reverse, 
+                alpha-heavy-shield-pulse 6s ease-in-out infinite;
+        }
+        @keyframes alpha-perimeter-electric {
+            0% { text-shadow: 2px 0px 0px rgba(37, 91, 216, 0.9), -1px -1px 0px rgba(37, 91, 216, 0.5); }
+            25% { text-shadow: 0px 2px 0px rgba(37, 91, 216, 0.9), 1px -1px 0px rgba(37, 91, 216, 0.5); }
+            50% { text-shadow: -2px 0px 0px rgba(37, 91, 216, 0.9), 1px 1px 0px rgba(37, 91, 216, 0.5); }
+            75% { text-shadow: 0px -2px 0px rgba(37, 91, 216, 0.9), -1px 1px 0px rgba(37, 91, 216, 0.5); }
+            100% { text-shadow: 2px 0px 0px rgba(37, 91, 216, 0.9), -1px -1px 0px rgba(37, 91, 216, 0.5); }
+        }
+        @keyframes alpha-heavy-shield-pulse {
+            0%, 100% { filter: drop-shadow(0 0 2px #253BD8) drop-shadow(0 0 10px rgba(37, 59, 216, 0.4)); }
+            50% { filter: drop-shadow(0 0 5px #253BD8) drop-shadow(0 0 20px rgba(37, 59, 216, 0.7)); }
         }
 
-        /* 🔧 MOTOR FLIP-WORDS (v20.7.0 - Cohesión Tipográfica Total) [source: 1445, 1446] */
-        .flip-word-container { position: relative; display: block; width: 100%; min-height: 1.2em; margin: 0.2em auto 0; }
-        
-        /* 🛠️ FIX HOUSTON: Cambio de flex a block para eliminar espaciado artificial */
-        .word-wrapper { position: absolute; left: 0; right: 0; top: 0; display: block; text-align: center; white-space: normal; }
-        
-        .letter { display: inline-block; opacity: 0; transform: translateY(15px); filter: blur(10px); transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
-        .word-wrapper.active .letter { opacity: 1; transform: translateY(0); filter: blur(0px); }
-        .word-wrapper.exit .letter { opacity: 0 !important; transform: translateY(-30px) scale(1.4) !important; filter: blur(12px) !important; transition: all 0.5s ease-in !important; }
-
-        /* ⚡ ALPHA GLOW CTA [source: 1305, 1311] */
-        .btn-alpha-glow { background-color: #000 !important; color: #fff !important; border: 1px solid #253BD8; box-shadow: 0 0 15px rgba(37, 59, 216, 0.6); transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 0.15em; }
-        .btn-alpha-glow:hover { box-shadow: 0 0 25px rgba(37, 59, 216, 0.9); transform: scale(1.05); }
-
-        .sticky-subnav { position: sticky; top: 0; z-index: 100; background: rgba(10, 17, 40, 0.90); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(37, 59, 216, 0.2); }
+        /* 🌀 MOVING BORDER CTA [source: 1117] */
+        .moving-border-container { position: relative; padding: 2px; border-radius: 9999px; overflow: hidden; display: inline-block; }
+        .moving-border-bg { position: absolute; inset: -100%; background: conic-gradient(from 0deg, transparent, #253BD8, transparent 30%); animation: rotate-border 4s linear infinite; }
+        @keyframes rotate-border { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .moving-border-content { position: relative; z-index: 10; background: #000; border-radius: 9999px; }
     </style>
 </head>
-<body class="bg-alphaNavy font-sans text-white selection:bg-alphaElectric selection:text-white">
+<body class="bg-alphaNavy text-white font-sans">
 
+    <!-- 🌐 VIDEO DE FONDO [source: 1354] -->
     <div class="video-background">
         <video autoplay loop muted playsinline class="w-full h-full object-cover scale-110">
             <source src="/assets/img/system-restoration/before_during_after_1.mp4" type="video/mp4">
@@ -58,161 +86,83 @@
         <div class="video-overlay"></div>
     </div>
 
-    <!-- 🌐 1. HERO SECTION: CALIBRACIÓN TÉCNICA v20.7.0 [source: 1448] -->
-    <section class="relative h-screen flex flex-col items-center justify-center text-center px-6">
-        <div class="relative z-10 max-w-5xl w-full -mt-24">
+    <!-- 🎯 MÓDULO DE IMPACTO REFINADO (v40.0.0) -->
+    <section class="min-h-screen flex flex-col items-center justify-center py-20 px-6 relative z-10 text-center">
+        <div class="max-w-6xl mx-auto w-full">
             
-            <!-- 🏗️ TITULAR: Masa visual sólida sin espaciado "H O U S T O N" [source: 1448, 1449] -->
-            <div class="min-h-[220px] md:min-h-[320px] flex flex-col justify-end mb-12">
-                <h1 class="font-montserrat font-normal text-4xl md:text-7xl uppercase leading-tight tracking-tighter text-white">
-                    La mejor opción para <br class="hidden md:block"> su techo en <br>
-                    <span class="flip-word-container font-bold">
-                        <span id="flip-word-target">
-                            <!-- 🛡️ HYDRATION ESTÁTICA UNIFICADA: Houston con kerning natural -->
-                            <span class="word-wrapper active">
-                                <span class="inline-block whitespace-nowrap">
-                                    <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0s;">H</span><span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.03s;">O</span><span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.06s;">U</span><span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.09s;">S</span><span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.12s;">T</span><span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.15s;">O</span><span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.18s;">N</span><span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.21s;">,</span>
-                                </span>
-                                <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.24s;">&nbsp;</span>
-                                <span class="inline-block whitespace-nowrap">
-                                    <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.27s;">T</span><span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.3s;">X</span>
-                                </span>
-                            </span>
-                        </span>
-                    </span>
-                </h1>
+            <!-- 🎡 CARRUSEL DE RIESGOS (text-2xl md:text-5xl) [source: 1355] -->
+            <div class="mb-16">
+                <div class="q-carousel-container">
+                    <h2 class="q-item active text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight">
+                        ¿Observa manchas de <span class="text-alphaWarning">humedad</span> en su techo o paredes?
+                    </h2>
+                    <h2 class="q-item text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight">
+                        ¿Observa tejas <span class="text-alphaWarning">levantadas, rotas</span> o piezas faltantes?
+                    </h2>
+                    <h2 class="q-item text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight">
+                        ¿Sufre <span class="text-alphaWarning">goteras o filtraciones</span> cuando llueve?
+                    </h2>
+                    <h2 class="q-item text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight">
+                        ¿Sus canales muestran <span class="text-alphaWarning">obstrucción, fugas</span> o deformación?
+                    </h2>
+                    <h2 class="q-item text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight">
+                        ¿Su techo tiene tiempo sin una <span class="text-alphaWarning">inspección técnica</span>?
+                    </h2>
+                    <h2 class="q-item text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight">
+                        ¿Nota <span class="text-alphaWarning">hundimientos</span> o acumulación de agua?
+                    </h2>
+                    <h2 class="q-item text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight">
+                        ¿El sellado de chimeneas presenta <span class="text-alphaWarning">grietas visibles</span>?
+                    </h2>
+                    <h2 class="q-item text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight">
+                        ¿Nota manchas oscuras o <span class="text-alphaWarning">pérdida de color</span> en sus tejas?
+                    </h2>
+                </div>
             </div>
 
-            <!-- 🏗️ SUBTÍTULO: Anclado milimétricamente [source: 1452] -->
-            <p class="text-slate-300 text-lg md:text-2xl font-light max-w-3xl mx-auto leading-relaxed mb-12">
-                Especialistas en proteger su hogar contra tormentas severas, inviernos extremos y el rigor del verano húmedo de Texas. Construimos techos de máxima durabilidad con la precisión que solo un experto local puede ofrecer.
-            </p>
-
-            <button onclick="window.location.href='/index.html#lead-form-container'" class="btn-alpha-glow py-5 px-16 rounded-full text-[10px] font-bold">
-                Obtener estimado gratuito
-            </button>
-
-            <!-- 🏗️ ALPHA ARROW: Navegación hacia Auditoría [source: 111, 1229] -->
-            <div class="mt-12 animate-bounce opacity-40 hover:opacity-100 transition-opacity">
-                <svg class="w-12 h-12 mx-auto text-white cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" onclick="document.getElementById('auditoria').scrollIntoView({behavior: 'smooth'})">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7-7-7"></path>
-                </svg>
+            <!-- ⚡ BLOQUE DE MARCA (Calibración Intermedia: text-3xl md:text-7xl) [source: 1357] -->
+            <div class="mb-16">
+                <h2 class="font-montserrat font-black text-3xl md:text-7xl uppercase tracking-tighter text-white leading-[1.1] md:leading-[1.0] break-words">
+                    <span class="alpha-electric-shield">Alpha Roofing & Gutters</span> 
+                    es su mejor opción
+                </h2>
+                <p class="text-slate-300 text-lg md:text-xl font-light max-w-4xl mx-auto leading-relaxed mt-10">
+                    Nuestro equipo se encarga de todo el trabajo por usted para dejar su casa impecable. Su única tarea será disfrutar de la tranquilidad de un hogar bien protegido.
+                </p>
             </div>
-        </div>
-    </section>
 
-    <!-- 📱 2. SECCIÓN DE IMPACTO: AUDITORÍA DE INTEGRIDAD [source: 1453, 1454] -->
-    <section id="auditoria" class="py-32 px-6 relative z-10 bg-alphaNavy/40 backdrop-blur-sm border-y border-white/5">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-white font-montserrat font-bold text-3xl uppercase leading-tight tracking-tight mb-16">Auditoría de Integridad Alpha</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-                <div class="p-8 bg-white/5 rounded-2xl border-l-8 border-alphaElectric group hover:bg-white/10 transition-all"><p class="text-lg text-slate-200">¿Detecta degradación visible o <span class="text-alphaElectric font-bold">pérdida de gránulos</span> en sus tejas?</p></div>
-                <div class="p-8 bg-white/5 rounded-2xl border-l-8 border-alphaElectric group hover:bg-white/10 transition-all"><p class="text-lg text-slate-200">¿Observa humedad persistente o <span class="text-alphaElectric font-bold">manchas</span> en sus techos interiores?</p></div>
-                <div class="p-8 bg-white/5 rounded-2xl border-l-8 border-alphaElectric group hover:bg-white/10 transition-all"><p class="text-lg text-slate-200">¿Existen infiltraciones activas tras <span class="text-alphaElectric font-bold">eventos climáticos</span> recientes?</p></div>
-                <div class="p-8 bg-white/5 rounded-2xl border-l-8 border-alphaElectric group hover:bg-white/10 transition-all"><p class="text-lg text-slate-200">¿Su sistema de drenaje muestra signos de <span class="text-alphaElectric font-bold">obstrucción o fatiga</span>?</p></div>
+            <!-- 🌀 CTA COMPACTO (px-10 py-5) [source: 1313] -->
+            <div class="moving-border-container shadow-2xl mt-4">
+                <div class="moving-border-bg"></div>
+                <div class="moving-border-content">
+                    <button onclick="window.location.href='/index.html#lead-form-container'" class="px-10 py-5 text-white font-bold uppercase text-[11px] tracking-[0.3em] hover:bg-white/5 transition-colors">
+                        Iniciar Evaluación Técnica Ahora
+                    </button>
+                </div>
             </div>
-        </div>
-    </section>
 
-    <!-- 📱 STICKY SUBNAV [source: 1459] -->
-    <nav class="sticky-subnav">
-        <div class="max-w-5xl mx-auto flex justify-around p-5 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
-            <a href="#diagnostico" class="hover:text-alphaElectric transition-colors">I. Diagnóstico</a>
-            <a href="#alpha-way" class="hover:text-alphaElectric transition-colors">II. Alpha Way</a>
-            <a href="#legacy" class="hover:text-alphaElectric transition-colors">III. Legacy</a>
-        </div>
-    </nav>
-
-    <!-- 📱 4.1 DIAGNÓSTICO: PRECISIÓN TÉCNICA [source: 1460, 1461] -->
-    <section id="diagnostico" class="py-32 px-6 max-w-6xl mx-auto relative z-10">
-        <div class="grid md:grid-cols-2 gap-20 items-center">
-            <div class="text-left">
-                <span class="text-alphaElectric font-bold text-[10px] tracking-[0.4em] uppercase mb-4 block">Fase de Evaluación</span>
-                <h2 class="font-montserrat font-bold text-4xl text-white uppercase mb-8 tracking-tight">Diagnóstico Técnico</h2>
-                <p class="text-slate-400 mb-8 text-lg font-light leading-relaxed">No realizamos inspecciones visuales rápidas. Ejecutamos un escaneo profundo para identificar vulnerabilidades ocultas y documentar con precisión cada daño estructural.</p>
-                <div class="flex items-center p-4 bg-white/5 rounded-xl border border-white/10"><img src="/assets/img/icons/icon-assessment.svg" class="w-6 h-6 mr-4 brightness-0 invert opacity-70"><span class="text-sm font-semibold uppercase text-slate-200">Evaluación de Daños por Granizo y Viento</span></div>
-            </div>
-            <div class="rounded-3xl overflow-hidden shadow-2xl border border-white/10"><img src="/assets/img/system-restoration/inspection_2.jpg" class="w-full h-full object-cover"></div>
         </div>
     </section>
 
     <script>
-        /**
-         * ALPHA FLIP-WORDS ENGINE (v20.7.0 - KERNING FIX & SMART WRAP) [source: 1471, 1473, 1474]
-         */
-        const coreCities = ["THE WOODLANDS, TX", "SPRING, TX"];
-        const additionalCities = [
-            "CONROE, TX", "TOMBALL, TX", "MAGNOLIA, TX", "MONTGOMERY, TX", "KLEIN, TX", 
-            "OAK RIDGE NORTH, TX", "SHENANDOAH, TX", "HOUSTON, TX", "BELLAIRE, TX", 
-            "WEST UNIVERSITY PLACE, TX", "HUNTERS CREEK VILLAGE, TX", "SPRING VALLEY VILLAGE, TX", 
-            "JERSEY VILLAGE, TX", "ALDINE, TX", "HUMBLE, TX", "ATASCOCITA, TX", "KINGWOOD, TX", 
-            "KATY, TX", "CYPRESS, TX", "FULSHEAR, TX", "RICHMOND, TX", "ROSENBERG, TX", 
-            "SUGAR LAND, TX", "MISSOURI CITY, TX", "STAFFORD, TX", "PEARLAND, TX", 
-            "FRIENDSWOOD, TX", "LEAGUE CITY, TX", "GALVESTON, TX", "SANTA FE, TX", 
-            "DICKINSON, TX", "PASADENA, TX", "SOUTH HOUSTON, TX", "DEER PARK, TX", 
-            "BAYTOWN, TX", "MONT BELVIEU, TX", "CHANNELVIEW, TX", "CLEAR LAKE, TX"
-        ];
-
-        function shuffle(a) {
-            for (let i = a.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [a[i], a[j]] = [a[j], a[i]];
-            }
-            return a;
+        /* MOTOR DE ROTACIÓN DE PREGUNTAS (Sincronizado v40) [source: 1346] */
+        let qIdx = 0;
+        function rotateQuestions() {
+            const items = document.querySelectorAll('.q-item');
+            if (items.length === 0) return;
+            const current = items[qIdx];
+            current.classList.remove('active');
+            current.classList.add('exit');
+            qIdx = (qIdx + 1) % items.length;
+            const next = items[qIdx];
+            next.classList.remove('exit');
+            next.offsetHeight; 
+            next.classList.add('active');
+            setTimeout(() => {
+                items.forEach((item, i) => { if (i !== qIdx) item.classList.remove('exit'); });
+            }, 800);
         }
-
-        const alphaCities = [...coreCities, ...shuffle(additionalCities.filter(c => c !== "HOUSTON, TX"))];
-        let cityIdx = 0;
-        const targetContainer = document.getElementById('flip-word-target');
-
-        function buildWordElement(fullStr) {
-            const wrapper = document.createElement('span');
-            wrapper.className = 'word-wrapper';
-            const words = fullStr.split(' ');
-            let globalCharIdx = 0;
-
-            words.forEach((wordText, wordIdx) => {
-                const wordGroup = document.createElement('span');
-                wordGroup.className = 'inline-block whitespace-nowrap'; // Agrupación indivisible
-                [...wordText].forEach((char) => {
-                    const letterSpan = document.createElement('span');
-                    letterSpan.textContent = char;
-                    letterSpan.className = 'letter';
-                    letterSpan.style.transitionDelay = `${globalCharIdx * 0.03}s`;
-                    wordGroup.appendChild(letterSpan);
-                    globalCharIdx++;
-                });
-                wrapper.appendChild(wordGroup);
-                if (wordIdx < words.length - 1) {
-                    const spaceSpan = document.createElement('span');
-                    spaceSpan.innerHTML = '&nbsp;';
-                    spaceSpan.className = 'letter';
-                    spaceSpan.style.transitionDelay = `${globalCharIdx * 0.03}s`;
-                    wrapper.appendChild(spaceSpan);
-                    globalCharIdx++;
-                }
-            });
-            return wrapper;
-        }
-
-        function rotateCity() {
-            const current = targetContainer.querySelector('.word-wrapper');
-            if (current) {
-                current.classList.remove('active');
-                current.classList.add('exit');
-                setTimeout(() => current.remove(), 800);
-            }
-            const nextCity = buildWordElement(alphaCities[cityIdx]);
-            targetContainer.appendChild(nextCity);
-            nextCity.offsetHeight; 
-            nextCity.classList.add('active');
-            cityIdx = (cityIdx + 1) % alphaCities.length;
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            // Rotación tras Houston impecable [source: 1474]
-            setInterval(rotateCity, 2800); 
-        });
+        setInterval(rotateQuestions, 4500);
     </script>
 </body>
 </html>

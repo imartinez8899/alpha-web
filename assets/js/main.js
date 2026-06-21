@@ -202,3 +202,24 @@ window.onpopstate = function(event) {
 // Accesos Rápidos
 function navigateToHome() { showSection('hero-section'); }
 function navigateToAuditForm() { showSection('lead-form-container'); }
+
+
+/* MOTOR DE ROTACIÓN DE PREGUNTAS (v40.0.0) */
+let qIdx = 0;
+function rotateQuestions() {
+    const items = document.querySelectorAll('.q-item');
+    if (items.length === 0) return;
+    const current = items[qIdx];
+    current.classList.remove('active');
+    current.classList.add('exit');
+    qIdx = (qIdx + 1) % items.length;
+    const next = items[qIdx];
+    next.classList.remove('exit');
+    next.offsetHeight; // Force reflow
+    next.classList.add('active');
+    setTimeout(() => {
+        items.forEach((item, i) => { if (i !== qIdx) item.classList.remove('exit'); });
+    }, 800);
+}
+// Activar el intervalo (4.5s para legibilidad técnica)
+setInterval(rotateQuestions, 4500);
