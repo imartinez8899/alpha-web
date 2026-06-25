@@ -1,14 +1,14 @@
 <!-- 
-  ALPHA ROOFING & GUTTERS | MINIMALIST TECHNICAL SUB-NAV
+  ALPHA ROOFING & GUTTERS | CHROMATIC TECHNICAL SUB-NAV
   STRATEGIST: IM + Alpha AI
-  VERSION: 43.0.0 (Minimalist ScrollSpy + Precise Iconography)
-  TIMESTAMP: 2026-06-25 11:30 CST
+  VERSION: 44.0.0 (Color-State Switch + Local Icon Mapping)
+  TIMESTAMP: 2026-06-25 12:15 CST
   
   DIAGNÓSTICO TÉCNICO:
-  1. UI: Reducción radical de paddings. Estética 'Technical Platinum' (#fafafa).
-  2. EFFECT: Transición de color 'Alpha Slate' (Off) a 'Alpha Electric' (On).
-  3. ICONOGRAPHY: Asignación de iconos locales específicos para cada hito técnico.
-  4. ENGINE: ScrollSpy optimizado para detección de precisión en Viewport.
+  1. UI: Fondo 'Technical Platinum' (#fafafa). Reducción de padding vertical (py-2).
+  2. EFFECT: Switch de 'Grayscale' (Off) a 'Original Color' (On) mediante filtros CSS.
+  3. MAPPING: icon-derelict (Diagnosis), icon-worker.. (Alpha Way), icon-house (Legacy).
+  4. ENGINE: ScrollSpy calibrado para activación en el centro del viewport.
 -->
 
 <!DOCTYPE html>
@@ -16,9 +16,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Alpha Precision Audit | Sandbox v43</title>
+    <title>Alpha Precision Audit | Sandbox v44</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -26,7 +26,6 @@
                     colors: {
                         alphaNavy: '#0A1128',
                         alphaElectric: '#253BD8',
-                        alphaWarning: '#F97316',
                         alphaSlate: '#4A5568',
                         technicalPlatinum: '#fafafa',
                     },
@@ -39,15 +38,17 @@
         }
     </script>
     <style>
-        /* 🛠️ INGENIERÍA DE NAVEGACIÓN MINIMALISTA [source: 282, 1172] */
+        body, html { min-height: 100%; background-color: white; }
+
+        /* 🛠️ NAVEGACIÓN TÉCNICA CROMÁTICA [source: 8, 1116] */
         .sticky-subnav {
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(250, 250, 250, 0.98); /* Technical Platinum Semi-Transparente */
+            background: rgba(250, 250, 250, 0.98);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(10, 17, 40, 0.05);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
         }
         
         .nav-item {
@@ -55,170 +56,145 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: all 0.4s ease;
-            color: #4A5568; /* Alpha Slate (Estado Off) */
-            opacity: 0.5;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            color: #4A5568; /* Alpha Slate */
+            opacity: 0.6;
         }
 
         .nav-item img {
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
             margin-bottom: 4px;
-            filter: grayscale(100%) contrast(50%);
+            /* Filtro de estado 'Apagado' */
+            filter: grayscale(100%) brightness(0.8);
             transition: all 0.4s ease;
         }
 
-        /* ⚡ ESTADO ACTIVO: "LA ESTRUCTURA HECHA VISIBLE" [source: 8, 156] */
+        /* ⚡ ESTADO ACTIVO: CROMATICIDAD REVELADA [source: 156, 1224] */
         .nav-item.active {
-            color: #253BD8; /* Alpha Electric (Estado On) */
+            color: #253BD8; /* Alpha Electric para el texto */
             opacity: 1;
-            transform: translateY(-2px);
+            transform: scale(1.05);
         }
         
         .nav-item.active img {
-            filter: grayscale(0%) contrast(100%);
-            transform: scale(1.1);
+            /* Eliminación de filtros para mostrar color original */
+            filter: grayscale(0%) brightness(1);
+            transform: translateY(-2px);
         }
 
+        /* Indicador sutil de línea */
         .nav-item.active::after {
             content: '';
             position: absolute;
-            bottom: -12px;
-            width: 20px;
+            bottom: -10px;
+            width: 15px;
             height: 2px;
             background-color: #253BD8;
             border-radius: 99px;
-            animation: line-grow 0.3s ease-out;
         }
 
-        @keyframes line-grow {
-            from { width: 0; opacity: 0; }
-            to { width: 20px; opacity: 1; }
-        }
-
-        .section-trigger { padding-top: 80px; padding-bottom: 80px; }
+        .section-trigger { padding-top: 100px; padding-bottom: 100px; }
     </style>
 </head>
-<body class="bg-white font-sans selection:bg-alphaElectric selection:text-white">
+<body class="font-sans">
 
-    <!-- 🏗️ ESPACIO DE RELLENO (Simulando Hero) -->
-    <div class="h-[60vh] flex items-center justify-center bg-alphaNavy">
-        <p class="text-white/20 uppercase tracking-[0.8em] text-[9px] font-bold">Alpha Hero Viewport</p>
+    <!-- 🏗️ HERO PLACEHOLDER -->
+    <div class="h-[50vh] bg-alphaNavy flex items-center justify-center border-b border-white/5">
+        <img src="/assets/img/brand/alpha-logo-white.svg" class="h-12 opacity-30">
     </div>
 
-    <!-- 📱 4.0 MINIMALIST STICKY NAV [source: 2, 52] -->
-    <nav class="sticky-subnav py-3 shadow-sm">
-        <div class="max-w-3xl mx-auto flex justify-around items-center px-4">
+    <!-- 📱 4.0 CHROMATIC STICKY NAV [source: 2, 4, 1162] -->
+    <nav class="sticky-subnav py-2 shadow-sm">
+        <div class="max-w-xl mx-auto flex justify-around items-center px-6">
             
-            <!-- Link I: Diagnosis -->
-            <a href="#diagnosis" class="nav-item relative group">
-                <img src="/assets/img/icons/icon-assessment.svg" alt="Diagnosis" class="group-hover:opacity-100">
-                <span class="text-[9px] font-extrabold uppercase tracking-[0.2em]">Diagnosis</span>
+            <!-- Diagnosis -->
+            <a href="#diagnosis" class="nav-item relative">
+                <img src="/assets/img/icons/icon-derelict.svg" alt="Technical Diagnosis">
+                <span class="text-[9px] font-black uppercase tracking-[0.2em]">Diagnosis</span>
             </a>
 
-            <!-- Link II: Alpha Way -->
-            <a href="#alpha-way" class="nav-item relative group">
-                <img src="/assets/img/icons/icon-tools.svg" alt="Alpha Way" class="group-hover:opacity-100">
-                <span class="text-[9px] font-extrabold uppercase tracking-[0.2em]">Alpha Way</span>
+            <!-- Alpha Way -->
+            <a href="#alpha-way" class="nav-item relative">
+                <img src="/assets/img/icons/icon-worker..svg" alt="Alpha Protocol">
+                <span class="text-[9px] font-black uppercase tracking-[0.2em]">Alpha Way</span>
             </a>
 
-            <!-- Link III: Legacy -->
-            <a href="#legacy" class="nav-item relative group">
-                <img src="/assets/img/icons/icon-certificate.svg" alt="Legacy" class="group-hover:opacity-100">
-                <span class="text-[9px] font-extrabold uppercase tracking-[0.2em]">Legacy</span>
+            <!-- Legacy -->
+            <a href="#legacy" class="nav-item relative">
+                <img src="/assets/img/icons/icon-house.svg" alt="Legacy Shield">
+                <span class="text-[9px] font-black uppercase tracking-[0.2em]">Legacy</span>
             </a>
 
         </div>
     </nav>
 
-    <!-- 📱 4.1 DIAGNOSIS: CUANTIFICACIÓN [source: 3, 47] -->
-    <section id="diagnosis" class="section-trigger px-6 border-b border-slate-50">
-        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div class="order-2 md:order-1">
-                <div class="aspect-video rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shadow-inner">
-                    <img src="/assets/img/system-restoration/inspection_1.jpg" alt="Technical Inspection" class="w-full h-full object-cover grayscale-[20%]">
-                </div>
+    <!-- 📱 4.1 DIAGNOSIS: LA BASE DE LA PRECISIÓN [source: 3, 56] -->
+    <section id="diagnosis" class="section-trigger px-6">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div class="rounded-3xl overflow-hidden shadow-2xl border border-slate-100">
+                <img src="/assets/img/system-restoration/inspection_1.jpg" class="w-full h-full object-cover">
             </div>
-            <div class="order-1 md:order-2">
-                <span class="text-alphaElectric font-bold text-[9px] tracking-[0.5em] uppercase mb-3 block">Step I</span>
-                <h2 class="font-montserrat font-black text-3xl text-alphaNavy uppercase mb-6 tracking-tighter">Diagnosis</h2>
-                <p class="text-slate-500 text-sm leading-relaxed mb-6 font-light">
-                    No realizamos inspecciones visuales rápidas. Ejecutamos un escaneo profundo para identificar vulnerabilidades ocultas y documentar con precisión técnica cada daño estructural.
+            <div>
+                <span class="text-alphaElectric font-bold text-[10px] tracking-[0.4em] uppercase mb-4 block">Fase I</span>
+                <h2 class="font-montserrat font-black text-4xl text-alphaNavy uppercase mb-6 tracking-tighter">Diagnosis</h2>
+                <p class="text-slate-500 text-lg font-light leading-relaxed">
+                    Eliminamos la incertidumbre mediante la observación experta. Documentamos con precisión cada daño estructural para que el seguro responda con la verdad técnica.
                 </p>
-                <div class="bg-technicalPlatinum p-4 rounded-xl border-l-4 border-alphaElectric">
-                    <p class="text-[11px] font-bold text-alphaNavy uppercase tracking-wide">Punto de Inflexión Técnico:</p>
-                    <p class="text-[10px] text-slate-500 italic mt-1">La sustitución estratégica protege el activo; la reparación parcial prolonga el riesgo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📱 4.2 ALPHA WAY: PROTOCOLO DE INGENIERÍA [source: 4, 154, 54] -->
+    <section id="alpha-way" class="section-trigger px-6 bg-technicalPlatinum/50 border-y border-slate-50">
+        <div class="max-w-5xl mx-auto text-center">
+            <span class="text-alphaElectric font-bold text-[10px] tracking-[0.4em] uppercase mb-4 block">Fase II</span>
+            <h2 class="font-montserrat font-black text-4xl text-alphaNavy uppercase mb-16 tracking-tighter">Alpha Way</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-left">
+                <div class="p-8 bg-white rounded-2xl shadow-sm border border-slate-100">
+                    <h4 class="font-bold text-xs uppercase mb-3 text-alphaNavy">Materiales Premium</h4>
+                    <p class="text-[11px] text-slate-400 italic">Instalamos GAF y Owens Corning bajo rendimiento certificado.</p>
+                </div>
+                <div class="p-8 bg-white rounded-2xl shadow-sm border border-slate-100">
+                    <h4 class="font-bold text-xs uppercase mb-3 text-alphaNavy">Instalación Experta</h4>
+                    <p class="text-[11px] text-slate-400 italic">Sellado de valles y fijación bajo código estricto de Texas.</p>
+                </div>
+                <div class="p-8 bg-white rounded-2xl shadow-sm border border-slate-100">
+                    <h4 class="font-bold text-xs uppercase mb-3 text-alphaNavy">Cero Anticipos</h4>
+                    <p class="text-[11px] text-slate-400 italic">Usted no libera fondos hasta ver la obra inmaculada.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 📱 4.2 ALPHA WAY: EL ESTÁNDAR [source: 4, 154] -->
-    <section id="alpha-way" class="section-trigger px-6 bg-technicalPlatinum/30">
-        <div class="max-w-5xl mx-auto text-center mb-16">
-            <span class="text-alphaElectric font-bold text-[9px] tracking-[0.5em] uppercase mb-3 block">Step II</span>
-            <h2 class="font-montserrat font-black text-3xl text-alphaNavy uppercase tracking-tighter">Alpha Way</h2>
-            <p class="text-slate-400 text-xs mt-4 max-w-lg mx-auto leading-relaxed">
-                Transformamos un proceso estándar en un protocolo de ingeniería Alpha innegociable. Calidad que se ve y estructura que se valida.
-            </p>
-        </div>
-        
-        <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
-            <div class="p-8 bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-                <h3 class="font-montserrat font-bold text-[11px] uppercase text-alphaNavy mb-4">Materiales Premium</h3>
-                <p class="text-[10px] text-slate-400 leading-relaxed italic">Seleccionamos marcas que dictan la calidad: GAF, Owens Corning y Atlas, calibradas para Texas.</p>
-            </div>
-            <div class="p-8 bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-                <h3 class="font-montserrat font-bold text-[11px] uppercase text-alphaNavy mb-4">Instalación Experta</h3>
-                <p class="text-[10px] text-slate-400 leading-relaxed italic">Fijación técnica de valles y áreas críticas siguiendo estrictamente la normativa local.</p>
-            </div>
-            <div class="p-8 bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-                <h3 class="font-montserrat font-bold text-[11px] uppercase text-alphaNavy mb-4">Supervisión Alpha</h3>
-                <p class="text-[10px] text-slate-400 leading-relaxed italic">Monitoreo constante en obra para garantizar que el diseño se ejecute según lo proyectado.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 📱 4.3 LEGACY: LA PROMESA [source: 6, 49] -->
-    <section id="legacy" class="section-trigger px-6 bg-white">
+    <!-- 📱 4.3 LEGACY: LA PROMESA DE PERMANENCIA [source: 6, 60] -->
+    <section id="legacy" class="section-trigger px-6">
         <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
             <div>
-                <span class="text-alphaElectric font-bold text-[9px] tracking-[0.5em] uppercase mb-3 block">Step III</span>
-                <h2 class="font-montserrat font-black text-3xl text-alphaNavy uppercase mb-6 tracking-tighter">Legacy</h2>
-                <p class="text-slate-500 text-sm leading-relaxed mb-8 font-light">
-                    Cerramos la brecha entre el servicio terminado y la tranquilidad vitalicia mediante un archivo digital inmaculado de su propiedad.
+                <span class="text-alphaElectric font-bold text-[10px] tracking-[0.4em] uppercase mb-4 block">Fase III</span>
+                <h2 class="font-montserrat font-black text-4xl text-alphaNavy uppercase mb-6 tracking-tighter">Legacy</h2>
+                <p class="text-slate-500 text-lg font-light leading-relaxed mb-8">
+                    Blindamos su inversión mediante un archivo digital inmaculado y el respaldo de nuestra garantía vitalicia sobre mano de obra.
                 </p>
-                <div class="flex items-center space-x-4 mb-8">
-                    <img src="/assets/img/trust-badges/gaf_logo.png" class="h-6 opacity-30 grayscale hover:opacity-100 hover:grayscale-0 transition-all">
-                    <img src="/assets/img/trust-badges/owens_corning_logo.png" class="h-6 opacity-30 grayscale hover:opacity-100 hover:grayscale-0 transition-all">
-                </div>
-                <div class="p-6 bg-alphaElectric/5 rounded-2xl border-l-2 border-alphaElectric italic text-slate-400 text-xs">
-                    "Alpha no solo reemplazó mi techo, restauró mi confianza. La calidad es visible en cada detalle."
-                    <span class="block mt-3 not-italic font-bold text-alphaNavy uppercase text-[9px] tracking-widest">— Familia Fernandez, Spring, TX</span>
+                <div class="bg-alphaElectric/5 p-6 rounded-2xl border-l-4 border-alphaElectric">
+                    <p class="text-xs italic text-slate-500">"Alpha no solo reemplazó mi techo, restauró mi confianza. La calidad es visible."</p>
+                    <p class="mt-4 text-[9px] font-bold uppercase text-alphaNavy">— Familia Fernandez, Spring, TX</p>
                 </div>
             </div>
-            <div class="grid grid-cols-2 gap-3 translate-y-4">
-                <div class="h-64 rounded-xl overflow-hidden shadow-lg"><img src="/assets/img/system-roofing/finished_roof_2.jpg" class="w-full h-full object-cover"></div>
-                <div class="h-64 rounded-xl overflow-hidden shadow-lg -translate-y-8"><img src="/assets/img/system-roofing/finished_roof_1.jpg" class="w-full h-full object-cover"></div>
+            <div class="grid grid-cols-2 gap-4">
+                <img src="/assets/img/system-roofing/finished_roof_1.jpg" class="rounded-xl shadow-lg">
+                <img src="/assets/img/system-roofing/finished_roof_2.jpg" class="rounded-xl shadow-lg translate-y-6">
             </div>
         </div>
     </section>
 
-    <!-- 🏗️ PIE DE PÁGINA RELLENO -->
-    <div class="h-[40vh] bg-alphaNavy flex items-center justify-center">
-        <p class="text-white/10 uppercase tracking-[1em] text-[10px]">End of Sandbox Experience</p>
-    </div>
+    <div class="h-[50vh] bg-alphaNavy"></div>
 
     <script>
-        /* 🎡 SENSOR DE NAVEGACIÓN QUIRÚRGICA (ScrollSpy) */
+        /* 🎡 SENSOR DE NAVEGACIÓN CROMÁTICA (ScrollSpy) */
         document.addEventListener("DOMContentLoaded", () => {
             const sections = document.querySelectorAll("section[id]");
             const navItems = document.querySelectorAll(".nav-item");
-
-            const options = {
-                threshold: 0.4, // Se activa cuando el 40% es visible
-                rootMargin: "-10% 0px -40% 0px" // Ajuste de 'hitbox' para activación precisa
-            };
 
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
@@ -231,7 +207,10 @@
                         });
                     }
                 });
-            }, options);
+            }, { 
+                threshold: 0.5, 
+                rootMargin: "-20% 0px -30% 0px" 
+            });
 
             sections.forEach((section) => observer.observe(section));
         });
