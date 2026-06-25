@@ -1,24 +1,24 @@
 <!-- 
-  ALPHA ROOFING & GUTTERS | SERVICE 1 SANDBOX
+  ALPHA ROOFING & GUTTERS | MINIMALIST TECHNICAL SUB-NAV
   STRATEGIST: IM + Alpha AI
-  VERSION: 40.0.0 (Scale Harmonization + CTA Optimization + UI Purification)
-  TIMESTAMP: 2026-06-21 17:45 CST
+  VERSION: 43.0.0 (Minimalist ScrollSpy + Precise Iconography)
+  TIMESTAMP: 2026-06-25 11:30 CST
   
-  MODIFICACIONES:
-  1. UI: Reducción de escala en bloque de marca (text-3xl md:text-7xl) para equilibrio intermedio.
-  2. UX: Optimización de padding en CTA (px-10 py-5) para un diseño más compacto.
-  3. CONTENT: Purificación de copys (eliminación de etiquetas de fuente/citas en el renderizado).
-  4. EFFECT: Preservación de 'Alpha Electric Shield' v21.9.0 en formato Inline.
+  DIAGNÓSTICO TÉCNICO:
+  1. UI: Reducción radical de paddings. Estética 'Technical Platinum' (#fafafa).
+  2. EFFECT: Transición de color 'Alpha Slate' (Off) a 'Alpha Electric' (On).
+  3. ICONOGRAPHY: Asignación de iconos locales específicos para cada hito técnico.
+  4. ENGINE: ScrollSpy optimizado para detección de precisión en Viewport.
 -->
 
 <!DOCTYPE html>
-<html lang="es" class="h-full">
+<html lang="es" class="scroll-smooth h-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Alpha Impact Sandbox | Alpha Roofing & Gutters</title>
+    <title>Alpha Precision Audit | Sandbox v43</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -27,6 +27,8 @@
                         alphaNavy: '#0A1128',
                         alphaElectric: '#253BD8',
                         alphaWarning: '#F97316',
+                        alphaSlate: '#4A5568',
+                        technicalPlatinum: '#fafafa',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -37,132 +39,202 @@
         }
     </script>
     <style>
-        body, html { min-height: 100%; background-color: #0A1128; overflow-x: hidden; }
-        .video-background { position: fixed; inset: 0; z-index: -1; overflow: hidden; }
-        .video-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10, 17, 40, 0.85), rgba(10, 17, 40, 0.95)); }
-
-        /* 🎡 MOTOR DEL CARRUSEL DE RIESGOS [source: 1350] */
-        .q-carousel-container { position: relative; height: 120px; width: 100%; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-        .q-item { position: absolute; width: 100%; opacity: 0; transform: translateX(100%); transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1); visibility: hidden; }
-        .q-item.active { opacity: 1; transform: translateX(0); visibility: visible; }
-        .q-item.exit { opacity: 0; transform: translateX(-100%); visibility: visible; }
-
-        /* ⚡ EFFECT: ALPHA ELECTRIC SHIELD (v21.9.0) [source: 1352] */
-        .alpha-electric-shield {
-            color: white;
-            display: inline;
-            position: relative;
-            z-index: 1;
-            animation: 
-                alpha-perimeter-electric 4s linear infinite reverse, 
-                alpha-heavy-shield-pulse 6s ease-in-out infinite;
+        /* 🛠️ INGENIERÍA DE NAVEGACIÓN MINIMALISTA [source: 282, 1172] */
+        .sticky-subnav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(250, 250, 250, 0.98); /* Technical Platinum Semi-Transparente */
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(10, 17, 40, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        @keyframes alpha-perimeter-electric {
-            0% { text-shadow: 2px 0px 0px rgba(37, 91, 216, 0.9), -1px -1px 0px rgba(37, 91, 216, 0.5); }
-            25% { text-shadow: 0px 2px 0px rgba(37, 91, 216, 0.9), 1px -1px 0px rgba(37, 91, 216, 0.5); }
-            50% { text-shadow: -2px 0px 0px rgba(37, 91, 216, 0.9), 1px 1px 0px rgba(37, 91, 216, 0.5); }
-            75% { text-shadow: 0px -2px 0px rgba(37, 91, 216, 0.9), -1px 1px 0px rgba(37, 91, 216, 0.5); }
-            100% { text-shadow: 2px 0px 0px rgba(37, 91, 216, 0.9), -1px -1px 0px rgba(37, 91, 216, 0.5); }
-        }
-        @keyframes alpha-heavy-shield-pulse {
-            0%, 100% { filter: drop-shadow(0 0 2px #253BD8) drop-shadow(0 0 10px rgba(37, 59, 216, 0.4)); }
-            50% { filter: drop-shadow(0 0 5px #253BD8) drop-shadow(0 0 20px rgba(37, 59, 216, 0.7)); }
+        
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+            color: #4A5568; /* Alpha Slate (Estado Off) */
+            opacity: 0.5;
         }
 
-        /* 🌀 MOVING BORDER CTA [source: 1117] */
-        .moving-border-container { position: relative; padding: 2px; border-radius: 9999px; overflow: hidden; display: inline-block; }
-        .moving-border-bg { position: absolute; inset: -100%; background: conic-gradient(from 0deg, transparent, #253BD8, transparent 30%); animation: rotate-border 4s linear infinite; }
-        @keyframes rotate-border { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        .moving-border-content { position: relative; z-index: 10; background: #000; border-radius: 9999px; }
+        .nav-item img {
+            width: 20px;
+            height: 20px;
+            margin-bottom: 4px;
+            filter: grayscale(100%) contrast(50%);
+            transition: all 0.4s ease;
+        }
+
+        /* ⚡ ESTADO ACTIVO: "LA ESTRUCTURA HECHA VISIBLE" [source: 8, 156] */
+        .nav-item.active {
+            color: #253BD8; /* Alpha Electric (Estado On) */
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+        
+        .nav-item.active img {
+            filter: grayscale(0%) contrast(100%);
+            transform: scale(1.1);
+        }
+
+        .nav-item.active::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            width: 20px;
+            height: 2px;
+            background-color: #253BD8;
+            border-radius: 99px;
+            animation: line-grow 0.3s ease-out;
+        }
+
+        @keyframes line-grow {
+            from { width: 0; opacity: 0; }
+            to { width: 20px; opacity: 1; }
+        }
+
+        .section-trigger { padding-top: 80px; padding-bottom: 80px; }
     </style>
 </head>
-<body class="bg-alphaNavy text-white font-sans">
+<body class="bg-white font-sans selection:bg-alphaElectric selection:text-white">
 
-    <!-- 🌐 VIDEO DE FONDO [source: 1354] -->
-    <div class="video-background">
-        <video autoplay loop muted playsinline class="w-full h-full object-cover scale-110">
-            <source src="/assets/img/system-restoration/before_during_after_1.mp4" type="video/mp4">
-        </video>
-        <div class="video-overlay"></div>
+    <!-- 🏗️ ESPACIO DE RELLENO (Simulando Hero) -->
+    <div class="h-[60vh] flex items-center justify-center bg-alphaNavy">
+        <p class="text-white/20 uppercase tracking-[0.8em] text-[9px] font-bold">Alpha Hero Viewport</p>
     </div>
 
-    <!-- 🎯 MÓDULO DE IMPACTO REFINADO (v40.0.0) -->
-    <section class="min-h-screen flex flex-col items-center justify-center py-20 px-6 relative z-10 text-center">
-        <div class="max-w-6xl mx-auto w-full">
+    <!-- 📱 4.0 MINIMALIST STICKY NAV [source: 2, 52] -->
+    <nav class="sticky-subnav py-3 shadow-sm">
+        <div class="max-w-3xl mx-auto flex justify-around items-center px-4">
             
-            <!-- 🎡 CARRUSEL DE RIESGOS (text-2xl md:text-5xl) [source: 1355] -->
-            <div class="mb-16">
-                <div class="q-carousel-container">
-                    <h2 class="q-item active text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight">
-                        ¿Observa manchas de <span class="text-alphaWarning">humedad</span> en su techo o paredes?
-                    </h2>
-                    <h2 class="q-item text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight">
-                        ¿Observa tejas <span class="text-alphaWarning">levantadas, rotas</span> o piezas faltantes?
-                    </h2>
-                    <h2 class="q-item text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight">
-                        ¿Sufre <span class="text-alphaWarning">goteras o filtraciones</span> cuando llueve?
-                    </h2>
-                    <h2 class="q-item text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight">
-                        ¿Sus canales muestran <span class="text-alphaWarning">obstrucción, fugas</span> o deformación?
-                    </h2>
-                    <h2 class="q-item text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight">
-                        ¿Su techo tiene tiempo sin una <span class="text-alphaWarning">inspección técnica</span>?
-                    </h2>
-                    <h2 class="q-item text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight">
-                        ¿Nota <span class="text-alphaWarning">hundimientos</span> o acumulación de agua?
-                    </h2>
-                    <h2 class="q-item text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight">
-                        ¿El sellado de chimeneas presenta <span class="text-alphaWarning">grietas visibles</span>?
-                    </h2>
-                    <h2 class="q-item text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight">
-                        ¿Nota manchas oscuras o <span class="text-alphaWarning">pérdida de color</span> en sus tejas?
-                    </h2>
+            <!-- Link I: Diagnosis -->
+            <a href="#diagnosis" class="nav-item relative group">
+                <img src="/assets/img/icons/icon-assessment.svg" alt="Diagnosis" class="group-hover:opacity-100">
+                <span class="text-[9px] font-extrabold uppercase tracking-[0.2em]">Diagnosis</span>
+            </a>
+
+            <!-- Link II: Alpha Way -->
+            <a href="#alpha-way" class="nav-item relative group">
+                <img src="/assets/img/icons/icon-tools.svg" alt="Alpha Way" class="group-hover:opacity-100">
+                <span class="text-[9px] font-extrabold uppercase tracking-[0.2em]">Alpha Way</span>
+            </a>
+
+            <!-- Link III: Legacy -->
+            <a href="#legacy" class="nav-item relative group">
+                <img src="/assets/img/icons/icon-certificate.svg" alt="Legacy" class="group-hover:opacity-100">
+                <span class="text-[9px] font-extrabold uppercase tracking-[0.2em]">Legacy</span>
+            </a>
+
+        </div>
+    </nav>
+
+    <!-- 📱 4.1 DIAGNOSIS: CUANTIFICACIÓN [source: 3, 47] -->
+    <section id="diagnosis" class="section-trigger px-6 border-b border-slate-50">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1">
+                <div class="aspect-video rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shadow-inner">
+                    <img src="/assets/img/system-restoration/inspection_1.jpg" alt="Technical Inspection" class="w-full h-full object-cover grayscale-[20%]">
                 </div>
             </div>
-
-            <!-- ⚡ BLOQUE DE MARCA (Calibración Intermedia: text-3xl md:text-7xl) [source: 1357] -->
-            <div class="mb-16">
-                <h2 class="font-montserrat font-black text-3xl md:text-7xl uppercase tracking-tighter text-white leading-[1.1] md:leading-[1.0] break-words">
-                    <span class="alpha-electric-shield">Alpha Roofing & Gutters</span> 
-                    es su mejor opción
-                </h2>
-                <p class="text-slate-300 text-lg md:text-xl font-light max-w-4xl mx-auto leading-relaxed mt-10">
-                    Nuestro equipo se encarga de todo el trabajo por usted para dejar su casa impecable. Su única tarea será disfrutar de la tranquilidad de un hogar bien protegido.
+            <div class="order-1 md:order-2">
+                <span class="text-alphaElectric font-bold text-[9px] tracking-[0.5em] uppercase mb-3 block">Step I</span>
+                <h2 class="font-montserrat font-black text-3xl text-alphaNavy uppercase mb-6 tracking-tighter">Diagnosis</h2>
+                <p class="text-slate-500 text-sm leading-relaxed mb-6 font-light">
+                    No realizamos inspecciones visuales rápidas. Ejecutamos un escaneo profundo para identificar vulnerabilidades ocultas y documentar con precisión técnica cada daño estructural.
                 </p>
-            </div>
-
-            <!-- 🌀 CTA COMPACTO (px-10 py-5) [source: 1313] -->
-            <div class="moving-border-container shadow-2xl mt-4">
-                <div class="moving-border-bg"></div>
-                <div class="moving-border-content">
-                    <button onclick="window.location.href='/index.html#lead-form-container'" class="px-10 py-5 text-white font-bold uppercase text-[11px] tracking-[0.3em] hover:bg-white/5 transition-colors">
-                        Iniciar Evaluación Técnica Ahora
-                    </button>
+                <div class="bg-technicalPlatinum p-4 rounded-xl border-l-4 border-alphaElectric">
+                    <p class="text-[11px] font-bold text-alphaNavy uppercase tracking-wide">Punto de Inflexión Técnico:</p>
+                    <p class="text-[10px] text-slate-500 italic mt-1">La sustitución estratégica protege el activo; la reparación parcial prolonga el riesgo.</p>
                 </div>
             </div>
-
         </div>
     </section>
 
+    <!-- 📱 4.2 ALPHA WAY: EL ESTÁNDAR [source: 4, 154] -->
+    <section id="alpha-way" class="section-trigger px-6 bg-technicalPlatinum/30">
+        <div class="max-w-5xl mx-auto text-center mb-16">
+            <span class="text-alphaElectric font-bold text-[9px] tracking-[0.5em] uppercase mb-3 block">Step II</span>
+            <h2 class="font-montserrat font-black text-3xl text-alphaNavy uppercase tracking-tighter">Alpha Way</h2>
+            <p class="text-slate-400 text-xs mt-4 max-w-lg mx-auto leading-relaxed">
+                Transformamos un proceso estándar en un protocolo de ingeniería Alpha innegociable. Calidad que se ve y estructura que se valida.
+            </p>
+        </div>
+        
+        <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
+            <div class="p-8 bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                <h3 class="font-montserrat font-bold text-[11px] uppercase text-alphaNavy mb-4">Materiales Premium</h3>
+                <p class="text-[10px] text-slate-400 leading-relaxed italic">Seleccionamos marcas que dictan la calidad: GAF, Owens Corning y Atlas, calibradas para Texas.</p>
+            </div>
+            <div class="p-8 bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                <h3 class="font-montserrat font-bold text-[11px] uppercase text-alphaNavy mb-4">Instalación Experta</h3>
+                <p class="text-[10px] text-slate-400 leading-relaxed italic">Fijación técnica de valles y áreas críticas siguiendo estrictamente la normativa local.</p>
+            </div>
+            <div class="p-8 bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                <h3 class="font-montserrat font-bold text-[11px] uppercase text-alphaNavy mb-4">Supervisión Alpha</h3>
+                <p class="text-[10px] text-slate-400 leading-relaxed italic">Monitoreo constante en obra para garantizar que el diseño se ejecute según lo proyectado.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📱 4.3 LEGACY: LA PROMESA [source: 6, 49] -->
+    <section id="legacy" class="section-trigger px-6 bg-white">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <span class="text-alphaElectric font-bold text-[9px] tracking-[0.5em] uppercase mb-3 block">Step III</span>
+                <h2 class="font-montserrat font-black text-3xl text-alphaNavy uppercase mb-6 tracking-tighter">Legacy</h2>
+                <p class="text-slate-500 text-sm leading-relaxed mb-8 font-light">
+                    Cerramos la brecha entre el servicio terminado y la tranquilidad vitalicia mediante un archivo digital inmaculado de su propiedad.
+                </p>
+                <div class="flex items-center space-x-4 mb-8">
+                    <img src="/assets/img/trust-badges/gaf_logo.png" class="h-6 opacity-30 grayscale hover:opacity-100 hover:grayscale-0 transition-all">
+                    <img src="/assets/img/trust-badges/owens_corning_logo.png" class="h-6 opacity-30 grayscale hover:opacity-100 hover:grayscale-0 transition-all">
+                </div>
+                <div class="p-6 bg-alphaElectric/5 rounded-2xl border-l-2 border-alphaElectric italic text-slate-400 text-xs">
+                    "Alpha no solo reemplazó mi techo, restauró mi confianza. La calidad es visible en cada detalle."
+                    <span class="block mt-3 not-italic font-bold text-alphaNavy uppercase text-[9px] tracking-widest">— Familia Fernandez, Spring, TX</span>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-3 translate-y-4">
+                <div class="h-64 rounded-xl overflow-hidden shadow-lg"><img src="/assets/img/system-roofing/finished_roof_2.jpg" class="w-full h-full object-cover"></div>
+                <div class="h-64 rounded-xl overflow-hidden shadow-lg -translate-y-8"><img src="/assets/img/system-roofing/finished_roof_1.jpg" class="w-full h-full object-cover"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🏗️ PIE DE PÁGINA RELLENO -->
+    <div class="h-[40vh] bg-alphaNavy flex items-center justify-center">
+        <p class="text-white/10 uppercase tracking-[1em] text-[10px]">End of Sandbox Experience</p>
+    </div>
+
     <script>
-        /* MOTOR DE ROTACIÓN DE PREGUNTAS (Sincronizado v40) [source: 1346] */
-        let qIdx = 0;
-        function rotateQuestions() {
-            const items = document.querySelectorAll('.q-item');
-            if (items.length === 0) return;
-            const current = items[qIdx];
-            current.classList.remove('active');
-            current.classList.add('exit');
-            qIdx = (qIdx + 1) % items.length;
-            const next = items[qIdx];
-            next.classList.remove('exit');
-            next.offsetHeight; 
-            next.classList.add('active');
-            setTimeout(() => {
-                items.forEach((item, i) => { if (i !== qIdx) item.classList.remove('exit'); });
-            }, 800);
-        }
-        setInterval(rotateQuestions, 4500);
+        /* 🎡 SENSOR DE NAVEGACIÓN QUIRÚRGICA (ScrollSpy) */
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = document.querySelectorAll("section[id]");
+            const navItems = document.querySelectorAll(".nav-item");
+
+            const options = {
+                threshold: 0.4, // Se activa cuando el 40% es visible
+                rootMargin: "-10% 0px -40% 0px" // Ajuste de 'hitbox' para activación precisa
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        navItems.forEach((item) => {
+                            item.classList.remove("active");
+                            if (item.getAttribute("href").substring(1) === entry.target.id) {
+                                item.classList.add("active");
+                            }
+                        });
+                    }
+                });
+            }, options);
+
+            sections.forEach((section) => observer.observe(section));
+        });
     </script>
 </body>
 </html>
