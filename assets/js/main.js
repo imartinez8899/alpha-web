@@ -223,3 +223,29 @@ function rotateQuestions() {
 }
 // Activar el intervalo (4.5s para legibilidad técnica)
 setInterval(rotateQuestions, 4500);
+
+
+ /* 🎡 SENSOR DE NAVEGACIÓN QUIRÚRGICO (ScrollSpy v55) */
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = document.querySelectorAll("section[id]");
+            const navItems = document.querySelectorAll(".nav-item");
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const targetId = entry.target.id;
+                        navItems.forEach((item) => {
+                            item.classList.remove("active");
+                            if (item.getAttribute("href").substring(1) === targetId) {
+                                item.classList.add("active");
+                            }
+                        });
+                    }
+                });
+            }, { 
+                threshold: 0.15, // Sensibilidad alta para encendido inmediato
+                rootMargin: "-10% 0px -20% 0px" 
+            });
+
+            sections.forEach((section) => observer.observe(section));
+        });

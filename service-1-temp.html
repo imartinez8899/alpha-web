@@ -1,14 +1,14 @@
 <!-- 
-  ALPHA ROOFING & GUTTERS | CHROMATIC TECHNICAL SUB-NAV
+  ALPHA ROOFING & GUTTERS | FULL SERVICE 1 JOURNEY
   STRATEGIST: IM + Alpha AI
-  VERSION: 44.0.0 (Color-State Switch + Local Icon Mapping)
-  TIMESTAMP: 2026-06-25 12:15 CST
+  VERSION: 55.0.0 (Diagnosis + Alpha Way + Legacy Integration)
+  TIMESTAMP: 2026-06-26 12:15 CST
   
   DIAGNÓSTICO TÉCNICO:
-  1. UI: Fondo 'Technical Platinum' (#fafafa). Reducción de padding vertical (py-2).
-  2. EFFECT: Switch de 'Grayscale' (Off) a 'Original Color' (On) mediante filtros CSS.
-  3. MAPPING: icon-derelict (Diagnosis), icon-worker.. (Alpha Way), icon-house (Legacy).
-  4. ENGINE: ScrollSpy calibrado para activación en el centro del viewport.
+  1. DIAGNOSIS: v54 validada (Navy background, Bento Grid + Clarity Shield).
+  2. ALPHA WAY: Estética Platinum con tarjetas de proceso de alta gama.
+  3. LEGACY: Cierre institucional con prueba social y certificación.
+  4. NAV: ScrollSpy cromático de alta sensibilidad (0.15 threshold).
 -->
 
 <!DOCTYPE html>
@@ -16,9 +16,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Alpha Precision Audit | Sandbox v44</title>
+    <title>Alpha Service 1 | Technical Journey v55</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -28,6 +28,7 @@
                         alphaElectric: '#253BD8',
                         alphaSlate: '#4A5568',
                         technicalPlatinum: '#fafafa',
+                        alphaWarning: '#F97316',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -38,160 +39,199 @@
         }
     </script>
     <style>
-        body, html { min-height: 100%; background-color: white; }
+        body { background-color: #0A1128; }
 
-        /* 🛠️ NAVEGACIÓN TÉCNICA CROMÁTICA [source: 8, 1116] */
+        /* 🛠️ NAV: CHROMATIC SCROLLSPY */
         .sticky-subnav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            position: sticky; top: 0; z-index: 100;
             background: rgba(250, 250, 250, 0.98);
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(16px);
             border-bottom: 1px solid rgba(10, 17, 40, 0.05);
-            transition: all 0.3s ease;
         }
-        
         .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            color: #4A5568; /* Alpha Slate */
-            opacity: 0.6;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            transition: all 0.4s ease; color: #4A5568; opacity: 0.6;
         }
-
         .nav-item img {
-            width: 24px;
-            height: 24px;
-            margin-bottom: 4px;
-            /* Filtro de estado 'Apagado' */
+            width: 26px; height: 26px; margin-bottom: 4px;
             filter: grayscale(100%) brightness(0.8);
             transition: all 0.4s ease;
         }
+        .nav-item.active { color: #253BD8; opacity: 1; transform: scale(1.05); }
+        .nav-item.active img { filter: grayscale(0%) brightness(1); transform: translateY(-2px); }
 
-        /* ⚡ ESTADO ACTIVO: CROMATICIDAD REVELADA [source: 156, 1224] */
-        .nav-item.active {
-            color: #253BD8; /* Alpha Electric para el texto */
-            opacity: 1;
-            transform: scale(1.05);
+        /* ⚡ BENTO GRID: ARQUITECTURA ELÁSTICA */
+        .bento-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 240px; gap: 1rem;
         }
+        .bento-item {
+            position: relative; overflow: hidden; border-radius: 1.5rem;
+            background: #121a36; border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.5s ease;
+        }
+        .bento-item img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; transition: all 0.8s ease; }
+        .bento-item:hover img { transform: scale(1.1); opacity: 1; }
         
-        .nav-item.active img {
-            /* Eliminación de filtros para mostrar color original */
-            filter: grayscale(0%) brightness(1);
-            transform: translateY(-2px);
+        .bento-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(10, 17, 40, 0.98) 0%, transparent 80%);
+            display: flex; flex-direction: column; justify-content: end;
+            padding: 1.5rem; opacity: 0; transition: opacity 0.4s ease;
         }
+        .bento-item:hover .bento-overlay { opacity: 1; }
 
-        /* Indicador sutil de línea */
-        .nav-item.active::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            width: 15px;
-            height: 2px;
-            background-color: #253BD8;
-            border-radius: 99px;
-        }
+        .bento-title { font-family: 'Montserrat', sans-serif; font-weight: 800; text-transform: uppercase; color: white; line-height: 1.1; font-size: 0.9rem; }
+        .bento-subtitle { font-family: 'Inter', sans-serif; font-weight: 300; font-size: 0.75rem; color: #cbd5e1; margin-top: 0.4rem; }
 
-        .section-trigger { padding-top: 100px; padding-bottom: 100px; }
+        @media (max-width: 1024px) { .bento-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; } }
+        @media (max-width: 640px) { .bento-grid { grid-template-columns: 1fr; grid-auto-rows: 200px; } }
     </style>
 </head>
-<body class="font-sans">
+<body class="font-sans text-white">
 
-    <!-- 🏗️ HERO PLACEHOLDER -->
-    <div class="h-[50vh] bg-alphaNavy flex items-center justify-center border-b border-white/5">
-        <img src="/assets/img/brand/alpha-logo-white.svg" class="h-12 opacity-30">
-    </div>
+    <div class="h-[10vh] bg-alphaNavy"></div>
 
-    <!-- 📱 4.0 CHROMATIC STICKY NAV [source: 2, 4, 1162] -->
-    <nav class="sticky-subnav py-2 shadow-sm">
-        <div class="max-w-xl mx-auto flex justify-around items-center px-6">
-            
-            <!-- Diagnosis -->
+    <!-- 📱 4.0 STICKY SUB-NAV -->
+    <nav class="sticky-subnav py-2 shadow-md">
+        <div class="max-w-xl mx-auto flex justify-around items-center px-4">
             <a href="#diagnosis" class="nav-item relative">
-                <img src="/assets/img/icons/icon-derelict.svg" alt="Technical Diagnosis">
+                <img src="/assets/img/icons/icon-derelict.svg" alt="Diagnosis">
                 <span class="text-[9px] font-black uppercase tracking-[0.2em]">Diagnosis</span>
             </a>
-
-            <!-- Alpha Way -->
             <a href="#alpha-way" class="nav-item relative">
-                <img src="/assets/img/icons/icon-worker..svg" alt="Alpha Protocol">
+                <img src="/assets/img/icons/icon-worker..svg" alt="Alpha Way">
                 <span class="text-[9px] font-black uppercase tracking-[0.2em]">Alpha Way</span>
             </a>
-
-            <!-- Legacy -->
             <a href="#legacy" class="nav-item relative">
-                <img src="/assets/img/icons/icon-house.svg" alt="Legacy Shield">
+                <img src="/assets/img/icons/icon-house.svg" alt="Legacy">
                 <span class="text-[9px] font-black uppercase tracking-[0.2em]">Legacy</span>
             </a>
-
         </div>
     </nav>
 
-    <!-- 📱 4.1 DIAGNOSIS: LA BASE DE LA PRECISIÓN [source: 3, 56] -->
-    <section id="diagnosis" class="section-trigger px-6">
-        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-            <div class="rounded-3xl overflow-hidden shadow-2xl border border-slate-100">
-                <img src="/assets/img/system-restoration/inspection_1.jpg" class="w-full h-full object-cover">
-            </div>
-            <div>
-                <span class="text-alphaElectric font-bold text-[10px] tracking-[0.4em] uppercase mb-4 block">Fase I</span>
-                <h2 class="font-montserrat font-black text-4xl text-alphaNavy uppercase mb-6 tracking-tighter">Diagnosis</h2>
-                <p class="text-slate-500 text-lg font-light leading-relaxed">
-                    Eliminamos la incertidumbre mediante la observación experta. Documentamos con precisión cada daño estructural para que el seguro responda con la verdad técnica.
+    <!-- 📱 4.1 DIAGNOSIS: EVIDENCIA PERICIAL -->
+    <section id="diagnosis" class="py-24 px-6 bg-alphaNavy">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="text-center mb-16">
+                <h2 class="font-montserrat font-black text-4xl md:text-6xl text-white uppercase tracking-tighter mb-4">Diagnosis</h2>
+                <div class="w-16 h-1 bg-alphaElectric mx-auto mb-6"></div>
+                <p class="text-slate-400 font-light text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+                    Establecemos la verdad sobre el estado real de su hogar mediante una evaluación técnica diseñada para darle total claridad y proteger su inversión.
                 </p>
+            </div>
+
+            <!-- CONTENEDOR BENTO SHIELD -->
+            <div class="bg-white/5 p-4 md:p-10 rounded-[2.5rem] border border-white/10 shadow-2xl mb-12"> 
+                <div class="bento-grid">
+                    <div class="bento-item col-span-2 row-span-2"><img src="/assets/img/system-restoration/inspection_1.jpg"><div class="bento-overlay"><h4 class="bento-title text-xl">Auditoría de Integridad</h4><p class="bento-subtitle">Escaneo profundo de vulnerabilidades ocultas en la envolvente superior.</p></div></div>
+                    <div class="bento-item"><img src="/assets/img/system-restoration/roof-hail-dmg1.jpg"><div class="bento-overlay"><h4 class="bento-title">Impacto de Granizo</h4><p class="bento-subtitle">Identificación pericial de pérdida de gránulos protectores.</p></div></div>
+                    <div class="bento-item"><img src="/assets/img/system-restoration/roof-wind-dmg3.jpg"><div class="bento-overlay"><h4 class="bento-title">Daño Crítico</h4><p class="bento-subtitle">Evaluación de exposición estructural y riesgo de filtración inmediata.</p></div></div>
+                    <div class="bento-item col-span-2"><img src="/assets/img/system-restoration/roof-level-tool.jpg"><div class="bento-overlay"><h4 class="bento-title">Análisis Instrumental</h4><p class="bento-subtitle">Cuantificación matemática exacta basada en códigos de Texas.</p></div></div>
+                    <div class="bento-item row-span-2"><img src="/assets/img/system-restoration/roof-wind-dmg6.jpg"><div class="bento-overlay"><h4 class="bento-title">Uplift por Viento</h4><p class="bento-subtitle">Detección de adhesivos térmicos comprometidos tras tormentas severas.</p></div></div>
+                    <div class="bento-item"><img src="/assets/img/system-restoration/roof-ceiling-dmg1.jpg"><div class="bento-overlay"><h4 class="bento-title">Infiltración Interna</h4><p class="bento-subtitle">Análisis de daños en aislamiento y estructuras interiores.</p></div></div>
+                    <div class="bento-item"><img src="/assets/img/system-restoration/fascia-dmg1.jpg"><div class="bento-overlay"><h4 class="bento-title">Deterioro Perimetral</h4><p class="bento-subtitle">Detección de pudrición en fascia para evitar daños mayores.</p></div></div>
+                </div>
+            </div>
+
+            <!-- CONTENEDOR CLARITY SHIELD -->
+            <div class="max-w-4xl mx-auto bg-white/5 p-8 md:p-12 rounded-[2.5rem] border border-white/10 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-8 opacity-10"><img src="/assets/img/icons/icon-assessment.svg" class="w-32 h-32 brightness-0 invert"></div>
+                <h3 class="font-montserrat font-black text-2xl uppercase mb-6 italic tracking-tight text-white">El Primer Paso hacia su Tranquilidad</h3>
+                <div class="space-y-6 text-slate-300 text-lg font-light leading-relaxed">
+                    <p>Este análisis técnico es el cimiento sobre el cual construimos la seguridad de su hogar. Al identificar cada detalle invisible para otros, trazamos la ruta más segura para restaurar el valor de su propiedad.</p>
+                    <p>Nuestro diagnóstico le otorga la certeza absoluta para tomar decisiones informadas, garantizando que su patrimonio reciba el cuidado superior que merece.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 📱 4.2 ALPHA WAY: PROTOCOLO DE INGENIERÍA [source: 4, 154, 54] -->
-    <section id="alpha-way" class="section-trigger px-6 bg-technicalPlatinum/50 border-y border-slate-50">
-        <div class="max-w-5xl mx-auto text-center">
-            <span class="text-alphaElectric font-bold text-[10px] tracking-[0.4em] uppercase mb-4 block">Fase II</span>
-            <h2 class="font-montserrat font-black text-4xl text-alphaNavy uppercase mb-16 tracking-tighter">Alpha Way</h2>
-            <div class="grid md:grid-cols-3 gap-8 text-left">
-                <div class="p-8 bg-white rounded-2xl shadow-sm border border-slate-100">
-                    <h4 class="font-bold text-xs uppercase mb-3 text-alphaNavy">Materiales Premium</h4>
-                    <p class="text-[11px] text-slate-400 italic">Instalamos GAF y Owens Corning bajo rendimiento certificado.</p>
+    <!-- 📱 4.2 ALPHA WAY: PROTOCOLO DE INGENIERÍA -->
+    <section id="alpha-way" class="py-32 px-6 bg-technicalPlatinum text-alphaNavy border-y border-slate-200">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20">
+                <span class="text-alphaElectric font-bold text-[10px] tracking-[0.5em] uppercase mb-4 block">Fase II: El Estándar Alpha</span>
+                <h2 class="font-montserrat font-black text-4xl md:text-6xl uppercase tracking-tighter mb-6">Alpha Way</h2>
+                <p class="text-slate-500 font-light text-lg max-w-2xl mx-auto">Transformamos un proceso estándar en un protocolo de ingeniería innegociable.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1: Materiales -->
+                <div class="p-10 bg-white rounded-[2.5rem] shadow-xl border border-slate-100 hover:translate-y-[-5px] transition-transform">
+                    <div class="w-14 h-14 bg-alphaNavy/5 rounded-2xl flex items-center justify-center mb-8 text-alphaElectric">
+                        <img src="/assets/img/icons/icon-tools.svg" class="w-7 h-7">
+                    </div>
+                    <h4 class="font-montserrat font-bold text-sm uppercase mb-4 tracking-tight">Materiales Premium</h4>
+                    <p class="text-slate-500 text-xs leading-relaxed italic">Instalamos exclusivamente marcas líderes (GAF, Owens Corning, Atlas) calibradas para resistir el rigor climático extremo de Texas.</p>
                 </div>
-                <div class="p-8 bg-white rounded-2xl shadow-sm border border-slate-100">
-                    <h4 class="font-bold text-xs uppercase mb-3 text-alphaNavy">Instalación Experta</h4>
-                    <p class="text-[11px] text-slate-400 italic">Sellado de valles y fijación bajo código estricto de Texas.</p>
+                
+                <!-- Card 2: Instalación -->
+                <div class="p-10 bg-white rounded-[2.5rem] shadow-xl border border-slate-100 hover:translate-y-[-5px] transition-transform">
+                    <div class="w-14 h-14 bg-alphaNavy/5 rounded-2xl flex items-center justify-center mb-8 text-alphaElectric">
+                        <img src="/assets/img/icons/icon-worker..svg" class="w-7 h-7">
+                    </div>
+                    <h4 class="font-montserrat font-bold text-sm uppercase mb-4 tracking-tight">Instalación Experta</h4>
+                    <p class="text-slate-500 text-xs leading-relaxed italic">Ejecución artesanal bajo estrictos códigos de construcción. Garantizamos el sellado de valles y la fijación técnica en cada milímetro.</p>
                 </div>
-                <div class="p-8 bg-white rounded-2xl shadow-sm border border-slate-100">
-                    <h4 class="font-bold text-xs uppercase mb-3 text-alphaNavy">Cero Anticipos</h4>
-                    <p class="text-[11px] text-slate-400 italic">Usted no libera fondos hasta ver la obra inmaculada.</p>
+
+                <!-- Card 3: Modelo Zero-Down -->
+                <div class="p-10 bg-white rounded-[2.5rem] shadow-xl border border-slate-100 hover:translate-y-[-5px] transition-transform">
+                    <div class="w-14 h-14 bg-alphaNavy/5 rounded-2xl flex items-center justify-center mb-8 text-alphaElectric">
+                        <img src="/assets/img/icons/icon-shield-check.svg" class="w-7 h-7">
+                    </div>
+                    <h4 class="font-montserrat font-bold text-sm uppercase mb-4 tracking-tight">Modelo Zero-Down</h4>
+                    <p class="text-slate-500 text-xs leading-relaxed italic font-bold">Usted no libera un solo dólar hasta que la obra esté finalizada, inmaculada y validada bajo nuestra supervisión constante.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 📱 4.3 LEGACY: LA PROMESA DE PERMANENCIA [source: 6, 60] -->
-    <section id="legacy" class="section-trigger px-6">
-        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+    <!-- 📱 4.3 LEGACY: LA PROMESA DE PERMANENCIA -->
+    <section id="legacy" class="py-32 px-6 bg-alphaNavy overflow-hidden">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
             <div>
-                <span class="text-alphaElectric font-bold text-[10px] tracking-[0.4em] uppercase mb-4 block">Fase III</span>
-                <h2 class="font-montserrat font-black text-4xl text-alphaNavy uppercase mb-6 tracking-tighter">Legacy</h2>
-                <p class="text-slate-500 text-lg font-light leading-relaxed mb-8">
-                    Blindamos su inversión mediante un archivo digital inmaculado y el respaldo de nuestra garantía vitalicia sobre mano de obra.
+                <span class="text-alphaElectric font-bold text-[10px] tracking-[0.5em] uppercase mb-4 block">Fase III: Blindaje Vitalicio</span>
+                <h2 class="font-montserrat font-black text-4xl md:text-5xl uppercase tracking-tighter mb-8 text-white">Legacy</h2>
+                <p class="text-slate-400 text-lg font-light leading-relaxed mb-10">
+                    Cerramos la brecha entre el servicio terminado y la tranquilidad vitalicia. Su hogar no solo luce impecable; su inversión queda protegida para las futuras generaciones.
                 </p>
-                <div class="bg-alphaElectric/5 p-6 rounded-2xl border-l-4 border-alphaElectric">
-                    <p class="text-xs italic text-slate-500">"Alpha no solo reemplazó mi techo, restauró mi confianza. La calidad es visible."</p>
-                    <p class="mt-4 text-[9px] font-bold uppercase text-alphaNavy">— Familia Fernandez, Spring, TX</p>
+                <div class="bg-white/5 p-10 rounded-[2.5rem] border-l-4 border-alphaElectric shadow-2xl">
+                    <p class="text-sm italic text-slate-300 leading-relaxed">
+                        "Alpha no solo reemplazó mi techo, restauró mi confianza. El proceso fue impecable y la calidad es visible en cada detalle de la terminación. Mi única tarea fue disfrutar del resultado."
+                    </p>
+                    <p class="mt-6 text-[10px] font-bold uppercase tracking-widest text-white">— Familia Fernandez, Spring, TX</p>
                 </div>
             </div>
+            
             <div class="grid grid-cols-2 gap-4">
-                <img src="/assets/img/system-roofing/finished_roof_1.jpg" class="rounded-xl shadow-lg">
-                <img src="/assets/img/system-roofing/finished_roof_2.jpg" class="rounded-xl shadow-lg translate-y-6">
+                <div class="space-y-4">
+                    <div class="rounded-3xl overflow-hidden shadow-2xl border border-white/10 aspect-[4/5]">
+                        <img src="/assets/img/system-roofing/finished_roof_1.jpg" class="w-full h-full object-cover">
+                    </div>
+                    <div class="rounded-3xl overflow-hidden shadow-2xl border border-white/10 aspect-square">
+                        <img src="/assets/img/system-roofing/finished_roof_2.jpg" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="pt-12 flex flex-col h-full">
+                    <div class="bg-alphaElectric/10 p-10 rounded-[2.5rem] border border-alphaElectric/20 text-center flex-grow flex flex-col justify-center items-center">
+                        <img src="/assets/img/icons/icon-certificate.svg" class="w-20 h-20 mb-8 brightness-0 invert">
+                        <span class="text-[10px] font-black uppercase tracking-[0.3em] text-white leading-tight">Alpha Signature<br>Certificate</span>
+                        <p class="text-[8px] text-slate-400 mt-4 uppercase">Respaldo formal de excelencia</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <div class="h-[50vh] bg-alphaNavy"></div>
+    <!-- 🏗️ CIERRE DE SANDBOX -->
+    <div class="h-[30vh] bg-black flex flex-col items-center justify-center space-y-6">
+        <button onclick="window.location.href='/index.html#lead-form-container'" class="btn-alpha-glow py-4 px-12 rounded-full text-[10px]">Iniciar Evaluación Ahora</button>
+        <p class="text-white/10 uppercase tracking-[0.8em] text-[8px]">End of Alpha Protocol Journey</p>
+    </div>
 
     <script>
-        /* 🎡 SENSOR DE NAVEGACIÓN CROMÁTICA (ScrollSpy) */
+        /* 🎡 SENSOR DE NAVEGACIÓN QUIRÚRGICO (ScrollSpy v55) */
         document.addEventListener("DOMContentLoaded", () => {
             const sections = document.querySelectorAll("section[id]");
             const navItems = document.querySelectorAll(".nav-item");
@@ -199,17 +239,18 @@
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
+                        const targetId = entry.target.id;
                         navItems.forEach((item) => {
                             item.classList.remove("active");
-                            if (item.getAttribute("href").substring(1) === entry.target.id) {
+                            if (item.getAttribute("href").substring(1) === targetId) {
                                 item.classList.add("active");
                             }
                         });
                     }
                 });
             }, { 
-                threshold: 0.5, 
-                rootMargin: "-20% 0px -30% 0px" 
+                threshold: 0.15, // Sensibilidad alta para encendido inmediato
+                rootMargin: "-10% 0px -20% 0px" 
             });
 
             sections.forEach((section) => observer.observe(section));
