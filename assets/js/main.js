@@ -188,21 +188,40 @@ function hideZohoForm() {
     }
 }
 
+
+
 window.onpopstate = function(event) {
-    if (event.state) {
+    // Si el evento tiene un estado definido, es una navegación de pantalla completa (SPA logic)
+    if (event.state && event.state.sectionId) {
         if (event.state.sectionId === 'lead-form-container' && !event.state.subView) {
             hideZohoForm();
         }
         showSection(event.state.sectionId, true);
     } else {
-        showSection('hero-section', true);
+        // Permitimos que el navegador maneje los hashes internos (#alpha-way, etc.) sin resetear
+        const currentHash = window.location.hash.replace('#', '');
+        const targetElement = document.getElementById(currentHash);
+        
+        // Solo regresamos al Hero si no hay un hash válido o el elemento no existe
+        if (!currentHash || !targetElement) {
+            showSection('hero-section', true);
+        }
     }
 };
 
-// Accesos Rápidos
-function navigateToHome() { showSection('hero-section'); }
-function navigateToAuditForm() { showSection('lead-form-container'); }
 
+// Accesos Rápidos
+function navigateToHome(event) { 
+    if (event) event.preventDefault();
+    console.log("[Alpha Core] Retorno fluido al cimiento.");
+    showSection('hero-section'); 
+}
+
+function navigateToAuditForm(event) { 
+    if (event) event.preventDefault();
+    console.log("[Alpha Core] Salto táctico al motor de captura.");
+    showSection('lead-form-container'); 
+}
 
 /* MOTOR DE ROTACIÓN DE PREGUNTAS (v40.0.0) */
 let qIdx = 0;

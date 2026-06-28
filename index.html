@@ -1,15 +1,11 @@
+
 <!-- 
   ALPHA ROOFING & GUTTERS | ZERO-SCROLL APP BLUEPRINT
   STRATEGIST: IM + Alpha AI
-  VERSION: 20.7.2 (Hero Calibration + Houston Kerning Fix + Smart Word-Wrap)
-  TIMESTAMP: 2026-06-21 08:45 CST
+  VERSION: 21 (Service 1.2 Update)
+  TIMESTAMP: 2026-06-28 03:55PM
   
-  MODIFICACIONES CLAVE:
-  1. UI: Elevación de eje visual Hero (-mt-24) y estabilidad de cimientos (min-h) para soporte multilínea.
-  2. ENGINE: Reingeniería de Flip-Words; migración a display:block para corrección de kerning en Houston.
-  3. LOGIC: Implementación de Smart Word-Wrap (inline-block grouping) para evitar fragmentación de ciudades.
-  4. UX: Sincronización de anclajes; Alpha Arrow -> Auditoría de Integridad | CTA -> Hub de Contacto.
--->
+  -->
 
 <!DOCTYPE html>
 <html lang="es" class="h-full">
@@ -27,17 +23,29 @@
                         alphaNavy: '#0A1128',
                         alphaElectric: '#253BD8',
                         alphaSlateGray: '#121620',
+                        alphaSlate: '#4A5568',
                         technicalPlatinum: '#fafafa',
                         alphaWarning: '#F97316',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                         montserrat: ['Montserrat', 'sans-serif'],
+                    },
+                    animation: {
+                        'marquee-h': 'marquee-h 40s linear infinite',
+                        'marquee-yoyo-slow': 'marquee-v-yoyo 25s ease-in-out infinite alternate',
+                        'marquee-yoyo-average': 'marquee-v-yoyo 20s ease-in-out infinite alternate-reverse',
+                        'marquee-yoyo-fast': 'marquee-v-yoyo 15s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        'marquee-h': { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-50%)' } },
+                        'marquee-v-yoyo': { '0%': { transform: 'translateY(-15%)' }, '100%': { transform: 'translateY(-35%)' } }
                     }
                 }
             }
         }
     </script>
+
     <style>
         body, html { height: 100%; overflow: hidden; background-color: #0A1128; }
         
@@ -183,7 +191,29 @@
 
         @media (max-width: 1024px) { .bento-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; } }
         @media (max-width: 640px) { .bento-grid { grid-template-columns: 1fr; grid-auto-rows: 200px; } }
+    
+
+        .section-standard { border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 8rem; padding-bottom: 8rem; }
+        .logo-cloud-marquee { mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); }
+        .trust-badge-white { filter: brightness(0) invert(1); opacity: 0.85; max-width: 160px; }
+        
+        /* 🎢 3D ENGINE RECALIBRADO: COORDENADAS -50% / -39% */
+        .marquee-3d-viewport { perspective: 5000px; overflow: hidden; }
+        .marquee-3d-scene {
+            transform: rotateX(55deg) rotateZ(-45deg) scale(1.15);
+            transform-style: preserve-3d;
+            display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.15rem;
+            width: 350%; 
+            margin-left: -50%; 
+            margin-top: -39%; 
+        }
+        .marquee-column { display: flex; flex-direction: column; gap: 0.15rem; will-change: transform; }
+        .code-card { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 1rem; padding: 1.2rem; }
+        .code-card img { width: 100%; border-radius: 0.5rem; filter: brightness(0.9) contrast(1.25); }
     </style>
+
+    
+
 </head>
 <body class="font-sans text-slate-900 selection:bg-alphaElectric selection:text-white">
 
@@ -426,7 +456,7 @@
                         <span class="text-[9px] font-black uppercase tracking-[0.2em]">Diagnosis</span>
                     </a>
                     <a href="#alpha-way" class="nav-item relative">
-                        <img src="/assets/img/icons/icon-worker..svg" alt="Alpha Way">
+                        <img src="/assets/img/icons/icon-worker.svg" alt="Alpha Way">
                         <span class="text-[9px] font-black uppercase tracking-[0.2em]">Alpha Way</span>
                     </a>
                     <a href="#legacy" class="nav-item relative">
@@ -474,43 +504,120 @@
             </section>
 
             <!-- 📱 4.2 ALPHA WAY: PROTOCOLO DE INGENIERÍA -->
-            <section id="alpha-way" class="py-32 px-6 bg-technicalPlatinum text-alphaNavy border-y border-slate-200">
-                <div class="max-w-6xl mx-auto">
-                    <div class="text-center mb-20">
-                        <span class="text-alphaElectric font-bold text-[10px] tracking-[0.5em] uppercase mb-4 block">Fase II: El Estándar Alpha</span>
-                        <h2 class="font-montserrat font-black text-4xl md:text-6xl uppercase tracking-tighter mb-6">Alpha Way</h2>
-                        <p class="text-slate-500 font-light text-lg max-w-2xl mx-auto">Transformamos un proceso estándar en un protocolo de ingeniería innegociable.</p>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-3 gap-8">
-                        <!-- Card 1: Materiales -->
-                        <div class="p-10 bg-white rounded-[2.5rem] shadow-xl border border-slate-100 hover:translate-y-[-5px] transition-transform">
-                            <div class="w-14 h-14 bg-alphaNavy/5 rounded-2xl flex items-center justify-center mb-8 text-alphaElectric">
-                                <img src="/assets/img/icons/icon-tools.svg" class="w-7 h-7">
-                            </div>
-                            <h4 class="font-montserrat font-bold text-sm uppercase mb-4 tracking-tight">Materiales Premium</h4>
-                            <p class="text-slate-500 text-xs leading-relaxed italic">Instalamos exclusivamente marcas líderes (GAF, Owens Corning, Atlas) calibradas para resistir el rigor climático extremo de Texas.</p>
-                        </div>
-                        
-                        <!-- Card 2: Instalación -->
-                        <div class="p-10 bg-white rounded-[2.5rem] shadow-xl border border-slate-100 hover:translate-y-[-5px] transition-transform">
-                            <div class="w-14 h-14 bg-alphaNavy/5 rounded-2xl flex items-center justify-center mb-8 text-alphaElectric">
-                                <img src="/assets/img/icons/icon-worker..svg" class="w-7 h-7">
-                            </div>
-                            <h4 class="font-montserrat font-bold text-sm uppercase mb-4 tracking-tight">Instalación Experta</h4>
-                            <p class="text-slate-500 text-xs leading-relaxed italic">Ejecución artesanal bajo estrictos códigos de construcción. Garantizamos el sellado de valles y la fijación técnica en cada milímetro.</p>
-                        </div>
+            <section id="alpha-way" class="relative overflow-hidden bg-alphaNavy font-sans text-white overflow-x-hidden">
+                <!-- ENCABEZADO ALPHA WAY -->
+                <div class="max-w-7xl mx-auto px-6 text-center py-24">
+                    <h2 class="font-montserrat font-black text-4xl md:text-6xl text-white uppercase tracking-tighter mb-4">Alpha Way</h2>
+                    <div class="w-16 h-1 bg-alphaElectric mx-auto mb-6"></div>
+                    <p class="text-slate-400 font-light text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed">
+                        Protegemos la integridad de su hogar con un estándar de instalación diseñado específicamente para el clima extremo de Texas.
+                    </p>
+                </div>
 
-                        <!-- Card 3: Modelo Zero-Down -->
-                        <div class="p-10 bg-white rounded-[2.5rem] shadow-xl border border-slate-100 hover:translate-y-[-5px] transition-transform">
-                            <div class="w-14 h-14 bg-alphaNavy/5 rounded-2xl flex items-center justify-center mb-8 text-alphaElectric">
-                                <img src="/assets/img/icons/icon-shield-check.svg" class="w-7 h-7">
+                <!-- 1. MATERIALES (CALIDAD SUPERIOR) -->
+                <div class="section-standard">
+                    <div class="max-w-7xl mx-auto px-6 mb-16">
+                        <div class="max-w-4xl text-left">
+                            <h3 class="font-montserrat font-black text-3xl uppercase tracking-tight mb-6 italic">Materiales de Calidad Superior</h3>
+                            <p class="text-slate-400 text-lg font-light leading-relaxed">Instalamos tejas arquitectónicas de alta especificación y sistemas compuestos avanzados, seleccionados por su resistencia estructural bajo las condiciones climáticas más severas.</p>
+                        </div>
+                    </div>
+                    <div class="relative logo-cloud-marquee overflow-hidden py-4">
+                        <div class="flex animate-marquee-h whitespace-nowrap w-max items-center">
+                            <div class="flex items-center gap-48 px-24">
+                                <img src="/assets/img/trust-badges/gaf_logo.png" class="h-14 trust-badge-white">
+                                <img src="/assets/img/trust-badges/owens_corning_logo.png" class="h-14 trust-badge-white">
+                                <img src="/assets/img/trust-badges/tamko_logo.png" class="h-14 trust-badge-white">
+                                <img src="/assets/img/trust-badges/atlas_logo.png" class="h-14 trust-badge-white">
                             </div>
-                            <h4 class="font-montserrat font-bold text-sm uppercase mb-4 tracking-tight">Modelo Zero-Down</h4>
-                            <p class="text-slate-500 text-xs leading-relaxed italic font-bold">Usted no libera un solo dólar hasta que la obra esté finalizada, inmaculada y validada bajo nuestra supervisión constante.</p>
+                            <div class="flex items-center gap-48 px-24">
+                                <img src="/assets/img/trust-badges/gaf_logo.png" class="h-14 trust-badge-white">
+                                <img src="/assets/img/trust-badges/owens_corning_logo.png" class="h-14 trust-badge-white">
+                                <img src="/assets/img/trust-badges/tamko_logo.png" class="h-14 trust-badge-white">
+                                <img src="/assets/img/trust-badges/atlas_logo.png" class="h-14 trust-badge-white">
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- 2. INSTALACIÓN (RIDGE VENT + SYSTEM-RESTORATION PATHS) -->
+                <div class="section-standard pb-0">
+                    <div class="max-w-7xl mx-auto px-6">
+                        <div class="grid lg:grid-cols-2 gap-16 items-center">
+                            <div class="space-y-8 text-left">
+                                <h3 class="font-montserrat font-black text-3xl md:text-4xl uppercase tracking-tight italic">Instalación de Alta Ingeniería</h3>
+                                <div class="space-y-6 text-slate-400 text-lg font-light leading-relaxed">
+                                    <p>Antes de iniciar, auditamos la estructura: revisamos y reemplazamos la madera del <strong class="text-white">decking</strong> que presente fatiga, asegurando una base inmaculada.</p>
+                                    <p>Implementamos un blindaje multicapa: instalamos <strong class="text-white">drip edge</strong> perimetral, <strong class="text-white">ice and water shield</strong> en valles críticos y sellamos uniones con <strong class="text-white">flashings</strong> de precisión técnica.</p>
+                                    <p>Garantizamos la salud térmica de su hogar mediante la instalación sistémica de <strong class="text-white">ridge vents</strong>, permitiendo que el ático respire adecuadamente para regular la temperatura y prevenir daños estructurales.</p>
+                                    <p>Utilizamos un <strong class="text-white">underlayment</strong> sintético de alta especificación que actúa como una barrera superior frente al granizo y vientos fuertes.</p>
+                                </div>
+                            </div>
+                            <!-- 🎢 3D MARQUEE: PATH FIX /assets/img/system-restoration/ -->
+                            <div class="h-[580px] marquee-3d-viewport rounded-[3rem] relative border border-white/10 shadow-3xl">
+                                <div class="marquee-3d-scene p-4">
+                                    <div class="marquee-column animate-marquee-yoyo-slow">
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code1.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code2.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code3.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code4.png"></div>
+                                    </div>
+                                    <div class="marquee-column animate-marquee-yoyo-average">
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code5.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code6.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code7.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code8.png"></div>
+                                    </div>
+                                    <div class="marquee-column animate-marquee-yoyo-fast">
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code9.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code10.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code11.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code12.png"></div>
+                                    </div>
+                                    <div class="marquee-column animate-marquee-yoyo-average">
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code4.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code1.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code6.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code10.png"></div>
+                                    </div>
+                                    <div class="marquee-column animate-marquee-yoyo-slow">
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code2.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code11.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code5.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code12.png"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. GARANTÍA ALPHA -->
+                <div class="section-standard">
+                    <div class="max-w-7xl mx-auto px-6">
+                        <div class="mb-16 text-left">
+                            <h3 class="font-montserrat font-black text-3xl md:text-5xl uppercase tracking-tight italic">Garantía Alpha</h3>
+                        </div>
+                        
+                        <div class="grid lg:grid-cols-2 gap-16 items-center">
+                            <div class="aspect-video rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl relative">
+                                <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                                    <source src="/assets/img/system-restoration/before_during_after_2.mp4" type="video/mp4">
+                                </video>
+                                <div class="absolute inset-0 bg-alphaNavy/20"></div>
+                            </div>
+                            
+                            <div class="space-y-8 text-left">
+                                <div class="space-y-6 text-slate-400 text-lg font-light leading-relaxed">
+                                    <p>Su inversión goza de un blindaje a largo plazo: proporcionamos entre <strong class="text-white">30 y 50 años de garantía</strong> en materiales, respaldada por fabricantes líderes de la industria.</p>
+                                    <p>Este compromiso se complementa con nuestra garantía de <strong class="text-white">8 años en mano de obra (workmanship)</strong>. Bajo nuestro estándar de confianza, <strong class="text-white">usted no libera un solo dólar</strong> hasta que la obra esté finalizada, inmaculada y validada bajo nuestra supervisión constante.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </section>
 
             <!-- 📱 4.3 LEGACY: LA PROMESA DE PERMANENCIA -->

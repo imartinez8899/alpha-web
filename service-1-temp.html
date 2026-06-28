@@ -1,14 +1,14 @@
 <!-- 
-  ALPHA ROOFING & GUTTERS | ALPHA WAY: TECTONIC WHITE EDITION
+  ALPHA ROOFING & GUTTERS | ALPHA WAY: PURIFIED ENGINEERING EDITION
   STRATEGIST: IM + Alpha AI
-  VERSION: 61.0.0 (Pure White Logos + 4-Column 3D Restoration)
-  TIMESTAMP: 2026-06-28 12:55 CST
+  VERSION: 80.0.0 (Zero-Brackets + System-Restoration Path Fix + Quality Label Sync)
+  TIMESTAMP: 2026-06-28 21:30 CST
   
   DIAGNÓSTICO TÉCNICO:
-  1. UI: Transformación de Logo Cloud a blanco monocromático (brightness-0 invert).
-  2. FIX: Restauración de la 4ta columna en el 3D Marquee (grid-cols-4).
-  3. ANIMATION: Preservación de motor Yoyo/Alternate para fluidez perpetua.
-  4. TYPO: Sincronización total con jerarquía 'Diagnosis' (Montserrat 900).
+  1. FIX: Restauración de imágenes en 3D Marquee usando la ruta /assets/img/system-restoration/.
+  2. PURGE: Eliminación absoluta de números entre corchetes en todos los textos.
+  3. SYNC: Cambio de "Grado" a "Calidad Superior" en la sección de materiales.
+  4. AXIAL: Preservación de geometría validada: margin-left: -50% y margin-top: -39%.
 -->
 
 <!DOCTYPE html>
@@ -16,7 +16,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Alpha Way | Tectonic White Sandbox v61</title>
+    <title>Alpha Way | Purified Engineering Sandbox v80</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
     <script>
@@ -30,95 +30,67 @@
                     },
                     animation: {
                         'marquee-h': 'marquee-h 40s linear infinite',
-                        'marquee-yoyo-slow': 'marquee-v-yoyo 35s ease-in-out infinite alternate',
-                        'marquee-yoyo-fast': 'marquee-v-yoyo 25s ease-in-out infinite alternate',
+                        'marquee-yoyo-slow': 'marquee-v-yoyo 25s ease-in-out infinite alternate',
+                        'marquee-yoyo-average': 'marquee-v-yoyo 20s ease-in-out infinite alternate-reverse',
+                        'marquee-yoyo-fast': 'marquee-v-yoyo 15s ease-in-out infinite alternate',
                     },
                     keyframes: {
                         'marquee-h': { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-50%)' } },
-                        'marquee-v-yoyo': { '0%': { transform: 'translateY(0%)' }, '100%': { transform: 'translateY(-35%)' } }
+                        'marquee-v-yoyo': { '0%': { transform: 'translateY(-15%)' }, '100%': { transform: 'translateY(-35%)' } }
                     }
                 }
             }
         }
     </script>
     <style>
-        /* 🎢 3D MARQUEE: 4-COLUMN ARCHITECTURE RESTORED [Source: 1122, 1344] */
-        .marquee-3d-viewport {
-            perspective: 3500px;
-            overflow: hidden;
-            background: radial-gradient(circle at center, rgba(37, 59, 216, 0.06) 0%, transparent 90%);
-        }
-        .marquee-3d-scene {
-            transform: rotateX(55deg) rotateY(0deg) rotateZ(-45deg);
-            transform-style: preserve-3d;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr); /* FIX: 4 Columnas garantizadas */
-            gap: 0.25rem;
-            width: 320%;
-            margin-left: -110%;
-            margin-top: -40%;
-        }
-        .marquee-column {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-            will-change: transform;
-        }
-        .code-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 2rem;
-            padding: 2.5rem;
-            box-shadow: 0 60px 120px -30px rgba(0, 0, 0, 0.8);
-        }
-        .code-card img { width: 100%; border-radius: 1.2rem; filter: brightness(0.9) contrast(1.15); }
+        .section-standard { border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 8rem; padding-bottom: 8rem; }
+        .logo-cloud-marquee { mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); }
+        .trust-badge-white { filter: brightness(0) invert(1); opacity: 0.85; max-width: 160px; }
         
-        /* 🎡 PURE WHITE LOGO CLOUD [Source: 1367] */
-        .logo-cloud-marquee {
-            mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+        /* 🎢 3D ENGINE RECALIBRADO: COORDENADAS -50% / -39% */
+        .marquee-3d-viewport { perspective: 5000px; overflow: hidden; }
+        .marquee-3d-scene {
+            transform: rotateX(55deg) rotateZ(-45deg) scale(1.15);
+            transform-style: preserve-3d;
+            display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.15rem;
+            width: 350%; 
+            margin-left: -50%; 
+            margin-top: -39%; 
         }
-        .trust-badge-white {
-            filter: brightness(0) invert(1); /* Monocromático Blanco Puro */
-            opacity: 0.9;
-            transition: all 0.6s ease;
-            max-width: 160px;
-        }
-        .trust-badge-white:hover {
-            opacity: 1;
-            transform: scale(1.1);
-        }
+        .marquee-column { display: flex; flex-direction: column; gap: 0.15rem; will-change: transform; }
+        .code-card { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 1rem; padding: 1.2rem; }
+        .code-card img { width: 100%; border-radius: 0.5rem; filter: brightness(0.9) contrast(1.25); }
     </style>
 </head>
 <body class="bg-alphaNavy font-sans text-white overflow-x-hidden">
 
-    <section id="alpha-way" class="py-32 relative overflow-hidden">
+    <section id="alpha-way" class="relative overflow-hidden">
         
-        <!-- ENCABEZADO UNIFICADO CON DIAGNOSIS [Source: 1264] -->
-        <div class="max-w-7xl mx-auto px-6 text-center mb-24">
+        <!-- ENCABEZADO ALPHA WAY -->
+        <div class="max-w-7xl mx-auto px-6 text-center py-24">
             <h2 class="font-montserrat font-black text-4xl md:text-6xl text-white uppercase tracking-tighter mb-4">Alpha Way</h2>
             <div class="w-16 h-1 bg-alphaElectric mx-auto mb-6"></div>
-            <p class="text-slate-400 font-light text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
-                Establecemos la verdad estructural de su hogar mediante un protocolo de ingeniería diseñado para el rigor climático de Texas [25: 1452].
+            <p class="text-slate-400 font-light text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed">
+                Protegemos la integridad de su hogar con un estándar de instalación diseñado específicamente para el clima extremo de Texas.
             </p>
         </div>
 
-        <!-- A. MATERIALES (PURE WHITE MONOCHROME) [Source: 38, 1367] -->
-        <div class="mb-40">
-            <div class="max-w-4xl mx-auto px-6 text-center mb-12">
-                <h3 class="font-montserrat font-black text-2xl uppercase tracking-tight mb-4 text-white italic">Materiales de Grado Superior</h3>
-                <p class="text-slate-500 text-sm md:text-base font-light italic">Instalamos exclusivamente componentes que dictan la calidad inmaculada en el mercado [4: 387].</p>
+        <!-- 1. MATERIALES (CALIDAD SUPERIOR) -->
+        <div class="section-standard">
+            <div class="max-w-7xl mx-auto px-6 mb-16">
+                <div class="max-w-4xl text-left">
+                    <h3 class="font-montserrat font-black text-3xl uppercase tracking-tight mb-6 italic">Materiales de Calidad Superior</h3>
+                    <p class="text-slate-400 text-lg font-light leading-relaxed">Instalamos tejas arquitectónicas de alta especificación y sistemas compuestos avanzados, seleccionados por su resistencia estructural bajo las condiciones climáticas más severas.</p>
+                </div>
             </div>
-
-            <div class="relative logo-cloud-marquee overflow-hidden py-10 border-y border-white/5">
+            <div class="relative logo-cloud-marquee overflow-hidden py-4">
                 <div class="flex animate-marquee-h whitespace-nowrap w-max items-center">
-                    <!-- Set 1 (White Monochrome) -->
                     <div class="flex items-center gap-48 px-24">
                         <img src="/assets/img/trust-badges/gaf_logo.png" class="h-14 trust-badge-white">
                         <img src="/assets/img/trust-badges/owens_corning_logo.png" class="h-14 trust-badge-white">
                         <img src="/assets/img/trust-badges/tamko_logo.png" class="h-14 trust-badge-white">
                         <img src="/assets/img/trust-badges/atlas_logo.png" class="h-14 trust-badge-white">
                     </div>
-                    <!-- Set 2 -->
                     <div class="flex items-center gap-48 px-24">
                         <img src="/assets/img/trust-badges/gaf_logo.png" class="h-14 trust-badge-white">
                         <img src="/assets/img/trust-badges/owens_corning_logo.png" class="h-14 trust-badge-white">
@@ -129,77 +101,80 @@
             </div>
         </div>
 
-        <!-- B. INSTALACIÓN (3D MARQUEE: 4 COLUMNS RESTORED) [Source: 1122, 1123] -->
-        <div class="max-w-7xl mx-auto px-6 mb-40">
-            <div class="grid lg:grid-cols-5 gap-20 items-center">
-                <div class="lg:col-span-2 space-y-10">
-                    <h3 class="font-montserrat font-black text-4xl md:text-5xl uppercase tracking-tighter leading-tight text-white italic">
-                        Instalación <br><span class="text-alphaElectric">Expertise</span>
-                    </h3>
-                    <div class="space-y-6 text-slate-400 text-lg font-light leading-relaxed">
-                        <p>Nuestra mano de obra es innegociable: aplicamos un estándar de fijación técnica de <strong class="text-white">6 clavos por teja</strong> y sellado reforzado [10: 563].</p>
-                        <p>Cada hito constructivo se valida bajo los códigos <strong class="text-white">IRC/IBC 2024</strong>, garantizando invulnerabilidad técnica [3: 48].</p>
-                    </div>
-                    <div class="pt-4">
-                        <div class="inline-flex items-center px-8 py-4 bg-alphaElectric/5 border border-alphaElectric/20 rounded-full">
-                            <span class="text-alphaElectric font-bold text-[11px] uppercase tracking-[0.3em]">Engineering Standard: Alpha Verified</span>
+        <!-- 2. INSTALACIÓN (RIDGE VENT + SYSTEM-RESTORATION PATHS) -->
+        <div class="section-standard pb-0">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="space-y-8 text-left">
+                        <h3 class="font-montserrat font-black text-3xl md:text-4xl uppercase tracking-tight italic">Instalación de Alta Ingeniería</h3>
+                        <div class="space-y-6 text-slate-400 text-lg font-light leading-relaxed">
+                            <p>Antes de iniciar, auditamos la estructura: revisamos y reemplazamos la madera del <strong class="text-white">decking</strong> que presente fatiga, asegurando una base inmaculada.</p>
+                            <p>Implementamos un blindaje multicapa: instalamos <strong class="text-white">drip edge</strong> perimetral, <strong class="text-white">ice and water shield</strong> en valles críticos y sellamos uniones con <strong class="text-white">flashings</strong> de precisión técnica.</p>
+                            <p>Garantizamos la salud térmica de su hogar mediante la instalación sistémica de <strong class="text-white">ridge vents</strong>, permitiendo que el ático respire adecuadamente para regular la temperatura y prevenir daños estructurales.</p>
+                            <p>Utilizamos un <strong class="text-white">underlayment</strong> sintético de alta especificación que actúa como una barrera superior frente al granizo y vientos fuertes.</p>
                         </div>
                     </div>
-                </div>
-
-                <!-- 🎢 3D MARQUEE: HIGH DENSITY 4-COLUMN VIEWPORT -->
-                <div class="lg:col-span-3 h-[950px] marquee-3d-viewport rounded-[4rem] relative border border-white/10 shadow-2xl">
-                    <div class="marquee-3d-scene p-4">
-                        
-                        <!-- Col 1 -->
-                        <div class="marquee-column animate-marquee-yoyo-slow">
-                            <div class="code-card"><img src="/assets/img/system-restoration/code1.png"></div>
-                            <div class="code-card"><img src="/assets/img/system-restoration/code2.png"></div>
-                            <div class="code-card"><img src="/assets/img/system-restoration/code3.png"></div>
-                            <div class="code-card"><img src="/assets/img/system-restoration/code4.png"></div>
+                    <!-- 🎢 3D MARQUEE: PATH FIX /assets/img/system-restoration/ -->
+                    <div class="h-[580px] marquee-3d-viewport rounded-[3rem] relative border border-white/10 shadow-3xl">
+                        <div class="marquee-3d-scene p-4">
+                            <div class="marquee-column animate-marquee-yoyo-slow">
+                                <div class="code-card"><img src="/assets/img/system-restoration/code1.png"></div>
+                                <div class="code-card"><img src="/assets/img/system-restoration/code2.png"></div>
+                                <div class="code-card"><img src="/assets/img/system-restoration/code3.png"></div>
+                                <div class="code-card"><img src="/assets/img/system-restoration/code4.png"></div>
+                            </div>
+                            <div class="marquee-column animate-marquee-yoyo-average">
+                                <div class="code-card"><img src="/assets/img/system-restoration/code5.png"></div>
+                                <div class="code-card"><img src="/assets/img/system-restoration/code6.png"></div>
+                                <div class="code-card"><img src="/assets/img/system-restoration/code7.png"></div>
+                                <div class="code-card"><img src="/assets/img/system-restoration/code8.png"></div>
+                            </div>
+                            <div class="marquee-column animate-marquee-yoyo-fast">
+                                <div class="code-card"><img src="/assets/img/system-restoration/code9.png"></div>
+                                <div class="code-card"><img src="/assets/img/system-restoration/code10.png"></div>
+                                <div class="code-card"><img src="/assets/img/system-restoration/code11.png"></div>
+                                <div class="code-card"><img src="/assets/img/system-restoration/code12.png"></div>
+                            </div>
+                            <div class="marquee-column animate-marquee-yoyo-average">
+                                <div class="code-card"><img src="/assets/img/system-restoration/code4.png"></div>
+                                <div class="code-card"><img src="/assets/img/system-restoration/code1.png"></div>
+                                <div class="code-card"><img src="/assets/img/system-restoration/code6.png"></div>
+                                <div class="code-card"><img src="/assets/img/system-restoration/code10.png"></div>
+                            </div>
+                            <div class="marquee-column animate-marquee-yoyo-slow">
+                                <div class="code-card"><img src="/assets/img/system-restoration/code2.png"></div>
+                                <div class="code-card"><img src="/assets/img/system-restoration/code11.png"></div>
+                                <div class="code-card"><img src="/assets/img/system-restoration/code5.png"></div>
+                                <div class="code-card"><img src="/assets/img/system-restoration/code12.png"></div>
+                            </div>
                         </div>
-
-                        <!-- Col 2 -->
-                        <div class="marquee-column animate-marquee-yoyo-fast">
-                            <div class="code-card"><img src="/assets/img/system-restoration/code5.png"></div>
-                            <div class="code-card"><img src="/assets/img/system-restoration/code6.png"></div>
-                            <div class="code-card"><img src="/assets/img/system-restoration/code7.png"></div>
-                            <div class="code-card"><img src="/assets/img/system-restoration/code8.png"></div>
-                        </div>
-
-                        <!-- Col 3 -->
-                        <div class="marquee-column animate-marquee-yoyo-slow">
-                            <div class="code-card"><img src="/assets/img/system-restoration/code9.png"></div>
-                            <div class="code-card"><img src="/assets/img/system-restoration/code10.png"></div>
-                            <div class="code-card"><img src="/assets/img/system-restoration/code11.png"></div>
-                            <div class="code-card"><img src="/assets/img/system-restoration/code12.png"></div>
-                        </div>
-
-                        <!-- Col 4 (RESTAURADA) -->
-                        <div class="marquee-column animate-marquee-yoyo-fast">
-                            <div class="code-card"><img src="/assets/img/system-restoration/code1.png"></div>
-                            <div class="code-card"><img src="/assets/img/system-restoration/code5.png"></div>
-                            <div class="code-card"><img src="/assets/img/system-restoration/code9.png"></div>
-                            <div class="code-card"><img src="/assets/img/system-restoration/code12.png"></div>
-                        </div>
-
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- C & D: ESCUDOS DE BLINDAJE [Source: 1313, 1316] -->
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10">
-            <div class="p-12 bg-white/5 rounded-[3rem] border border-white/10 relative overflow-hidden group">
-                <div class="absolute top-0 right-0 p-12 opacity-5"><img src="/assets/img/icons/icon-tools.svg" class="w-32 h-32 brightness-0 invert"></div>
-                <h4 class="font-montserrat font-black text-3xl uppercase mb-6 text-white tracking-tighter italic">Supervisión en Obra</h4>
-                <p class="text-slate-400 text-lg leading-relaxed font-light">Mantenemos una supervisión presencial constante para garantizar que el diseño de ingeniería se ejecute exactamente según lo proyectado.</p>
-            </div>
-            
-            <div class="p-12 bg-alphaElectric rounded-[3rem] shadow-2xl relative overflow-hidden group">
-                <div class="absolute top-0 right-0 p-12 opacity-20"><img src="/assets/img/icons/icon-shield-check.svg" class="w-32 h-32 brightness-0 invert"></div>
-                <h4 class="font-montserrat font-black text-3xl uppercase mb-6 text-white tracking-tighter italic">Garantía Estructural</h4>
-                <p class="text-white/90 text-lg leading-relaxed font-medium">Blindaje absoluto mediante cobertura dual: excelencia de mano de obra Alpha y respaldo directo de fabricantes líderes.</p>
+        <!-- 3. GARANTÍA ALPHA -->
+        <div class="section-standard">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="mb-16 text-left">
+                    <h3 class="font-montserrat font-black text-3xl md:text-5xl uppercase tracking-tight italic">Garantía Alpha</h3>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="aspect-video rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl relative">
+                        <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                            <source src="/assets/img/system-restoration/before_during_after_2.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 bg-alphaNavy/20"></div>
+                    </div>
+                    
+                    <div class="space-y-8 text-left">
+                        <div class="space-y-6 text-slate-400 text-lg font-light leading-relaxed">
+                            <p>Su inversión goza de un blindaje a largo plazo: proporcionamos entre <strong class="text-white">30 y 50 años de garantía</strong> en materiales, respaldada por fabricantes líderes de la industria.</p>
+                            <p>Este compromiso se complementa con nuestra garantía de <strong class="text-white">8 años en mano de obra (workmanship)</strong>. Bajo nuestro estándar de confianza, <strong class="text-white">usted no libera un solo dólar</strong> hasta que la obra esté finalizada, inmaculada y validada bajo nuestra supervisión constante.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
