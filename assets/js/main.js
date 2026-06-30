@@ -261,9 +261,11 @@ setInterval(rotateQuestions, 4500);
                         });
                     }
                 });
-            }, { 
-                threshold: 0.15, // Sensibilidad alta para encendido inmediato
-                rootMargin: "-10% 0px -20% 0px" 
+            }, {
+                // Reducimos el umbral al 10% para que se active apenas entre la sección
+                threshold: 0.1, 
+                // Flexibilizamos el margen para móviles: 5% arriba y 15% abajo
+                rootMargin: "-5% 0px -15% 0px" 
             });
 
             sections.forEach((section) => observer.observe(section));
