@@ -1,14 +1,14 @@
 <!-- 
-  ALPHA ROOFING & GUTTERS | ALPHA WAY: PURIFIED ENGINEERING EDITION
+  ALPHA ROOFING & GUTTERS | LEGACY: PURIFIED EVIDENCE EDITION
   STRATEGIST: IM + Alpha AI
-  VERSION: 80.0.0 (Zero-Brackets + System-Restoration Path Fix + Quality Label Sync)
-  TIMESTAMP: 2026-06-28 21:30 CST
+  VERSION: 89.0.0 (Zero-Brackets + 9 Testimonials Sync + Axial Alignment)
+  TIMESTAMP: 2026-07-21 20:15 CST
   
   DIAGNÓSTICO TÉCNICO:
-  1. FIX: Restauración de imágenes en 3D Marquee usando la ruta /assets/img/system-restoration/.
-  2. PURGE: Eliminación absoluta de números entre corchetes en todos los textos.
-  3. SYNC: Cambio de "Grado" a "Calidad Superior" en la sección de materiales.
-  4. AXIAL: Preservación de geometría validada: margin-left: -50% y margin-top: -39%.
+  1. PURGE: Eliminación absoluta de números entre corchetes en todos los copys.
+  2. CONTENT: Sincronización final con los 9 testimonios del documento oficial.
+  3. SCALE: Nombre (+10%), Zona (+30%) y Servicio (+30%) bloqueados en CSS.
+  4. UI: Cita centralizada y navegación sincronizada con el estilo 'Hub de Servicios'.
 -->
 
 <!DOCTYPE html>
@@ -16,7 +16,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Alpha Way | Purified Engineering Sandbox v80</title>
+    <title>Alpha Legacy | Purified Evidence Sandbox v89</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
     <script>
@@ -27,158 +27,196 @@
                         alphaNavy: '#0A1128',
                         alphaElectric: '#253BD8',
                         alphaSlate: '#4A5568',
-                    },
-                    animation: {
-                        'marquee-h': 'marquee-h 40s linear infinite',
-                        'marquee-yoyo-slow': 'marquee-v-yoyo 25s ease-in-out infinite alternate',
-                        'marquee-yoyo-average': 'marquee-v-yoyo 20s ease-in-out infinite alternate-reverse',
-                        'marquee-yoyo-fast': 'marquee-v-yoyo 15s ease-in-out infinite alternate',
-                    },
-                    keyframes: {
-                        'marquee-h': { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-50%)' } },
-                        'marquee-v-yoyo': { '0%': { transform: 'translateY(-15%)' }, '100%': { transform: 'translateY(-35%)' } }
                     }
                 }
             }
         }
     </script>
     <style>
-        .section-standard { border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 8rem; padding-bottom: 8rem; }
-        .logo-cloud-marquee { mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); }
-        .trust-badge-white { filter: brightness(0) invert(1); opacity: 0.85; max-width: 160px; }
-        
-        /* 🎢 3D ENGINE RECALIBRADO: COORDENADAS -50% / -39% */
-        .marquee-3d-viewport { perspective: 5000px; overflow: hidden; }
-        .marquee-3d-scene {
-            transform: rotateX(55deg) rotateZ(-45deg) scale(1.15);
-            transform-style: preserve-3d;
-            display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.15rem;
-            width: 350%; 
-            margin-left: -50%; 
-            margin-top: -39%; 
+        /* 🎢 MOTOR DE TESTIMONIALES ALPHA */
+        .testimonial-img-stack { position: relative; height: 320px; width: 100%; perspective: 1200px; }
+        .testimonial-card {
+            position: absolute; inset: 0;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: bottom;
         }
-        .marquee-column { display: flex; flex-direction: column; gap: 0.15rem; will-change: transform; }
-        .code-card { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 1rem; padding: 1.2rem; }
-        .code-card img { width: 100%; border-radius: 0.5rem; filter: brightness(0.9) contrast(1.25); }
+        .testimonial-card.active { opacity: 1; z-index: 40; transform: rotate(0deg) scale(1) translateY(0); filter: blur(0); }
+        .testimonial-card.background { opacity: 0.35; z-index: 10; }
+        
+        .word { display: inline-block; opacity: 0; transform: translateY(8px); filter: blur(3px); transition: all 0.3s ease-out; margin-right: 0.25em; }
+        .word.visible { opacity: 1; transform: translateY(0); filter: blur(0); }
+        
+        /* 🏹 NAVEGACIÓN: ALINEACIÓN AXIAL */
+        .nav-arrow {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .nav-arrow:hover:not(.disabled) { background: rgba(37, 59, 216, 0.3); border-color: #253BD8; transform: scale(1.05); }
     </style>
 </head>
 <body class="bg-alphaNavy font-sans text-white overflow-x-hidden">
 
-    <section id="alpha-way" class="relative overflow-hidden">
+    <section id="legacy" class="relative overflow-hidden py-16">
         
-        <!-- ENCABEZADO ALPHA WAY -->
-        <div class="max-w-7xl mx-auto px-6 text-center py-24">
-            <h2 class="font-montserrat font-black text-4xl md:text-6xl text-white uppercase tracking-tighter mb-4">Alpha Way</h2>
+        <!-- ENCABEZADO ALPHA LEGACY -->
+        <div class="max-w-7xl mx-auto px-6 text-center mb-12">
+            <h2 class="font-montserrat font-black text-4xl md:text-6xl text-white uppercase tracking-tighter mb-4">Legacy</h2>
             <div class="w-16 h-1 bg-alphaElectric mx-auto mb-6"></div>
-            <p class="text-slate-400 font-light text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed">
-                Protegemos la integridad de su hogar con un estándar de instalación diseñado específicamente para el clima extremo de Texas.
+            <p class="text-slate-400 font-light text-lg md:text-xl max-w-4xl mx-auto leading-relaxed">
+                Protegemos lo que más importa: la seguridad de su familia y el valor de su hogar para el futuro.
             </p>
         </div>
 
-        <!-- 1. MATERIALES (CALIDAD SUPERIOR) -->
-        <div class="section-standard">
-            <div class="max-w-7xl mx-auto px-6 mb-16">
-                <div class="max-w-4xl text-left">
-                    <h3 class="font-montserrat font-black text-3xl uppercase tracking-tight mb-6 italic">Materiales de Calidad Superior</h3>
-                    <p class="text-slate-400 text-lg font-light leading-relaxed">Instalamos tejas arquitectónicas de alta especificación y sistemas compuestos avanzados, seleccionados por su resistencia estructural bajo las condiciones climáticas más severas.</p>
-                </div>
-            </div>
-            <div class="relative logo-cloud-marquee overflow-hidden py-4">
-                <div class="flex animate-marquee-h whitespace-nowrap w-max items-center">
-                    <div class="flex items-center gap-48 px-24">
-                        <img src="/assets/img/trust-badges/gaf_logo.png" class="h-14 trust-badge-white">
-                        <img src="/assets/img/trust-badges/owens_corning_logo.png" class="h-14 trust-badge-white">
-                        <img src="/assets/img/trust-badges/tamko_logo.png" class="h-14 trust-badge-white">
-                        <img src="/assets/img/trust-badges/atlas_logo.png" class="h-14 trust-badge-white">
-                    </div>
-                    <div class="flex items-center gap-48 px-24">
-                        <img src="/assets/img/trust-badges/gaf_logo.png" class="h-14 trust-badge-white">
-                        <img src="/assets/img/trust-badges/owens_corning_logo.png" class="h-14 trust-badge-white">
-                        <img src="/assets/img/trust-badges/tamko_logo.png" class="h-14 trust-badge-white">
-                        <img src="/assets/img/trust-badges/atlas_logo.png" class="h-14 trust-badge-white">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 2. INSTALACIÓN (RIDGE VENT + SYSTEM-RESTORATION PATHS) -->
-        <div class="section-standard pb-0">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="grid lg:grid-cols-2 gap-16 items-center">
-                    <div class="space-y-8 text-left">
-                        <h3 class="font-montserrat font-black text-3xl md:text-4xl uppercase tracking-tight italic">Instalación de Alta Ingeniería</h3>
-                        <div class="space-y-6 text-slate-400 text-lg font-light leading-relaxed">
-                            <p>Antes de iniciar, auditamos la estructura: revisamos y reemplazamos la madera del <strong class="text-white">decking</strong> que presente fatiga, asegurando una base inmaculada.</p>
-                            <p>Implementamos un blindaje multicapa: instalamos <strong class="text-white">drip edge</strong> perimetral, <strong class="text-white">ice and water shield</strong> en valles críticos y sellamos uniones con <strong class="text-white">flashings</strong> de precisión técnica.</p>
-                            <p>Garantizamos la salud térmica de su hogar mediante la instalación sistémica de <strong class="text-white">ridge vents</strong>, permitiendo que el ático respire adecuadamente para regular la temperatura y prevenir daños estructurales.</p>
-                            <p>Utilizamos un <strong class="text-white">underlayment</strong> sintético de alta especificación que actúa como una barrera superior frente al granizo y vientos fuertes.</p>
-                        </div>
-                    </div>
-                    <!-- 🎢 3D MARQUEE: PATH FIX /assets/img/system-restoration/ -->
-                    <div class="h-[580px] marquee-3d-viewport rounded-[3rem] relative border border-white/10 shadow-3xl">
-                        <div class="marquee-3d-scene p-4">
-                            <div class="marquee-column animate-marquee-yoyo-slow">
-                                <div class="code-card"><img src="/assets/img/system-restoration/code1.png"></div>
-                                <div class="code-card"><img src="/assets/img/system-restoration/code2.png"></div>
-                                <div class="code-card"><img src="/assets/img/system-restoration/code3.png"></div>
-                                <div class="code-card"><img src="/assets/img/system-restoration/code4.png"></div>
-                            </div>
-                            <div class="marquee-column animate-marquee-yoyo-average">
-                                <div class="code-card"><img src="/assets/img/system-restoration/code5.png"></div>
-                                <div class="code-card"><img src="/assets/img/system-restoration/code6.png"></div>
-                                <div class="code-card"><img src="/assets/img/system-restoration/code7.png"></div>
-                                <div class="code-card"><img src="/assets/img/system-restoration/code8.png"></div>
-                            </div>
-                            <div class="marquee-column animate-marquee-yoyo-fast">
-                                <div class="code-card"><img src="/assets/img/system-restoration/code9.png"></div>
-                                <div class="code-card"><img src="/assets/img/system-restoration/code10.png"></div>
-                                <div class="code-card"><img src="/assets/img/system-restoration/code11.png"></div>
-                                <div class="code-card"><img src="/assets/img/system-restoration/code12.png"></div>
-                            </div>
-                            <div class="marquee-column animate-marquee-yoyo-average">
-                                <div class="code-card"><img src="/assets/img/system-restoration/code4.png"></div>
-                                <div class="code-card"><img src="/assets/img/system-restoration/code1.png"></div>
-                                <div class="code-card"><img src="/assets/img/system-restoration/code6.png"></div>
-                                <div class="code-card"><img src="/assets/img/system-restoration/code10.png"></div>
-                            </div>
-                            <div class="marquee-column animate-marquee-yoyo-slow">
-                                <div class="code-card"><img src="/assets/img/system-restoration/code2.png"></div>
-                                <div class="code-card"><img src="/assets/img/system-restoration/code11.png"></div>
-                                <div class="code-card"><img src="/assets/img/system-restoration/code5.png"></div>
-                                <div class="code-card"><img src="/assets/img/system-restoration/code12.png"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 3. GARANTÍA ALPHA -->
-        <div class="section-standard">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="mb-16 text-left">
-                    <h3 class="font-montserrat font-black text-3xl md:text-5xl uppercase tracking-tight italic">Garantía Alpha</h3>
-                </div>
+        <!-- 🛡️ BÚNKER DE TESTIMONIALES (SYNC 9 ITEMS) -->
+        <div class="max-w-7xl mx-auto px-4 mb-16">
+            <div class="bg-white/[0.03] border border-white/10 rounded-[2.5rem] p-6 md:p-16 shadow-3xl relative overflow-hidden">
                 
-                <div class="grid lg:grid-cols-2 gap-16 items-center">
-                    <div class="aspect-video rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl relative">
-                        <video autoplay loop muted playsinline class="w-full h-full object-cover">
-                            <source src="/assets/img/system-restoration/before_during_after_2.mp4" type="video/mp4">
-                        </video>
-                        <div class="absolute inset-0 bg-alphaNavy/20"></div>
-                    </div>
+                <div class="mb-8">
+                    <h3 class="font-montserrat font-black text-2xl md:text-4xl uppercase tracking-tight italic text-white text-left">Excelencia en Ejecución</h3>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-7 items-start">
                     
-                    <div class="space-y-8 text-left">
-                        <div class="space-y-6 text-slate-400 text-lg font-light leading-relaxed">
-                            <p>Su inversión goza de un blindaje a largo plazo: proporcionamos entre <strong class="text-white">30 y 50 años de garantía</strong> en materiales, respaldada por fabricantes líderes de la industria.</p>
-                            <p>Este compromiso se complementa con nuestra garantía de <strong class="text-white">8 años en mano de obra (workmanship)</strong>. Bajo nuestro estándar de confianza, <strong class="text-white">usted no libera un solo dólar</strong> hasta que la obra esté finalizada, inmaculada y validada bajo nuestra supervisión constante.</p>
+                    <!-- IMAGE STACK -->
+                    <div class="testimonial-img-stack" id="image-stack">
+                        <div class="testimonial-card active" data-index="0"><img src="/assets/img/system-roofing/finished_roof_1.jpg" class="h-full w-full rounded-[2rem] object-cover shadow-2xl"></div>
+                        <div class="testimonial-card background" data-index="1"><img src="/assets/img/system-roofing/finished_roof_3.jpg" class="h-full w-full rounded-[2rem] object-cover shadow-2xl"></div>
+                        <div class="testimonial-card background" data-index="2"><img src="/assets/img/system-roofing/finished_roof_4.jpeg" class="h-full w-full rounded-[2rem] object-cover shadow-2xl"></div>
+                        <div class="testimonial-card background" data-index="3"><img src="/assets/img/system-roofing/finished_roof_2.jpg" class="h-full w-full rounded-[2rem] object-cover shadow-2xl"></div>
+                        <div class="testimonial-card background" data-index="4"><img src="/assets/img/system-roofing/finished_roof_6.jpg" class="h-full w-full rounded-[2rem] object-cover shadow-2xl"></div>
+                        <div class="testimonial-card background" data-index="5"><img src="/assets/img/system-roofing/finished_roof_7.jpg" class="h-full w-full rounded-[2rem] object-cover shadow-2xl"></div>
+                        <div class="testimonial-card background" data-index="6"><img src="/assets/img/system-roofing/finished_roof_8.jpg" class="h-full w-full rounded-[2rem] object-cover shadow-2xl"></div>
+                        <div class="testimonial-card background" data-index="7"><img src="/assets/img/system-roofing/finished_roof_9.jpg" class="h-full w-full rounded-[2rem] object-cover shadow-2xl"></div>
+                        <div class="testimonial-card background" data-index="8"><img src="/assets/img/system-outdoor/patio_deck_1.jpg" class="h-full w-full rounded-[2rem] object-cover shadow-2xl"></div>
+                    </div>
+
+                    <!-- QUOTE CONTENT (CENTERED) -->
+                    <div class="flex flex-col h-full">
+                        <div id="testimonial-content" class="flex-grow mb-2">
+                            <p id="client-quote" class="text-xl md:text-2xl text-slate-200 font-light leading-snug italic min-h-[120px] text-center">
+                                <!-- Inyección Word-Stagger -->
+                            </p>
                         </div>
                     </div>
+                </div>
+
+                <!-- 🎛️ CONTROL BAR -->
+                <div class="grid grid-cols-2 items-center mt-2 pt-4 border-t border-white/5">
+                    <!-- Left: Client Info (SCALED) -->
+                    <div class="flex flex-col space-y-1">
+                        <h4 id="client-name" class="text-xl md:text-3xl font-black text-white font-montserrat uppercase tracking-tighter italic leading-tight">Cargando...</h4>
+                        <span id="client-location" class="text-xs md:text-sm font-bold uppercase tracking-widest text-alphaElectric">Ubicación</span>
+                        <span id="client-service" class="text-xs md:text-sm text-slate-500 font-medium uppercase tracking-widest">Servicio</span>
+                    </div>
+
+                    <!-- Right: Navigation Centered -->
+                    <div class="flex items-center justify-end space-x-3">
+                        <button id="prev-arrow" onclick="prevTestimonial()" class="nav-arrow w-10 h-10 rounded-full flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                        </button>
+                        
+                        <button id="play-pause-btn" onclick="toggleAutoplay()" class="nav-arrow w-10 h-10 rounded-full flex items-center justify-center">
+                            <svg id="pause-icon" class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
+                            <svg id="play-icon" class="w-5 h-5 text-white hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </button>
+
+                        <button id="next-arrow" onclick="nextTestimonial()" class="nav-arrow w-10 h-10 rounded-full flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. COMPROMISO ALPHA (LIMPIO - SIN LÍNEAS DECORATIVAS) -->
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-4xl text-left py-2">
+                <h3 class="font-montserrat font-black text-2xl uppercase tracking-tight mb-4 italic text-white">Compromiso Alpha</h3>
+                <div class="space-y-4 text-slate-400 text-base font-light leading-relaxed">
+                    <p>Nuestra labor va más allá de instalar un techo. Al terminar, le entregamos el <strong class="text-white uppercase tracking-widest text-xs">Alpha Signature Certificate</strong>, el documento que asegura que su casa está protegida bajo nuestro estándar de excelencia.</p>
+                    <p>Buscamos que su inversión incremente el valor de su propiedad y le brinde paz mental a su familia por muchos años.</p>
                 </div>
             </div>
         </div>
 
     </section>
 
+    <script>
+        const testimonials = [
+            { name: "Ramon Hernandez", location: "Houston, TX", service: "Reemplazo de Techo", quote: "Alpha se encargó de absolutamente todo con el seguro. Me dio mucha tranquilidad ver cómo recuperaron mi hogar con tanta profesionalidad.", rotation: -3 },
+            { name: "Samantha Harris", location: "Cypress, TX", service: "Restauración por Tormenta", quote: "Tras el tornado, Alpha peleó mi caso con el seguro. Lograron la aprobación total del techo completo cuando inicialmente el seguro solo querían pagar reparaciones.", rotation: 2 },
+            { name: "Steve Ramirez", location: "Sugar Land, TX", service: "Reemplazo de Techo", quote: "Un proceso increíblemente rápido. La aseguranza pagó a la primera y la instalación quedó impecable. Muy feliz con el resultado.", rotation: -2 },
+            { name: "Armando Silva", location: "The Woodlands, TX", service: "Reemplazo de Techo", quote: "Mi casa quedó como nueva. El equipo cuidó cada detalle y el resultado final realmente elevó el valor de mi patrimonio.", rotation: 3 },
+            { name: "John Peters", location: "Katy, TX", service: "Gestión de Seguro", quote: "Excelente gestión. Me hicieron el techo a través de mi aseguranza y no tuve que preocuparme por nada técnico.", rotation: -4 },
+            { name: "Miguel Andrade", location: "Pasadena, TX", service: "Reemplazo de Techo", quote: "La calidad es visible. El color y el material del techo son espectaculares; se nota el profesionalismo en las terminaciones.", rotation: 1 },
+            { name: "Lisa Smith", location: "Channelview, TX", service: "Gestión de Seguro", quote: "Totalmente satisfecha. Alpha asumió la responsabilidad del proceso, permitiéndome disfrutar del resultado final sin estrés.", rotation: -2 },
+            { name: "James Ordonez", location: "Pearland, TX", service: "Reemplazo de Techo", quote: "Tenía goteras internas persistentes. Alpha detectó el origen y lo solucionó definitivamente. Mi casa está protegida de nuevo.", rotation: 3 },
+            { name: "Roberto Martinez", location: "Spring, TX", service: "Proyecto Exterior", quote: "Construyeron un espacio inmaculado. Su metodología de trabajo es limpia, ordenada y de un nivel técnico superior.", rotation: -1 }
+        ];
+
+        let currentIndex = 0;
+        let autoplayInterval;
+        let isPlaying = true;
+
+        function updateUI() {
+            const data = testimonials[currentIndex];
+            const nameEl = document.getElementById('client-name');
+            const locEl = document.getElementById('client-location');
+            const servEl = document.getElementById('client-service');
+            const quoteEl = document.getElementById('client-quote');
+            const cards = document.querySelectorAll('.testimonial-card');
+
+            cards.forEach((card, i) => {
+                card.className = 'testimonial-card';
+                if (i === currentIndex) {
+                    card.classList.add('active');
+                    card.style.transform = `rotate(0deg) scale(1)`;
+                } else {
+                    card.classList.add('background');
+                    const rot = testimonials[i].rotation;
+                    card.style.transform = `rotate(${rot}deg) scale(0.95)`;
+                }
+            });
+
+            nameEl.innerText = data.name;
+            locEl.innerText = data.location;
+            servEl.innerText = data.service;
+            
+            quoteEl.innerHTML = '';
+            data.quote.split(' ').forEach((word, index) => {
+                const span = document.createElement('span');
+                span.innerText = word; 
+                span.className = 'word';
+                quoteEl.appendChild(span);
+                setTimeout(() => span.classList.add('visible'), 30 * index);
+            });
+        }
+
+        function nextTestimonial() { stopAutoplay(); currentIndex = (currentIndex + 1) % testimonials.length; updateUI(); }
+        function prevTestimonial() { stopAutoplay(); currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length; updateUI(); }
+
+        function startAutoplay() {
+            isPlaying = true;
+            document.getElementById('pause-icon').classList.remove('hidden');
+            document.getElementById('play-icon').classList.add('hidden');
+            autoplayInterval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % testimonials.length;
+                updateUI();
+            }, 5500);
+        }
+
+        function stopAutoplay() {
+            isPlaying = false;
+            document.getElementById('pause-icon').classList.add('hidden');
+            document.getElementById('play-icon').classList.remove('hidden');
+            clearInterval(autoplayInterval);
+        }
+
+        function toggleAutoplay() { if (isPlaying) stopAutoplay(); else startAutoplay(); }
+
+        document.addEventListener('DOMContentLoaded', () => { updateUI(); startAutoplay(); });
+    </script>
 </body>
 </html>

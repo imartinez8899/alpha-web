@@ -210,6 +210,33 @@
         .marquee-column { display: flex; flex-direction: column; gap: 0.15rem; will-change: transform; }
         .code-card { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 1rem; padding: 1.2rem; }
         .code-card img { width: 100%; border-radius: 0.5rem; filter: brightness(0.9) contrast(1.25); }
+    
+
+            /* 🎡 MOTOR DE TESTIMONIALES LEGACY (PRECISION STACK) */
+        .testimonial-img-stack { position: relative; height: 320px; width: 100%; perspective: 1200px; }
+        .testimonial-card {
+            position: absolute; inset: 0;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: bottom;
+        }
+        .testimonial-card.active { opacity: 1; z-index: 40; transform: rotate(0deg) scale(1) translateY(0); filter: blur(0); }
+        .testimonial-card.background { opacity: 0.35; z-index: 10; }
+
+        /* WORD STAGGER ENGINE: Espaciado corregido para lectura fluida */
+        .word { display: inline-block; opacity: 0; transform: translateY(8px); filter: blur(3px); transition: all 0.3s ease-out; margin-right: 0.25em; }
+        .word.visible { opacity: 1; transform: translateY(0); filter: blur(0); }
+
+        /* NAV SYNC: Alineación axial de iconos */
+        .nav-arrow {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .nav-arrow:hover:not(.disabled) { background: rgba(37, 59, 216, 0.3); border-color: #253BD8; transform: scale(1.05); }
+
+    
+    
     </style>
 
     
@@ -620,38 +647,77 @@
 
             </section>
 
-            <!-- 📱 4.3 LEGACY: LA PROMESA DE PERMANENCIA -->
-            <section id="legacy" class="py-32 px-6 bg-alphaNavy overflow-hidden">
-                <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
-                    <div>
-                        <span class="text-alphaElectric font-bold text-[10px] tracking-[0.5em] uppercase mb-4 block">Fase III: Blindaje Vitalicio</span>
-                        <h2 class="font-montserrat font-black text-4xl md:text-5xl uppercase tracking-tighter mb-8 text-white">Legacy</h2>
-                        <p class="text-slate-400 text-lg font-light leading-relaxed mb-10">
-                            Cerramos la brecha entre el servicio terminado y la tranquilidad vitalicia. Su hogar no solo luce impecable; su inversión queda protegida para las futuras generaciones.
-                        </p>
-                        <div class="bg-white/5 p-10 rounded-[2.5rem] border-l-4 border-alphaElectric shadow-2xl">
-                            <p class="text-sm italic text-slate-300 leading-relaxed">
-                                "Alpha no solo reemplazó mi techo, restauró mi confianza. El proceso fue impecable y la calidad es visible en cada detalle de la terminación. Mi única tarea fue disfrutar del resultado."
-                            </p>
-                            <p class="mt-6 text-[10px] font-bold uppercase tracking-widest text-white">— Familia Fernandez, Spring, TX</p>
+            <!-- 📱 4.3 LEGACY: EXCELENCIA EN EJECUCIÓN -->
+            <section id="legacy" class="relative overflow-hidden py-16">
+                <div class="max-w-7xl mx-auto px-6 text-center mb-12">
+                    <h2 class="font-montserrat font-black text-4xl md:text-6xl text-white uppercase tracking-tighter mb-4">Legacy</h2>
+                    <div class="w-16 h-1 bg-alphaElectric mx-auto mb-6"></div>
+                    <p class="text-slate-400 font-light text-lg md:text-xl max-w-4xl mx-auto leading-relaxed">
+                        Protegemos lo que más importa: la seguridad de su familia y el valor de su hogar para el futuro.
+                    </p>
+                </div>
+
+                <!-- 🛡️ BÚNKER DE TESTIMONIALES (SYNC 9 ITEMS) -->
+                <div class="max-w-7xl mx-auto px-4 mb-16">
+                    <div class="bg-white/[0.03] border border-white/10 rounded-[2.5rem] p-6 md:p-16 shadow-3xl relative overflow-hidden">
+                        <div class="mb-8">
+                            <h3 class="font-montserrat font-black text-2xl md:text-4xl uppercase tracking-tight italic text-white text-left">Excelencia en Ejecución</h3>
+                        </div>
+
+                        <div class="grid lg:grid-cols-2 gap-7 items-start">
+                            <div class="testimonial-img-stack" id="image-stack">
+                                <!-- Los 9 activos se cargan dinámicamente mediante el motor de main.js -->
+                                <div class="testimonial-card active" data-index="0"><img src="/assets/img/system-roofing/finished_roof_1.jpg" class="h-full w-full rounded-[2rem] object-cover shadow-2xl"></div>
+                                <div class="testimonial-card background" data-index="1"><img src="/assets/img/system-roofing/finished_roof_3.jpg" class="h-full w-full rounded-[2rem] object-cover shadow-2xl"></div>
+                                <div class="testimonial-card background" data-index="2"><img src="/assets/img/system-roofing/finished_roof_4.jpeg" class="h-full w-full rounded-[2rem] object-cover shadow-2xl"></div>
+                                <div class="testimonial-card background" data-index="3"><img src="/assets/img/system-roofing/finished_roof_5.jpg" class="h-full w-full rounded-[2rem] object-cover shadow-2xl"></div>
+                                <div class="testimonial-card background" data-index="4"><img src="/assets/img/system-roofing/finished_roof_6.jpg" class="h-full w-full rounded-[2rem] object-cover shadow-2xl"></div>
+                                <div class="testimonial-card background" data-index="5"><img src="/assets/img/system-roofing/finished_roof_7.jpg" class="h-full w-full rounded-[2rem] object-cover shadow-2xl"></div>
+                                <div class="testimonial-card background" data-index="6"><img src="/assets/img/system-roofing/finished_roof_8.jpg" class="h-full w-full rounded-[2rem] object-cover shadow-2xl"></div>
+                                <div class="testimonial-card background" data-index="7"><img src="/assets/img/system-roofing/finished_roof_9.jpg" class="h-full w-full rounded-[2rem] object-cover shadow-2xl"></div>
+                                <div class="testimonial-card background" data-index="8"><img src="/assets/img/system-outdoor/patio_deck_1.jpg" class="h-full w-full rounded-[2rem] object-cover shadow-2xl"></div>
+                            </div>
+
+                            <div class="flex flex-col h-full">
+                                <div id="testimonial-content" class="flex-grow mb-2">
+                                    <p id="client-quote" class="text-xl md:text-2xl text-slate-200 font-light leading-snug italic min-h-[120px] text-center">
+                                        <!-- Inyección Word-Stagger -->
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 🎛️ CONTROL BAR (AXIAL ALIGNMENT) -->
+                        <div class="grid grid-cols-2 items-center mt-2 pt-4 border-t border-white/5">
+                            <div class="flex flex-col space-y-1">
+                                <h4 id="client-name" class="text-xl md:text-3xl font-black text-white font-montserrat uppercase tracking-tighter italic leading-tight">Cargando...</h4>
+                                <span id="client-location" class="text-xs md:text-sm font-bold uppercase tracking-widest text-alphaElectric">Ubicación</span>
+                                <span id="client-service" class="text-xs md:text-sm text-slate-500 font-medium uppercase tracking-widest">Servicio</span>
+                            </div>
+
+                            <div class="flex items-center justify-end space-x-3">
+                                <button id="prev-arrow" onclick="prevTestimonial()" class="nav-arrow w-10 h-10 rounded-full flex items-center justify-center">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                                </button>
+                                <button id="play-pause-btn" onclick="toggleAutoplay()" class="nav-arrow w-10 h-10 rounded-full flex items-center justify-center">
+                                    <svg id="pause-icon" class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
+                                    <svg id="play-icon" class="w-5 h-5 text-white hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </button>
+                                <button id="next-arrow" onclick="nextTestimonial()" class="nav-arrow w-10 h-10 rounded-full flex items-center justify-center">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="space-y-4">
-                            <div class="rounded-3xl overflow-hidden shadow-2xl border border-white/10 aspect-[4/5]">
-                                <img src="/assets/img/system-roofing/finished_roof_1.jpg" class="w-full h-full object-cover">
-                            </div>
-                            <div class="rounded-3xl overflow-hidden shadow-2xl border border-white/10 aspect-square">
-                                <img src="/assets/img/system-roofing/finished_roof_2.jpg" class="w-full h-full object-cover">
-                            </div>
-                        </div>
-                        <div class="pt-12 flex flex-col h-full">
-                            <div class="bg-alphaElectric/10 p-10 rounded-[2.5rem] border border-alphaElectric/20 text-center flex-grow flex flex-col justify-center items-center">
-                                <img src="/assets/img/icons/icon-certificate.svg" class="w-20 h-20 mb-8 brightness-0 invert">
-                                <span class="text-[10px] font-black uppercase tracking-[0.3em] text-white leading-tight">Alpha Signature<br>Certificate</span>
-                                <p class="text-[8px] text-slate-400 mt-4 uppercase">Respaldo formal de excelencia</p>
-                            </div>
+                </div>
+
+                <!-- 📜 COMPROMISO ALPHA (LIMPIO) -->
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="max-w-4xl text-left py-2">
+                        <h3 class="font-montserrat font-black text-2xl uppercase tracking-tight mb-4 italic text-white">Compromiso Alpha</h3>
+                        <div class="space-y-4 text-slate-400 text-base font-light leading-relaxed">
+                            <p>Nuestra labor va más allá de instalar un techo. Al terminar, le entregamos el <strong class="text-white uppercase tracking-widest text-xs">Alpha Signature Certificate</strong>, el documento que asegura que su casa está protegida bajo nuestro estándar de excelencia.</p>
+                            <p>Buscamos que su inversión incremente el valor de su propiedad y le brinde paz mental a su familia por muchos años.</p>
                         </div>
                     </div>
                 </div>
