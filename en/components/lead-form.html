@@ -1,0 +1,59 @@
+<!-- MÓDULO DE CAPTURA ALPHA (ZOHO INTEGRATION - PERFECCIONADO) -->
+<div id="zoho-form-wrapper" class="w-full max-w-md mx-auto bg-white p-8 rounded-3xl shadow-2xl border border-slate-100 relative">
+    
+    <!-- Botón de retorno al Hub de Contacto -->
+    <button onclick="hideZohoForm()" class="absolute top-4 left-4 text-slate-400 hover:text-[#1a365d] transition-colors" aria-label="Regresar">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+    </button>
+
+    <div class="text-center mb-8">
+        <h2 class="font-montserrat font-bold text-xl text-[#1a365d] uppercase tracking-tight">Property Assessment</h2>
+        <p class="text-slate-500 text-xs mt-2 text-center">An Alpha consultant will conduct a priority review of your case.</p>
+    </div>
+
+    <!-- El ID y el Action han sido corregidos según tu código fuente de Zoho -->
+    <form action='https://forms.zohopublic.com/alpharoofing1/form/WebformGeneralWebsiteES/formperma/f-N2fdYB9GuIhz3IMCTrmhq22pMYjPHDiwsdnyDwWH8/htmlRecords/submit' name='form' id='form' method='POST' accept-charset='UTF-8' enctype='multipart/form-data' class="space-y-4">
+        
+        <input type="hidden" name="zf_referrer_name" value="">
+        <input type="hidden" name="zf_redirect_url" value="">
+        <input type="hidden" name="zc_gad" value="">
+
+        <div class="grid grid-cols-2 gap-3">
+            <div class="space-y-1">
+                <label class="text-[10px] font-bold text-[#1a365d] uppercase ml-1">Name *</label>
+                <input type="text" name="SingleLine" placeholder="Ej. Juan" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#253BD8] transition-all" required maxlength="255" />
+            </div>
+            <div class="space-y-1">
+                <label class="text-[10px] font-bold text-[#1a365d] uppercase ml-1">Last Name *</label>
+                <input type="text" name="SingleLine1" placeholder="Ej. Pérez" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#253BD8] transition-all" required maxlength="255" />
+            </div>
+        </div>
+
+        <div class="space-y-1">
+            <label class="text-[10px] font-bold text-[#1a365d] uppercase ml-1">Phone *</label>
+            <input type="text" name="PhoneNumber_countrycode" placeholder="(832) 000-0000" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#253BD8] transition-all" phoneFormat="1" maxlength="20" required />
+        </div>
+
+        <div class="space-y-1">
+            <label class="text-[10px] font-bold text-[#1a365d] uppercase ml-1">Email</label>
+            <input type="email" name="Email" placeholder="juan@email.com" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#253BD8] transition-all" maxlength="255" />
+        </div>
+
+        <div class="space-y-1">
+            <label class="text-[10px] font-bold text-[#1a365d] uppercase ml-1">Type of Inquiry</label>
+            <select name="Dropdown1" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#253BD8] transition-all appearance-none cursor-pointer">
+                <option value="-Select-">- Select an option -</option>
+                <option value="Restauración por Daños de Tormenta">Storm Damage Restoration</option>
+                <option value="Gestión de Reclamación de Seguros">Professional Insurance Claim Management</option>
+                <option value="Inspección Estándar y Cotización">Property Health Assessment & Estimate</option>
+                <option value="Servicios de Estructuras Exteriores y Patios">Outdoor Living & Perimeter Architecture</option>
+                <option value="Mantenimiento General y Reparaciones">Specialized Maintenance & Technical Repairs</option>
+            </select>
+        </div>
+
+        <!-- Botón Alpha Signature Glow: Negro, Marco Azul, Resplandor Eléctrico -->
+        <button type="submit" class="w-full bg-black text-white font-bold py-4 rounded-xl border border-[#253BD8] shadow-[0_0_15px_rgba(37,59,216,0.6)] uppercase text-[10px] tracking-widest active:scale-95 transition-all mt-4">
+            SUBMIT
+        </button>
+    </form>
+</div>

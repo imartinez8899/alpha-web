@@ -1,7 +1,12 @@
+
 <!-- 
   ALPHA ROOFING & GUTTERS | ENGLISH MIRROR
-  VERSION: 16.7.5 (Full SSOT Content Sync)
--->
+  STRATEGIST: IM + Alpha AI
+  VERSION: 21 (Service 1.2 Update)
+  TIMESTAMP: 2026-06-28 03:55PM
+  
+  -->
+
 <!DOCTYPE html>
 <html lang="en" class="h-full">
 <head>
@@ -12,19 +17,235 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
-            theme: { extend: { colors: { alphaNavy: '#0A1128', alphaElectric: '#253BD8', technicalPlatinum: '#fafafa' } } }
+            theme: {
+                extend: {
+                    colors: {
+                        alphaNavy: '#0A1128',
+                        alphaElectric: '#253BD8',
+                        alphaSlateGray: '#121620',
+                        alphaSlate: '#4A5568',
+                        technicalPlatinum: '#fafafa',
+                        alphaWarning: '#F97316',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
+                    },
+                    animation: {
+                        'marquee-h': 'marquee-h 40s linear infinite',
+                        'marquee-yoyo-slow': 'marquee-v-yoyo 25s ease-in-out infinite alternate',
+                        'marquee-yoyo-average': 'marquee-v-yoyo 20s ease-in-out infinite alternate-reverse',
+                        'marquee-yoyo-fast': 'marquee-v-yoyo 15s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        'marquee-h': { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-50%)' } },
+                        'marquee-v-yoyo': { '0%': { transform: 'translateY(-15%)' }, '100%': { transform: 'translateY(-35%)' } }
+                    }
+                }
+            }
         }
     </script>
+
     <style>
         body, html { height: 100%; overflow: hidden; background-color: #0A1128; }
-        .view-section { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity 0.5s ease-in-out; z-index: 10; }
+        
+        #language-selector { z-index: 9999 !important; display: flex; }
+        #language-selector.inactive { pointer-events: none; opacity: 0; visibility: hidden; transition: all 0.5s ease; }
+
+        .btn-alpha-glow {
+            background-color: #000000 !important;
+            color: #ffffff !important;
+            font-weight: 700 !important;
+            border: 1px solid #253BD8 !important;
+            box-shadow: 0 0 15px rgba(37, 59, 216, 0.6) !important;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .view-section {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-in-out, visibility 0.5s;
+            z-index: 10;
+        }
         .view-section.active { opacity: 1; visibility: visible; z-index: 20; }
-        .btn-alpha-glow { background-color: #000; color: #fff; font-weight: 700; border: 1px solid #253BD8; box-shadow: 0 0 15px rgba(37, 59, 216, 0.6); text-transform: uppercase; letter-spacing: 0.1em; }
+                /* 🛠️ LIBERACIÓN DE SCROLL: Permite el desplazamiento vertical solo en secciones marcadas */
+        .view-section.scrollable { 
+            overflow-y: auto !important; 
+            display: block !important; 
+            -webkit-overflow-scrolling: touch; 
+        }
         .video-overlay { background: linear-gradient(to bottom, rgba(10, 17, 40, 0.85), rgba(10, 17, 40, 0.95)); }
+        
+        /* Carousel Styles */
+        .carousel-container::-webkit-scrollbar { display: none; }
+        .carousel-container { -ms-overflow-style: none; scrollbar-width: none; scroll-behavior: smooth; }
+        
+        .nav-arrow {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .nav-arrow:hover:not(.disabled) { background: rgba(37, 59, 216, 0.3); border-color: #253BD8; }
+        .nav-arrow.disabled { opacity: 0.2; cursor: not-allowed; pointer-events: none; filter: grayscale(1); }
+    
+        /* 🔧 MOTOR FLIP-WORDS v20.7.0 */
+        .flip-word-container { position: relative; display: block; width: 100%; min-height: 1.2em; margin: 0.2em auto 0; }
+
+        /* 🛠️ FIX KERNING: Cambio de flex a block para eliminar espaciado artificial en Houston */
+        .word-wrapper { position: absolute; left: 0; right: 0; top: 0; display: block; text-align: center; white-space: normal; }
+
+        .letter { display: inline-block; opacity: 0; transform: translateY(15px); filter: blur(10px); transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .word-wrapper.active .letter { opacity: 1; transform: translateY(0); filter: blur(0px); }
+
+        /* 🛡️ EXIT ANIMATION: Staggered fade out */
+        .word-wrapper.exit .letter {
+            opacity: 0 !important;
+            transform: translateY(-30px) scale(1.4) !important;
+            filter: blur(12px) !important;
+            transition: all 0.5s ease-in !important;
+        }
+
+        /* UI: Sub-Navegación Sticky */
+        .sticky-subnav { position: sticky; top: 0; z-index: 100; background: rgba(10, 17, 40, 0.90); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(37, 59, 216, 0.2); }
+    
+        /* 🎡 MOTOR DEL CARRUSEL DE RIESGOS (Refined v40) */
+        .q-carousel-container { position: relative; height: 120px; width: 100%; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        .q-item { position: absolute; width: 100%; opacity: 0; transform: translateX(100%); transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1); visibility: hidden; }
+        .q-item.active { opacity: 1; transform: translateX(0); visibility: visible; }
+        .q-item.exit { opacity: 0; transform: translateX(-100%); visibility: visible; }
+
+        /* ⚡ EFFECT: ALPHA ELECTRIC SHIELD (v21.9.0) */
+        .alpha-electric-shield {
+            color: white;
+            display: inline;
+            position: relative;
+            z-index: 1;
+            animation: alpha-perimeter-electric 4s linear infinite reverse, alpha-heavy-shield-pulse 6s ease-in-out infinite;
+        }
+        @keyframes alpha-perimeter-electric {
+            0% { text-shadow: 2px 0px 0px rgba(37, 91, 216, 0.9), -1px -1px 0px rgba(37, 91, 216, 0.5); }
+            25% { text-shadow: 0px 2px 0px rgba(37, 91, 216, 0.9), 1px -1px 0px rgba(37, 91, 216, 0.5); }
+            50% { text-shadow: -2px 0px 0px rgba(37, 91, 216, 0.9), 1px 1px 0px rgba(37, 91, 216, 0.5); }
+            75% { text-shadow: 0px -2px 0px rgba(37, 91, 216, 0.9), -1px 1px 0px rgba(37, 91, 216, 0.5); }
+            100% { text-shadow: 2px 0px 0px rgba(37, 91, 216, 0.9), -1px -1px 0px rgba(37, 91, 216, 0.5); }
+        }
+        @keyframes alpha-heavy-shield-pulse {
+            0%, 100% { filter: drop-shadow(0 0 2px #253BD8) drop-shadow(0 0 10px rgba(37, 59, 216, 0.4)); }
+            50% { filter: drop-shadow(0 0 5px #253BD8) drop-shadow(0 0 20px rgba(37, 59, 216, 0.7)); }
+        }
+
+        /* 🌀 MOVING BORDER CTA */
+        .moving-border-container { position: relative; padding: 2px; border-radius: 9999px; overflow: hidden; display: inline-block; }
+        .moving-border-bg { position: absolute; inset: -100%; background: conic-gradient(from 0deg, transparent, #253BD8, transparent 30%); animation: rotate-border 4s linear infinite; }
+        @keyframes rotate-border { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .moving-border-content { position: relative; z-index: 10; background: #000; border-radius: 9999px; }
+
+
+     /* 🛠️ NAV: CHROMATIC SCROLLSPY */
+        .sticky-subnav {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(250, 250, 250, 0.98);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(10, 17, 40, 0.05);
+        }
+        .nav-item {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            transition: all 0.4s ease; color: #4A5568; opacity: 0.6;
+        }
+        .nav-item img {
+            width: 26px; height: 26px; margin-bottom: 4px;
+            filter: grayscale(100%) brightness(0.8);
+            transition: all 0.4s ease;
+        }
+        .nav-item.active { color: #253BD8; opacity: 1; transform: scale(1.05); }
+        .nav-item.active img { filter: grayscale(0%) brightness(1); transform: translateY(-2px); }
+
+        /* ⚡ BENTO GRID: ARQUITECTURA ELÁSTICA */
+        .bento-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 240px; gap: 1rem;
+        }
+        .bento-item {
+            position: relative; overflow: hidden; border-radius: 1.5rem;
+            background: #121a36; border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.5s ease;
+        }
+        .bento-item img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; transition: all 0.8s ease; }
+        .bento-item:hover img { transform: scale(1.1); opacity: 1; }
+        
+        .bento-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(10, 17, 40, 0.98) 0%, transparent 80%);
+            display: flex; flex-direction: column; justify-content: end;
+            padding: 1.5rem; opacity: 0; transition: opacity 0.4s ease;
+        }
+        .bento-item:hover .bento-overlay { opacity: 1; }
+
+        .bento-title { font-family: 'Montserrat', sans-serif; font-weight: 800; text-transform: uppercase; color: white; line-height: 1.1; font-size: 0.9rem; }
+        .bento-subtitle { font-family: 'Inter', sans-serif; font-weight: 300; font-size: 0.75rem; color: #cbd5e1; margin-top: 0.4rem; }
+
+        @media (max-width: 1024px) { .bento-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; } }
+        @media (max-width: 640px) { .bento-grid { grid-template-columns: 1fr; grid-auto-rows: 200px; } }
+    
+
+        .section-standard { border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 8rem; padding-bottom: 8rem; }
+        .logo-cloud-marquee { mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); }
+        .trust-badge-white { filter: brightness(0) invert(1); opacity: 0.85; max-width: 160px; }
+        
+        /* 🎢 3D ENGINE RECALIBRADO: COORDENADAS -50% / -39% */
+        .marquee-3d-viewport { perspective: 5000px; overflow: hidden; }
+        .marquee-3d-scene {
+            transform: rotateX(55deg) rotateZ(-45deg) scale(1.15);
+            transform-style: preserve-3d;
+            display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.15rem;
+            width: 350%; 
+            margin-left: -50%; 
+            margin-top: -39%; 
+        }
+        .marquee-column { display: flex; flex-direction: column; gap: 0.15rem; will-change: transform; }
+        .code-card { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 1rem; padding: 1.2rem; }
+        .code-card img { width: 100%; border-radius: 0.5rem; filter: brightness(0.9) contrast(1.25); }
+    
+
+            /* 🎡 MOTOR DE TESTIMONIALES LEGACY (PRECISION STACK) */
+        .testimonial-img-stack { position: relative; height: 320px; width: 100%; perspective: 1200px; }
+        .testimonial-card {
+            position: absolute; inset: 0;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: bottom;
+        }
+        .testimonial-card.active { opacity: 1; z-index: 40; transform: rotate(0deg) scale(1) translateY(0); filter: blur(0); }
+        .testimonial-card.background { opacity: 0.35; z-index: 10; }
+
+        /* WORD STAGGER ENGINE: Espaciado corregido para lectura fluida */
+        .word { display: inline-block; opacity: 0; transform: translateY(8px); filter: blur(3px); transition: all 0.3s ease-out; margin-right: 0.25em; }
+        .word.visible { opacity: 1; transform: translateY(0); filter: blur(0); }
+
+        /* NAV SYNC: Alineación axial de iconos */
+        .nav-arrow {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .nav-arrow:hover:not(.disabled) { background: rgba(37, 59, 216, 0.3); border-color: #253BD8; transform: scale(1.05); }
+
+    
+    
     </style>
+
+    
+
 </head>
 <body class="font-sans text-slate-900 selection:bg-alphaElectric selection:text-white">
 
+    
+    <!-- MOTOR DE VIDEO FONDO -->
     <div class="fixed inset-0 z-0 overflow-hidden">
         <video autoplay loop muted playsinline class="w-full h-full object-cover scale-110">
             <source src="/assets/img/system-restoration/before_during_after_1.mp4" type="video/mp4">
@@ -32,98 +253,687 @@
         <div class="absolute inset-0 video-overlay"></div>
     </div>
 
-    <!-- NAVBAR INJECTION CONTAINER -->
     <div id="header-container" class="relative z-50"></div>
 
     <div id="app-viewport" class="relative h-full w-full">
         
-        <!-- 📱 SCREEN 1: HERO (SSOT) -->
-        <section id="hero-section" class="view-section active flex flex-col items-center justify-center px-6 text-center pt-12 pb-24">
-            <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-16 mb-8 opacity-95 mx-auto">
-            <h1 class="font-montserrat font-bold text-3xl md:text-5xl text-white uppercase leading-tight mb-4 max-w-3xl text-center w-full">Greater Houston's Experts in Roof Restoration</h1>
-            <p class="text-slate-300 text-lg md:text-xl font-light mb-10 max-w-2xl text-center w-full">Restoring your home with precision engineering, total transparency, and superior quality.</p>
-            <div class="flex flex-col space-y-4 w-full max-w-sm mx-auto items-center">
-                <button onclick="showSection('lead-form-container')" class="btn-alpha-glow py-4 px-8 rounded-full text-xs w-full">I need a new roof</button>
-                <button onclick="showSection('filter-section')" class="bg-white/10 text-white backdrop-blur-md border border-white/20 font-semibold py-4 px-8 rounded-full uppercase text-[10px] tracking-widest w-full">View Other Services</button>
-                <button onclick="window.location.href='/about.html'" class="bg-transparent text-white/50 font-medium py-2 px-8 uppercase text-[9px] tracking-[0.2em] hover:text-white transition-colors w-full text-center">Learn more about Alpha Roofing</button>
+        <!-- 📱 PANTALLA 1: EL GANCHO DE AUTORIDAD -->
+        <section id="hero-section" class="view-section active flex flex-col items-center justify-center px-6 text-center pt-8">
+            <img src="/assets/img/brand/alpha-logo-white.svg" alt="Alpha Logo" class="h-16 mb-6 opacity-95">
+            <h1 class="font-montserrat font-bold text-2xl md:text-5xl text-white uppercase leading-tight mb-4">
+                Greater Houston's Experts in Roof Restoration
+            </h1>
+            <p class="text-slate-300 text-base md:text-xl font-light mb-8 max-w-2xl leading-relaxed">
+                We restore your home with precision engineering, total transparency, and superior quality.
+            </p>
+            <div class="flex flex-col space-y-3 w-full max-w-sm">
+                <button onclick="showSection('lead-form-container')" class="btn-alpha-glow py-4 px-8 rounded-full text-xs">I need a new Roof</button>
+                <button onclick="showSection('hub-servicios')" class="bg-white/10 text-white backdrop-blur-md border border-white/20 font-semibold py-4 px-8 rounded-full uppercase text-[10px] tracking-widest active:scale-95 transition-all">View all services</button>
+                <button onclick="showSection('about-section')" class="bg-transparent text-white/60 font-medium py-2 px-8 uppercase text-[9px] tracking-[0.2em] hover:text-white transition-colors text-center">Learn more about Alpha Roofing & Gutters</button>
             </div>
         </section>
 
-        <!-- 📱 SCREEN 2: FILTER (SSOT) -->
+        <!-- 📱 PANTALLA 2: EL FILTRO DE NECESIDAD -->
         <section id="filter-section" class="view-section flex flex-col items-center justify-center px-6 bg-technicalPlatinum/95 backdrop-blur-xl">
-            <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-8 text-center text-balance">What does your property need today?</h2>
+            <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-8 text-center">How can we protect your property today?</h2>
             <div class="space-y-3 w-full max-w-md">
                 <button onclick="showSection('alleviate-section-cash')" class="w-full p-5 bg-white border border-slate-200 rounded-2xl flex items-center text-left hover:border-alphaElectric transition-all shadow-sm">
-                    <span class="text-sm font-semibold text-slate-700">I need a new, safe roof for my family (Cash / Financing)</span>
+                    <span class="text-sm font-semibold text-slate-700">I need a new, secure roof for my family (Cash / Financing)</span>
                 </button>
                 <button onclick="showSection('alleviate-section-insurance')" class="w-full p-5 bg-white border border-slate-200 rounded-2xl flex items-center text-left hover:border-alphaElectric transition-all shadow-sm">
-                    <span class="text-sm font-semibold text-slate-700">My property suffered storm damage and I want to resolve insurance matters</span>
+                    <span class="text-sm font-semibold text-slate-700">My property has storm damage, and I need help with my insurance claim</span>
                 </button>
-                <button onclick="showSection('alleviate-section-outdoor')" class="w-full p-5 bg-white border border-slate-200 rounded-2xl flex items-center text-left hover:border-alphaElectric transition-all shadow-sm">
-                    <span class="text-sm font-semibold text-slate-700">I want to improve my outdoor spaces, patios, and perimeter fences</span>
+                <button onclick="showSection('hub-servicios')" class="w-full p-5 bg-white border border-slate-200 rounded-2xl flex items-center text-left hover:border-alphaElectric transition-all shadow-sm">
+                    <span class="text-sm font-semibold text-slate-700">I want to upgrade my outdoor living spaces and perimeter fencing</span>
                 </button>
             </div>
         </section>
 
-        <!-- 📱 SCREEN 3-A: CASH ALLEVIATOR (SSOT) -->
+        <!-- 📱 PANTALLA 3-A: ALIVIADOR CASH -->
         <section id="alleviate-section-cash" class="view-section flex flex-col items-center justify-center px-6 bg-alphaNavy text-white text-center">
-            <h2 class="font-montserrat font-bold text-2xl uppercase mb-6">Comprehensive Climate Protection</h2>
-            <p class="text-slate-300 font-light leading-relaxed mb-8 max-w-md">Your home is your family's most important sanctuary. We ensure every inch of your roof and drainage system is built to withstand extreme Texas weather. By installing high-quality materials, we protect your heritage so it's always safe.</p>
+            <h2 class="font-montserrat font-bold text-2xl uppercase mb-6">Comprehensive Weather Protection</h2>
+            <p class="text-slate-300 font-light leading-relaxed mb-8 max-w-md">We ensure every inch of your roofing and drainage system is engineered to withstand extreme Texas weather. By installing premium-grade materials, we safeguard your family’s most important asset.</p>
             <button onclick="showSection('protocol-section')" class="btn-alpha-glow font-bold py-4 px-10 rounded-xl text-xs">View my monthly payment options</button>
         </section>
 
-        <!-- 📱 SCREEN 3-B: INSURANCE ALLEVIATOR (SSOT) -->
+        <!-- 📱 PANTALLA 3-B: ALIVIADOR SEGUROS -->
         <section id="alleviate-section-insurance" class="view-section flex flex-col items-center justify-center px-6 bg-alphaNavy text-white text-center">
             <h2 class="font-montserrat font-bold text-2xl uppercase mb-6">Professional Storm Restoration</h2>
-            <p class="text-slate-300 font-light leading-relaxed mb-8 max-w-md">From the initial assessment and dealing with your insurance company to full exterior and interior repairs, our team takes control to quickly restore peace to your home.</p>
-            <button onclick="showSection('protocol-section')" class="btn-alpha-glow font-bold py-4 px-10 rounded-xl text-xs">Authorize Alpha to manage my case</button>
+            <p class="text-slate-300 font-light leading-relaxed mb-8 max-w-md">From the initial assessment and insurance claim handling to the final repair, our team takes full control to restore your peace of mind and return your home to its pristine condition.</p>
+            <button onclick="showSection('protocol-section')" class="btn-alpha-glow font-bold py-4 px-10 rounded-xl text-xs">I authorize Alpha to manage my case</button>
         </section>
 
-        <!-- 📱 SCREEN 3-C: OUTDOOR ALLEVIATOR (SSOT) -->
-        <section id="alleviate-section-outdoor" class="view-section flex flex-col items-center justify-center px-6 bg-alphaNavy text-white text-center">
-            <h2 class="font-montserrat font-bold text-2xl uppercase mb-6">Investment and Exterior Value</h2>
-            <p class="text-slate-300 font-light leading-relaxed mb-8 max-w-md">We specialize in enhancing your outdoor spaces, from solid perimeter fences to custom-designed living areas that strengthen your home's structure and aesthetic value.</p>
-            <button onclick="showSection('protocol-section')" class="btn-alpha-glow font-bold py-4 px-10 rounded-xl text-xs">I want to design my outdoor project</button>
+        <!-- 📱 PANTALLA 2: HUB SERVICIOS (APPLE CARDS) [Tomo#2] -->
+        <section id="hub-servicios" class="view-section flex flex-col justify-center bg-alphaSlate/20 overflow-hidden">
+            <div class="px-6 mb-8 text-left">
+                <h2 class="text-white font-montserrat font-bold text-2xl uppercase leading-tight">Specialists in Restoration & Preservation</h2>
+                <p class="text-slate-400 text-xs mt-2 font-medium">High-level technical execution to safeguard the value and durability of your property.</p>
+            </div>
+            <div id="services-carousel" class="carousel-container flex overflow-x-auto space-x-4 px-6 snap-x snap-mandatory pb-6">
+                <!-- Tarjeta 1 -->
+                <div class="min-w-[280px] h-[380px] relative rounded-3xl overflow-hidden snap-center shadow-2xl flex-shrink-0 border border-white/5 cursor-pointer" onclick="showSection('service-1-section')">
+                    <img src="/assets/img/system-roofing/finished_roof_1.jpg" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent p-6 flex flex-col justify-end text-left">
+                        <h3 class="text-white font-montserrat font-bold text-lg leading-tight mb-2 uppercase">Roofing Replacement & Repair</h3>
+                        <p class="text-slate-400 text-[10px] leading-relaxed line-clamp-3">We install your new roof with precision. We focus on full replacement and robust repairs to keep your home protected and looking pristine.</p>
+                        <span class="mt-4 text-[9px] text-alphaElectric font-bold uppercase tracking-widest">Learn more →</span>
+                    </div>
+                </div>
+                <!-- Tarjeta 2 -->
+                <div class="min-w-[280px] h-[380px] relative rounded-3xl overflow-hidden snap-center shadow-2xl flex-shrink-0 border border-white/5 cursor-pointer" onclick="showSection('service-2-section')">
+                    <img src="/assets/img/system-restoration/inspection_1.jpg" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent p-6 flex flex-col justify-end text-left">
+                        <h3 class="text-white font-montserrat font-bold text-lg leading-tight mb-2 uppercase">Professional Insurance Management</h3>
+                        <p class="text-slate-400 text-[10px] leading-relaxed line-clamp-4">We take full responsibility for the insurance process and direct handling with adjusters. We implement our inspection and audit protocol to document damages, manage supplements, and ensure your claim receives the attention your property demands.</p>
+                        <span class="mt-4 text-[9px] text-alphaElectric font-bold uppercase tracking-widest">Learn more →</span>
+                    </div>
+                </div>
+                <!-- Tarjeta 3 -->
+                <div class="min-w-[280px] h-[380px] relative rounded-3xl overflow-hidden snap-center shadow-2xl flex-shrink-0 border border-white/5 cursor-pointer" onclick="showSection('service-3-section')">
+                    <img src="/assets/img/system-outdoor/patio_deck_1.jpg" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent p-6 flex flex-col justify-end text-left">
+                        <h3 class="text-white font-montserrat font-bold text-lg leading-tight mb-2 uppercase">Patios, Decks & Outdoor Living</h3>
+                        <p class="text-slate-400 text-[10px] leading-relaxed line-clamp-4">We create the ideal space to enjoy your property. We build patios, decks, and pergolas with solid structural integrity and immaculate finishes, specifically designed to withstand the Texas climate and increase your home’s equity.</p>
+                        <span class="mt-4 text-[9px] text-alphaElectric font-bold uppercase tracking-widest">Learn more →</span>
+                    </div>
+                </div>
+                <!-- Tarjeta 4 -->
+                <div class="min-w-[280px] h-[380px] relative rounded-3xl overflow-hidden snap-center shadow-2xl flex-shrink-0 border border-white/5 cursor-pointer" onclick="showSection('service-4-section')">
+                    <img src="/assets/img/system-restoration/emergency_tarp.jpg" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent p-6 flex flex-col justify-end text-left">
+                        <h3 class="text-white font-montserrat font-bold text-lg leading-tight mb-2 uppercase">Specialized Restoration & Repairs</h3>
+                        <p class="text-slate-400 text-[10px] leading-relaxed line-clamp-4">We execute repairs and restorations with technical precision. We restore safety, functionality, and value to your property through interventions grounded in professional construction standards.</p>
+                        <span class="mt-4 text-[9px] text-alphaElectric font-bold uppercase tracking-widest">Learn more →</span>
+                    </div>
+                </div>
+            </div>
+        <div class="flex items-center justify-end px-6 space-x-3 mt-4">
+                <button id="prev-arrow" onclick="scrollCarousel(-300)" class="nav-arrow disabled w-10 h-10 rounded-full flex items-center justify-center">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button id="next-arrow" onclick="scrollCarousel(300)" class="nav-arrow w-10 h-10 rounded-full flex items-center justify-center">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+            </div>
+            <button onclick="showSection('hero-section')" class="mx-auto mt-6 text-[9px] text-white/30 uppercase tracking-[0.2em] border-b border-white/10 pb-1">Return to Home</button>
         </section>
 
-        <!-- 📱 SCREEN 4: PROTOCOL (SSOT) -->
-        <section id="protocol-section" class="view-section flex flex-col items-center justify-center px-6 bg-technicalPlatinum/95 overflow-y-auto py-20">
-            <h2 class="font-montserrat font-bold text-xl text-alphaNavy uppercase mb-8 text-center">Your home protected in five infallible steps</h2>
-            <div class="space-y-3 w-full max-w-md">
-                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
-                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider mb-1">Alpha Property Health Assessment</p>
-                    <p class="text-[9px] text-slate-500">We physically evaluate the real state of your roof and document every vulnerable point in detail.</p>
+        <!-- 📱 PANTALLA SERVICIO 1: REEMPLAZO Y REPARACIÓN DE TECHOS -->
+        <section id="service-1-section" class="view-section scrollable bg-alphaNavy/20">
+            
+            <!-- 🌐 HERO REGIONAL: LA MEJOR OPCIÓN -->
+            <div class="relative h-screen flex flex-col items-center justify-center text-center px-6">
+                <div class="relative z-10 max-w-5xl w-full -mt-24">
+                <!-- 🏗️ CONTENEDOR TITULAR: Altura mínima para estabilidad de cimientos -->
+                <div class="min-h-[220px] md:min-h-[320px] flex flex-col justify-end mb-12">
+                    <h1 class="font-montserrat font-normal text-4xl md:text-7xl uppercase leading-tight tracking-tighter text-white">
+                        The best option for <br class="hidden md:block"> your roof in <br>
+                        <span class="flip-word-container font-bold">
+                            <span id="flip-word-target">
+                                <!-- 🛡️ HYDRATION ESTÁTICA UNIFICADA: Houston con kerning natural -->
+                                <span class="word-wrapper active">
+                                    <span class="inline-block whitespace-nowrap">
+                                        <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0s;">H</span><span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.03s;">O</span><span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.06s;">U</span><span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.09s;">S</span><span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.12s;">T</span><span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.15s;">O</span><span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.18s;">N</span><span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.21s;">,</span>
+                                    </span>
+                                    <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.24s;">&nbsp;</span>
+                                    <span class="inline-block whitespace-nowrap">
+                                        <span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.27s;">T</span><span class="letter" style="opacity:1; filter:blur(0px); transform:translateY(0); transition-delay: 0.3s;">X</span>
+                                    </span>
+                                </span>
+                            </span>
+                        </span>
+                    </h1>
                 </div>
-                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
-                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider mb-1">Alpha Coverage Compass</p>
-                    <p class="text-[9px] text-slate-500">We meticulously review the policy and the technical scopes of the damage to guide you with total honesty.</p>
+
+                <!-- 🏗️ SUBTÍTULO: Anclado milimétricamente [25: 1452] -->
+                <p class="text-slate-300 text-lg md:text-2xl font-light max-w-3xl mx-auto leading-relaxed mb-12">
+                    Experts in safeguarding your home against severe storms, extreme winters, and the relentless Texas humidity. We engineer maximum-durability roofing systems with the precision only a local specialist can provide.
+                </p>
+
+                <!-- 🎯 CTA: Salto inmediato hacia el Hub de Interacción Alpha -->
+                <button onclick="navigateToAuditForm()" class="btn-alpha-glow py-5 px-16 rounded-full text-[10px] font-bold">
+                    Get My Free Assessment
+                </button>
+
+                <!-- 🏗️ ALPHA ARROW: Navegación hacia Auditoría [25: 1453] -->
+                <div class="mt-12 animate-bounce opacity-40 hover:opacity-100 transition-opacity">
+                    <svg class="w-12 h-12 mx-auto text-white cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" onclick="document.getElementById('auditoria').scrollIntoView({behavior: 'smooth'})">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7-7-7"></path>
+                    </svg>
                 </div>
-                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
-                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider mb-1">Alpha Clarity Compass</p>
-                    <p class="text-[9px] text-slate-500">We deliver a brief executive report that acts as a transparent diagnosis of the home's real situation.</p>
+            </div>
+            </div>
+
+            <!-- 📱 SECCIÓN DE AUDITORÍA RECALIBRADA (v41.0.0) -->
+            <section id="auditoria" class="pt-12 pb-16 px-6 relative z-10 bg-alphaNavy/40 backdrop-blur-sm border-y border-white/5">
+                <div class="max-w-6xl mx-auto w-full text-center"> <!-- Centrado absoluto del contenedor -->
+
+                    <!-- 🎡 CARRUSEL DE RIESGOS (Compacto) -->
+                    <div class="mb-10">
+                        <div class="q-carousel-container">
+                            <!-- Q1: Moisture -->
+                            <h2 class="q-item active text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight text-white">
+                                Do you notice <span class="text-alphaWarning">moisture stains</span> on your ceilings or walls?
+                            </h2>
+                            <!-- Q2: Shingles -->
+                            <h2 class="q-item text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight text-white">
+                                Do you notice <span class="text-alphaWarning">lifted, broken</span>, or missing shingles?
+                            </h2>
+                            <!-- Q3: Leaks -->
+                            <h2 class="q-item text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight text-white">
+                                Do you suffer from <span class="text-alphaWarning">leaks or seepage</span> during rainfall?
+                            </h2>
+                            <!-- Q4: Gutters -->
+                            <h2 class="q-item text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight text-white">
+                                Do your gutters show <span class="text-alphaWarning">clogging, leaks</span>, or warping?
+                            </h2>
+                            <!-- Q5: Inspection -->
+                            <h2 class="q-item text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight text-white">
+                                Has your roof gone far too long <span class="text-alphaWarning">without a technical inspection</span>?
+                            </h2>
+                            <!-- Q6: Sagging -->
+                            <h2 class="q-item text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight text-white">
+                                Do you notice <span class="text-alphaWarning">sagging</span> or water accumulation?
+                            </h2>
+                            <!-- Q7: Cracks -->
+                            <h2 class="q-item text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight text-white">
+                                Does the chimney flashing show <span class="text-alphaWarning">visible cracks</span>?
+                            </h2>
+                            <!-- Q8: Color loss -->
+                            <h2 class="q-item text-2xl md:text-5xl font-montserrat font-bold uppercase tracking-tight leading-tight text-white">
+                                Do you notice <span class="text-alphaWarning">dark spots or color loss</span> on your shingles?
+                            </h2>
+                        </div>
+                    </div>
+
+                    <!-- ⚡ BLOQUE DE MARCA UNIFICADO -->
+                    <div class="mb-20">
+                        <h2 class="font-montserrat font-black text-3xl md:text-7xl uppercase tracking-tighter text-white leading-[1.1] md:leading-[1.0] break-words mx-auto">
+                            <span class="alpha-electric-shield">Alpha Roofing & Gutters</span> 
+                            has your back
+                        </h2>
+                        <p class="text-slate-300 text-lg md:text-xl font-light max-w-4xl mx-auto leading-relaxed mt-6">
+                            Our team handles every detail for you, leaving your home in pristine condition. Your only responsibility is to enjoy the peace of mind that comes with a perfectly protected home.
+                        </p>
+                    </div>
+
+                    <!-- 🌀 CTA COMPACTO Y CENTRADO -->
+                    <div class="moving-border-container shadow-2xl">
+                        <div class="moving-border-bg"></div>
+                        <div class="moving-border-content">
+                            <button onclick="navigateToAuditForm()" class="px-10 py-5 text-white font-bold uppercase text-[11px] tracking-[0.3em] hover:bg-white/5 transition-colors">
+                                Start My Technical Assessment Now
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
-                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider mb-1">Alpha Care Concierge</p>
-                    <p class="text-[9px] text-slate-500">We coordinate and technically defend the actual extent of damage against corporate insurance adjusters.</p>
+            </section>
+
+            
+
+            <!-- 📱 4.0 STICKY SUB-NAV -->
+            <nav class="sticky-subnav py-2 shadow-md">
+                <div class="max-w-xl mx-auto flex justify-around items-center px-4">
+                    <a href="#diagnosis" class="nav-item relative">
+                        <img src="/assets/img/icons/icon-derelict.svg" alt="Diagnosis">
+                        <span class="text-[9px] font-black uppercase tracking-[0.2em]">Diagnosis</span>
+                    </a>
+                    <a href="#alpha-way" class="nav-item relative">
+                        <img src="/assets/img/icons/icon-worker.svg" alt="Alpha Way">
+                        <span class="text-[9px] font-black uppercase tracking-[0.2em]">Alpha Way</span>
+                    </a>
+                    <a href="#legacy" class="nav-item relative">
+                        <img src="/assets/img/icons/icon-house.svg" alt="Legacy">
+                        <span class="text-[9px] font-black uppercase tracking-[0.2em]">Legacy</span>
+                    </a>
                 </div>
-                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
-                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider mb-1">Alpha Signature Restoration</p>
-                    <p class="text-[9px] text-slate-500">We install the final work under the highest standards of engineering and visible quality.</p>
+            </nav>
+
+            <!-- 📱 4.1 DIAGNOSIS: EVIDENCIA PERICIAL -->
+            <section id="diagnosis" class="py-24 px-6 bg-alphaNavy">
+                <div class="max-w-7xl mx-auto">
+                    
+                    <div class="text-center mb-16">
+                        <h2 class="font-montserrat font-black text-4xl md:text-6xl text-white uppercase tracking-tighter mb-4">Diagnosis</h2>
+                        <div class="w-16 h-1 bg-alphaElectric mx-auto mb-6"></div>
+                        <p class="text-slate-400 font-light text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+                            We establish the factual condition of your home through an engineering-grade assessment designed to provide absolute clarity and safeguard your investment.
+                        </p>
+                    </div>
+
+                    <!-- CONTENEDOR BENTO SHIELD -->
+                    <div class="bg-white/5 p-4 md:p-10 rounded-[2.5rem] border border-white/10 shadow-2xl mb-12"> 
+                        <div class="bento-grid">
+                            <!-- Item 1: Integrity Audit -->
+                            <div class="bento-item col-span-2 row-span-2">
+                                <img src="/assets/img/system-restoration/inspection_1.jpg">
+                                <div class="bento-overlay">
+                                    <h4 class="bento-title text-xl">Integrity Audit</h4>
+                                    <p class="bento-subtitle">Deep scan of hidden vulnerabilities within the roof envelope.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Item 2: Hail Impact -->
+                            <div class="bento-item">
+                                <img src="/assets/img/system-restoration/roof-hail-dmg1.jpg">
+                                <div class="bento-overlay">
+                                    <h4 class="bento-title">Hail Impact</h4>
+                                    <p class="bento-subtitle">Forensic identification of protective granule loss.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Item 3: Critical Damage -->
+                            <div class="bento-item">
+                                <img src="/assets/img/system-restoration/roof-wind-dmg3.jpg">
+                                <div class="bento-overlay">
+                                    <h4 class="bento-title">Critical Damage</h4>
+                                    <p class="bento-subtitle">Assessment of structural exposure and immediate leakage risks.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Item 4: Instrumental Analysis -->
+                            <div class="bento-item col-span-2">
+                                <img src="/assets/img/system-restoration/roof-level-tool.jpg">
+                                <div class="bento-overlay">
+                                    <h4 class="bento-title">Instrumental Analysis</h4>
+                                    <p class="bento-subtitle">Exact mathematical quantification based on Texas Building Codes.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Item 5: Wind Uplift -->
+                            <div class="bento-item row-span-2">
+                                <img src="/assets/img/system-restoration/roof-wind-dmg6.jpg">
+                                <div class="bento-overlay">
+                                    <h4 class="bento-title">Wind Uplift</h4>
+                                    <p class="bento-subtitle">Detection of compromised thermal adhesives after severe storms.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Item 6: Internal Infiltration -->
+                            <div class="bento-item">
+                                <img src="/assets/img/system-restoration/roof-ceiling-dmg1.jpg">
+                                <div class="bento-overlay">
+                                    <h4 class="bento-title">Internal Infiltration</h4>
+                                    <p class="bento-subtitle">Damage analysis of insulation and interior structural components.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Item 7: Perimeter Decay -->
+                            <div class="bento-item">
+                                <img src="/assets/img/system-restoration/fascia-dmg1.jpg">
+                                <div class="bento-overlay">
+                                    <h4 class="bento-title">Perimeter Decay</h4>
+                                    <p class="bento-subtitle">Fascia rot detection to prevent cascading structural damage.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 🛡️ CLARITY SHIELD CONTAINER -->
+                    <div class="max-w-4xl mx-auto bg-white/5 p-8 md:p-12 rounded-[2.5rem] border border-white/10 shadow-2xl relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-8 opacity-10">
+                            <img src="/assets/img/icons/icon-assessment.svg" class="w-32 h-32 brightness-0 invert">
+                        </div>
+                        <h3 class="font-montserrat font-black text-2xl uppercase mb-6 italic tracking-tight text-white">
+                            The First Step Toward Your Peace of Mind
+                        </h3>
+                        <div class="space-y-6 text-slate-300 text-lg font-light leading-relaxed">
+                            <p>
+                                This technical analysis is the foundation upon which we build your home’s security. By identifying every detail invisible to others, we chart the most reliable route to restore your property’s value.
+                            </p>
+                            <p>
+                                Our diagnosis provides you with absolute certainty for informed decision-making, ensuring your asset receives the superior care it demands.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <button onclick="showSection('trust-section')" class="mt-6 w-full btn-alpha-glow text-white font-bold py-4 rounded-xl text-[10px]">The process is clear, I want to move forward</button>
+            </section>
+
+            <!-- 📱 4.2 ALPHA WAY: PROTOCOLO DE INGENIERÍA -->
+            <section id="alpha-way" class="relative overflow-hidden bg-alphaNavy font-sans text-white overflow-x-hidden">
+                <!-- ENCABEZADO ALPHA WAY -->
+                <div class="max-w-7xl mx-auto px-6 text-center py-24">
+                    <h2 class="font-montserrat font-black text-4xl md:text-6xl text-white uppercase tracking-tighter mb-4">Alpha Way</h2>
+                    <div class="w-16 h-1 bg-alphaElectric mx-auto mb-6"></div>
+                    <p class="text-slate-400 font-light text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed">
+                        We safeguard your home’s integrity with an installation standard engineered specifically for the extreme Texas climate.
+                    </p>
+                </div>
+
+                <!-- 1. MATERIALES (CALIDAD SUPERIOR) -->
+                <div class="section-standard">
+                    <div class="max-w-7xl mx-auto px-6 mb-16">
+                        <div class="max-w-4xl text-left">
+                            <h3 class="font-montserrat font-black text-3xl uppercase tracking-tight mb-6 italic">Superior-Grade Materials</h3>
+                            <p class="text-slate-400 text-lg font-light leading-relaxed">
+                                We install high-specification architectural shingles and advanced composite systems, engineered for structural resilience under the most severe weather conditions.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="relative logo-cloud-marquee overflow-hidden py-4">
+                        <div class="flex animate-marquee-h whitespace-nowrap w-max items-center">
+                            <div class="flex items-center gap-48 px-24">
+                                <img src="/assets/img/trust-badges/gaf_logo.png" class="h-14 trust-badge-white">
+                                <img src="/assets/img/trust-badges/owens_corning_logo.png" class="h-14 trust-badge-white">
+                                <img src="/assets/img/trust-badges/tamko_logo.png" class="h-14 trust-badge-white">
+                                <img src="/assets/img/trust-badges/atlas_logo.png" class="h-14 trust-badge-white">
+                            </div>
+                            <div class="flex items-center gap-48 px-24">
+                                <img src="/assets/img/trust-badges/gaf_logo.png" class="h-14 trust-badge-white">
+                                <img src="/assets/img/trust-badges/owens_corning_logo.png" class="h-14 trust-badge-white">
+                                <img src="/assets/img/trust-badges/tamko_logo.png" class="h-14 trust-badge-white">
+                                <img src="/assets/img/trust-badges/atlas_logo.png" class="h-14 trust-badge-white">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. INSTALACIÓN (RIDGE VENT + SYSTEM-RESTORATION PATHS) -->
+                <div class="section-standard pb-0">
+                    <div class="max-w-7xl mx-auto px-6">
+                        <div class="grid lg:grid-cols-2 gap-16 items-center">
+                            <div class="space-y-8 text-left">
+                                <h3 class="font-montserrat font-black text-3xl md:text-4xl uppercase tracking-tight italic">High-Engineering Installation</h3>
+                                <div class="space-y-6 text-slate-400 text-lg font-light leading-relaxed">
+                                    <p>Before we begin, we perform a structural audit: we inspect and replace any fatigued <strong class="text-white">decking</strong> wood, ensuring an immaculate foundation.</p>
+                                    <p>We implement multi-layer shielding: we install perimeter <strong class="text-white">drip edges</strong>, <strong class="text-white">ice and water shields</strong> in critical valleys, and seal joints with technical-precision <strong class="text-white">flashing</strong>.</p>
+                                    <p>We guarantee your home’s thermal health through the systemic installation of <strong class="text-white">ridge vents</strong>, allowing the attic to breathe properly to regulate temperature and prevent structural damage.</p>
+                                    <p>We utilize a high-specification synthetic <strong class="text-white">underlayment</strong> that acts as a superior barrier against hail and high winds.</p>
+                                </div>
+                            </div>
+                            <!-- 🎢 3D MARQUEE: PATH FIX /assets/img/system-restoration/ -->
+                            <div class="h-[580px] marquee-3d-viewport rounded-[3rem] relative border border-white/10 shadow-3xl">
+                                <div class="marquee-3d-scene p-4">
+                                    <div class="marquee-column animate-marquee-yoyo-slow">
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code1.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code2.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code3.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code4.png"></div>
+                                    </div>
+                                    <div class="marquee-column animate-marquee-yoyo-average">
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code5.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code6.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code7.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code8.png"></div>
+                                    </div>
+                                    <div class="marquee-column animate-marquee-yoyo-fast">
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code9.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code10.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code11.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code12.png"></div>
+                                    </div>
+                                    <div class="marquee-column animate-marquee-yoyo-average">
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code4.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code1.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code6.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code10.png"></div>
+                                    </div>
+                                    <div class="marquee-column animate-marquee-yoyo-slow">
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code2.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code11.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code5.png"></div>
+                                        <div class="code-card"><img src="/assets/img/system-restoration/code12.png"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. GARANTÍA ALPHA -->
+                <div class="section-standard">
+                    <div class="max-w-7xl mx-auto px-6">
+                        <div class="mb-16 text-left">
+                            <h3 class="font-montserrat font-black text-3xl md:text-5xl uppercase tracking-tight italic">Alpha Warranty</h3>
+                        </div>
+                        
+                        <div class="grid lg:grid-cols-2 gap-16 items-center">
+                            <div class="aspect-video rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl relative">
+                                <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                                    <source src="/assets/img/system-restoration/before_during_after_2.mp4" type="video/mp4">
+                                </video>
+                                <div class="absolute inset-0 bg-alphaNavy/20"></div>
+                            </div>
+                            
+                            <div class="space-y-8 text-left">
+                                <div class="space-y-6 text-slate-400 text-lg font-light leading-relaxed">
+                                    <p>
+                                        Your investment is shielded for the long term: we provide between <strong class="text-white">30 and 50 years of material warranties</strong>, backed by industry-leading manufacturers.
+                                    </p>
+                                    <p>
+                                        This commitment is complemented by our <strong class="text-white">8-year workmanship warranty</strong>. Under our Alpha Trust Standard, <strong class="text-white">you do not release a single dollar</strong> until the work is finalized, pristine, and validated under our constant supervision.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </section>
+
+            <!-- 📱 4.3 LEGACY: EXCELENCIA EN EJECUCIÓN -->
+            <section id="legacy" class="relative overflow-hidden py-16">
+                <div class="max-w-7xl mx-auto px-6 text-center mb-12">
+                    <h2 class="font-montserrat font-black text-4xl md:text-6xl text-white uppercase tracking-tighter mb-4">Legacy</h2>
+                    <div class="w-16 h-1 bg-alphaElectric mx-auto mb-6"></div>
+                    <p class="text-slate-400 font-light text-lg md:text-xl max-w-4xl mx-auto leading-relaxed">
+                        We safeguard what matters most: your family’s security and your home’s long-term value.
+                    </p>
+                </div>
+
+                <!-- 🛡️ BÚNKER DE TESTIMONIALES (SYNC 9 ITEMS) -->
+                <div class="max-w-7xl mx-auto px-4 mb-16">
+                    <div class="bg-white/[0.03] border border-white/10 rounded-[2.5rem] p-6 md:p-16 shadow-3xl relative overflow-hidden">
+                        <div class="mb-8">
+                            <h3 class="font-montserrat font-black text-2xl md:text-4xl uppercase tracking-tight italic text-white text-left">Excellence in Execution</h3>
+                        </div>
+
+                        <div class="grid lg:grid-cols-2 gap-7 items-start">
+                            <div class="testimonial-img-stack" id="image-stack">
+                                <!-- Los 9 activos se cargan dinámicamente mediante el motor de main.js -->
+                                <div class="testimonial-card active" data-index="0"><img src="/assets/img/system-roofing/finished_roof_1.jpg" class="h-full w-full rounded-[2rem] object-cover shadow-2xl"></div>
+                                <div class="testimonial-card background" data-index="1"><img src="/assets/img/system-roofing/finished_roof_3.jpg" class="h-full w-full rounded-[2rem] object-cover shadow-2xl"></div>
+                                <div class="testimonial-card background" data-index="2"><img src="/assets/img/system-roofing/finished_roof_4.jpeg" class="h-full w-full rounded-[2rem] object-cover shadow-2xl"></div>
+                                <div class="testimonial-card background" data-index="3"><img src="/assets/img/system-roofing/finished_roof_5.jpg" class="h-full w-full rounded-[2rem] object-cover shadow-2xl"></div>
+                                <div class="testimonial-card background" data-index="4"><img src="/assets/img/system-roofing/finished_roof_6.jpg" class="h-full w-full rounded-[2rem] object-cover shadow-2xl"></div>
+                                <div class="testimonial-card background" data-index="5"><img src="/assets/img/system-roofing/finished_roof_7.jpg" class="h-full w-full rounded-[2rem] object-cover shadow-2xl"></div>
+                                <div class="testimonial-card background" data-index="6"><img src="/assets/img/system-roofing/finished_roof_8.jpg" class="h-full w-full rounded-[2rem] object-cover shadow-2xl"></div>
+                                <div class="testimonial-card background" data-index="7"><img src="/assets/img/system-roofing/finished_roof_9.jpg" class="h-full w-full rounded-[2rem] object-cover shadow-2xl"></div>
+                                <div class="testimonial-card background" data-index="8"><img src="/assets/img/system-outdoor/patio_deck_1.jpg" class="h-full w-full rounded-[2rem] object-cover shadow-2xl"></div>
+                            </div>
+
+                            <div class="flex flex-col h-full">
+                                <div id="testimonial-content" class="flex-grow mb-2">
+                                    <p id="client-quote" class="text-xl md:text-2xl text-slate-200 font-light leading-snug italic min-h-[120px] text-center">
+                                        <!-- Inyección Word-Stagger -->
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 🎛️ CONTROL BAR (AXIAL ALIGNMENT) -->
+                        <div class="grid grid-cols-2 items-center mt-2 pt-4 border-t border-white/5">
+                            <div class="flex flex-col space-y-1">
+                                <h4 id="client-name" class="text-xl md:text-3xl font-black text-white font-montserrat uppercase tracking-tighter italic leading-tight">Cargando...</h4>
+                                <span id="client-location" class="text-xs md:text-sm font-bold uppercase tracking-widest text-alphaElectric">Ubicación</span>
+                                <span id="client-service" class="text-xs md:text-sm text-slate-500 font-medium uppercase tracking-widest">Servicio</span>
+                            </div>
+
+                            <div class="flex items-center justify-end space-x-3">
+                                <button id="prev-arrow" onclick="prevTestimonial()" class="nav-arrow w-10 h-10 rounded-full flex items-center justify-center">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                                </button>
+                                <button id="play-pause-btn" onclick="toggleAutoplay()" class="nav-arrow w-10 h-10 rounded-full flex items-center justify-center">
+                                    <svg id="pause-icon" class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
+                                    <svg id="play-icon" class="w-5 h-5 text-white hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </button>
+                                <button id="next-arrow" onclick="nextTestimonial()" class="nav-arrow w-10 h-10 rounded-full flex items-center justify-center">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 📜 THE ALPHA COMMITMENT (PURIFIED) -->
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="max-w-4xl text-left py-2">
+                        <h3 class="font-montserrat font-black text-2xl uppercase tracking-tight mb-4 italic text-white">The Alpha Commitment</h3>
+                        <div class="space-y-4 text-slate-400 text-base font-light leading-relaxed">
+                            <p>
+                                Our commitment extends far beyond simply installing a roof. Upon completion, we present you with the 
+                                <strong class="text-white uppercase tracking-widest text-xs">Alpha Signature Certificate</strong>, 
+                                the definitive document verifying that your home is safeguarded under our supreme standard of excellence.
+                            </p>
+                            <p>
+                                We ensure your investment maximizes your property’s equity while providing absolute peace of mind for your family for years to come.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 🏗️ SANDBOX CLOSURE (PURIFIED) -->
+            <div class="h-[30vh] bg-black flex flex-col items-center justify-center space-y-6">
+                <button onclick="window.location.href='/en/index.html#lead-form-container'" class="btn-alpha-glow py-4 px-12 rounded-full text-[10px]">
+                    Start My Assessment Now
+                </button>
+                <p class="text-white/10 uppercase tracking-[0.8em] text-[8px]">End of Alpha Protocol Journey</p>
             </div>
         </section>
 
-        <!-- 📱 SCREEN 5: TRUST (SSOT) -->
+        <!-- 📱 SECCIÓN SERVICIO 2: DETALLE [Tomo#3] -->
+        <section id="service-2-section" class="view-section flex flex-col items-center bg-alphaNavy overflow-y-auto pt-24 pb-32 px-6">
+            <h2 class="font-montserrat font-bold text-xl text-white uppercase mb-6 text-center leading-tight">Professional Insurance Management</h2>
+            <div class="space-y-6 w-full max-w-md">
+                <div class="bg-white/5 p-6 rounded-2xl border border-white/10 text-slate-300 text-xs font-light leading-relaxed">
+                    We take full responsibility for the insurance claim process and direct mediation with adjusters. We implement our proprietary inspection and audit protocol to document damages, manage technical supplements, and ensure your claim receives the rigorous attention your property demands.
+                </div>
+                <p class="text-white text-[10px] font-bold uppercase tracking-widest ml-2 font-bold uppercase">The Alpha Protocol :</p>
+                <div class="space-y-2">
+                    <div class="accordion-item bg-white/5 rounded-xl border border-white/10 overflow-hidden">
+                        <button class="w-full text-left p-4 text-white text-[9px] font-bold uppercase flex justify-between items-center" onclick="toggleAccordion(this)">1. Alpha Property Health Assessment: <span>+</span></button>
+                        <div class="accordion-content px-4 text-slate-400 text-[9px]"><p class="pb-4">We evaluate your property with professional rigor, identifying structural vulnerabilities that others overlook.</p></div>
+                    </div>
+                    <div class="accordion-item bg-white/5 rounded-xl border border-white/10 overflow-hidden">
+                        <button class="w-full text-left p-4 text-white text-[9px] font-bold uppercase flex justify-between items-center" onclick="toggleAccordion(this)">2. Alpha Clarity Compass: <span>+</span></button>
+                        <div class="accordion-content px-4 text-slate-400 text-[9px]"><p class="pb-4">We chart a strategic roadmap tailored to your specific case, providing absolute certainty.</p></div>
+                    </div>
+                    <div class="accordion-item bg-white/5 rounded-xl border border-white/10 overflow-hidden">
+                        <button class="w-full text-left p-4 text-white text-[9px] font-bold uppercase flex justify-between items-center" onclick="toggleAccordion(this)">3. Alpha Concierge Engagement: <span>+</span></button>
+                        <div class="accordion-content px-4 text-slate-400 text-[9px]"><p class="pb-4">Delegate the administrative burden to us; we act as your exclusive technical defenders against third parties.</p></div>
+                    </div>
+                    <div class="accordion-item bg-white/5 rounded-xl border border-white/10 overflow-hidden">
+                        <button class="w-full text-left p-4 text-white text-[9px] font-bold uppercase flex justify-between items-center" onclick="toggleAccordion(this)">4. Alpha Signature Restoration: <span>+</span></button>
+                        <div class="accordion-content px-4 text-slate-400 text-[9px]"><p class="pb-4">We execute the restoration with flawless precision utilizing premium-grade materials.</p></div>
+                    </div>
+                    <div class="accordion-item bg-white/5 rounded-xl border border-white/10 overflow-hidden">
+                        <button class="w-full text-left p-4 text-white text-[9px] font-bold uppercase flex justify-between items-center" onclick="toggleAccordion(this)">5. Alpha Signature Walkthrough & Certificate: <span>+</span></button>
+                        <div class="accordion-content px-4 text-slate-400 text-[9px]"><p class="pb-4">We validate the restoration's success and present your formal Alpha Signature Certificate of excellence. </p></div>
+                    </div>
+                </div>
+                <button onclick="showSection('lead-form-container')" class="w-full btn-alpha-glow py-5 rounded-2xl text-[10px]">Start my claim management</button>
+            </div>
+        </section>
+
+        <!-- 📱 SERVICE 3 SECTION: DETAIL [Outdoor Architecture] -->
+        <section id="service-3-section" class="view-section flex flex-col items-center bg-alphaNavy overflow-y-auto pt-24 pb-32 px-6">
+            <h2 class="font-montserrat font-bold text-xl text-white uppercase mb-6 text-center leading-tight">Patios, Decks & Outdoor Living</h2>
+            <div class="space-y-6 w-full max-w-md">
+                <div class="bg-white/5 p-6 rounded-2xl border border-white/10 text-slate-300 text-xs font-light leading-relaxed text-center">
+                    "We create the ideal space to enjoy your property. We build patios, decks, and pergolas with uncompromising structural integrity and immaculate finishes, specifically engineered to withstand the Texas climate and enhance your home’s equity."
+                </div>
+                <button onclick="showSection('lead-form-container')" class="w-full btn-alpha-glow py-5 rounded-2xl text-[10px]">Get a Quote for My Outdoor Project</button>
+            </div>
+        </section>
+
+        <!-- 📱 SERVICE 4 SECTION: DETAIL [Specialized Engineering] -->
+        <section id="service-4-section" class="view-section flex flex-col items-center bg-alphaNavy overflow-y-auto pt-24 pb-32 px-6">
+            <h2 class="font-montserrat font-bold text-xl text-white uppercase mb-6 text-center leading-tight">Specialized Restoration & Professional Repairs</h2>
+            <div class="space-y-6 w-full max-w-md">
+                <!-- Value Statement -->
+                <div class="bg-white/5 p-6 rounded-2xl border border-white/10 text-slate-300 text-xs font-light leading-relaxed text-center">
+                    "We execute repairs and restorations with absolute technical precision. We restore safety, functionality, and value to your property through interventions grounded in professional building standards."
+                </div>
+
+                <!-- Technical Accordion -->
+                <div class="space-y-2">
+                    <p class="text-white text-[10px] font-bold uppercase tracking-widest ml-2 mb-2">Technical Specifications</p>
+                    
+                    <!-- Ext. Repairs -->
+                    <div class="accordion-item bg-white/5 rounded-xl border border-white/10 overflow-hidden">
+                        <button class="w-full text-left p-4 text-white text-[9px] font-bold uppercase flex justify-between items-center" onclick="toggleAccordion(this)">External Restoration <span>+</span></button>
+                        <div class="accordion-content px-4 text-slate-400 text-[9px]">
+                            <p class="pb-4">"We intervene at critical points with exactness: gutters, siding, fascia, soffit, windows, and fences. We perform structural repairs such as decking (sheathing) and rafters replacement."</p>
+                        </div>
+                    </div>
+
+                    <!-- Int. Repairs -->
+                    <div class="accordion-item bg-white/5 rounded-xl border border-white/10 overflow-hidden">
+                        <button class="w-full text-left p-4 text-white text-[9px] font-bold uppercase flex justify-between items-center" onclick="toggleAccordion(this)">Internal Restoration <span>+</span></button>
+                        <div class="accordion-content px-4 text-slate-400 text-[9px]">
+                            <p class="pb-4">"We correct interior damage with pristine finishes. Specialists in sheetrock repair and professional painting following structural leaks."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Financial Shield (Zero-Down) -->
+                <div class="bg-alphaElectric/10 p-6 rounded-2xl border border-alphaElectric/20">
+                    <p class="text-white text-[10px] font-bold uppercase mb-2 text-center">Zero-Down Settlement Model:</p>
+                    <p class="text-slate-300 text-[10px] italic leading-relaxed text-center">"We operate under a pay-on-completion scheme. Execution is fully assumed by our team; payment is processed only upon finalization and validated compliance of the work."</p>
+                </div>
+
+                <!-- CTA -->
+                <button onclick="showSection('lead-form-container')" class="w-full btn-alpha-glow py-5 rounded-2xl text-[10px]">Request My Repair Diagnosis</button>
+            </div>
+        </section>
+
+        <!-- 📱 SCREEN 4: THE SECURE PATH (ALPHA SIGNATURE PROTOCOL) -->
+        <section id="protocol-section" class="view-section flex flex-col items-center justify-center px-6 bg-technicalPlatinum/95 overflow-y-auto py-20">
+            <h2 class="font-montserrat font-bold text-xl text-alphaNavy uppercase mb-8 text-center">Your home protected in five infallible steps</h2>
+            <div class="space-y-3 w-full max-w-md">
+                <!-- Step 1: Assessment -->
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider mb-1">Alpha Property Health Assessment</p>
+                    <p class="text-[9px] text-slate-500 italic">Deep technical diagnosis and high-resolution photographic documentation.</p>
+                </div>
+                <!-- Step 2: Compass -->
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider mb-1">Alpha Clarity Compass</p>
+                    <p class="text-[9px] text-slate-500 italic">Executive report integrating policy analysis with physical findings.</p>
+                </div>
+                <!-- Step 3: Engagement -->
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider mb-1">Alpha Concierge Engagement</p>
+                    <p class="text-[9px] text-slate-500 italic">Bilingual representation agreement to delegate the administrative burden.</p>
+                </div>
+                <!-- Step 4: Restoration -->
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider mb-1">Alpha Signature Restoration</p>
+                    <p class="text-[9px] text-slate-500 italic">Masterwork execution under the standard of "Quality that is Seen."</p>
+                </div>
+                <!-- Step 5: Walkthrough -->
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                    <p class="text-[10px] font-bold text-slate-700 uppercase tracking-wider mb-1">Alpha Signature Walkthrough</p>
+                    <p class="text-[9px] text-slate-500 italic">Final validation and delivery of the certificate of property excellence.</p>
+                </div>
+                <!-- CTA Button -->
+                <button onclick="showSection('trust-section')" class="mt-6 w-full btn-alpha-glow text-white font-bold py-4 rounded-xl text-[10px]">The process is clear, I want to proceed</button>
+            </div>
+        </section>
+
+        <!-- 📱 PANTALLA 5: EL BLINDAJE DE CONFIANZA -->
         <section id="trust-section" class="view-section flex flex-col items-center justify-center px-6 bg-white text-center">
-            <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-6">Houston Regional Muscle</h2>
+            <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-6">Músculo Regional de Houston</h2>
             <div class="grid grid-cols-2 gap-3 mb-8 w-full max-w-md">
                 <div class="p-4 bg-technicalPlatinum rounded-xl border border-slate-100 flex flex-col items-center text-center">
-                    <span class="text-[10px] font-bold text-alphaElectric uppercase mb-1">North</span>
+                    <span class="text-[10px] font-bold text-alphaElectric uppercase mb-1">Norte</span>
                     <span class="text-[8px] text-slate-500 uppercase">Woodlands / Spring / Conroe</span>
                 </div>
                 <div class="p-4 bg-technicalPlatinum rounded-xl border border-slate-100 flex flex-col items-center text-center">
-                    <span class="text-[10px] font-bold text-alphaElectric uppercase mb-1">West</span>
+                    <span class="text-[10px] font-bold text-alphaElectric uppercase mb-1">Oeste</span>
                     <span class="text-[8px] text-slate-500 uppercase">Katy / Cypress / Sugar Land</span>
                 </div>
                 <div class="p-4 bg-technicalPlatinum rounded-xl border border-slate-100 flex flex-col items-center text-center">
@@ -131,44 +941,112 @@
                     <span class="text-[8px] text-slate-500 uppercase">Inner Loop / Humble / Heights</span>
                 </div>
                 <div class="p-4 bg-technicalPlatinum rounded-xl border border-slate-100 flex flex-col items-center text-center">
-                    <span class="text-[10px] font-bold text-alphaElectric uppercase mb-1">South</span>
+                    <span class="text-[10px] font-bold text-alphaElectric uppercase mb-1">Sur</span>
                     <span class="text-[8px] text-slate-500 uppercase">Pearland / Pasadena / Galveston</span>
                 </div>
             </div>
-            <button onclick="showSection('lead-form-container')" class="btn-alpha-glow py-4 px-10 rounded-xl text-sm">I trust your backing, I want to schedule</button>
+            <button onclick="showSection('lead-form-container')" class="btn-alpha-glow py-4 px-10 rounded-xl text-sm">Confío en su respaldo, quiero agendar</button>
         </section>
 
-        <!-- 📱 SCREEN 6: CONTACT (SSOT) -->
+<!-- 📱 PANTALLA 4: NUESTRA HISTORIA [Tomo#4] -->
+        <section id="about-section" class="view-section flex flex-col items-center bg-alphaNavy overflow-y-auto pt-24 pb-32 px-6">
+            <h2 class="font-montserrat font-bold text-2xl text-white uppercase mb-8 text-center tracking-tighter">Our History and Commitment</h2>
+            <div class="space-y-6 w-full max-w-md">
+                <!-- 4.1 NUESTRO ADN -->
+                <div class="bg-white/5 border border-white/10 p-6 rounded-2xl">
+                    <h3 class="text-alphaElectric font-bold text-[10px] uppercase tracking-widest mb-3">Our identity in Greater Houston.</h3>
+                    <p class="text-slate-400 text-[9px] italic mb-4">High-level technical execution to ensure the value and durability of your property</p>
+                    <ul class="space-y-4">
+                        <li class="text-[10px] text-white font-bold uppercase tracking-tighter leading-tight">Technical Authority: <span class="text-slate-400 font-light lowercase ">"We perform technical diagnostics based on evidence and building codes, delivering solid and durable solutions"</span></li>
+                        <li class="text-[10px] text-white font-bold uppercase tracking-tighter leading-tight">Asset Defense: <span class="text-slate-400 font-light lowercase">"We become your technical defense against insurance companies. We manage every stage with firmness and professionalism to guarantee the most favorable resolution for your assets"</span></li>
+                        <li class="text-[10px] text-white font-bold uppercase tracking-tighter leading-tight">Professional Transparency and Clarity: <span class="text-slate-400 font-light lowercase">"We prioritize your understanding. We break down technical and financial details with absolute clarity..."</span></li>
+                    </ul>
+                </div>
+                <!-- 4.2 THE ALPHA PATH -->
+                <div class="bg-white/5 border border-white/10 p-6 rounded-2xl">
+                    <h3 class="text-alphaElectric font-bold text-[10px] uppercase tracking-widest mb-3">The Alpha Methodology: Procedural rigor for predictable results.</h3>
+                    <div class="space-y-3">
+                        <p class="text-slate-400 text-[9px] leading-relaxed">
+                            <strong class="text-white">1. Technical Diagnosis:</strong> We conduct a comprehensive inspection of your property utilizing precision measurement tools and forensic damage detection protocols.
+                        </p>
+                        <p class="text-slate-400 text-[9px] leading-relaxed">
+                            <strong class="text-white">2. Strategic Roadmap:</strong> We define an action plan strictly aligned with Texas Building Codes (IRC/IBC) and engineering standards.
+                        </p>
+                        <p class="text-slate-400 text-[9px] leading-relaxed">
+                            <strong class="text-white">3. Alpha Execution:</strong> We deploy our specialized restoration teams to complete the project. We maintain immaculate order, structural cleanliness, and total regulatory compliance at every stage.
+                        </p>
+                        <p class="text-slate-400 text-[9px] leading-relaxed">
+                            <strong class="text-white">4. Delivery & Certification:</strong> We validate the restoration’s final quality and present your formal closing file and Alpha Signature Certificate.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 4.4 FAQ / FINANCIAL SHIELD -->
+                <div class="bg-white/5 border border-white/10 p-6 rounded-2xl">
+                    <h3 class="text-alphaElectric font-bold text-[10px] uppercase tracking-widest mb-3 leading-tight">Technical information for informed decision-making.</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-white text-[10px] font-bold uppercase mb-1">What are my payment options and what is your deposit policy?</p>
+                            <p class="text-slate-400 text-[9px] italic border-l-2 border-alphaElectric pl-3 leading-relaxed">
+                                "Transparency is our operational standard... Our policy is absolute: we do not request upfront deposits (Zero-Down Risk). We perform the complete restoration utilizing our own resources; you validate the immaculate quality and, only then, is the payment processed."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 🎯 CTA FINAL: VOICE OF THE CUSTOMER -->
+                <button onclick="showSection('lead-form-container')" class="w-full btn-alpha-glow py-5 rounded-2xl text-[10px] mt-4 shadow-2xl">
+                    Start My Assessment Now
+                </button>
+            </div>
+        </section>
+
+        <!-- 📱 SCREEN 6: CONTACT HUB (5 MODES) [Alpha Trust Standard] -->
         <section id="lead-form-container" class="view-section flex flex-col items-center justify-center px-6 bg-technicalPlatinum overflow-y-auto py-24">
             <div id="hub-options" class="max-w-md w-full text-center space-y-3">
-                <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-2 text-center">Choose how to connect with us</h2>
+                <h2 class="font-montserrat font-bold text-2xl text-alphaNavy uppercase mb-2">Select how to connect with us</h2>
+                <p class="text-slate-500 text-xs mb-8 italic">Choose your preferred channel; our team is ready to assist you.</p>
+
                 <div class="grid grid-cols-1 gap-2">
+                    <!-- Call Mode -->
                     <a href="tel:3463702793" class="btn-alpha-glow flex items-center p-4 rounded-xl active:scale-95 shadow-xl">
                         <img src="/assets/img/icons/icon-phone.svg" class="w-5 h-5 mr-4 brightness-0 invert">
                         <span class="text-[11px] font-bold uppercase tracking-widest text-left">Call now: (346) 370-2793</span>
                     </a>
+
+                    <!-- Form Mode -->
                     <button onclick="showZohoForm()" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm text-left active:scale-95">
                         <img src="/assets/img/icons/icon-assessment.svg" class="w-5 h-5 mr-4 opacity-70">
-                        <span class="text-[10px] font-semibold text-slate-700 uppercase">Request consultant contact</span>
+                        <span class="text-[10px] font-semibold text-slate-700 uppercase">Request a consultant callback</span>
                     </button>
+
+                    <!-- SMS Mode -->
                     <a href="sms:+13463702793" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm text-left active:scale-95">
-                        <img src="/assets/img/icons/icon-warning.svg" class="w-5 h-5 mr-4 opacity-70">
-                        <span class="text-[10px] font-semibold text-slate-700 uppercase">Send a text message (SMS)</span>
+                        <img src="/assets/img/icons/icon-message.svg" class="w-5 h-5 mr-4 opacity-70">
+                        <span class="text-[10px] font-semibold text-slate-700 uppercase">Send a text message</span>
                     </a>
+
+                    <!-- WhatsApp Mode -->
                     <a href="https://wa.me/13463702793" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm text-left active:scale-95">
                         <img src="/assets/img/icons/icon-shield-check.svg" class="w-5 h-5 mr-4 opacity-70">
-                        <span class="text-[10px] font-semibold text-slate-700 uppercase">Start WhatsApp inquiry</span>
+                        <span class="text-[10px] font-semibold text-slate-700 uppercase">Start WhatsApp consultation</span>
                     </a>
+
+                    <!-- Email Mode -->
                     <a href="mailto:info@alpharoofings.com" class="flex items-center p-4 bg-white border border-slate-200 rounded-xl shadow-sm text-left active:scale-95">
-                        <img src="/assets/img/icons/icon-certificate.svg" class="w-5 h-5 mr-4 opacity-70">
-                        <span class="text-[10px] font-semibold text-slate-700 uppercase tracking-tight">Email: info@alpharoofings.com</span>
+                        <img src="/assets/img/icons/icon-email.svg" class="w-5 h-5 mr-4 opacity-70">
+                        <span class="text-[10px] font-semibold text-slate-700 uppercase">Email: info@alpharoofings.com</span>
                     </a>
                 </div>
             </div>
+
+            <!-- ZOHO FORM CONTAINER (HIDDEN BY DEFAULT) -->
             <div id="zoho-form-container" class="hidden w-full max-w-md">
                 <button onclick="hideZohoForm()" class="mb-6 flex items-center text-alphaNavy font-bold uppercase text-[10px] tracking-widest">
-                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                    Back to options
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                    Return to options
                 </button>
                 <div id="zoho-form-embed"></div>
             </div>
@@ -176,5 +1054,44 @@
     </div>
 
     <script src="/assets/js/main.js"></script>
+    <script>
+        function setLanguage(lang) {
+            const overlay = document.getElementById('language-selector');
+            overlay.classList.add('inactive');
+            setTimeout(() => {
+                if (lang === 'en') window.location.href = '/en/index.html';
+                else initAlphaNavigation();
+            }, 700);
+        }
+
+        const carousel = document.getElementById('services-carousel');
+        const prevArrow = document.getElementById('prev-arrow');
+        const nextArrow = document.getElementById('next-arrow');
+
+        function updateArrows() {
+            if (!carousel) return;
+            const scrollLeft = carousel.scrollLeft;
+            const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+
+            if (scrollLeft <= 10) prevArrow.classList.add('disabled');
+            else prevArrow.classList.remove('disabled');
+
+            if (scrollLeft >= maxScroll - 10) nextArrow.classList.add('disabled');
+            else nextArrow.classList.remove('disabled');
+        }
+
+        if (carousel) {
+            carousel.addEventListener('scroll', updateArrows);
+            window.addEventListener('resize', updateArrows);
+            setTimeout(updateArrows, 500);
+        }
+
+        function scrollCarousel(distance) {
+            carousel.scrollBy({ left: distance, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
+
+
+

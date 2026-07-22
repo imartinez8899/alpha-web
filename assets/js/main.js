@@ -8,13 +8,16 @@
     document.addEventListener("DOMContentLoaded", function() {
         console.log("[Alpha Core] System Synchronized v22.2.0");
 
-        // 1. DETECCIÓN DE IDIOMA Y RUTAS [SSOT 1351]
-        const isEnglish = window.location.pathname.includes('/en/');
-        const headerPath = isEnglish ? "/components/header-en.html" : "/components/header.html";
+        // 1. DETECCIÓN AXIAL DE IDIOMA Y RUTAS [SSOT 1581]
+        const lang = window.location.pathname.includes('/en/') ? 'en' : 'es';
+
+        // Configuración de rutas espejo para componentes modulares
+        const headerPath = (lang === 'en') ? "/en/components/header-en.html" : "/components/header.html";
+        const formPath   = (lang === 'en') ? "/en/components/lead-form.html" : "/components/lead-form.html";
 
         // 2. INYECCIÓN MODULAR DE COMPONENTES [SSOT 1352]
         injectComponent("header-container", headerPath);
-        injectComponent("zoho-form-embed", "/components/lead-form.html");
+        injectComponent("zoho-form-embed", formPath);
 
         // 3. INICIALIZACIÓN DE NAVEGACIÓN WEBAPP [SSOT 1352]
         if (!document.getElementById('language-selector')) {
@@ -273,9 +276,10 @@
 
 
             /**
- * 🎡 MOTOR ALPHA LEGACY: TESTIMONIALS ENGINE v89 [Source: 26]
- */
-    const testimonials = [
+ /* 🎡 MOTOR ALPHA LEGACY: BILINGUAL TESTIMONIALS ENGINE v90 [Source: 26, 1536] */
+
+    const testimonialData = {
+        es: [
         { name: "Ramon Hernandez", location: "Houston, TX", service: "Reemplazo de Techo", quote: "Alpha se encargó de absolutamente todo con el seguro. Me dio mucha tranquilidad ver cómo recuperaron mi hogar con tanta profesionalidad.", rotation: -3 },
         { name: "Samantha Harris", location: "Cypress, TX", service: "Restauración por Tormenta", quote: "Tras el tornado, Alpha peleó mi caso con el seguro. Lograron la aprobación total del techo completo cuando inicialmente el seguro solo querían cubrir reparaciones.", rotation: 2 },
         { name: "Steve Ramirez", location: "Sugar Land, TX", service: "Reemplazo de Techo", quote: "Un proceso increíblemente rápido. La aseguranza pagó a la primera y la instalación quedó impecable. Muy feliz con el resultado.", rotation: -2 },
@@ -285,18 +289,37 @@
         { name: "Lisa Smith", location: "Channelview, TX", service: "Gestión de Seguro", quote: "Totalmente satisfecha. Alpha asumió la responsabilidad del proceso, permitiéndome disfrutar del resultado final sin estrés.", rotation: -2 },
         { name: "James Ordonez", location: "Pearland, TX", service: "Reemplazo de Techo", quote: "Tenía goteras internas persistentes. Alpha detectó el origen y lo solucionó definitivamente. Mi casa está protegida de nuevo.", rotation: 3 },
         { name: "Roberto Martinez", location: "Spring, TX", service: "Proyecto Exterior", quote: "Construyeron un espacio inmaculado. Su metodología de trabajo es limpia, ordenada y de un nivel técnico superior.", rotation: -1 }
-    ];
+
+        ],
+        en: [
+            { name: "Ramon Hernandez", location: "Houston, TX", service: "Roof Replacement", quote: "Alpha handled absolutely everything with the insurance. It gave me great peace of mind to see how they restored my home with such professionalism.", rotation: -3 },
+            { name: "Samantha Harris", location: "Cypress, TX", service: "Storm Restoration", quote: "After the tornado, Alpha fought my case with the insurance. They secured full approval for the entire roof even when the insurance initially only wanted to cover repairs.", rotation: 2 },
+            { name: "Steve Ramirez", location: "Sugar Land, TX", service: "Roof Replacement", quote: "An incredibly fast process. The insurance paid on the first attempt, and the installation was flawless. Extremely happy with the result.", rotation: -2 },
+            { name: "Armando Silva", location: "The Woodlands, TX", service: "Roof Replacement", quote: "My house looks brand new. The team took care of every detail, and the final result truly increased my home's equity.", rotation: 3 },
+            { name: "John Peters", location: "Katy, TX", service: "Insurance Management", quote: "Excellent management. They replaced my roof through my insurance, and I didn't have to worry about a single technical detail.", rotation: -4 },
+            { name: "Miguel Andrade", location: "Pasadena, TX", service: "Roof Replacement", quote: "The quality is visible. The color and roofing material are spectacular; you can see the professionalism in the finishes.", rotation: 1 },
+            { name: "Lisa Smith", location: "Channelview, TX", service: "Insurance Management", quote: "Totally satisfied. Alpha took full responsibility for the process, allowing me to enjoy the final result stress-free.", rotation: -2 },
+            { name: "James Ordonez", location: "Pearland, TX", service: "Roof Replacement", quote: "I had persistent internal leaks. Alpha identified the source and solved it permanently. My home is protected again.", rotation: 3 },
+            { name: "Roberto Martinez", location: "Spring, TX", service: "Outdoor Project", quote: "They built a pristine space. Their work methodology is clean, organized, and of a superior technical level.", rotation: -1 }
+        ]
+    };
 
     let legacyIdx = 0;
     let legacyInterval;
     let legacyPlaying = true;
 
     function updateLegacyUI() {
-        const data = testimonials[legacyIdx];
+        // Detección dinámica de idioma por ruta [SSOT 1536]
+        const lang = window.location.pathname.includes('/en/') ? 'en' : 'es';
+        const currentList = testimonialData[lang];
+        const data = currentList[legacyIdx];
+        
         const quoteEl = document.getElementById('client-quote');
         const cards = document.querySelectorAll('#legacy .testimonial-card');
         
-        // Update Info with Scales [Source: 1121]
+        if (!quoteEl || !data) return;
+
+        // Update Info con terminología técnica calibrada [Source: 1121]
         document.getElementById('client-name').innerText = data.name;
         document.getElementById('client-location').innerText = data.location;
         document.getElementById('client-service').innerText = data.service;
@@ -309,45 +332,63 @@
                 card.style.transform = `rotate(0deg) scale(1)`;
             } else {
                 card.classList.add('background');
-                const rot = testimonials[i]?.rotation || 0;
+                const rot = currentList[i]?.rotation || 0;
                 card.style.transform = `rotate(${rot}deg) scale(0.95)`;
             }
         });
 
-        // Word Stagger Animation
+        // Word Stagger Animation (Mantiene el efecto visual inmaculado)
         quoteEl.innerHTML = '';
         data.quote.split(' ').forEach((word, index) => {
             const span = document.createElement('span');
-            span.innerText = word;
+            span.innerText = word + ' ';
             span.className = 'word';
             quoteEl.appendChild(span);
             setTimeout(() => span.classList.add('visible'), 30 * index);
         });
     }
 
-    function nextTestimonial() { stopLegacyAutoplay(); legacyIdx = (legacyIdx + 1) % testimonials.length; updateLegacyUI(); }
-    function prevTestimonial() { stopLegacyAutoplay(); legacyIdx = (legacyIdx - 1 + testimonials.length) % testimonials.length; updateLegacyUI(); }
+    // Las funciones de control se mantienen idénticas para no romper los triggers del HTML
+    function nextTestimonial() { 
+        const lang = window.location.pathname.includes('/en/') ? 'en' : 'es';
+        stopLegacyAutoplay(); 
+        legacyIdx = (legacyIdx + 1) % testimonialData[lang].length; 
+        updateLegacyUI(); 
+    }
+
+    function prevTestimonial() { 
+        const lang = window.location.pathname.includes('/en/') ? 'en' : 'es';
+        stopLegacyAutoplay(); 
+        legacyIdx = (legacyIdx - 1 + testimonialData[lang].length) % testimonialData[lang].length; 
+        updateLegacyUI(); 
+    }
 
     function startLegacyAutoplay() {
+        const lang = window.location.pathname.includes('/en/') ? 'en' : 'es';
         legacyPlaying = true;
-        document.getElementById('pause-icon').classList.remove('hidden');
-        document.getElementById('play-icon').classList.add('hidden');
+        const pauseIcon = document.getElementById('pause-icon');
+        const playIcon = document.getElementById('play-icon');
+        if (pauseIcon) pauseIcon.classList.remove('hidden');
+        if (playIcon) playIcon.classList.add('hidden');
+        
         legacyInterval = setInterval(() => {
-            legacyIdx = (legacyIdx + 1) % testimonials.length;
+            legacyIdx = (legacyIdx + 1) % testimonialData[lang].length;
             updateLegacyUI();
         }, 5500);
     }
 
     function stopLegacyAutoplay() {
         legacyPlaying = false;
-        document.getElementById('pause-icon').classList.add('hidden');
-        document.getElementById('play-icon').classList.remove('hidden');
+        const pauseIcon = document.getElementById('pause-icon');
+        const playIcon = document.getElementById('play-icon');
+        if (pauseIcon) pauseIcon.classList.add('hidden');
+        if (playIcon) playIcon.classList.remove('hidden');
         clearInterval(legacyInterval);
     }
 
     function toggleAutoplay() { if (legacyPlaying) stopLegacyAutoplay(); else startLegacyAutoplay(); }
 
-    // Inicialización de Legacy al cargar
+    // Inicialización de Legacy protegida
     document.addEventListener('DOMContentLoaded', () => {
         if(document.getElementById('legacy')) {
             updateLegacyUI();
