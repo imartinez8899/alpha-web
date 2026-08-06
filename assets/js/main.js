@@ -31,10 +31,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // 4. ACTIVACIÓN DE MOTORES DINÁMICOS [Source: 1517, 1530]
     const flipTarget = document.getElementById('flip-word-target');
-    if (flipTarget) { setInterval(rotateCity, 2800); }
+    if (flipTarget) { setInterval(rotateCity, 2200); }
    
     if (document.querySelector('.q-item')) {
-        setInterval(rotateQuestions, 4500);
+        setInterval(rotateQuestions, 2200);
     }
 
 
@@ -341,7 +341,7 @@ function startLegacyAutoplay() {
     legacyInterval = setInterval(() => {
         legacyIdx = (legacyIdx + 1) % 9;
         updateLegacyUI();
-    }, 5500);
+    }, 2800);
 }
 
 
