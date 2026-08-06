@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Alpha Lab | Peritaje de Visibilidad y Scroll</title>
+    <!-- 🏗️ Cimientos de Estilo (Tailwind) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #fafafa; font-family: 'Inter', sans-serif; }
+        .text-gradient { background: linear-gradient(to right, #0A1128, #253BD8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="bg-technicalPlatinum">
+
+    <!-- 🏗️ CONTENEDOR MAESTRO DEL HEADER (Inyección Dinámica) -->
+    <div id="header-container" class="relative z-50"></div>
+
+    <!-- 📄 MASA CRÍTICA PARA SCROLL (Auditoría Visual) -->
+    <main class="max-w-3xl mx-auto px-6 py-20 text-slate-700">
+        <h1 class="font-montserrat font-black text-4xl uppercase text-gradient mb-8 text-center">Auditoría Estructural</h1>
+        
+        <div class="space-y-12 leading-relaxed text-lg">
+            <div class="bg-[#0A1128] p-8 rounded-[2rem] text-white shadow-2xl border border-white/10">
+                <h2 class="font-montserrat font-bold text-xl uppercase mb-4 text-[#253BD8]">Protocolo de Validación:</h2>
+                <ul class="space-y-3 text-sm text-slate-300 italic">
+                    <li>1. Carga modular de '/components/header.html' mediante Fetch API.</li>
+                    <li>2. Renderizado del menú FIJO en el eje INFERIOR (bottom-0).</li>
+                    <li>3. Scroll Down: Transformación geométrica de ocultamiento (translateY 100%).</li>
+                    <li>4. Scroll Up: Reaparición instantánea de la estructura de navegación.</li>
+                </ul>
+            </div>
+
+            <!-- Bloques de validación estructural -->
+            <script>
+                for(let i=1; i<=25; i++) {
+                    document.write(`
+                        <div class="p-8 border-l-2 border-slate-200 bg-white/50 rounded-r-2xl shadow-sm">
+                            <h3 class="font-bold text-alphaNavy uppercase text-sm mb-2 text-[#0A1128]">Módulo de Carga Alpha ${i}</h3>
+                            <p class="text-slate-500 font-light">La belleza es la estructura hecha visible. Este bloque valida la persistencia de la interfaz y la respuesta del Smart Scroll Engine ante el desplazamiento axial del usuario.</p>
+                        </div>
+                    `);
+                }
+            </script>
+        </div>
+    </main>
+
+    <!-- 🧠 LÓGICA DE CONTROL (Ruta Absoluta para evitar 404) -->
+    <script src="/assets/js/prueba.js"></script>
+</body>
+</html>
